@@ -6,6 +6,6 @@
         "port": "65002",
         "beforeHooks": "",
         "afterHooks": "",
-        "path": ""
+        "path": "~/public_html"
     }
 ]
