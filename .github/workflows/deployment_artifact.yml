@@ -83,14 +83,14 @@ jobs:
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA
           script: |
-            rm -rf ${{ matrix.server.path }}/*
-            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ matrix.server.path }}"
-            rm -rf ${{ matrix.server.path }}/storage
+            mkdir -p "${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}"
+            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
 
-            mkdir -p ${{ matrix.server.path }}/storage/{app,public,framework,logs}
-            mkdir -p ${{ matrix.server.path }}/storage/framework/{cache,sessions,testing,views}
-            chmod -R 0777 ${{ matrix.server.path }}/storage
+            rm -rf ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage
 
+            [ -d "${{ matrix.server.path }}/storage" ] || mkdir -p ${{ matrix.server.path_temp }}/storage/{app,public,framework,logs}
+            [ -d "${{ matrix.server.path }}/storage" ] || mkdir -p ${{ matrix.server.path_temp }}/storage/framework/{cache,sessions,testing,views}
+            [ -d "${{ matrix.server.path }}/storage" ] || chmod -R 0777 ${{ matrix.server.path_temp }}/storage
 
   run-before-hooks:
     name: "${{ matrix.server.name }}: Before hook"
@@ -104,6 +104,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
+          RELEASE_PATH: ${{ matrix.server.path_temp }}/releases/${{ github.sha }}
           STORAGE_PATH: ${{ matrix.server.path }}/storage
           BASE_PATH: ${{ matrix.server.path }}
         with:
@@ -111,7 +112,7 @@ jobs:
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ matrix.server.port }}
-          envs: GITHUB_SHA,STORAGE_PATH,BASE_PATH
+          envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH
           script: |
             ${{ matrix.server.beforeHooks }}
 
@@ -127,6 +128,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
+          RELEASE_PATH: ${{ matrix.server.path_temp }}/releases/${{ github.sha }}
           STORAGE_PATH: ${{ matrix.server.path }}/storage
           BASE_PATH: ${{ matrix.server.path }}
           LARAVEL_ENV: ${{ secrets.LARAVEL_ENV }}
@@ -135,9 +137,13 @@ jobs:
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ matrix.server.port }}
-          envs: GITHUB_SHA,STORAGE_PATH,BASE_PATH,ENV_PATH,LARAVEL_ENV
+          envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH,ENV_PATH,LARAVEL_ENV
           script: |
-            printf "%s" "$LARAVEL_ENV" > "${BASE_PATH}/.env"
+            printf "%s" "$LARAVEL_ENV" > "${RELEASE_PATH}/.env"
+
+            rm -rf ${{ matrix.server.path }}/!("storage")
+            mv ${RELEASE_PATH}/* ${BASE_PATH}
+
 
   run-after-hooks:
     name: "${{ matrix.server.name }}: After hook"
@@ -151,6 +157,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
+          RELEASE_PATH: ${{ matrix.server.path_temp }}/releases/${{ github.sha }}
           STORAGE_PATH: ${{ matrix.server.path }}/storage
           BASE_PATH: ${{ matrix.server.path }}
         with:
@@ -158,12 +165,13 @@ jobs:
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ matrix.server.port }}
-          envs: GITHUB_SHA,STORAGE_PATH,BASE_PATH
+          envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH
           script: |
             ${{ matrix.server.afterHooks }}
-            php $BASE_PATH/artisan key:generate
-            php $BASE_PATH/artisan optimize
-            php $BASE_PATH/artisan migrate --seed
+
+            php ${{ matrix.server.path }}/artisan key:generate
+            php ${{ matrix.server.path }}/artisan optimize
+            php ${{ matrix.server.path }}/artisan migrate --seed
 
   clean-up:
     name: "${{ matrix.server.name }}: Clean up"
@@ -176,12 +184,14 @@ jobs:
       - name: Run after hooks
         uses: appleboy/ssh-action@master
         env:
+          RELEASE_PATH: ${{ matrix.server.path }}/releases
           ARTIFACTS_PATH: ${{ matrix.server.path }}/artifacts
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ matrix.server.port }}
-          envs: ARTIFACTS_PATH
+          envs: RELEASE_PATH
           script: |
-            cd $ARTIFACTS_PATH && ls -t -1 | tail -n +6 | xargs rm -rf
+            rm -rf ${RELEASE_PATH}/*
+            cd ${ARTIFACTS_PATH} && ls -t -1 | tail -n +6 | xargs rm -rf
