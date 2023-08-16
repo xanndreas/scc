@@ -172,6 +172,8 @@ jobs:
           script: |
             php ${{ matrix.server.path }}/artisan key:generate
             php ${{ matrix.server.path }}/artisan optimize
+            php ${{ matrix.server.path }}/artisan route:clear
+            php ${{ matrix.server.path }}/artisan cache:clear
 
             ${{ matrix.server.afterHooks }}
 
