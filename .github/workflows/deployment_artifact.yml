@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-#      - name: Compile CSS and Javascript
-#        run: |
-#          yarn
-#          yarn mix --production
+      - name: Compile CSS and Javascript
+        run: |
+          yarn
+          yarn mix --production
 
       - name: Configure PHP 8.1
         uses: shivammathur/setup-php@master
@@ -169,11 +169,10 @@ jobs:
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH
           script: |
-            ${{ matrix.server.afterHooks }}
-
             php ${{ matrix.server.path }}/artisan key:generate
             php ${{ matrix.server.path }}/artisan optimize
-            php ${{ matrix.server.path }}/artisan migrate --seed
+
+            ${{ matrix.server.afterHooks }}
 
   clean-up:
     name: "${{ matrix.server.name }}: Clean up"
