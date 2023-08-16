@@ -144,6 +144,8 @@ jobs:
             rm -rf ${{ matrix.server.path }}/!("storage")
             mv ${RELEASE_PATH}/* ${BASE_PATH}
 
+            [ -d "${{ matrix.server.path }}/.htaccess" ] || printf "%s" "$LARAVEL_HTACCESS" > "${BASE_PATH}/.htaccess"
+
 
   run-after-hooks:
     name: "${{ matrix.server.name }}: After hook"
