@@ -5,7 +5,7 @@
         "username": "u543038622",
         "port": "65002",
         "beforeHooks": "",
-        "afterHooks": "php ${{ matrix.server.path }}/artisan migrate --seed;",
+        "afterHooks": "php /home/u543038622/domains/kampungindustritoga.com/public_html/artisan migrate --seed;",
         "path_temp": "/home/u543038622/domains/kampungindustritoga.com/ci",
         "path": "/home/u543038622/domains/kampungindustritoga.com/public_html"
     }
