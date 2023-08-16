@@ -84,7 +84,7 @@ jobs:
           envs: GITHUB_SHA
           script: |
             mkdir -p "${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}"
-            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}"
 
             rm -rf ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage
 
