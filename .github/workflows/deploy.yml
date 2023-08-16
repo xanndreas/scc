@@ -10,23 +10,23 @@ jobs:
     name: Create deployment artifacts
     runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v3
-
-  - name: Compile CSS and Javascript
-    run: |
-      yarn
-      yarn mix --production
-
-  - name: Configure PHP 8.1
-    uses: shivammathur/setup-php@master
-    with:
-      php-version: 8.1
-      extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
-
-  - name: Composer install
-    run: |
-      composer install --no-dev --no-interaction --prefer-dist
+    steps:
+    - uses: actions/checkout@v3
+  
+    - name: Compile CSS and Javascript
+      run: |
+        yarn
+        yarn mix --production
+  
+    - name: Configure PHP 8.1
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: 8.1
+        extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
+  
+    - name: Composer install
+      run: |
+        composer install --no-dev --no-interaction --prefer-dist
 
 
 
