@@ -142,7 +142,7 @@ jobs:
           script: |
             printf "%s" "$LARAVEL_ENV" > "${RELEASE_PATH}/.env"
 
-            find "${BASE_PATH}" -maxdepth 1 -type d -not -name "storage" -print0 |xargs -0 rm
+            find "${BASE_PATH}" -maxdepth 1 -type d -not -name "storage" -print0 |xargs -0 rm -rf
             mv -f ${RELEASE_PATH}/{.,}* ${BASE_PATH}
 
             [ -d "${{ matrix.server.path }}/.htaccess" ] || printf "%s" "$LARAVEL_HTACCESS" > "${BASE_PATH}/.htaccess"
