@@ -85,7 +85,9 @@ jobs:
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA,BASE_PATH,RELEASE_PATH
           script: |
+            mkdir -p "${{ matrix.server.path_temp }}"
             mkdir -p "${RELEASE_PATH}"
+
             tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${RELEASE_PATH}"
 
             rm -rf ${RELEASE_PATH}/storage
@@ -127,7 +129,7 @@ jobs:
         env:
           GITHUB_SHA: ${{ github.sha }}
           RELEASE_PATH: ${{ matrix.server.path_temp }}/releases/${{ github.sha }}
-          STORAGE_PATH: ${{ matrix.server.path }}/storage
+          STORAGE_PATH: ${{ matrix.server.path_storage }}
           BASE_PATH: ${{ matrix.server.path }}
           LARAVEL_ENV: ${{ secrets.LARAVEL_ENV }}
           LARAVEL_HTACCESS: ${{ secrets.LARAVEL_HTACCESS }}
@@ -139,20 +141,14 @@ jobs:
           envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH,ENV_PATH,LARAVEL_ENV,LARAVEL_HTACCESS
           script: |
             printf "%s" "$LARAVEL_ENV" > "${RELEASE_PATH}/.env"
-
-            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
-            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/{app,public,framework,logs}
-            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/framework/{cache,sessions,testing,views}
-            chmod -R 0777 ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
-
-            cp -f ${BASE_PATH}/storage/{.,}* ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
+            [ -d "${STORAGE_PATH}" ] || mkdir -p ${STORAGE_PATH}
 
             rm -rf ${BASE_PATH}
             mkdir ${BASE_PATH}
-            mkdir ${BASE_PATH}/storage
 
             mv -f ${RELEASE_PATH}/{.,}* ${BASE_PATH}
-            mv -f ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/{.,}* ${BASE_PATH}/storage
+            ln -s ${STORAGE_PATH}/app/public ${BASE_PATH}/public/storage
+            ln -s ${STORAGE_PATH} ${BASE_PATH}/storage
 
             [ -d "${BASE_PATH}/.htaccess" ] || printf "%s" "$LARAVEL_HTACCESS" > "${BASE_PATH}/.htaccess"
 
@@ -207,5 +203,4 @@ jobs:
           envs: RELEASE_PATH
           script: |
             rm -rf ${RELEASE_PATH}/*
-            rm -rf ${{ matrix.server.path_temp }}/${GITHUB_SHA}
             cd ${ARTIFACTS_PATH} && ls -t -1 | tail -n +6 | xargs rm -rf
