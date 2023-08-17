@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Compile CSS and Javascript
-        run: |
-          yarn
-          yarn mix --production
+      #      - name: Compile CSS and Javascript
+      #        run: |
+      #          yarn
+      #          yarn mix --production
 
       - name: Configure PHP 8.1
         uses: shivammathur/setup-php@master
@@ -76,21 +76,19 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           GITHUB_SHA: ${{ github.sha }}
+          BASE_PATH: ${{ matrix.server.path }}
+          RELEASE_PATH: ${{ matrix.server.path_temp }}/releases/${{ github.sha }}
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ matrix.server.port }}
-          envs: GITHUB_SHA
+          envs: GITHUB_SHA,BASE_PATH
           script: |
-            mkdir -p "${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}"
-            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}"
+            mkdir -p "${RELEASE_PATH}"
+            tar xzf ${{ matrix.server.path_temp }}/artifacts/${GITHUB_SHA}.tar.gz -C "${RELEASE_PATH}"
 
-            rm -rf ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage
-
-            [ -d "${{ matrix.server.path }}/storage" ] || mkdir -p ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage/{app,public,framework,logs}
-            [ -d "${{ matrix.server.path }}/storage" ] || mkdir -p ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage/framework/{cache,sessions,testing,views}
-            [ -d "${{ matrix.server.path }}/storage" ] || chmod -R 0777 ${{ matrix.server.path_temp }}/releases/${GITHUB_SHA}/storage
+            rm -rf ${RELEASE_PATH}/storage
 
   run-before-hooks:
     name: "${{ matrix.server.name }}: Before hook"
@@ -142,10 +140,21 @@ jobs:
           script: |
             printf "%s" "$LARAVEL_ENV" > "${RELEASE_PATH}/.env"
 
-            find "${BASE_PATH}" -maxdepth 1 -type d -not -name "storage" -print0 |xargs -0 rm -rf
-            mv -f ${RELEASE_PATH}/{.,}* ${BASE_PATH}
+            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
+            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/{app,public,framework,logs}
+            mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/framework/{cache,sessions,testing,views}
+            chmod -R 0777 ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
 
-            [ -d "${{ matrix.server.path }}/.htaccess" ] || printf "%s" "$LARAVEL_HTACCESS" > "${BASE_PATH}/.htaccess"
+            mv -f ${BASE_PATH}/storage/{.,}* ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
+
+            rm -rf ${BASE_PATH}
+            mkdir ${BASE_PATH}
+            mkdir ${BASE_PATH}/storage
+
+            mv -f ${RELEASE_PATH}/{.,}* ${BASE_PATH}
+            mv -f ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/{.,}* ${BASE_PATH}/storage
+
+            [ -d "${BASE_PATH}/.htaccess" ] || printf "%s" "$LARAVEL_HTACCESS" > "${BASE_PATH}/.htaccess"
 
 
   run-after-hooks:
@@ -170,10 +179,10 @@ jobs:
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA,RELEASE_PATH,STORAGE_PATH,BASE_PATH
           script: |
-            php ${{ matrix.server.path }}/artisan key:generate
-            php ${{ matrix.server.path }}/artisan optimize
-            php ${{ matrix.server.path }}/artisan route:clear
-            php ${{ matrix.server.path }}/artisan cache:clear
+            php ${BASE_PATH}/artisan key:generate
+            php ${BASE_PATH}/artisan optimize
+            php ${BASE_PATH}/artisan route:clear
+            php ${BASE_PATH}/artisan cache:clear
 
             ${{ matrix.server.afterHooks }}
 
@@ -198,4 +207,5 @@ jobs:
           envs: RELEASE_PATH
           script: |
             rm -rf ${RELEASE_PATH}/*
+            rm -rf ${{ matrix.server.path_temp }}/${GITHUB_SHA}
             cd ${ARTIFACTS_PATH} && ls -t -1 | tail -n +6 | xargs rm -rf
