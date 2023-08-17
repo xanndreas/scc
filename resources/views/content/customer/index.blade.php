@@ -77,7 +77,7 @@
                                     fill="#7367F0"/>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold ms-2 ps-1">Vuexy</span>
+                        <span class="app-brand-text demo menu-text fw-bold ms-2 ps-1">E-Commerce</span>
                     </a>
                 </div>
                 <!-- Menu logo wrapper: End -->
@@ -311,7 +311,7 @@
                                                         class="client-logo img-fluid"/>
                                                 </div>
                                                 <p>
-                                                    “Vuexy is hands down the most useful front end Bootstrap theme I've
+                                                    “E-Commerce is hands down the most useful front end Bootstrap theme I've
                                                     ever used. I can't wait
                                                     to use it again for my next project.”
                                                 </p>
@@ -346,7 +346,7 @@
                                                         class="client-logo img-fluid"/>
                                                 </div>
                                                 <p>
-                                                    “I've never used a theme as versatile and flexible as Vuexy. It's my
+                                                    “I've never used a theme as versatile and flexible as E-Commerce. It's my
                                                     go to for building
                                                     dashboard sites on almost any project.”
                                                 </p>
@@ -451,7 +451,7 @@
                                                         class="client-logo img-fluid"/>
                                                 </div>
                                                 <p>
-                                                    “I've never used a theme as versatile and flexible as Vuexy. It's my
+                                                    “I've never used a theme as versatile and flexible as E-Commerce. It's my
                                                     go to for building
                                                     dashboard sites on almost any project.”
                                                 </p>
@@ -859,7 +859,7 @@
                                         fill="#7367F0"/>
                                 </svg>
                             </span>
-                            <span class="app-brand-text demo footer-link fw-bold ms-2 ps-1">Vuexy</span>
+                            <span class="app-brand-text demo footer-link fw-bold ms-2 ps-1">E-Commerce</span>
                         </a>
 
                         <p class="footer-text footer-logo-description mb-4">
@@ -920,7 +920,7 @@
                       </script>
                     </span>
                     <a href="javascript:void(0);" target="_blank"
-                       class="fw-medium text-white footer-link">Pixinvent,</a>
+                       class="fw-medium text-white footer-link">Kampoeng Toga,</a>
                     <span class="footer-text"> All Right reserved.</span>
                 </div>
             </div>

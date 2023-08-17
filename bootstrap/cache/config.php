@@ -2,15 +2,15 @@
   'app' => 
   array (
     'name' => 'Laravel',
-    'env' => 'local',
-    'debug' => true,
+    'env' => 'production',
+    'debug' => false,
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:joLOOA4KCgy/0FiWsZscMp/8J1sK9Cccajy5x6XPACo=',
+    'key' => NULL,
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -133,19 +133,19 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'log',
+    'default' => 'null',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => '',
-        'secret' => '',
-        'app_id' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'app_id' => NULL,
         'options' => 
         array (
           'host' => 'api-mt1.pusher.com',
-          'port' => '443',
+          'port' => 443,
           'scheme' => 'https',
           'encrypted' => true,
           'useTLS' => true,
@@ -231,8 +231,8 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
@@ -309,7 +309,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'scc',
+        'database' => 'E:\\Projects\\OnProgress\\scc-dev\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -319,8 +319,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'scc',
-        'username' => 'root',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -338,9 +338,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'scc',
-        'username' => 'root',
+        'port' => '5432',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -352,10 +352,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'scc',
-        'username' => 'root',
+        'host' => 'localhost',
+        'port' => '1433',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -406,17 +406,17 @@
       array (
         'driver' => 'local',
         'root' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'url' => '/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
       's3' => 
       array (
         'driver' => 's3',
-        'key' => '',
-        'secret' => '',
-        'region' => 'us-east-1',
-        'bucket' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'region' => NULL,
+        'bucket' => NULL,
         'url' => NULL,
         'endpoint' => NULL,
         'use_path_style_endpoint' => false,
@@ -447,7 +447,7 @@
     'default' => 'stack',
     'deprecations' => 
     array (
-      'channel' => NULL,
+      'channel' => 'null',
       'trace' => false,
     ),
     'channels' => 
@@ -482,7 +482,7 @@
         'url' => NULL,
         'username' => 'Laravel Log',
         'emoji' => ':boom:',
-        'level' => 'debug',
+        'level' => 'critical',
         'replace_placeholders' => true,
       ),
       'papertrail' => 
@@ -548,9 +548,9 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailpit',
-        'port' => '1025',
-        'encryption' => NULL,
+        'host' => 'smtp.mailgun.org',
+        'port' => 587,
+        'encryption' => 'tls',
         'username' => NULL,
         'password' => NULL,
         'timeout' => NULL,
@@ -595,7 +595,7 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'name' => 'Example',
     ),
     'markdown' => 
     array (
@@ -635,8 +635,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'default',
         'suffix' => NULL,
@@ -697,15 +697,15 @@
     ),
     'ses' => 
     array (
-      'key' => '',
-      'secret' => '',
+      'key' => NULL,
+      'secret' => NULL,
       'region' => 'us-east-1',
     ),
   ),
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => '120',
+    'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
     'files' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
@@ -726,31 +726,31 @@
   ),
   'variables' => 
   array (
-    'creatorName' => 'Pixinvent',
-    'creatorUrl' => 'https://pixinvent.com',
-    'templateName' => 'Vuexy',
-    'templateSuffix' => 'Bootstrap Admin Template',
+    'creatorName' => 'Oskar Pra',
+    'creatorUrl' => 'https://github.com/xanndreas',
+    'templateName' => 'E-commerce',
+    'templateSuffix' => 'E-commerce',
     'templateVersion' => '1.0.0',
     'templateFree' => false,
     'templateDescription' => 'Start your development with a Dashboard for Bootstrap 5',
     'templateKeyword' => 'dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5',
-    'licenseUrl' => 'https://themeforest.net/licenses/standard',
-    'livePreview' => 'https://demos.pixinvent.com/vuexy-html-admin-template/landing/',
-    'productPage' => 'https://1.envato.market/vuexy_admin',
-    'support' => 'https://pixinvent.ticksy.com/',
-    'moreThemes' => 'https://1.envato.market/pixinvent_portfolio',
-    'documentation' => 'https://demos.pixinvent.com/vuexy-html-admin-template/documentation/laravel-introduction.html',
+    'licenseUrl' => 'javascript:void(0);',
+    'livePreview' => 'javascript:void(0);',
+    'productPage' => 'javascript:void(0);',
+    'support' => 'javascript:void(0);',
+    'moreThemes' => 'javascript:void(0);',
+    'documentation' => 'javascript:void(0);',
     'generator' => '',
-    'changelog' => 'https://demos.pixinvent.com/vuexy/changelog.html',
-    'repository' => 'https://github.com/pixinvent/vuexy-html-admin-template',
-    'gitRepo' => 'pixinvent',
-    'gitRepoAccess' => 'vuexy-html-admin-template',
-    'githubFreeUrl' => 'https://tools.pixinvent.com/github/github-access',
-    'facebookUrl' => 'https://www.facebook.com/pixinvents/',
-    'twitterUrl' => 'https://twitter.com/pixinvents',
-    'githubUrl' => 'https://github.com/pixinvent',
-    'dribbbleUrl' => 'https://dribbble.com/pixinvent',
-    'instagramUrl' => 'https://www.instagram.com/pixinvents/',
+    'changelog' => 'javascript:void(0);',
+    'repository' => 'javascript:void(0);',
+    'gitRepo' => 'xanndreas',
+    'gitRepoAccess' => '',
+    'githubFreeUrl' => '',
+    'facebookUrl' => 'javascript:void(0);',
+    'twitterUrl' => 'javascript:void(0);',
+    'githubUrl' => 'javascript:void(0);',
+    'dribbbleUrl' => 'javascript:void(0);',
+    'instagramUrl' => 'javascript:void(0);',
   ),
   'view' => 
   array (
