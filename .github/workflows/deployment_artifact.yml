@@ -193,8 +193,8 @@ jobs:
       - name: Run after hooks
         uses: appleboy/ssh-action@master
         env:
-          RELEASE_PATH: ${{ matrix.server.path }}/releases
-          ARTIFACTS_PATH: ${{ matrix.server.path }}/artifacts
+          RELEASE_PATH: ${{ matrix.server.path_temp }}/releases
+          ARTIFACTS_PATH: ${{ matrix.server.path_temp }}/artifacts
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
