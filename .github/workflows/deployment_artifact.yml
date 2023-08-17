@@ -145,7 +145,7 @@ jobs:
             mkdir -p ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage/framework/{cache,sessions,testing,views}
             chmod -R 0777 ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
 
-            mv -f ${BASE_PATH}/storage/{.,}* ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
+            cp -f ${BASE_PATH}/storage/{.,}* ${{ matrix.server.path_temp }}/${GITHUB_SHA}/storage
 
             rm -rf ${BASE_PATH}
             mkdir ${BASE_PATH}
