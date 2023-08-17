@@ -146,7 +146,7 @@ jobs:
             rm -rf ${BASE_PATH}
             mkdir ${BASE_PATH}
 
-            mv -f ${RELEASE_PATH}/{.,}* ${BASE_PATH}
+            yes | cp -rf ${RELEASE_PATH}/{.,}* ${BASE_PATH}
             ln -s ${STORAGE_PATH}/app/public ${BASE_PATH}/public/storage
             ln -s ${STORAGE_PATH} ${BASE_PATH}/storage
 
