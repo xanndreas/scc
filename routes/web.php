@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
-Route::get('/', $controller_path . '\Customer\HomeController@index')->name('customer-home');
-Route::get('/marketplace', $controller_path . '\Customer\HomeController@marketplace')->name('customer-marketplace');
+Route::get('/', $controller_path . '\customer\HomeController@index')->name('customer-home');
+Route::get('/marketplace', $controller_path . '\customer\HomeController@marketplace')->name('customer-marketplace');
