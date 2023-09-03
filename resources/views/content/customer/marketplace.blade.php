@@ -149,7 +149,8 @@
                     <li>
                         <button type="button" class="btn text-nowrap d-inline-block">
                             <span class="tf-icons ti ti-shopping-cart"></span>
-                            <span class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>
+                            <span
+                                class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>
                         </button>
                     </li>
                     <!-- navbar button: End -->
@@ -159,7 +160,6 @@
         </div>
     </nav>
     <!-- Navbar: End -->
-
 
     <!-- Hero: Start -->
     <section id="hero-animation">
@@ -181,10 +181,14 @@
         <!-- New Product Slider -->
         <div class="container">
             <div class="row align-items-center gx-0 gy-4 g-lg-5">
-                <h2 class="mb-1"><span class="section-title">New Product</span></h2>
+                <h3 class="text-center mb-1">
+                    <span class="section-title">New Product</span>
+                </h3>
+                <p class="text-center mb-5 pb-3">Here new fresh products.</p>
+
                 <div class="col-12">
                     <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                        <div class="swiper" id="swiper-reviews">
+                            <div class="swiper" id="swiper-reviews">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="card" style="width: 20rem;">
@@ -201,7 +205,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -224,7 +229,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -247,7 +253,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -270,7 +277,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -293,7 +301,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -316,7 +325,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -339,7 +349,8 @@
                                                     <a href="#" class="btn btn-primary me-2">
                                                         <i class="ti ti-shopping-cart ti-sm"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                       data-bs-target="#detailProduct">
                                                         Detail
                                                     </a>
                                                 </div>
@@ -366,7 +377,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- What people say slider: End -->
@@ -381,12 +391,11 @@
     <section id="ecommerce-products" class="section-py pb-5 grid-view">
         <!-- New Product Slider -->
         <div class="container">
-            <div class="text-center mb-3 pb-1">
-                <span class="badge bg-label-primary">Products</span>
-            </div>
-
-            <h3 class="text-center mb-1">All <span class="section-title">Products</span></h3>
+            <h3 class="text-center mb-1">All
+                <span class="section-title">Products</span>
+            </h3>
             <p class="text-center mb-5 pb-3">Check this out.</p>
+
             <div class="container">
                 <div class="row gy-3">
                     <div class="col-sm-6 col-lg-3">
@@ -404,7 +413,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -428,7 +438,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -452,7 +463,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -476,7 +488,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -500,7 +513,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -524,7 +538,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -548,7 +563,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -572,7 +588,8 @@
                                         <a href="#" class="btn btn-primary me-2">
                                             <i class="ti ti-shopping-cart ti-sm"></i>
                                         </a>
-                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailProduct">
+                                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                           data-bs-target="#detailProduct">
                                             Detail
                                         </a>
                                     </div>
@@ -587,7 +604,7 @@
     </section>
     <!-- E-commerce Products Ends -->
 
-{{--    Modal Detail product--}}
+    {{--    Modal Detail product--}}
     <div class="modal fade" id="detailProduct" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -601,13 +618,15 @@
                             <div class="card mb-3">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img class="card-img card-img-left img-fluid w-100" src="{{asset('assets/img/front-pages/misc/2.jpg')}}" alt="Card image" />
+                                        <img class="card-img card-img-left img-fluid w-100"
+                                             src="{{asset('assets/img/front-pages/misc/2.jpg')}}" alt="Card image"/>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">Detail Product</h5>
                                             <p class="card-text">
-                                                This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                                                This is a wider card with supporting text below as a natural lead-in to
+                                                additional content. This content
                                                 is a
                                                 little bit longer.
                                             </p>

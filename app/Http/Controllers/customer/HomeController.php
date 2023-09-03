@@ -18,7 +18,21 @@ class HomeController extends Controller
     {
         $pageConfigs = ['myLayout' => 'blank', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customer.marketplace', ['pageConfigs' => $pageConfigs]);
+        return view('content.customer.marketplace2', ['pageConfigs' => $pageConfigs]);
+    }
+
+    public function marketplaceDetail(Request $request)
+    {
+        $pageConfigs = ['myLayout' => 'blank', 'navbarFixed' => true, 'displayCustomizer' => false];
+
+        return view('content.customer.marketplace-detail', ['pageConfigs' => $pageConfigs]);
+    }
+
+    public function marketplaceCart(Request $request)
+    {
+        $pageConfigs = ['myLayout' => 'blank', 'navbarFixed' => true, 'displayCustomizer' => false];
+
+        return view('content.customer.cart', ['pageConfigs' => $pageConfigs]);
     }
 
 

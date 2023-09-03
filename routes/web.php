@@ -18,3 +18,5 @@ $controller_path = 'App\Http\Controllers';
 // Main Page Route
 Route::get('/', $controller_path . '\customer\HomeController@index')->name('customer-home');
 Route::get('/marketplace', $controller_path . '\customer\HomeController@marketplace')->name('customer-marketplace');
+Route::get('/marketplace-detail', $controller_path . '\customer\HomeController@marketplaceDetail')->name('customer-marketplace.detail');
+Route::get('/marketplace-cart', $controller_path . '\customer\HomeController@marketplaceCart')->name('customer-marketplace.cart');
