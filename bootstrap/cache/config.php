@@ -2,15 +2,15 @@
   'app' => 
   array (
     'name' => 'Laravel',
-    'env' => 'production',
-    'debug' => false,
+    'env' => 'local',
+    'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => NULL,
+    'key' => 'base64:EjO9qxs1QfB4c/ROl6za5bW7pbqlk42jrLcbUbhp99E=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -133,19 +133,19 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'null',
+    'default' => 'log',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => NULL,
-        'secret' => NULL,
-        'app_id' => NULL,
+        'key' => '',
+        'secret' => '',
+        'app_id' => '',
         'options' => 
         array (
           'host' => 'api-mt1.pusher.com',
-          'port' => 443,
+          'port' => '443',
           'scheme' => 'https',
           'encrypted' => true,
           'useTLS' => true,
@@ -198,7 +198,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/data',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -231,8 +231,8 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
@@ -277,7 +277,7 @@
     'custom' => 
     array (
       'myLayout' => 'vertical',
-      'myTheme' => 'theme-default',
+      'myTheme' => 'theme-raspberry',
       'myStyle' => 'light',
       'myRTLSupport' => true,
       'myRTLMode' => false,
@@ -309,7 +309,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'E:\\Projects\\OnProgress\\scc-dev\\database\\database.sqlite',
+        'database' => 'scc',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -319,8 +319,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'forge',
-        'username' => 'forge',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -338,9 +338,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
-        'database' => 'forge',
-        'username' => 'forge',
+        'port' => '3306',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -352,10 +352,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
-        'port' => '1433',
-        'database' => 'forge',
-        'username' => 'forge',
+        'host' => '127.0.0.1',
+        'port' => '3306',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -399,24 +399,24 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app',
+        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
-        'url' => '/storage',
+        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
       's3' => 
       array (
         'driver' => 's3',
-        'key' => NULL,
-        'secret' => NULL,
-        'region' => NULL,
-        'bucket' => NULL,
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
+        'bucket' => '',
         'url' => NULL,
         'endpoint' => NULL,
         'use_path_style_endpoint' => false,
@@ -425,7 +425,7 @@
     ),
     'links' => 
     array (
-      'E:\\Projects\\OnProgress\\scc-dev\\public\\storage' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+      'D:\\Projects\\OnProgress\\scc-dev\\public\\storage' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -447,7 +447,7 @@
     'default' => 'stack',
     'deprecations' => 
     array (
-      'channel' => 'null',
+      'channel' => NULL,
       'trace' => false,
     ),
     'channels' => 
@@ -464,14 +464,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -482,7 +482,7 @@
         'url' => NULL,
         'username' => 'Laravel Log',
         'emoji' => ':boom:',
-        'level' => 'critical',
+        'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'papertrail' => 
@@ -536,7 +536,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -548,9 +548,9 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailgun.org',
-        'port' => 587,
-        'encryption' => 'tls',
+        'host' => 'mailpit',
+        'port' => '1025',
+        'encryption' => NULL,
         'username' => NULL,
         'password' => NULL,
         'timeout' => NULL,
@@ -595,14 +595,14 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Example',
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\Projects\\OnProgress\\scc-dev\\resources\\views/vendor/mail',
+        0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -635,8 +635,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'default',
         'suffix' => NULL,
@@ -697,18 +697,18 @@
     ),
     'ses' => 
     array (
-      'key' => NULL,
-      'secret' => NULL,
+      'key' => '',
+      'secret' => '',
       'region' => 'us-east-1',
     ),
   ),
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => 120,
+    'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
+    'files' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -729,7 +729,7 @@
     'creatorName' => 'Oskar Pra',
     'creatorUrl' => 'https://github.com/xanndreas',
     'templateName' => 'E-commerce',
-    'templateSuffix' => 'E-commerce',
+    'templateSuffix' => 'Made transaction easier',
     'templateVersion' => '1.0.0',
     'templateFree' => false,
     'templateDescription' => 'Start your development with a Dashboard for Bootstrap 5',
@@ -756,9 +756,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\Projects\\OnProgress\\scc-dev\\resources\\views',
+      0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views',
     ),
-    'compiled' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework\\views',
+    'compiled' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -834,7 +834,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'E:\\Projects\\OnProgress\\scc-dev',
+    'remote_sites_path' => 'D:\\Projects\\OnProgress\\scc-dev',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

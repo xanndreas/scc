@@ -46,13 +46,13 @@ class Helpers
 
     // All options available in the template
     $allOptions = [
-      'myLayout' => ['vertical', 'horizontal', 'blank'],
+      'myLayout' => ['vertical', 'horizontal', 'blank', 'customer'],
       'menuCollapsed' => [true, false],
       'hasCustomizer' => [true, false],
       'showDropdownOnHover' => [true, false],
       'displayCustomizer' => [true, false],
       'myStyle' => ['light', 'dark'],
-      'myTheme' => ['theme-default', 'theme-bordered', 'theme-semi-dark'],
+      'myTheme' => ['theme-default', 'theme-bordered', 'theme-semi-dark', 'theme-raspberry'],
       'myRTLSupport' => [true, false],
       'myRTLMode' => [true, false],
       'menuFixed' => [true, false],

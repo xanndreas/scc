@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TbL3dmd7Swm5K4ug',
+            '_route' => 'generated::Km2ZKM6MogPfXyNX',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'customer-home',
+            '_route' => 'customers.home',
           ),
           1 => NULL,
           2 => 
@@ -136,13 +136,93 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/marketplace' => 
+      '/contacts' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'customer-marketplace',
+            '_route' => 'customers.contacts',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/marketplaces' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/cart' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.cart',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/blogs' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.blogs.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/supplies' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.supplies.index',
           ),
           1 => NULL,
           2 => 
@@ -159,9 +239,66 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
+      0 => '{^(?|/marketplaces/([^/]++)(*:29)|/blogs/([^/]++)(*:51))/?$}sDu',
     ),
     3 => 
     array (
+      29 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.show',
+          ),
+          1 => 
+          array (
+            0 => 'slug',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      51 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.blogs.show',
+          ),
+          1 => 
+          array (
+            0 => 'slug',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => NULL,
+          1 => NULL,
+          2 => NULL,
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => 0,
+        ),
+      ),
     ),
     4 => NULL,
   ),
@@ -313,7 +450,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TbL3dmd7Swm5K4ug' => 
+    'generated::Km2ZKM6MogPfXyNX' => 
     array (
       'methods' => 
       array (
@@ -336,7 +473,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::TbL3dmd7Swm5K4ug',
+        'as' => 'generated::Km2ZKM6MogPfXyNX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -352,7 +489,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer-home' => 
+    'customers.home' => 
     array (
       'methods' => 
       array (
@@ -368,12 +505,12 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\customer\\HomeController@index',
         'controller' => 'App\\Http\\Controllers\\customer\\HomeController@index',
-        'namespace' => NULL,
+        'as' => 'customers.home',
+        'namespace' => 'App\\Http\\Controllers\\customer',
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'customer-home',
       ),
       'fallback' => false,
       'defaults' => 
@@ -389,28 +526,250 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer-marketplace' => 
+    'customers.contacts' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'marketplace',
+      'uri' => 'contacts',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\customer\\HomeController@marketplace',
-        'controller' => 'App\\Http\\Controllers\\customer\\HomeController@marketplace',
-        'namespace' => NULL,
+        'uses' => 'App\\Http\\Controllers\\customer\\HomeController@contacts',
+        'controller' => 'App\\Http\\Controllers\\customer\\HomeController@contacts',
+        'as' => 'customers.contacts',
+        'namespace' => 'App\\Http\\Controllers\\customer',
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'customer-marketplace',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'marketplaces',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@index',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@index',
+        'as' => 'customers.marketplaces.index',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'marketplaces/{slug}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@show',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@show',
+        'as' => 'customers.marketplaces.show',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.cart' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'cart',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@cart',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@cart',
+        'as' => 'customers.marketplaces.cart',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.blogs.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'blogs',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\BlogController@index',
+        'controller' => 'App\\Http\\Controllers\\customer\\BlogController@index',
+        'as' => 'customers.blogs.index',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.blogs.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'blogs/{slug}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\BlogController@show',
+        'controller' => 'App\\Http\\Controllers\\customer\\BlogController@show',
+        'as' => 'customers.blogs.show',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.supplies.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'supplies',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\SupplyController@index',
+        'controller' => 'App\\Http\\Controllers\\customer\\SupplyController@index',
+        'as' => 'customers.supplies.index',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
