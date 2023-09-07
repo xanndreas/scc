@@ -21,9 +21,9 @@ class OfferDetail extends Model
 
     protected $fillable = [
         'quantity',
-        'product_id',
         'price_offer',
         'price_deal',
+        'supply_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -39,8 +39,8 @@ class OfferDetail extends Model
         return $this->belongsToMany(Offer::class);
     }
 
-    public function product()
+    public function supply()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Supply::class, 'supply_id');
     }
 }

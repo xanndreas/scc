@@ -9,8 +9,8 @@ class AddRelationshipFieldsToOfferDetailsTable extends Migration
     public function up()
     {
         Schema::table('offer_details', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id')->nullable();
-            $table->foreign('product_id', 'product_fk_8961262')->references('id')->on('products');
+            $table->unsignedBigInteger('supply_id')->nullable();
+            $table->foreign('supply_id', 'supply_fk_8970719')->references('id')->on('supplies');
         });
     }
 }

@@ -110,7 +110,7 @@
             </li>
         @endcan
         @can('transaction_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/sellings*") ? "c-show" : "" }} {{ request()->is("admin/selling-details*") ? "c-show" : "" }} {{ request()->is("admin/carts*") ? "c-show" : "" }} {{ request()->is("admin/purchasings*") ? "c-show" : "" }} {{ request()->is("admin/purchasing-details*") ? "c-show" : "" }} {{ request()->is("admin/offers*") ? "c-show" : "" }} {{ request()->is("admin/offer-details*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/sellings*") ? "c-show" : "" }} {{ request()->is("admin/selling-details*") ? "c-show" : "" }} {{ request()->is("admin/carts*") ? "c-show" : "" }} {{ request()->is("admin/purchasings*") ? "c-show" : "" }} {{ request()->is("admin/purchasing-details*") ? "c-show" : "" }} {{ request()->is("admin/offers*") ? "c-show" : "" }} {{ request()->is("admin/offer-details*") ? "c-show" : "" }} {{ request()->is("admin/supplies*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -185,6 +185,16 @@
 
                                 </i>
                                 {{ trans('cruds.offerDetail.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('supply_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.supplies.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/supplies") || request()->is("admin/supplies/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fab fa-stumbleupon c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.supply.title') }}
                             </a>
                         </li>
                     @endcan

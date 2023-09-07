@@ -1,40 +1,46 @@
 @extends('layouts.admin')
 @section('content')
-@can('offer_detail_create')
+@can('supply_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.offer-details.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.offerDetail.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.supplies.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.supply.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.offerDetail.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.supply.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
-        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-OfferDetail">
+        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Supply">
             <thead>
                 <tr>
                     <th width="10">
 
                     </th>
                     <th>
-                        {{ trans('cruds.offerDetail.fields.id') }}
+                        {{ trans('cruds.supply.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.offerDetail.fields.quantity') }}
+                        {{ trans('cruds.supply.fields.quantity_needs') }}
                     </th>
                     <th>
-                        {{ trans('cruds.offerDetail.fields.price_offer') }}
+                        {{ trans('cruds.supply.fields.initial_price') }}
                     </th>
                     <th>
-                        {{ trans('cruds.offerDetail.fields.price_deal') }}
+                        {{ trans('cruds.supply.fields.product') }}
                     </th>
                     <th>
-                        {{ trans('cruds.offerDetail.fields.supply') }}
+                        {{ trans('cruds.supply.fields.start_date') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.supply.fields.end_date') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.supply.fields.status') }}
                     </th>
                     <th>
                         &nbsp;
@@ -53,13 +59,24 @@
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
+                        <select class="search">
+                            <option value>{{ trans('global.all') }}</option>
+                            @foreach($products as $key => $item)
+                                <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search">
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <select class="search" strict="true">
                             <option value>{{ trans('global.all') }}</option>
-                            @foreach($supplies as $key => $item)
-                                <option value="{{ $item->end_date }}">{{ $item->end_date }}</option>
+                            @foreach(App\Models\Supply::STATUS_SELECT as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -79,11 +96,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('offer_detail_delete')
+@can('supply_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.offer-details.massDestroy') }}",
+    url: "{{ route('admin.supplies.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
@@ -115,21 +132,23 @@
     serverSide: true,
     retrieve: true,
     aaSorting: [],
-    ajax: "{{ route('admin.offer-details.index') }}",
+    ajax: "{{ route('admin.supplies.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'quantity', name: 'quantity' },
-{ data: 'price_offer', name: 'price_offer' },
-{ data: 'price_deal', name: 'price_deal' },
-{ data: 'supply_end_date', name: 'supply.end_date' },
+{ data: 'quantity_needs', name: 'quantity_needs' },
+{ data: 'initial_price', name: 'initial_price' },
+{ data: 'product_name', name: 'product.name' },
+{ data: 'start_date', name: 'start_date' },
+{ data: 'end_date', name: 'end_date' },
+{ data: 'status', name: 'status' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
     pageLength: 10,
   };
-  let table = $('.datatable-OfferDetail').DataTable(dtOverrideGlobals);
+  let table = $('.datatable-Supply').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

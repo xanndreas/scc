@@ -33,14 +33,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.offerDetail.fields.product') }}
-                        </th>
-                        <td>
-                            {{ $offerDetail->product->name ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.offerDetail.fields.price_offer') }}
                         </th>
                         <td>
@@ -53,6 +45,14 @@
                         </th>
                         <td>
                             {{ $offerDetail->price_deal }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.offerDetail.fields.supply') }}
+                        </th>
+                        <td>
+                            {{ $offerDetail->supply->end_date ?? '' }}
                         </td>
                     </tr>
                 </tbody>

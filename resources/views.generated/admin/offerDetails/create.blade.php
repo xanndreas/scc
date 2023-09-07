@@ -20,20 +20,6 @@
                 <span class="help-block">{{ trans('cruds.offerDetail.fields.quantity_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="product_id">{{ trans('cruds.offerDetail.fields.product') }}</label>
-                <select class="form-control select2 {{ $errors->has('product') ? 'is-invalid' : '' }}" name="product_id" id="product_id" required>
-                    @foreach($products as $id => $entry)
-                        <option value="{{ $id }}" {{ old('product_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('product'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('product') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.offerDetail.fields.product_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="price_offer">{{ trans('cruds.offerDetail.fields.price_offer') }}</label>
                 <input class="form-control {{ $errors->has('price_offer') ? 'is-invalid' : '' }}" type="number" name="price_offer" id="price_offer" value="{{ old('price_offer', '') }}" step="0.01" required>
                 @if($errors->has('price_offer'))
@@ -52,6 +38,20 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.offerDetail.fields.price_deal_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="supply_id">{{ trans('cruds.offerDetail.fields.supply') }}</label>
+                <select class="form-control select2 {{ $errors->has('supply') ? 'is-invalid' : '' }}" name="supply_id" id="supply_id" required>
+                    @foreach($supplies as $id => $entry)
+                        <option value="{{ $id }}" {{ old('supply_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('supply'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('supply') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.offerDetail.fields.supply_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

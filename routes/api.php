@@ -54,4 +54,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Contact
     Route::post('contacts/media', 'ContactApiController@storeMedia')->name('contacts.storeMedia');
     Route::apiResource('contacts', 'ContactApiController');
+
+    // Supply
+    Route::apiResource('supplies', 'SupplyApiController');
 });

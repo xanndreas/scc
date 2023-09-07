@@ -117,6 +117,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('contacts/media', 'ContactController@storeMedia')->name('contacts.storeMedia');
     Route::post('contacts/ckmedia', 'ContactController@storeCKEditorImages')->name('contacts.storeCKEditorImages');
     Route::resource('contacts', 'ContactController');
+
+    // Supply
+    Route::delete('supplies/destroy', 'SupplyController@massDestroy')->name('supplies.massDestroy');
+    Route::resource('supplies', 'SupplyController');
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

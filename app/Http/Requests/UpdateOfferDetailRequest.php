@@ -23,15 +23,15 @@ class UpdateOfferDetailRequest extends FormRequest
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'product_id' => [
-                'required',
-                'integer',
-            ],
             'price_offer' => [
                 'required',
             ],
             'price_deal' => [
                 'required',
+            ],
+            'supply_id' => [
+                'required',
+                'integer',
             ],
         ];
     }
