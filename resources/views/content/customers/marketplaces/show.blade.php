@@ -2,33 +2,10 @@
 
 @section('title', 'Product Details')
 
-@section('vendor-style')
-    {{-- Vendor Css files --}}
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css')}}"/>
-
-    <script src="{{asset('assets/js/front-config.js')}}"></script>
-@endsection
-
 @section('page-style')
     {{-- Page Css files --}}
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce-details.css') }}">
 @endsection
-
-@section('vendor-script')
-    {{-- Vendor js files --}}
-    <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/swiper/swiper.js')}}"></script>
-@endsection
-
-@section('page-script')
-    {{-- Page js files --}}
-    <script src="{{ asset('assets/js/app-ecommerce-details.js') }}"></script>
-    <script src="{{ asset('assets/js/front-main.js')}}"></script>
-@endsection
-
 
 @section('content')
     <!-- Navbar: Start -->
@@ -178,7 +155,7 @@
 
     <!-- app e-commerce details start -->
     <section class="ecommerce-application">
-        <div class="container mt-5 mb-lg-5">
+        <div class="container mt-5 mb-5">
             <div class="app-ecommerce-details">
                 <!-- Product Details starts -->
                 <div class="row my-2">

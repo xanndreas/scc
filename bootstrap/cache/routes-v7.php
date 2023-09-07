@@ -765,6 +765,42 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/api/v1/supplies' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.supplies.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.supplies.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/' => 
       array (
         0 => 
@@ -908,7 +944,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Pl38oXZaY11MNOoo',
+            '_route' => 'generated::4nhpQc8KnP9tQIr1',
           ),
           1 => NULL,
           2 => 
@@ -1018,7 +1054,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KHk7Z5NnMERHpuu6',
+            '_route' => 'generated::tedEhMOO6Us5tewi',
           ),
           1 => NULL,
           2 => 
@@ -2536,6 +2572,81 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/supplies/destroy' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.massDestroy',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/supplies' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/supplies/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/profile/password' => 
       array (
         0 => 
@@ -2613,7 +2724,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/a(?|pi/v1/(?|p(?|ermissions/([^/]++)(?|(*:47))|roducts/([^/]++)(?|(*:74))|urchasing(?|s/([^/]++)(?|(*:107))|\\-details/([^/]++)(?|(*:137))))|roles/([^/]++)(?|(*:165))|users/([^/]++)(?|(*:191))|c(?|a(?|tegories/([^/]++)(?|(*:228))|rts/([^/]++)(?|(*:252)))|ontacts/([^/]++)(?|(*:281)))|s(?|elling(?|s/([^/]++)(?|(*:317))|\\-details/([^/]++)(?|(*:347)))|tock\\-opnames/([^/]++)(?|(*:382)))|offer(?|\\-details/([^/]++)(?|(*:421))|s/([^/]++)(?|(*:443)))|inventories/([^/]++)(?|(*:476))|article\\-c(?|ontents/([^/]++)(?|(*:517))|ategories/([^/]++)(?|(*:547))))|dmin/(?|p(?|ermissions/([^/]++)(?|(*:592)|/edit(*:605)|(*:613))|roducts/([^/]++)(?|(*:641)|/edit(*:654)|(*:662))|urchasing(?|s/([^/]++)(?|(*:696)|/edit(*:709)|(*:717))|\\-details/([^/]++)(?|(*:747)|/edit(*:760)|(*:768))))|roles/([^/]++)(?|(*:796)|/edit(*:809)|(*:817))|users/([^/]++)(?|(*:843)|/edit(*:856)|(*:864))|a(?|udit\\-logs/([^/]++)(*:896)|rticle\\-c(?|ontents/([^/]++)(?|(*:935)|/edit(*:948)|(*:956))|ategories/([^/]++)(?|(*:986)|/edit(*:999)|(*:1007))))|c(?|a(?|tegories/([^/]++)(?|(*:1047)|/edit(*:1061)|(*:1070))|rts/([^/]++)(?|(*:1095)|/edit(*:1109)|(*:1118)))|ontacts/([^/]++)(?|(*:1148)|/edit(*:1162)|(*:1171)))|s(?|elling(?|s/([^/]++)(?|(*:1208)|/edit(*:1222)|(*:1231))|\\-details/([^/]++)(?|(*:1262)|/edit(*:1276)|(*:1285)))|tock\\-opnames/([^/]++)(?|(*:1321)|/edit(*:1335)|(*:1344)))|offer(?|\\-details/([^/]++)(?|(*:1384)|/edit(*:1398)|(*:1407))|s/([^/]++)(?|(*:1430)|/edit(*:1444)|(*:1453)))|inventories/([^/]++)(?|(*:1487)|/edit(*:1501)|(*:1510))))|/marketplaces/([^/]++)(*:1544)|/blogs/([^/]++)(*:1568)|/password/reset/([^/]++)(*:1601))/?$}sDu',
+      0 => '{^(?|/a(?|pi/v1/(?|p(?|ermissions/([^/]++)(?|(*:47))|roducts/([^/]++)(?|(*:74))|urchasing(?|s/([^/]++)(?|(*:107))|\\-details/([^/]++)(?|(*:137))))|roles/([^/]++)(?|(*:165))|users/([^/]++)(?|(*:191))|c(?|a(?|tegories/([^/]++)(?|(*:228))|rts/([^/]++)(?|(*:252)))|ontacts/([^/]++)(?|(*:281)))|s(?|elling(?|s/([^/]++)(?|(*:317))|\\-details/([^/]++)(?|(*:347)))|tock\\-opnames/([^/]++)(?|(*:382))|upplies/([^/]++)(?|(*:410)))|offer(?|\\-details/([^/]++)(?|(*:449))|s/([^/]++)(?|(*:471)))|inventories/([^/]++)(?|(*:504))|article\\-c(?|ontents/([^/]++)(?|(*:545))|ategories/([^/]++)(?|(*:575))))|dmin/(?|p(?|ermissions/([^/]++)(?|(*:620)|/edit(*:633)|(*:641))|roducts/([^/]++)(?|(*:669)|/edit(*:682)|(*:690))|urchasing(?|s/([^/]++)(?|(*:724)|/edit(*:737)|(*:745))|\\-details/([^/]++)(?|(*:775)|/edit(*:788)|(*:796))))|roles/([^/]++)(?|(*:824)|/edit(*:837)|(*:845))|users/([^/]++)(?|(*:871)|/edit(*:884)|(*:892))|a(?|udit\\-logs/([^/]++)(*:924)|rticle\\-c(?|ontents/([^/]++)(?|(*:963)|/edit(*:976)|(*:984))|ategories/([^/]++)(?|(*:1014)|/edit(*:1028)|(*:1037))))|c(?|a(?|tegories/([^/]++)(?|(*:1077)|/edit(*:1091)|(*:1100))|rts/([^/]++)(?|(*:1125)|/edit(*:1139)|(*:1148)))|ontacts/([^/]++)(?|(*:1178)|/edit(*:1192)|(*:1201)))|s(?|elling(?|s/([^/]++)(?|(*:1238)|/edit(*:1252)|(*:1261))|\\-details/([^/]++)(?|(*:1292)|/edit(*:1306)|(*:1315)))|tock\\-opnames/([^/]++)(?|(*:1351)|/edit(*:1365)|(*:1374))|upplies/([^/]++)(?|(*:1403)|/edit(*:1417)|(*:1426)))|offer(?|\\-details/([^/]++)(?|(*:1466)|/edit(*:1480)|(*:1489))|s/([^/]++)(?|(*:1512)|/edit(*:1526)|(*:1535)))|inventories/([^/]++)(?|(*:1569)|/edit(*:1583)|(*:1592))))|/marketplaces/([^/]++)(*:1626)|/blogs/([^/]++)(*:1650)|/password/reset/([^/]++)(*:1683))/?$}sDu',
     ),
     3 => 
     array (
@@ -3361,7 +3472,69 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      421 => 
+      410 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.supplies.show',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.supplies.update',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.supplies.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      449 => 
       array (
         0 => 
         array (
@@ -3423,7 +3596,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      443 => 
+      471 => 
       array (
         0 => 
         array (
@@ -3485,7 +3658,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      476 => 
+      504 => 
       array (
         0 => 
         array (
@@ -3547,7 +3720,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      517 => 
+      545 => 
       array (
         0 => 
         array (
@@ -3609,7 +3782,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      547 => 
+      575 => 
       array (
         0 => 
         array (
@@ -3671,7 +3844,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      592 => 
+      620 => 
       array (
         0 => 
         array (
@@ -3694,7 +3867,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      605 => 
+      633 => 
       array (
         0 => 
         array (
@@ -3717,7 +3890,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      613 => 
+      641 => 
       array (
         0 => 
         array (
@@ -3759,7 +3932,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      641 => 
+      669 => 
       array (
         0 => 
         array (
@@ -3782,7 +3955,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      654 => 
+      682 => 
       array (
         0 => 
         array (
@@ -3805,7 +3978,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      662 => 
+      690 => 
       array (
         0 => 
         array (
@@ -3847,7 +4020,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      696 => 
+      724 => 
       array (
         0 => 
         array (
@@ -3870,7 +4043,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      709 => 
+      737 => 
       array (
         0 => 
         array (
@@ -3893,7 +4066,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      717 => 
+      745 => 
       array (
         0 => 
         array (
@@ -3935,7 +4108,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      747 => 
+      775 => 
       array (
         0 => 
         array (
@@ -3958,7 +4131,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      760 => 
+      788 => 
       array (
         0 => 
         array (
@@ -3981,7 +4154,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      768 => 
+      796 => 
       array (
         0 => 
         array (
@@ -4023,7 +4196,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      796 => 
+      824 => 
       array (
         0 => 
         array (
@@ -4046,7 +4219,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      809 => 
+      837 => 
       array (
         0 => 
         array (
@@ -4069,7 +4242,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      817 => 
+      845 => 
       array (
         0 => 
         array (
@@ -4111,7 +4284,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      843 => 
+      871 => 
       array (
         0 => 
         array (
@@ -4134,7 +4307,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      856 => 
+      884 => 
       array (
         0 => 
         array (
@@ -4157,7 +4330,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      864 => 
+      892 => 
       array (
         0 => 
         array (
@@ -4199,7 +4372,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      896 => 
+      924 => 
       array (
         0 => 
         array (
@@ -4222,7 +4395,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      935 => 
+      963 => 
       array (
         0 => 
         array (
@@ -4245,7 +4418,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      948 => 
+      976 => 
       array (
         0 => 
         array (
@@ -4268,7 +4441,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      956 => 
+      984 => 
       array (
         0 => 
         array (
@@ -4310,7 +4483,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      986 => 
+      1014 => 
       array (
         0 => 
         array (
@@ -4333,7 +4506,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      999 => 
+      1028 => 
       array (
         0 => 
         array (
@@ -4356,7 +4529,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1007 => 
+      1037 => 
       array (
         0 => 
         array (
@@ -4398,7 +4571,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1047 => 
+      1077 => 
       array (
         0 => 
         array (
@@ -4421,7 +4594,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1061 => 
+      1091 => 
       array (
         0 => 
         array (
@@ -4444,7 +4617,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1070 => 
+      1100 => 
       array (
         0 => 
         array (
@@ -4486,7 +4659,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1095 => 
+      1125 => 
       array (
         0 => 
         array (
@@ -4509,7 +4682,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1109 => 
+      1139 => 
       array (
         0 => 
         array (
@@ -4532,7 +4705,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1118 => 
+      1148 => 
       array (
         0 => 
         array (
@@ -4574,7 +4747,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1148 => 
+      1178 => 
       array (
         0 => 
         array (
@@ -4597,7 +4770,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1162 => 
+      1192 => 
       array (
         0 => 
         array (
@@ -4620,7 +4793,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1171 => 
+      1201 => 
       array (
         0 => 
         array (
@@ -4662,7 +4835,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1208 => 
+      1238 => 
       array (
         0 => 
         array (
@@ -4685,7 +4858,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1222 => 
+      1252 => 
       array (
         0 => 
         array (
@@ -4708,7 +4881,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1231 => 
+      1261 => 
       array (
         0 => 
         array (
@@ -4750,7 +4923,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1262 => 
+      1292 => 
       array (
         0 => 
         array (
@@ -4773,7 +4946,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1276 => 
+      1306 => 
       array (
         0 => 
         array (
@@ -4796,7 +4969,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1285 => 
+      1315 => 
       array (
         0 => 
         array (
@@ -4838,7 +5011,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1321 => 
+      1351 => 
       array (
         0 => 
         array (
@@ -4861,7 +5034,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1335 => 
+      1365 => 
       array (
         0 => 
         array (
@@ -4884,7 +5057,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1344 => 
+      1374 => 
       array (
         0 => 
         array (
@@ -4926,7 +5099,95 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1384 => 
+      1403 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.show',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1417 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.edit',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1426 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.update',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.supplies.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1466 => 
       array (
         0 => 
         array (
@@ -4949,7 +5210,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1398 => 
+      1480 => 
       array (
         0 => 
         array (
@@ -4972,7 +5233,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1407 => 
+      1489 => 
       array (
         0 => 
         array (
@@ -5014,7 +5275,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1430 => 
+      1512 => 
       array (
         0 => 
         array (
@@ -5037,7 +5298,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1444 => 
+      1526 => 
       array (
         0 => 
         array (
@@ -5060,7 +5321,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1453 => 
+      1535 => 
       array (
         0 => 
         array (
@@ -5102,7 +5363,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1487 => 
+      1569 => 
       array (
         0 => 
         array (
@@ -5125,7 +5386,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1501 => 
+      1583 => 
       array (
         0 => 
         array (
@@ -5148,7 +5409,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1510 => 
+      1592 => 
       array (
         0 => 
         array (
@@ -5190,7 +5451,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1544 => 
+      1626 => 
       array (
         0 => 
         array (
@@ -5213,7 +5474,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1568 => 
+      1650 => 
       array (
         0 => 
         array (
@@ -5236,7 +5497,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1601 => 
+      1683 => 
       array (
         0 => 
         array (
@@ -8727,6 +8988,194 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'api.supplies.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/v1/supplies',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+          1 => 'auth:sanctum',
+        ),
+        'as' => 'api.supplies.index',
+        'uses' => 'Api\\V1\\Admin\\SupplyApiController@index',
+        'controller' => 'Api\\V1\\Admin\\SupplyApiController@index',
+        'namespace' => 'Api\\V1\\Admin',
+        'prefix' => 'api/v1',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'api.supplies.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/v1/supplies',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+          1 => 'auth:sanctum',
+        ),
+        'as' => 'api.supplies.store',
+        'uses' => 'Api\\V1\\Admin\\SupplyApiController@store',
+        'controller' => 'Api\\V1\\Admin\\SupplyApiController@store',
+        'namespace' => 'Api\\V1\\Admin',
+        'prefix' => 'api/v1',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'api.supplies.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/v1/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+          1 => 'auth:sanctum',
+        ),
+        'as' => 'api.supplies.show',
+        'uses' => 'Api\\V1\\Admin\\SupplyApiController@show',
+        'controller' => 'Api\\V1\\Admin\\SupplyApiController@show',
+        'namespace' => 'Api\\V1\\Admin',
+        'prefix' => 'api/v1',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'api.supplies.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'api/v1/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+          1 => 'auth:sanctum',
+        ),
+        'as' => 'api.supplies.update',
+        'uses' => 'Api\\V1\\Admin\\SupplyApiController@update',
+        'controller' => 'Api\\V1\\Admin\\SupplyApiController@update',
+        'namespace' => 'Api\\V1\\Admin',
+        'prefix' => 'api/v1',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'api.supplies.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'api/v1/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+          1 => 'auth:sanctum',
+        ),
+        'as' => 'api.supplies.destroy',
+        'uses' => 'Api\\V1\\Admin\\SupplyApiController@destroy',
+        'controller' => 'Api\\V1\\Admin\\SupplyApiController@destroy',
+        'namespace' => 'Api\\V1\\Admin',
+        'prefix' => 'api/v1',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'customers.home' => 
     array (
       'methods' => 
@@ -9060,7 +9509,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Pl38oXZaY11MNOoo' => 
+    'generated::4nhpQc8KnP9tQIr1' => 
     array (
       'methods' => 
       array (
@@ -9080,7 +9529,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Pl38oXZaY11MNOoo',
+        'as' => 'generated::4nhpQc8KnP9tQIr1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9315,7 +9764,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::KHk7Z5NnMERHpuu6' => 
+    'generated::tedEhMOO6Us5tewi' => 
     array (
       'methods' => 
       array (
@@ -9335,7 +9784,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::KHk7Z5NnMERHpuu6',
+        'as' => 'generated::tedEhMOO6Us5tewi',
       ),
       'fallback' => false,
       'defaults' => 
@@ -14932,6 +15381,307 @@ app('router')->setCompiledRoutes(
         'as' => 'admin.contacts.destroy',
         'uses' => 'Admin\\ContactController@destroy',
         'controller' => 'Admin\\ContactController@destroy',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.massDestroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/supplies/destroy',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'Admin\\SupplyController@massDestroy',
+        'controller' => 'Admin\\SupplyController@massDestroy',
+        'as' => 'admin.supplies.massDestroy',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/supplies',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.index',
+        'uses' => 'Admin\\SupplyController@index',
+        'controller' => 'Admin\\SupplyController@index',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/supplies/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.create',
+        'uses' => 'Admin\\SupplyController@create',
+        'controller' => 'Admin\\SupplyController@create',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/supplies',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.store',
+        'uses' => 'Admin\\SupplyController@store',
+        'controller' => 'Admin\\SupplyController@store',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.show',
+        'uses' => 'Admin\\SupplyController@show',
+        'controller' => 'Admin\\SupplyController@show',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/supplies/{supply}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.edit',
+        'uses' => 'Admin\\SupplyController@edit',
+        'controller' => 'Admin\\SupplyController@edit',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.update',
+        'uses' => 'Admin\\SupplyController@update',
+        'controller' => 'Admin\\SupplyController@update',
+        'namespace' => 'Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.supplies.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.supplies.destroy',
+        'uses' => 'Admin\\SupplyController@destroy',
+        'controller' => 'Admin\\SupplyController@destroy',
         'namespace' => 'Admin',
         'prefix' => '/admin',
         'where' => 

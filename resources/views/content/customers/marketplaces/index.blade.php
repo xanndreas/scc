@@ -175,7 +175,7 @@
         <!-- Logo slider: End -->
     </section>
 
-    <section class="ecommerce-application mb-lg-5">
+    <section class="ecommerce-application mb-5">
         <div class="container mt-5">
             <!-- E-commerce Content Section Starts -->
             <h3 class="text-center mb-1">All

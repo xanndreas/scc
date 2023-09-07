@@ -2,37 +2,6 @@
 
 @section('title', 'Shop')
 
-@section('vendor-style')
-    <!-- Vendor css files -->
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon/favicon.ico')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css')}}"/>
-    <script src="{{asset('assets/js/front-config.js')}}"></script>
-
-@endsection
-@section('page-style')
-    <!-- Page css files -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce.css') }}">
-
-@endsection
-
-
-@section('vendor-script')
-    <!-- Vendor js files -->
-
-    <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/swiper/swiper.js')}}"></script>
-
-@endsection
-@section('page-script')
-    <!-- Page js files -->
-    <script src="{{ asset('assets/js/app-ecommerce.js') }}"></script>
-    <script src="{{ asset('assets/js/front-main.js')}}"></script>
-    <script src="{{ asset('assets/js/front-page-landing.js')}}"></script>
-@endsection
-
 @section('content')
 
     <!-- Hero: Start -->
@@ -205,7 +174,7 @@
         <!-- Logo slider: End -->
     </section>
 
-    <section class="ecommerce-application mb-lg-5">
+    <section class="ecommerce-application mb-5">
         <div class="container mt-5">
             <!-- E-commerce Content Section Starts -->
             <h3 class="text-center mb-1">All

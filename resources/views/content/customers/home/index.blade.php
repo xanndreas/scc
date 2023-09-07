@@ -2,34 +2,6 @@
 
 @section('title', 'Home')
 
-@section('vendor-style')
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon/favicon.ico')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/front-page.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/nouislider/nouislider.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/swiper/swiper.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/front-page-landing.css')}}"/>
-
-    <script src="{{asset('assets/js/front-config.js')}}"></script>
-@endsection
-
-@section('page-style')
-
-@endsection
-
-@section('vendor-script')
-    <script src="{{asset('assets/vendor/js/dropdown-hover.js')}}"></script>
-    <script src="{{asset('assets/vendor/js/mega-dropdown.js')}}"></script>
-
-    <script src="{{asset('assets/vendor/libs/nouislider/nouislider.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/swiper/swiper.js')}}"></script>
-@endsection
-
-@section('page-script')
-    <script src="{{asset('assets/js/front-main.js')}}"></script>
-    <script src="{{asset('assets/js/front-page-landing.js')}}"></script>
-@endsection
-
-
 @section('content')
 
     <!-- Sections:Start -->

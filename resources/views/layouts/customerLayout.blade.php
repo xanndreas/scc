@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css')}}"/>
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css')}}"/>
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css')}}"/>
     <script src="{{asset('assets/js/front-config.js')}}"></script>
 
@@ -32,7 +31,8 @@
 
 @section('vendor-script')
     <!-- Vendor js files -->
-
+    <script src="{{ asset('assets/vendor/js/dropdown-hover.js')}}"></script>
+    <script src="{{ asset('assets/vendor/js/mega-dropdown.js')}}"></script>
     <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/swiper/swiper.js')}}"></script>
 @endsection
@@ -131,7 +131,8 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
-                                        <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
+                                        <span class="align-middle"><i
+                                                class="ti ti-device-desktop me-2"></i>System</span>
                                     </a>
                                 </li>
                             </ul>
@@ -223,11 +224,13 @@
                         <ul class="list-unstyled">
                             <li class="mb-3">
                                 <a href="javascript:void(0);"
-                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ipsum has been the industry's the 1500s...</a>
+                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Ipsum has been the industry's the 1500s...</a>
                             </li>
                             <li class="mb-3">
                                 <a href="javascript:void(0);"
-                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting ...</a>
+                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    ...</a>
                             </li>
                         </ul>
                     </div>
