@@ -8,9 +8,9 @@
     @if(!isset($navbarFull))
         <div class="app-brand demo">
             <a href="{{url('/')}}" class="app-brand-link">
-      <span class="app-brand-logo demo">
-        @include('_partials.macros',["height"=>20])
-      </span>
+                <span class="app-brand-logo">
+                    @include('_partials.macros',["height"=>40])
+                </span>
                 <span class="app-brand-text demo menu-text fw-bold">{{config('variables.templateName')}}</span>
             </a>
 
@@ -31,10 +31,9 @@
 
             {{-- menu headers --}}
             @if (isset($menu->menuHeader))
-                <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">{{ $menu->menuHeader }}</span>
+                <li class="menu-header small text-uppercase @isset($menu->permission) @cannot($menu->permission) d-none @endcannot @endisset">
+                    <span class="menu-header-text">{{ trans($menu->menuHeader) }}</span>
                 </li>
-
             @else
 
                 {{-- active menu method --}}
@@ -43,38 +42,39 @@
                     $currentRouteName = Route::currentRouteName();
 
                     if ($currentRouteName === $menu->slug) {
-                    $activeClass = 'active';
-                    }
-                    elseif (isset($menu->submenu)) {
-                    if (gettype($menu->slug) === 'array') {
-                    foreach($menu->slug as $slug){
-                    if (str_contains($currentRouteName,$slug) and strpos($currentRouteName,$slug) === 0) {
-                    $activeClass = 'active open';
-                    }
-                    }
-                    }
-                    else{
-                    if (str_contains($currentRouteName,$menu->slug) and strpos($currentRouteName,$menu->slug) === 0) {
-                    $activeClass = 'active open';
-                    }
+                        $activeClass = 'active';
                     }
 
+                    elseif (isset($menu->submenu)) {
+                        if (gettype($menu->slug) === 'array') {
+                            foreach($menu->slug as $slug){
+                                if (str_contains($currentRouteName,$slug) and strpos($currentRouteName,$slug) === 0) {
+                                    $activeClass = 'active open';
+                                }
+                            }
+                        }
+                        else {
+                            if (str_contains($currentRouteName,$menu->slug) and strpos($currentRouteName,$menu->slug) === 0) {
+                                $activeClass = 'active open';
+                            }
+                        }
                     }
                 @endphp
 
                 {{-- main menu --}}
-                <li class="menu-item {{$activeClass}}">
-                    <a href="{{ isset($menu->url) ? url($menu->url) : 'javascript:void(0);' }}"
+                <li class="menu-item {{$activeClass}} @isset($menu->permission) @cannot($menu->permission) d-none @endcannot @endisset">
+                    <a href="{{ isset($menu->slug) ? route($menu->slug) : 'javascript:void(0);' }}"
                        class="{{ isset($menu->submenu) ? 'menu-link menu-toggle' : 'menu-link' }}"
                        @if (isset($menu->target) and !empty($menu->target)) target="_blank" @endif>
                         @isset($menu->icon)
                             <i class="{{ $menu->icon }}"></i>
                         @endisset
-                        <div>{{ isset($menu->name) ? __($menu->name) : '' }}</div>
+
+                        <div>{{ isset($menu->name) ? trans($menu->name) : '' }}</div>
+
                         @isset($menu->badge)
                             <div
                                 class="badge bg-label-{{ $menu->badge[0] }} rounded-pill ms-auto">{{ $menu->badge[1] }}</div>
-
                         @endisset
                     </a>
 

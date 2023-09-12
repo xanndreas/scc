@@ -33,14 +33,14 @@
                 @endphp
 
                 {{-- main menu --}}
-                <li class="menu-item {{$activeClass}}">
-                    <a href="{{ isset($menu->url) ? url($menu->url) : 'javascript:void(0);' }}"
+                <li class="menu-item {{$activeClass}} @isset($menu->permission) @cannot($menu->permission) d-none @endcannot @endisset">
+                    <a href="{{ isset($menu->slug) ? route($menu->slug) : 'javascript:void(0);' }}"
                        class="{{ isset($menu->submenu) ? 'menu-link menu-toggle' : 'menu-link' }}"
                        @if (isset($menu->target) and !empty($menu->target)) target="_blank" @endif>
                         @isset($menu->icon)
                             <i class="{{ $menu->icon }}"></i>
                         @endisset
-                        <div>{{ isset($menu->name) ? __($menu->name) : '' }}</div>
+                        <div>{{ isset($menu->name) ? trans($menu->name) : '' }}</div>
                     </a>
 
                     {{-- submenu --}}
@@ -49,7 +49,7 @@
                     @endisset
                 </li>
             @endforeach
-    </ul>
-  </div>
+        </ul>
+    </div>
 </aside>
 <!--/ Horizontal Menu -->

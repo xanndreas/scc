@@ -120,9 +120,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // Supply
     Route::delete('supplies/destroy', 'SupplyController@massDestroy')->name('supplies.massDestroy');
     Route::resource('supplies', 'SupplyController');
+
+    // Setting
+    Route::resource('settings', 'SettingController')->only(['index', 'update']);
 });
 
-Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\auth', 'middleware' => ['auth']], function () {
     // Change password
     if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
         Route::get('password', 'ChangePasswordController@edit')->name('password.edit');
@@ -132,7 +135,3 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 
-
-//Route::group(['as' => 'customer.', 'namespace' => 'App\Http\Controllers\Customer', 'middleware' => ['auth']], function () {
-//
-//});

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="content">
+<div class="content ti-book-2">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

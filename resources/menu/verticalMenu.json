@@ -1,37 +1,104 @@
 {
-  "menu": [
-    {
-      "url": "/",
-      "name": "Home",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "pages-home"
-    },
-    {
-      "url": "page-2",
-      "icon": "menu-icon tf-icons ti ti-file",
-      "name": "Page 2",
-      "slug": "pages-page-2"
-    },
-    {
-      "url": "pages/misc-error",
-      "name": "Error",
-      "icon": "menu-icon tf-icons ti ti-alert-triangle",
-      "slug": "pages-misc-error",
-      "target": "_blank"
-    },
-    {
-      "url": "auth/login-basic",
-      "name": "Login",
-      "icon": "menu-icon tf-icons ti ti-login",
-      "slug": "auth-login-basic",
-      "target": "_blank"
-    },
-    {
-      "url": "auth/register-basic",
-      "name": "Register",
-      "icon": "menu-icon tf-icons ti ti-user",
-      "slug": "auth-register-basic",
-      "target": "_blank"
-    }
-  ]
+    "menu": [
+        {
+            "menuHeader": "global.dashboard",
+            "permission": "header_dashboard_access"
+        },
+        {
+            "name": "global.home",
+            "icon": "menu-icon tf-icons ti ti-smart-home",
+            "slug": "admin.home",
+            "permission": "dashboard_access"
+        },
+        {
+            "menuHeader": "global.transaction",
+            "permission": "header_transaction_access"
+        },
+        {
+            "name": "cruds.purchasing.title",
+            "icon": "menu-icon tf-icons ti ti-report-money",
+            "slug": "admin.purchasings.index",
+            "permission": "purchasing_access"
+        },
+        {
+            "name": "cruds.offer.title",
+            "icon": "menu-icon tf-icons ti ti-gift",
+            "slug": "admin.offers.index",
+            "permission": "offer_access"
+        },
+        {
+            "name": "cruds.inventory.title",
+            "icon": "menu-icon tf-icons ti ti-box",
+            "slug": "admin.inventories.index",
+            "permission": "inventory_access"
+        },
+        {
+            "menuHeader": "global.report",
+            "permission": "header_report_access"
+        },
+        {
+            "menuHeader": "global.master_data",
+            "permission": "header_master_data_access"
+        },
+        {
+            "name": "cruds.contact.title",
+            "icon": "menu-icon tf-icons ti ti-user-exclamation",
+            "slug": "admin.contacts.index",
+            "permission": "contact_access"
+        },
+        {
+            "name": "cruds.supply.title",
+            "icon": "menu-icon tf-icons ti ti-box-multiple",
+            "slug": "admin.supplies.index",
+            "permission": "supply_access"
+        },
+
+        {
+            "name": "cruds.product.title",
+            "icon": "menu-icon tf-icons ti ti-brand-producthunt",
+            "slug": null,
+            "permission": "product_access",
+            "submenu": [
+                {
+                    "name": "global.item",
+                    "slug": "admin.products.index",
+                    "permission": "product_access"
+                },
+                {
+                    "name": "cruds.category.title",
+                    "slug": "admin.categories.index",
+                    "permission": "category_access"
+                }
+            ]
+        },
+
+        {
+            "menuHeader": "global.utility",
+            "permission": "header_utility_access"
+        },
+        {
+            "name": "cruds.article.title",
+            "icon": "menu-icon tf-icons ti ti-book-2",
+            "slug": null,
+            "permission": "article_access",
+            "submenu": [
+                {
+                    "name": "cruds.articleContent.title",
+                    "slug": "admin.article-contents.index",
+                    "permission": "article_content_access"
+                },
+                {
+                    "name": "cruds.articleCategory.title",
+                    "slug": "admin.article-categories.index",
+                    "permission": "article_category_access"
+                }
+            ]
+        },
+        {
+            "name": "global.setting",
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "admin.settings.index",
+            "permission": "setting_access"
+        }
+    ]
 }

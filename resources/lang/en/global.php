@@ -1,13 +1,20 @@
 <?php
 
 return [
+    'dashboard'                      => 'Dashboard',
+    'transaction'                    => 'Transaction',
+    'utility'                        => 'Utility',
+    'report'                         => 'Report',
+    'master_data'                    => 'Master Data',
+    'setting'                        => 'Setting',
+    'item'                           => 'Item',
+
     'actions'                        => 'Actions',
     'add'                            => 'Add',
     'allRightsReserved'              => 'All rights reserved.',
     'areYouSure'                     => 'Are you sure?',
     'clickHereToVerify'              => 'Click here to verify',
     'create'                         => 'Create',
-    'dashboard'                      => 'Dashboard',
     'delete'                         => 'Delete',
     'cancel'                         => 'Cancel',
     'clear'                          => 'Clear',
