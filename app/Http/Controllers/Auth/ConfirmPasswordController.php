@@ -37,4 +37,11 @@ class ConfirmPasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function showConfirmForm()
+    {
+        $pageConfigs = ['myLayout' => 'blank'];
+
+        return view('auth.passwords.confirm', ['pageConfigs' => $pageConfigs]);
+    }
 }

@@ -1,9 +1,9 @@
 <?php
 // Variables
 return [
-  "creatorName" => "Oskar Pra",
+  "creatorName" => "Scc Panel",
   "creatorUrl" => "https://github.com/xanndreas",
-  "templateName" => "E-commerce",
+  "templateName" => "Scc",
   "templateSuffix" => "Made transaction easier",
   "templateVersion" => "1.0.0",
   "templateFree" => false,

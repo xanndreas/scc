@@ -6,6 +6,8 @@ class HomeController
 {
     public function index()
     {
-        return view('home');
+        $pageConfigs = ['myLayout' => 'vertical', 'displayCustomizer' => false];
+
+        return view('content.admin.home', ['pageConfigs' => $pageConfigs]);
     }
 }

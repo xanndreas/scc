@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,13 +30,11 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
 
     Route::get('supplies', 'SupplyController@index')->name('supplies.index');
-
 });
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
-
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');

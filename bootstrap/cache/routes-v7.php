@@ -944,7 +944,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4nhpQc8KnP9tQIr1',
+            '_route' => 'generated::fvhJfkbpwK73i22k',
           ),
           1 => NULL,
           2 => 
@@ -964,6 +964,42 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'logout',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/register' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'register',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::q6LWRXrKYxClkb3h',
           ),
           1 => NULL,
           2 => 
@@ -1054,7 +1090,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::tedEhMOO6Us5tewi',
+            '_route' => 'generated::ufABdvy1oR4Yj52J',
           ),
           1 => NULL,
           2 => 
@@ -9509,7 +9545,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4nhpQc8KnP9tQIr1' => 
+    'generated::fvhJfkbpwK73i22k' => 
     array (
       'methods' => 
       array (
@@ -9529,7 +9565,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4nhpQc8KnP9tQIr1',
+        'as' => 'generated::fvhJfkbpwK73i22k',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9566,6 +9602,79 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'logout',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'register' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'register',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Auth\\RegisterController@showRegistrationForm',
+        'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@showRegistrationForm',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'register',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::q6LWRXrKYxClkb3h' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'register',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Auth\\RegisterController@register',
+        'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@register',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::q6LWRXrKYxClkb3h',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9764,7 +9873,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::tedEhMOO6Us5tewi' => 
+    'generated::ufABdvy1oR4Yj52J' => 
     array (
       'methods' => 
       array (
@@ -9784,7 +9893,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::tedEhMOO6Us5tewi',
+        'as' => 'generated::ufABdvy1oR4Yj52J',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9815,10 +9924,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\HomeController@index',
-        'controller' => 'Admin\\HomeController@index',
+        'uses' => 'App\\Http\\Controllers\\admin\\HomeController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\HomeController@index',
         'as' => 'admin.home',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -9852,10 +9961,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\PermissionsController@massDestroy',
-        'controller' => 'Admin\\PermissionsController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@massDestroy',
         'as' => 'admin.permissions.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -9891,9 +10000,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.index',
-        'uses' => 'Admin\\PermissionsController@index',
-        'controller' => 'Admin\\PermissionsController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -9929,9 +10038,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.create',
-        'uses' => 'Admin\\PermissionsController@create',
-        'controller' => 'Admin\\PermissionsController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -9966,9 +10075,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.store',
-        'uses' => 'Admin\\PermissionsController@store',
-        'controller' => 'Admin\\PermissionsController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10004,9 +10113,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.show',
-        'uses' => 'Admin\\PermissionsController@show',
-        'controller' => 'Admin\\PermissionsController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10042,9 +10151,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.edit',
-        'uses' => 'Admin\\PermissionsController@edit',
-        'controller' => 'Admin\\PermissionsController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10080,9 +10189,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.update',
-        'uses' => 'Admin\\PermissionsController@update',
-        'controller' => 'Admin\\PermissionsController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10117,9 +10226,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.permissions.destroy',
-        'uses' => 'Admin\\PermissionsController@destroy',
-        'controller' => 'Admin\\PermissionsController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PermissionsController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PermissionsController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10153,10 +10262,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\RolesController@massDestroy',
-        'controller' => 'Admin\\RolesController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@massDestroy',
         'as' => 'admin.roles.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10192,9 +10301,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.index',
-        'uses' => 'Admin\\RolesController@index',
-        'controller' => 'Admin\\RolesController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10230,9 +10339,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.create',
-        'uses' => 'Admin\\RolesController@create',
-        'controller' => 'Admin\\RolesController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10267,9 +10376,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.store',
-        'uses' => 'Admin\\RolesController@store',
-        'controller' => 'Admin\\RolesController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10305,9 +10414,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.show',
-        'uses' => 'Admin\\RolesController@show',
-        'controller' => 'Admin\\RolesController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10343,9 +10452,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.edit',
-        'uses' => 'Admin\\RolesController@edit',
-        'controller' => 'Admin\\RolesController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10381,9 +10490,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.update',
-        'uses' => 'Admin\\RolesController@update',
-        'controller' => 'Admin\\RolesController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10418,9 +10527,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.roles.destroy',
-        'uses' => 'Admin\\RolesController@destroy',
-        'controller' => 'Admin\\RolesController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\RolesController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\RolesController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10454,10 +10563,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\UsersController@massDestroy',
-        'controller' => 'Admin\\UsersController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@massDestroy',
         'as' => 'admin.users.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10491,10 +10600,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\UsersController@parseCsvImport',
-        'controller' => 'Admin\\UsersController@parseCsvImport',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@parseCsvImport',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@parseCsvImport',
         'as' => 'admin.users.parseCsvImport',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10528,10 +10637,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\UsersController@processCsvImport',
-        'controller' => 'Admin\\UsersController@processCsvImport',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@processCsvImport',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@processCsvImport',
         'as' => 'admin.users.processCsvImport',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10567,9 +10676,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.index',
-        'uses' => 'Admin\\UsersController@index',
-        'controller' => 'Admin\\UsersController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10605,9 +10714,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.create',
-        'uses' => 'Admin\\UsersController@create',
-        'controller' => 'Admin\\UsersController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10642,9 +10751,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.store',
-        'uses' => 'Admin\\UsersController@store',
-        'controller' => 'Admin\\UsersController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10680,9 +10789,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.show',
-        'uses' => 'Admin\\UsersController@show',
-        'controller' => 'Admin\\UsersController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10718,9 +10827,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.edit',
-        'uses' => 'Admin\\UsersController@edit',
-        'controller' => 'Admin\\UsersController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10756,9 +10865,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.update',
-        'uses' => 'Admin\\UsersController@update',
-        'controller' => 'Admin\\UsersController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10793,9 +10902,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.users.destroy',
-        'uses' => 'Admin\\UsersController@destroy',
-        'controller' => 'Admin\\UsersController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\UsersController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\UsersController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10831,9 +10940,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.audit-logs.index',
-        'uses' => 'Admin\\AuditLogsController@index',
-        'controller' => 'Admin\\AuditLogsController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\AuditLogsController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\AuditLogsController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10869,9 +10978,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.audit-logs.show',
-        'uses' => 'Admin\\AuditLogsController@show',
-        'controller' => 'Admin\\AuditLogsController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\AuditLogsController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\AuditLogsController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10905,10 +11014,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\CategoryController@massDestroy',
-        'controller' => 'Admin\\CategoryController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@massDestroy',
         'as' => 'admin.categories.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10944,9 +11053,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.index',
-        'uses' => 'Admin\\CategoryController@index',
-        'controller' => 'Admin\\CategoryController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -10982,9 +11091,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.create',
-        'uses' => 'Admin\\CategoryController@create',
-        'controller' => 'Admin\\CategoryController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11019,9 +11128,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.store',
-        'uses' => 'Admin\\CategoryController@store',
-        'controller' => 'Admin\\CategoryController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11057,9 +11166,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.show',
-        'uses' => 'Admin\\CategoryController@show',
-        'controller' => 'Admin\\CategoryController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11095,9 +11204,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.edit',
-        'uses' => 'Admin\\CategoryController@edit',
-        'controller' => 'Admin\\CategoryController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11133,9 +11242,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.update',
-        'uses' => 'Admin\\CategoryController@update',
-        'controller' => 'Admin\\CategoryController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11170,9 +11279,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.categories.destroy',
-        'uses' => 'Admin\\CategoryController@destroy',
-        'controller' => 'Admin\\CategoryController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CategoryController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\CategoryController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11206,10 +11315,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ProductController@massDestroy',
-        'controller' => 'Admin\\ProductController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@massDestroy',
         'as' => 'admin.products.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11243,10 +11352,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ProductController@storeMedia',
-        'controller' => 'Admin\\ProductController@storeMedia',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@storeMedia',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@storeMedia',
         'as' => 'admin.products.storeMedia',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11280,10 +11389,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ProductController@storeCKEditorImages',
-        'controller' => 'Admin\\ProductController@storeCKEditorImages',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@storeCKEditorImages',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@storeCKEditorImages',
         'as' => 'admin.products.storeCKEditorImages',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11317,10 +11426,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ProductController@parseCsvImport',
-        'controller' => 'Admin\\ProductController@parseCsvImport',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@parseCsvImport',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@parseCsvImport',
         'as' => 'admin.products.parseCsvImport',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11354,10 +11463,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ProductController@processCsvImport',
-        'controller' => 'Admin\\ProductController@processCsvImport',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@processCsvImport',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@processCsvImport',
         'as' => 'admin.products.processCsvImport',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11393,9 +11502,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.index',
-        'uses' => 'Admin\\ProductController@index',
-        'controller' => 'Admin\\ProductController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11431,9 +11540,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.create',
-        'uses' => 'Admin\\ProductController@create',
-        'controller' => 'Admin\\ProductController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11468,9 +11577,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.store',
-        'uses' => 'Admin\\ProductController@store',
-        'controller' => 'Admin\\ProductController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11506,9 +11615,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.show',
-        'uses' => 'Admin\\ProductController@show',
-        'controller' => 'Admin\\ProductController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11544,9 +11653,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.edit',
-        'uses' => 'Admin\\ProductController@edit',
-        'controller' => 'Admin\\ProductController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11582,9 +11691,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.update',
-        'uses' => 'Admin\\ProductController@update',
-        'controller' => 'Admin\\ProductController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11619,9 +11728,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.products.destroy',
-        'uses' => 'Admin\\ProductController@destroy',
-        'controller' => 'Admin\\ProductController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ProductController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ProductController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11655,10 +11764,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\SellingController@massDestroy',
-        'controller' => 'Admin\\SellingController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@massDestroy',
         'as' => 'admin.sellings.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11694,9 +11803,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.index',
-        'uses' => 'Admin\\SellingController@index',
-        'controller' => 'Admin\\SellingController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11732,9 +11841,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.create',
-        'uses' => 'Admin\\SellingController@create',
-        'controller' => 'Admin\\SellingController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11769,9 +11878,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.store',
-        'uses' => 'Admin\\SellingController@store',
-        'controller' => 'Admin\\SellingController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11807,9 +11916,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.show',
-        'uses' => 'Admin\\SellingController@show',
-        'controller' => 'Admin\\SellingController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11845,9 +11954,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.edit',
-        'uses' => 'Admin\\SellingController@edit',
-        'controller' => 'Admin\\SellingController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11883,9 +11992,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.update',
-        'uses' => 'Admin\\SellingController@update',
-        'controller' => 'Admin\\SellingController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11920,9 +12029,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.sellings.destroy',
-        'uses' => 'Admin\\SellingController@destroy',
-        'controller' => 'Admin\\SellingController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11956,10 +12065,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\SellingDetailController@massDestroy',
-        'controller' => 'Admin\\SellingDetailController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@massDestroy',
         'as' => 'admin.selling-details.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -11995,9 +12104,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.index',
-        'uses' => 'Admin\\SellingDetailController@index',
-        'controller' => 'Admin\\SellingDetailController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12033,9 +12142,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.create',
-        'uses' => 'Admin\\SellingDetailController@create',
-        'controller' => 'Admin\\SellingDetailController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12070,9 +12179,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.store',
-        'uses' => 'Admin\\SellingDetailController@store',
-        'controller' => 'Admin\\SellingDetailController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12108,9 +12217,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.show',
-        'uses' => 'Admin\\SellingDetailController@show',
-        'controller' => 'Admin\\SellingDetailController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12146,9 +12255,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.edit',
-        'uses' => 'Admin\\SellingDetailController@edit',
-        'controller' => 'Admin\\SellingDetailController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12184,9 +12293,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.update',
-        'uses' => 'Admin\\SellingDetailController@update',
-        'controller' => 'Admin\\SellingDetailController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12221,9 +12330,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.selling-details.destroy',
-        'uses' => 'Admin\\SellingDetailController@destroy',
-        'controller' => 'Admin\\SellingDetailController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SellingDetailController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SellingDetailController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12257,10 +12366,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\CartController@massDestroy',
-        'controller' => 'Admin\\CartController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@massDestroy',
         'as' => 'admin.carts.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12296,9 +12405,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.index',
-        'uses' => 'Admin\\CartController@index',
-        'controller' => 'Admin\\CartController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12334,9 +12443,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.create',
-        'uses' => 'Admin\\CartController@create',
-        'controller' => 'Admin\\CartController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12371,9 +12480,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.store',
-        'uses' => 'Admin\\CartController@store',
-        'controller' => 'Admin\\CartController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12409,9 +12518,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.show',
-        'uses' => 'Admin\\CartController@show',
-        'controller' => 'Admin\\CartController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12447,9 +12556,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.edit',
-        'uses' => 'Admin\\CartController@edit',
-        'controller' => 'Admin\\CartController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12485,9 +12594,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.update',
-        'uses' => 'Admin\\CartController@update',
-        'controller' => 'Admin\\CartController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12522,9 +12631,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.carts.destroy',
-        'uses' => 'Admin\\CartController@destroy',
-        'controller' => 'Admin\\CartController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\CartController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\CartController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12558,10 +12667,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\PurchasingController@massDestroy',
-        'controller' => 'Admin\\PurchasingController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@massDestroy',
         'as' => 'admin.purchasings.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12597,9 +12706,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.index',
-        'uses' => 'Admin\\PurchasingController@index',
-        'controller' => 'Admin\\PurchasingController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12635,9 +12744,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.create',
-        'uses' => 'Admin\\PurchasingController@create',
-        'controller' => 'Admin\\PurchasingController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12672,9 +12781,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.store',
-        'uses' => 'Admin\\PurchasingController@store',
-        'controller' => 'Admin\\PurchasingController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12710,9 +12819,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.show',
-        'uses' => 'Admin\\PurchasingController@show',
-        'controller' => 'Admin\\PurchasingController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12748,9 +12857,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.edit',
-        'uses' => 'Admin\\PurchasingController@edit',
-        'controller' => 'Admin\\PurchasingController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12786,9 +12895,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.update',
-        'uses' => 'Admin\\PurchasingController@update',
-        'controller' => 'Admin\\PurchasingController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12823,9 +12932,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasings.destroy',
-        'uses' => 'Admin\\PurchasingController@destroy',
-        'controller' => 'Admin\\PurchasingController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12859,10 +12968,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\PurchasingDetailController@massDestroy',
-        'controller' => 'Admin\\PurchasingDetailController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@massDestroy',
         'as' => 'admin.purchasing-details.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12898,9 +13007,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.index',
-        'uses' => 'Admin\\PurchasingDetailController@index',
-        'controller' => 'Admin\\PurchasingDetailController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12936,9 +13045,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.create',
-        'uses' => 'Admin\\PurchasingDetailController@create',
-        'controller' => 'Admin\\PurchasingDetailController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -12973,9 +13082,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.store',
-        'uses' => 'Admin\\PurchasingDetailController@store',
-        'controller' => 'Admin\\PurchasingDetailController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13011,9 +13120,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.show',
-        'uses' => 'Admin\\PurchasingDetailController@show',
-        'controller' => 'Admin\\PurchasingDetailController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13049,9 +13158,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.edit',
-        'uses' => 'Admin\\PurchasingDetailController@edit',
-        'controller' => 'Admin\\PurchasingDetailController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13087,9 +13196,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.update',
-        'uses' => 'Admin\\PurchasingDetailController@update',
-        'controller' => 'Admin\\PurchasingDetailController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13124,9 +13233,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.purchasing-details.destroy',
-        'uses' => 'Admin\\PurchasingDetailController@destroy',
-        'controller' => 'Admin\\PurchasingDetailController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\PurchasingDetailController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13160,10 +13269,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\OfferDetailController@massDestroy',
-        'controller' => 'Admin\\OfferDetailController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@massDestroy',
         'as' => 'admin.offer-details.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13199,9 +13308,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.index',
-        'uses' => 'Admin\\OfferDetailController@index',
-        'controller' => 'Admin\\OfferDetailController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13237,9 +13346,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.create',
-        'uses' => 'Admin\\OfferDetailController@create',
-        'controller' => 'Admin\\OfferDetailController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13274,9 +13383,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.store',
-        'uses' => 'Admin\\OfferDetailController@store',
-        'controller' => 'Admin\\OfferDetailController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13312,9 +13421,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.show',
-        'uses' => 'Admin\\OfferDetailController@show',
-        'controller' => 'Admin\\OfferDetailController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13350,9 +13459,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.edit',
-        'uses' => 'Admin\\OfferDetailController@edit',
-        'controller' => 'Admin\\OfferDetailController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13388,9 +13497,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.update',
-        'uses' => 'Admin\\OfferDetailController@update',
-        'controller' => 'Admin\\OfferDetailController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13425,9 +13534,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offer-details.destroy',
-        'uses' => 'Admin\\OfferDetailController@destroy',
-        'controller' => 'Admin\\OfferDetailController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferDetailController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferDetailController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13461,10 +13570,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\OfferController@massDestroy',
-        'controller' => 'Admin\\OfferController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@massDestroy',
         'as' => 'admin.offers.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13500,9 +13609,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.index',
-        'uses' => 'Admin\\OfferController@index',
-        'controller' => 'Admin\\OfferController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13538,9 +13647,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.create',
-        'uses' => 'Admin\\OfferController@create',
-        'controller' => 'Admin\\OfferController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13575,9 +13684,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.store',
-        'uses' => 'Admin\\OfferController@store',
-        'controller' => 'Admin\\OfferController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13613,9 +13722,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.show',
-        'uses' => 'Admin\\OfferController@show',
-        'controller' => 'Admin\\OfferController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13651,9 +13760,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.edit',
-        'uses' => 'Admin\\OfferController@edit',
-        'controller' => 'Admin\\OfferController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13689,9 +13798,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.update',
-        'uses' => 'Admin\\OfferController@update',
-        'controller' => 'Admin\\OfferController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13726,9 +13835,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.offers.destroy',
-        'uses' => 'Admin\\OfferController@destroy',
-        'controller' => 'Admin\\OfferController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13762,10 +13871,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\InventoryController@massDestroy',
-        'controller' => 'Admin\\InventoryController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@massDestroy',
         'as' => 'admin.inventories.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13801,9 +13910,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.index',
-        'uses' => 'Admin\\InventoryController@index',
-        'controller' => 'Admin\\InventoryController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13839,9 +13948,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.create',
-        'uses' => 'Admin\\InventoryController@create',
-        'controller' => 'Admin\\InventoryController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13876,9 +13985,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.store',
-        'uses' => 'Admin\\InventoryController@store',
-        'controller' => 'Admin\\InventoryController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13914,9 +14023,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.show',
-        'uses' => 'Admin\\InventoryController@show',
-        'controller' => 'Admin\\InventoryController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13952,9 +14061,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.edit',
-        'uses' => 'Admin\\InventoryController@edit',
-        'controller' => 'Admin\\InventoryController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -13990,9 +14099,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.update',
-        'uses' => 'Admin\\InventoryController@update',
-        'controller' => 'Admin\\InventoryController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14027,9 +14136,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.inventories.destroy',
-        'uses' => 'Admin\\InventoryController@destroy',
-        'controller' => 'Admin\\InventoryController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\InventoryController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\InventoryController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14063,10 +14172,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\StockOpnameController@massDestroy',
-        'controller' => 'Admin\\StockOpnameController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@massDestroy',
         'as' => 'admin.stock-opnames.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14102,9 +14211,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.index',
-        'uses' => 'Admin\\StockOpnameController@index',
-        'controller' => 'Admin\\StockOpnameController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14140,9 +14249,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.create',
-        'uses' => 'Admin\\StockOpnameController@create',
-        'controller' => 'Admin\\StockOpnameController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14177,9 +14286,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.store',
-        'uses' => 'Admin\\StockOpnameController@store',
-        'controller' => 'Admin\\StockOpnameController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14215,9 +14324,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.show',
-        'uses' => 'Admin\\StockOpnameController@show',
-        'controller' => 'Admin\\StockOpnameController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14253,9 +14362,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.edit',
-        'uses' => 'Admin\\StockOpnameController@edit',
-        'controller' => 'Admin\\StockOpnameController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14291,9 +14400,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.update',
-        'uses' => 'Admin\\StockOpnameController@update',
-        'controller' => 'Admin\\StockOpnameController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14328,9 +14437,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.stock-opnames.destroy',
-        'uses' => 'Admin\\StockOpnameController@destroy',
-        'controller' => 'Admin\\StockOpnameController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\StockOpnameController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\StockOpnameController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14364,10 +14473,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ArticleContentController@massDestroy',
-        'controller' => 'Admin\\ArticleContentController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@massDestroy',
         'as' => 'admin.article-contents.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14401,10 +14510,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ArticleContentController@storeMedia',
-        'controller' => 'Admin\\ArticleContentController@storeMedia',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@storeMedia',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@storeMedia',
         'as' => 'admin.article-contents.storeMedia',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14438,10 +14547,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ArticleContentController@storeCKEditorImages',
-        'controller' => 'Admin\\ArticleContentController@storeCKEditorImages',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@storeCKEditorImages',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@storeCKEditorImages',
         'as' => 'admin.article-contents.storeCKEditorImages',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14477,9 +14586,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.index',
-        'uses' => 'Admin\\ArticleContentController@index',
-        'controller' => 'Admin\\ArticleContentController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14515,9 +14624,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.create',
-        'uses' => 'Admin\\ArticleContentController@create',
-        'controller' => 'Admin\\ArticleContentController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14552,9 +14661,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.store',
-        'uses' => 'Admin\\ArticleContentController@store',
-        'controller' => 'Admin\\ArticleContentController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14590,9 +14699,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.show',
-        'uses' => 'Admin\\ArticleContentController@show',
-        'controller' => 'Admin\\ArticleContentController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14628,9 +14737,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.edit',
-        'uses' => 'Admin\\ArticleContentController@edit',
-        'controller' => 'Admin\\ArticleContentController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14666,9 +14775,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.update',
-        'uses' => 'Admin\\ArticleContentController@update',
-        'controller' => 'Admin\\ArticleContentController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14703,9 +14812,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-contents.destroy',
-        'uses' => 'Admin\\ArticleContentController@destroy',
-        'controller' => 'Admin\\ArticleContentController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleContentController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleContentController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14739,10 +14848,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ArticleCategoryController@massDestroy',
-        'controller' => 'Admin\\ArticleCategoryController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@massDestroy',
         'as' => 'admin.article-categories.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14778,9 +14887,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.index',
-        'uses' => 'Admin\\ArticleCategoryController@index',
-        'controller' => 'Admin\\ArticleCategoryController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14816,9 +14925,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.create',
-        'uses' => 'Admin\\ArticleCategoryController@create',
-        'controller' => 'Admin\\ArticleCategoryController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14853,9 +14962,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.store',
-        'uses' => 'Admin\\ArticleCategoryController@store',
-        'controller' => 'Admin\\ArticleCategoryController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14891,9 +15000,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.show',
-        'uses' => 'Admin\\ArticleCategoryController@show',
-        'controller' => 'Admin\\ArticleCategoryController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14929,9 +15038,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.edit',
-        'uses' => 'Admin\\ArticleCategoryController@edit',
-        'controller' => 'Admin\\ArticleCategoryController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -14967,9 +15076,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.update',
-        'uses' => 'Admin\\ArticleCategoryController@update',
-        'controller' => 'Admin\\ArticleCategoryController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15004,9 +15113,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.article-categories.destroy',
-        'uses' => 'Admin\\ArticleCategoryController@destroy',
-        'controller' => 'Admin\\ArticleCategoryController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ArticleCategoryController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15040,10 +15149,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ContactController@massDestroy',
-        'controller' => 'Admin\\ContactController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@massDestroy',
         'as' => 'admin.contacts.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15077,10 +15186,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ContactController@storeMedia',
-        'controller' => 'Admin\\ContactController@storeMedia',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@storeMedia',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@storeMedia',
         'as' => 'admin.contacts.storeMedia',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15114,10 +15223,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\ContactController@storeCKEditorImages',
-        'controller' => 'Admin\\ContactController@storeCKEditorImages',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@storeCKEditorImages',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@storeCKEditorImages',
         'as' => 'admin.contacts.storeCKEditorImages',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15153,9 +15262,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.index',
-        'uses' => 'Admin\\ContactController@index',
-        'controller' => 'Admin\\ContactController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15191,9 +15300,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.create',
-        'uses' => 'Admin\\ContactController@create',
-        'controller' => 'Admin\\ContactController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15228,9 +15337,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.store',
-        'uses' => 'Admin\\ContactController@store',
-        'controller' => 'Admin\\ContactController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15266,9 +15375,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.show',
-        'uses' => 'Admin\\ContactController@show',
-        'controller' => 'Admin\\ContactController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15304,9 +15413,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.edit',
-        'uses' => 'Admin\\ContactController@edit',
-        'controller' => 'Admin\\ContactController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15342,9 +15451,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.update',
-        'uses' => 'Admin\\ContactController@update',
-        'controller' => 'Admin\\ContactController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15379,9 +15488,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.contacts.destroy',
-        'uses' => 'Admin\\ContactController@destroy',
-        'controller' => 'Admin\\ContactController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\ContactController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\ContactController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15415,10 +15524,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'Admin\\SupplyController@massDestroy',
-        'controller' => 'Admin\\SupplyController@massDestroy',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@massDestroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@massDestroy',
         'as' => 'admin.supplies.massDestroy',
-        'namespace' => 'Admin',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15454,9 +15563,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.index',
-        'uses' => 'Admin\\SupplyController@index',
-        'controller' => 'Admin\\SupplyController@index',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15492,9 +15601,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.create',
-        'uses' => 'Admin\\SupplyController@create',
-        'controller' => 'Admin\\SupplyController@create',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@create',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@create',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15529,9 +15638,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.store',
-        'uses' => 'Admin\\SupplyController@store',
-        'controller' => 'Admin\\SupplyController@store',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@store',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@store',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15567,9 +15676,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.show',
-        'uses' => 'Admin\\SupplyController@show',
-        'controller' => 'Admin\\SupplyController@show',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@show',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@show',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15605,9 +15714,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.edit',
-        'uses' => 'Admin\\SupplyController@edit',
-        'controller' => 'Admin\\SupplyController@edit',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@edit',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@edit',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15643,9 +15752,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.update',
-        'uses' => 'Admin\\SupplyController@update',
-        'controller' => 'Admin\\SupplyController@update',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
@@ -15680,9 +15789,9 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
         ),
         'as' => 'admin.supplies.destroy',
-        'uses' => 'Admin\\SupplyController@destroy',
-        'controller' => 'Admin\\SupplyController@destroy',
-        'namespace' => 'Admin',
+        'uses' => 'App\\Http\\Controllers\\admin\\SupplyController@destroy',
+        'controller' => 'App\\Http\\Controllers\\admin\\SupplyController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 
         array (
