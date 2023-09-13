@@ -135,7 +135,7 @@ return [
             'slug_helper'           => ' ',
             'featured_image'        => 'Featured Image',
             'featured_image_helper' => ' ',
-            'product_code'          => 'Product Code',
+            'product_code'          => 'Code',
             'product_code_helper'   => ' ',
             'description'           => 'Description',
             'description_helper'    => ' ',

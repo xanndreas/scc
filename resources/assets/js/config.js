@@ -45,6 +45,7 @@ let config = {
     },
     enableMenuLocalStorage: true // Enable menu state with local storage support
 };
+
 let assetsPath = document.documentElement.getAttribute('data-assets-path'),
     baseUrl = document.documentElement.getAttribute('data-base-url') + '/',
     templateName = document.documentElement.getAttribute('data-template'),

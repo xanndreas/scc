@@ -8,6 +8,8 @@ return [
     'master_data'                    => 'Master Data',
     'setting'                        => 'Setting',
     'item'                           => 'Item',
+    'error_text_400'                 => 'Something went wrong.',
+    'success_text_200'               => 'Operation complete successfully.',
 
     'actions'                        => 'Actions',
     'add'                            => 'Add',

@@ -37,6 +37,12 @@
             "permission": "header_report_access"
         },
         {
+            "name": "cruds.transaction.title",
+            "icon": "menu-icon tf-icons ti  ti-transfer-in",
+            "slug": "admin.inventories.index",
+            "permission": "inventory_access"
+        },
+        {
             "menuHeader": "global.master_data",
             "permission": "header_master_data_access"
         },

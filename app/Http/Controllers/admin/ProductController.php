@@ -10,8 +10,8 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -37,7 +37,7 @@ class ProductController extends Controller
                 $deleteGate    = 'product_delete';
                 $crudRoutePart = 'products';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
@@ -99,7 +99,7 @@ class ProductController extends Controller
 
         $categories = Category::get();
 
-        return view('admin.products.index', compact('categories'));
+        return view('content.admin.products.index', compact('categories'));
     }
 
     public function create()
@@ -108,7 +108,7 @@ class ProductController extends Controller
 
         $categories = Category::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.products.create', compact('categories'));
+        return view('content.admin.products.create', compact('categories'));
     }
 
     public function store(StoreProductRequest $request)
@@ -134,7 +134,7 @@ class ProductController extends Controller
 
         $product->load('category');
 
-        return view('admin.products.edit', compact('categories', 'product'));
+        return view('content.admin.products.edit', compact('categories', 'product'));
     }
 
     public function update(UpdateProductRequest $request, Product $product)
@@ -164,7 +164,7 @@ class ProductController extends Controller
 
         $product->load('category', 'productPurchasingDetails');
 
-        return view('admin.products.show', compact('product'));
+        return view('content.admin.products.show', compact('product'));
     }
 
     public function destroy(Product $product)

@@ -7,8 +7,8 @@ use App\Http\Requests\MassDestroyCategoryRequest;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -26,12 +26,12 @@ class CategoryController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'category_show';
-                $editGate      = 'category_edit';
-                $deleteGate    = 'category_delete';
+                $viewGate = 'category_show';
+                $editGate = 'category_edit';
+                $deleteGate = 'category_delete';
                 $crudRoutePart = 'categories';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
@@ -52,28 +52,29 @@ class CategoryController extends Controller
             return $table->make(true);
         }
 
-        return view('admin.categories.index');
+        return view('content.admin.categories.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.categories.create');
+        return view('content.admin.categories.create');
     }
 
     public function store(StoreCategoryRequest $request)
     {
         $category = Category::create($request->all());
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')
+            ->with(['success' => trans('global.success_text_200')]);
     }
 
     public function edit(Category $category)
     {
         abort_if(Gate::denies('category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.categories.edit', compact('category'));
+        return view('content.admin.categories.edit', compact('category'));
     }
 
     public function update(UpdateCategoryRequest $request, Category $category)
@@ -89,7 +90,7 @@ class CategoryController extends Controller
 
         $category->load('categoryProducts');
 
-        return view('admin.categories.show', compact('category'));
+        return view('content.admin.categories.show', compact('category'));
     }
 
     public function destroy(Category $category)

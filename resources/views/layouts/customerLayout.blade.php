@@ -113,7 +113,7 @@
                     <!-- Toolbar: Start -->
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
                         <!-- Style Switcher -->
-                        <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+                        <li class="nav-item dropdown-style-switcher dropdown me-xl-0">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                data-bs-toggle="dropdown">
                                 <i class="ti ti-sm"></i>
@@ -140,18 +140,33 @@
                         <!-- / Style Switcher-->
 
                         <!-- navbar button: Start -->
-                        <li>
-                            <a href="javascript:void(0);" class="btn btn-primary"
-                               target="_blank"><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span
-                                ><span class="d-none d-md-block">Sign in</span></a>
-                        </li>
-                        <li>
-                            <button type="button" class="btn text-nowrap d-inline-block">
-                                <span class="tf-icons ti ti-shopping-cart"></span>
-                                <span
-                                    class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>
-                            </button>
-                        </li>
+                        @if(!\Illuminate\Support\Facades\Auth::check())
+                            <li>
+                                <a href="{{ route('login') }}" class="btn btn-primary">
+                                    <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span>
+                                    <span class="d-none d-md-block">Sign in</span>
+                                </a>
+                            </li>
+                        @else
+                            @can('admin_page_access')
+                                <li>
+                                    <a href="{{ route('admin.home') }}" class="btn btn-primary">
+                                        <span class="tf-icons ti ti-smart-home scaleX-n1-rtl me-md-1"></span>
+                                        <span class="d-none d-md-block">Dashboard</span>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @cannot('admin_page_access')
+                                <li class="nav-item">
+                                    <a class="btn text-nowrap d-inline-block" href="javascript:void(0);">
+                                        <span class="tf-icons ti ti-shopping-cart"></span>
+                                        <span
+                                            class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>
+                                    </a>
+                                </li>
+                            @endcannot
+                        @endif
                         <!-- navbar button: End -->
                     </ul>
                     <!-- Toolbar: End -->

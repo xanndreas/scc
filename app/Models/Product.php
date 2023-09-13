@@ -18,7 +18,7 @@ class Product extends Model implements HasMedia
     public $table = 'products';
 
     public const TYPE_SELECT = [
-
+        'type' => 'Type',
     ];
 
     protected $appends = [
