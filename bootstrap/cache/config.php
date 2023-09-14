@@ -2,15 +2,15 @@
   'app' => 
   array (
     'name' => 'Laravel',
-    'env' => 'production',
-    'debug' => false,
+    'env' => 'local',
+    'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => NULL,
+    'key' => 'base64:EjO9qxs1QfB4c/ROl6za5bW7pbqlk42jrLcbUbhp99E=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -133,19 +133,19 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'null',
+    'default' => 'log',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => NULL,
-        'secret' => NULL,
-        'app_id' => NULL,
+        'key' => '',
+        'secret' => '',
+        'app_id' => '',
         'options' => 
         array (
           'host' => 'api-mt1.pusher.com',
-          'port' => 443,
+          'port' => '443',
           'scheme' => 'https',
           'encrypted' => true,
           'useTLS' => true,
@@ -198,7 +198,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/data',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -231,8 +231,8 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
@@ -277,12 +277,12 @@
     'custom' => 
     array (
       'myLayout' => 'vertical',
-      'myTheme' => 'theme-default',
+      'myTheme' => 'theme-semi-dark',
       'myStyle' => 'light',
       'myRTLSupport' => true,
       'myRTLMode' => false,
       'hasCustomizer' => true,
-      'displayCustomizer' => true,
+      'displayCustomizer' => false,
       'menuFixed' => true,
       'menuCollapsed' => false,
       'navbarFixed' => false,
@@ -309,7 +309,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'E:\\Projects\\OnProgress\\scc-dev\\database\\database.sqlite',
+        'database' => 'scc',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -319,8 +319,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'forge',
-        'username' => 'forge',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -338,9 +338,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
-        'database' => 'forge',
-        'username' => 'forge',
+        'port' => '3306',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -352,10 +352,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
-        'port' => '1433',
-        'database' => 'forge',
-        'username' => 'forge',
+        'host' => '127.0.0.1',
+        'port' => '3306',
+        'database' => 'scc',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -399,24 +399,24 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app',
+        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
-        'url' => '/storage',
+        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
       's3' => 
       array (
         'driver' => 's3',
-        'key' => NULL,
-        'secret' => NULL,
-        'region' => NULL,
-        'bucket' => NULL,
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
+        'bucket' => '',
         'url' => NULL,
         'endpoint' => NULL,
         'use_path_style_endpoint' => false,
@@ -425,7 +425,7 @@
     ),
     'links' => 
     array (
-      'E:\\Projects\\OnProgress\\scc-dev\\public\\storage' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+      'D:\\Projects\\OnProgress\\scc-dev\\public\\storage' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -447,7 +447,7 @@
     'default' => 'stack',
     'deprecations' => 
     array (
-      'channel' => 'null',
+      'channel' => NULL,
       'trace' => false,
     ),
     'channels' => 
@@ -464,14 +464,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -482,7 +482,7 @@
         'url' => NULL,
         'username' => 'Laravel Log',
         'emoji' => ':boom:',
-        'level' => 'critical',
+        'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'papertrail' => 
@@ -536,7 +536,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -548,9 +548,9 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailgun.org',
-        'port' => 587,
-        'encryption' => 'tls',
+        'host' => 'mailpit',
+        'port' => '1025',
+        'encryption' => NULL,
         'username' => NULL,
         'password' => NULL,
         'timeout' => NULL,
@@ -595,14 +595,14 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Example',
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\Projects\\OnProgress\\scc-dev\\resources\\views/vendor/mail',
+        0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -635,8 +635,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'default',
         'suffix' => NULL,
@@ -697,18 +697,18 @@
     ),
     'ses' => 
     array (
-      'key' => NULL,
-      'secret' => NULL,
+      'key' => '',
+      'secret' => '',
       'region' => 'us-east-1',
     ),
   ),
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => 120,
+    'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
+    'files' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -726,10 +726,10 @@
   ),
   'variables' => 
   array (
-    'creatorName' => 'Oskar Pra',
+    'creatorName' => 'Scc Panel',
     'creatorUrl' => 'https://github.com/xanndreas',
-    'templateName' => 'E-commerce',
-    'templateSuffix' => 'E-commerce',
+    'templateName' => 'Scc',
+    'templateSuffix' => 'Made transaction easier',
     'templateVersion' => '1.0.0',
     'templateFree' => false,
     'templateDescription' => 'Start your development with a Dashboard for Bootstrap 5',
@@ -756,9 +756,125 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\Projects\\OnProgress\\scc-dev\\resources\\views',
+      0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views',
     ),
-    'compiled' => 'E:\\Projects\\OnProgress\\scc-dev\\storage\\framework\\views',
+    'compiled' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework\\views',
+  ),
+  'image' => 
+  array (
+    'driver' => 'gd',
+  ),
+  'excel' => 
+  array (
+    'exports' => 
+    array (
+      'chunk_size' => 1000,
+      'pre_calculate_formulas' => false,
+      'strict_null_comparison' => false,
+      'csv' => 
+      array (
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'line_ending' => '
+',
+        'use_bom' => false,
+        'include_separator_line' => false,
+        'excel_compatibility' => false,
+        'output_encoding' => '',
+        'test_auto_detect' => true,
+      ),
+      'properties' => 
+      array (
+        'creator' => '',
+        'lastModifiedBy' => '',
+        'title' => '',
+        'description' => '',
+        'subject' => '',
+        'keywords' => '',
+        'category' => '',
+        'manager' => '',
+        'company' => '',
+      ),
+    ),
+    'imports' => 
+    array (
+      'read_only' => true,
+      'ignore_empty' => false,
+      'heading_row' => 
+      array (
+        'formatter' => 'slug',
+      ),
+      'csv' => 
+      array (
+        'delimiter' => NULL,
+        'enclosure' => '"',
+        'escape_character' => '\\',
+        'contiguous' => false,
+        'input_encoding' => 'UTF-8',
+      ),
+      'properties' => 
+      array (
+        'creator' => '',
+        'lastModifiedBy' => '',
+        'title' => '',
+        'description' => '',
+        'subject' => '',
+        'keywords' => '',
+        'category' => '',
+        'manager' => '',
+        'company' => '',
+      ),
+    ),
+    'extension_detector' => 
+    array (
+      'xlsx' => 'Xlsx',
+      'xlsm' => 'Xlsx',
+      'xltx' => 'Xlsx',
+      'xltm' => 'Xlsx',
+      'xls' => 'Xls',
+      'xlt' => 'Xls',
+      'ods' => 'Ods',
+      'ots' => 'Ods',
+      'slk' => 'Slk',
+      'xml' => 'Xml',
+      'gnumeric' => 'Gnumeric',
+      'htm' => 'Html',
+      'html' => 'Html',
+      'csv' => 'Csv',
+      'tsv' => 'Csv',
+      'pdf' => 'Dompdf',
+    ),
+    'value_binder' => 
+    array (
+      'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
+    ),
+    'cache' => 
+    array (
+      'driver' => 'memory',
+      'batch' => 
+      array (
+        'memory_limit' => 60000,
+      ),
+      'illuminate' => 
+      array (
+        'store' => NULL,
+      ),
+    ),
+    'transactions' => 
+    array (
+      'handler' => 'db',
+      'db' => 
+      array (
+        'connection' => NULL,
+      ),
+    ),
+    'temporary_files' => 
+    array (
+      'local_path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/laravel-excel',
+      'remote_disk' => NULL,
+      'remote_prefix' => NULL,
+      'force_resync_remote' => NULL,
+    ),
   ),
   'flare' => 
   array (
@@ -834,7 +950,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'E:\\Projects\\OnProgress\\scc-dev',
+    'remote_sites_path' => 'D:\\Projects\\OnProgress\\scc-dev',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
@@ -860,6 +976,165 @@
       8 => 'Spatie\\LaravelIgnition\\ArgumentReducers\\ModelArgumentReducer',
       9 => 'Spatie\\LaravelIgnition\\ArgumentReducers\\CollectionArgumentReducer',
       10 => 'Spatie\\Backtrace\\Arguments\\Reducers\\StringableArgumentReducer',
+    ),
+  ),
+  'media-library' => 
+  array (
+    'disk_name' => 'public',
+    'max_file_size' => 10485760,
+    'queue_connection_name' => 'sync',
+    'queue_name' => '',
+    'queue_conversions_by_default' => true,
+    'media_model' => 'Spatie\\MediaLibrary\\MediaCollections\\Models\\Media',
+    'use_default_collection_serialization' => false,
+    'temporary_upload_model' => 'Spatie\\MediaLibraryPro\\Models\\TemporaryUpload',
+    'enable_temporary_uploads_session_affinity' => true,
+    'generate_thumbnails_for_temporary_uploads' => true,
+    'file_namer' => 'Spatie\\MediaLibrary\\Support\\FileNamer\\DefaultFileNamer',
+    'path_generator' => 'Spatie\\MediaLibrary\\Support\\PathGenerator\\DefaultPathGenerator',
+    'custom_path_generators' => 
+    array (
+    ),
+    'url_generator' => 'Spatie\\MediaLibrary\\Support\\UrlGenerator\\DefaultUrlGenerator',
+    'moves_media_on_update' => false,
+    'version_urls' => false,
+    'image_optimizers' => 
+    array (
+      'Spatie\\ImageOptimizer\\Optimizers\\Jpegoptim' => 
+      array (
+        0 => '-m85',
+        1 => '--force',
+        2 => '--strip-all',
+        3 => '--all-progressive',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Pngquant' => 
+      array (
+        0 => '--force',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Optipng' => 
+      array (
+        0 => '-i0',
+        1 => '-o2',
+        2 => '-quiet',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Svgo' => 
+      array (
+        0 => '--disable=cleanupIDs',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Gifsicle' => 
+      array (
+        0 => '-b',
+        1 => '-O3',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Cwebp' => 
+      array (
+        0 => '-m 6',
+        1 => '-pass 10',
+        2 => '-mt',
+        3 => '-q 90',
+      ),
+      'Spatie\\ImageOptimizer\\Optimizers\\Avifenc' => 
+      array (
+        0 => '-a cq-level=23',
+        1 => '-j all',
+        2 => '--min 0',
+        3 => '--max 63',
+        4 => '--minalpha 0',
+        5 => '--maxalpha 63',
+        6 => '-a end-usage=q',
+        7 => '-a tune=ssim',
+      ),
+    ),
+    'image_generators' => 
+    array (
+      0 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Image',
+      1 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Webp',
+      2 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Avif',
+      3 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Pdf',
+      4 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Svg',
+      5 => 'Spatie\\MediaLibrary\\Conversions\\ImageGenerators\\Video',
+    ),
+    'temporary_directory_path' => NULL,
+    'image_driver' => 'gd',
+    'ffmpeg_path' => '/usr/bin/ffmpeg',
+    'ffprobe_path' => '/usr/bin/ffprobe',
+    'jobs' => 
+    array (
+      'perform_conversions' => 'Spatie\\MediaLibrary\\Conversions\\Jobs\\PerformConversionsJob',
+      'generate_responsive_images' => 'Spatie\\MediaLibrary\\ResponsiveImages\\Jobs\\GenerateResponsiveImagesJob',
+    ),
+    'media_downloader' => 'Spatie\\MediaLibrary\\Downloaders\\DefaultDownloader',
+    'remote' => 
+    array (
+      'extra_headers' => 
+      array (
+        'CacheControl' => 'max-age=604800',
+      ),
+    ),
+    'responsive_images' => 
+    array (
+      'width_calculator' => 'Spatie\\MediaLibrary\\ResponsiveImages\\WidthCalculator\\FileSizeOptimizedWidthCalculator',
+      'use_tiny_placeholders' => true,
+      'tiny_placeholder_generator' => 'Spatie\\MediaLibrary\\ResponsiveImages\\TinyPlaceholderGenerator\\Blurred',
+    ),
+    'enable_vapor_uploads' => false,
+    'default_loading_attribute_value' => NULL,
+    'prefix' => '',
+  ),
+  'datatables' => 
+  array (
+    'search' => 
+    array (
+      'smart' => true,
+      'multi_term' => true,
+      'case_insensitive' => true,
+      'use_wildcards' => false,
+      'starts_with' => false,
+    ),
+    'index_column' => 'DT_RowIndex',
+    'engines' => 
+    array (
+      'eloquent' => 'Yajra\\DataTables\\EloquentDataTable',
+      'query' => 'Yajra\\DataTables\\QueryDataTable',
+      'collection' => 'Yajra\\DataTables\\CollectionDataTable',
+      'resource' => 'Yajra\\DataTables\\ApiResourceDataTable',
+    ),
+    'builders' => 
+    array (
+    ),
+    'nulls_last_sql' => ':column :direction NULLS LAST',
+    'error' => NULL,
+    'columns' => 
+    array (
+      'excess' => 
+      array (
+        0 => 'rn',
+        1 => 'row_num',
+      ),
+      'escape' => '*',
+      'raw' => 
+      array (
+        0 => 'action',
+      ),
+      'blacklist' => 
+      array (
+        0 => 'password',
+        1 => 'remember_token',
+      ),
+      'whitelist' => '*',
+    ),
+    'json' => 
+    array (
+      'header' => 
+      array (
+      ),
+      'options' => 0,
+    ),
+    'callback' => 
+    array (
+      0 => '$',
+      1 => '$.',
+      2 => 'function',
     ),
   ),
   'tinker' => 

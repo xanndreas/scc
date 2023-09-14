@@ -1,10 +1,10 @@
 <?php
 // Variables
 return [
-  "creatorName" => "Oskar Pra",
+  "creatorName" => "Scc Panel",
   "creatorUrl" => "https://github.com/xanndreas",
-  "templateName" => "E-commerce",
-  "templateSuffix" => "E-commerce",
+  "templateName" => "Scc",
+  "templateSuffix" => "Made transaction easier",
   "templateVersion" => "1.0.0",
   "templateFree" => false,
   "templateDescription" => "Start your development with a Dashboard for Bootstrap 5",

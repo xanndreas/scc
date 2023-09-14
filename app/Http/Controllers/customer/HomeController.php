@@ -9,17 +9,15 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $pageConfigs = ['myLayout' => 'blank', 'navbarFixed' => true, 'displayCustomizer' => false];
+        $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customer.index', ['pageConfigs' => $pageConfigs]);
+        return view('content.customers.home.index', ['pageConfigs' => $pageConfigs]);
     }
 
-    public function marketplace(Request $request)
-    {
-        $pageConfigs = ['myLayout' => 'blank', 'navbarFixed' => true, 'displayCustomizer' => false];
+    public function contacts(Request $request) {
+        $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customer.marketplace', ['pageConfigs' => $pageConfigs]);
+        return view('content.customers.home.contact', ['pageConfigs' => $pageConfigs]);
     }
-
 
 }
