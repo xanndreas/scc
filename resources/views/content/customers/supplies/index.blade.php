@@ -1,6 +1,11 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Shop')
+@section('title', 'Supplies')
+
+@section('page-script')
+    <!-- Vendor js files -->
+    <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
+@endsection
 
 @section('content')
 
@@ -9,7 +14,7 @@
         <div id="landingHero" class="section-py landing-hero position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Marketplace</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Supplies</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
                         Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
                         since the 1500s.
@@ -20,7 +25,7 @@
     </section>
     <!-- Hero: End -->
 
-    <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
+    <section class="section-py bg-body landing-products pb-0">
         <!-- What people say slider: Start -->
         <div class="container">
             <div class="row align-items-center gx-0 gy-4 g-lg-5">
@@ -30,22 +35,22 @@
                         Here our new product from<br class="d-none d-xl-block"/>
                         supplier.
                     </p>
-                    <div class="landing-reviews-btns">
+                    <div class="landing-products-btns">
                         <button
-                            id="reviews-previous-btn"
-                            class="btn btn-label-primary reviews-btn me-3 scaleX-n1-rtl"
+                            id="products-previous-btn"
+                            class="btn btn-label-primary products-btn me-3 scaleX-n1-rtl"
                             type="button">
                             <i class="ti ti-chevron-left ti-sm"></i>
                         </button>
-                        <button id="reviews-next-btn" class="btn btn-label-primary reviews-btn scaleX-n1-rtl"
+                        <button id="products-next-btn" class="btn btn-label-primary products-btn scaleX-n1-rtl"
                                 type="button">
                             <i class="ti ti-chevron-right ti-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-7 col-xl-9">
-                    <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                        <div class="swiper" id="swiper-reviews">
+                    <div class="swiper-products-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
+                        <div class="swiper" id="swiper-products">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="card h-100">
@@ -163,8 +168,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next d-none"></div>
+                            <div class="swiper-button-prev d-none"></div>
                         </div>
                     </div>
                 </div>
@@ -221,7 +226,7 @@
 
                     <!-- E-commerce Products Starts -->
                     <div id="ecommerce-products" class="grid-view">
-                        <div class="card ecommerce-card">
+                        <div class="card ecommerce-card mb-3">
                             <div class="item-img text-center">
                                 <a href="{{url('app/ecommerce/details')}}">
                                     <img

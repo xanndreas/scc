@@ -21,10 +21,4 @@ class MarketplaceController extends Controller
         return view('content.customers.marketplaces.show', ['pageConfigs' => $pageConfigs]);
     }
 
-    public function cart(Request $request)
-    {
-        $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
-
-        return view('content.customers.marketplaces.cart', ['pageConfigs' => $pageConfigs]);
-    }
 }

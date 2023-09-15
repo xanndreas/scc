@@ -159,7 +159,7 @@
 
                             @cannot('admin_page_access')
                                 <li class="nav-item">
-                                    <a class="btn text-nowrap d-inline-block" href="javascript:void(0);">
+                                    <a class="btn text-nowrap d-inline-block" href="{{ route('customers.cas.cart') }}">
                                         <span class="tf-icons ti ti-shopping-cart"></span>
                                         <span
                                             class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>

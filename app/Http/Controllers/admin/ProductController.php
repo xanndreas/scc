@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -113,7 +114,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all());
+        $product = Product::create(array_merge($request->except(['slug']), ['slug' => Str::slug($request->name)]));
 
         foreach ($request->input('featured_image', []) as $file) {
             $product->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('featured_image');
@@ -139,7 +140,7 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $product->update($request->all());
+        $product->update(array_merge($request->except(['slug']), ['slug' => Str::slug($request->name)]));
 
         if (count($product->featured_image) > 0) {
             foreach ($product->featured_image as $media) {

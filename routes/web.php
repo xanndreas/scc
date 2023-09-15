@@ -20,13 +20,14 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('contacts', 'HomeController@contacts')->name('contacts');
 
     Route::get('marketplaces', 'MarketplaceController@index')->name('marketplaces.index');
-
     Route::get('marketplaces/{slug}', 'MarketplaceController@show')->name('marketplaces.show');
 
-    Route::get('cart', 'MarketplaceController@cart')->name('marketplaces.cart');
+    Route::get('cas/profile', 'CustomerAreasController@profile')->name('cas.profile');
+    Route::get('cas/utility', 'CustomerAreasController@utility')->name('cas.utility');
+    Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');
+    Route::get('cas/transaction-history', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
 
     Route::get('blogs', 'BlogController@index')->name('blogs.index');
-
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
 
     Route::get('supplies', 'SupplyController@index')->name('supplies.index');
