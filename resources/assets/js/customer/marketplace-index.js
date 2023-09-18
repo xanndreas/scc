@@ -4,6 +4,7 @@ $(function () {
     let direction = 'ltr',
         isRTL = false,
         btnCart = $('.btn-cart'),
+        productContainer = $('.infinite-products'),
         checkout = '/cas/cart';
 
     if ($('html').data('textdirection') === 'rtl') {
@@ -12,6 +13,37 @@ $(function () {
 
     if (direction === 'rtl') {
         isRTL = true;
+    }
+
+    if (productContainer.length) {
+        let page = 1;
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= (productContainer.offset().top + productContainer.outerHeight() - window.innerHeight) + 150) {
+                page++;
+                infiniteLoadMore(page);
+            }
+        });
+    }
+
+    function infiniteLoadMore(page) {
+        $.ajax({
+            url: '/marketplaces?page=' + page,
+            datatype: 'html',
+            type: 'get',
+
+            beforeSend: function () {
+                // $('.auto-load').show();
+            }
+        }).done(function (response) {
+            if (response.html === '') {
+                $('.auto-load').html("We don't have more data to display :(");
+                return;
+            }
+            // $('.auto-load').hide();
+            productContainer.append(response.html);
+        }).fail(function (jqXHR, ajaxOptions, thrownError) {
+            console.log('Server error occur');
+        });
     }
 
     // On cart & view cart btn click to cart
@@ -82,5 +114,4 @@ $(function () {
             ProductsSliderPrev.click();
         });
     }
-
 });

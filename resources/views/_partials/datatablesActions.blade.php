@@ -15,10 +15,13 @@
             <i class="text-primary ti ti-dots-vertical"></i>
         </button>
 
-{{--        <div class="dropdown-menu dropdown-menu-end m-0" style="">--}}
-{{--            <a href="javascript:void(0);" class="dropdown-item">View</a>--}}
-{{--            <a href="javascript:void(0);" class="dropdown-item">Suspend</a>--}}
-{{--        </div>--}}
+        @if(isset($editGate))
+            @can($editGate)
+                <div class="dropdown-menu dropdown-menu-end m-0" style="">
+                    <a href="{{ route('admin.'.$crudRoutePart.'.edit', $row->id) }}" class="dropdown-item">Edit</a>
+                </div>
+            @endcan
+        @endif
     @endif
 
 

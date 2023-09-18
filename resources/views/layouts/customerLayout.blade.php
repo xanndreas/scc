@@ -42,6 +42,10 @@
     <script src="{{ asset('assets/js/app-ecommerce.js') }}"></script>
     <script src="{{ asset('assets/js/front-main.js')}}"></script>
     <script src="{{ asset('assets/js/front-page-landing.js')}}"></script>
+
+    <script src="{{ asset('assets/vendor/libs/jscroll/jquery.jscroll.min.js')}}"></script>
+    <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
+
 @endsection
 
 @section('layoutContent')

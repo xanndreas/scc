@@ -2,10 +2,6 @@
 
 @section('title', 'Shop')
 
-@section('page-script')
-    <!-- Vendor js files -->
-    <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
-@endsection
 
 @section('content')
 
@@ -70,7 +66,8 @@
                                             </div>
                                             <h6 class="item-name">
                                                 <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                                <span class="card-text item-company">By <a href="#"
+                                                                                           class="company-name">Apple</a></span>
                                             </h6>
                                         </div>
                                     </div>
@@ -93,7 +90,8 @@
                                             </div>
                                             <h6 class="item-name">
                                                 <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                                <span class="card-text item-company">By <a href="#"
+                                                                                           class="company-name">Apple</a></span>
                                             </h6>
                                         </div>
                                     </div>
@@ -116,7 +114,8 @@
                                             </div>
                                             <h6 class="item-name">
                                                 <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                                <span class="card-text item-company">By <a href="#"
+                                                                                           class="company-name">Apple</a></span>
                                             </h6>
                                         </div>
                                     </div>
@@ -139,7 +138,8 @@
                                             </div>
                                             <h6 class="item-name">
                                                 <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                                <span class="card-text item-company">By <a href="#"
+                                                                                           class="company-name">Apple</a></span>
                                             </h6>
                                         </div>
                                     </div>
@@ -162,7 +162,8 @@
                                             </div>
                                             <h6 class="item-name">
                                                 <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                                <span class="card-text item-company">By <a href="#"
+                                                                                           class="company-name">Apple</a></span>
                                             </h6>
                                         </div>
                                     </div>
@@ -192,17 +193,15 @@
                     <div id="ecommerce-header">
                         <div class="ecommerce-header-items">
                             <div class="result-toggler">
-                                <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
-                                    <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
+                                <button class="navbar-toggler shop-sidebar-toggler" type="button"
+                                        data-bs-toggle="collapse">
+                                    <span class="navbar-toggler-icon d-block d-lg-none"><i
+                                            data-feather="menu"></i></span>
                                 </button>
                                 <div class="search-results">16285 results found</div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- background Overlay when sidebar is shown  starts-->
-                    <div class="body-content-overlay"></div>
-                    <!-- background Overlay when sidebar is shown  ends-->
 
                     <!-- E-commerce Search Bar Starts -->
                     <div id="ecommerce-searchbar" class="ecommerce-searchbar">
@@ -217,7 +216,8 @@
                                         aria-label="Search..."
                                         aria-describedby="shop-search"
                                     />
-                                    <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
+                                    <span class="input-group-text"><i data-feather="search"
+                                                                      class="text-muted"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -225,65 +225,8 @@
                     <!-- E-commerce Search Bar Ends -->
 
                     <!-- E-commerce Products Starts -->
-                    <div id="ecommerce-products" class="grid-view">
-                        <div class="card ecommerce-card mb-3">
-                            <div class="item-img text-center">
-                                <a href="{{url('app/ecommerce/details')}}">
-                                    <img
-                                        class="img-fluid card-img-top"
-                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                        alt="img-placeholder"
-                                    /></a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h6 class="item-price">$339.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    On Retina display that never sleeps, so it’s easy to see the time and other important
-                                    information,
-                                    without
-                                    raising or tapping the display. New location features, from a built-in compass to current
-                                    elevation,
-                                    help users
-                                    better navigate their day, while international emergency calling1 allows customers to call
-                                    emergency
-                                    services
-                                    directly from Apple Watch in over 150 countries, even without iPhone nearby. Apple Watch Series
-                                    5 is
-                                    available
-                                    in a wider range of materials, including aluminium, stainless steel, ceramic and an all-new
-                                    titanium.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$339.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0);" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-
+                    <div id="ecommerce-products" class="grid-view infinite-products">
+                        @include('content.customers.marketplaces._partials.items')
                     </div>
                     <!-- E-commerce Products Ends -->
                 </div>

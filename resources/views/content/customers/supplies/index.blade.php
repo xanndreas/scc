@@ -200,10 +200,6 @@
                         </div>
                     </div>
 
-                    <!-- background Overlay when sidebar is shown  starts-->
-                    <div class="body-content-overlay"></div>
-                    <!-- background Overlay when sidebar is shown  ends-->
-
                     <!-- E-commerce Search Bar Starts -->
                     <div id="ecommerce-searchbar" class="ecommerce-searchbar">
                         <div class="row mt-1">
