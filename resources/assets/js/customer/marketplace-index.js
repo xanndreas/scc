@@ -34,13 +34,14 @@ $(function () {
             beforeSend: function () {
                 // $('.auto-load').show();
             }
-        }).done(function (response) {
+        }).done(async function (response) {
             if (response.html === '') {
-                $('.auto-load').html("We don't have more data to display :(");
                 return;
             }
+
             // $('.auto-load').hide();
             productContainer.append(response.html);
+            await delay(5000);
         }).fail(function (jqXHR, ajaxOptions, thrownError) {
             console.log('Server error occur');
         });
