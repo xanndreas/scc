@@ -27,9 +27,9 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::delete('marketplaces/{cart}', 'MarketplaceController@delete')->name('marketplaces.delete');
 
     Route::get('cas/profile', 'CustomerAreasController@profile')->name('cas.profile');
-    Route::get('cas/utility', 'CustomerAreasController@utility')->name('cas.utility');
     Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');
-    Route::get('cas/transaction-history', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
+    Route::get('cas/transaction', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
+    Route::get('cas/transaction/{selling}', 'CustomerAreasController@transactionDetail')->name('cas.transaction-detail');
 
     Route::get('blogs', 'BlogController@index')->name('blogs.index');
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');

@@ -2,34 +2,38 @@
 
 $(function () {
     let supplyContainer = $('.infinite-supplies'),
-        supplyDetailModal = new bootstrap.Modal(document.getElementById("supply-detail-modal"), {}),
+        supplyDetailModalSelector = $('#supply-detail-modal'),
         supplyDetailModalContent = $('.supply-container');
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    $('.supply-detail-show').on('click', function () {
-        $.ajax({
-            url: '/supplies/' + $(this).data('supply-id'),
-            datatype: 'html',
-            type: 'get',
+    if (supplyDetailModalSelector.length) {
+        let supplyDetailModal = new bootstrap.Modal(document.getElementById('supply-detail-modal'), {});
 
-            beforeSend: function () {
-                // $('.auto-load').show();
-                supplyDetailModalContent.html('');
-            }
-        }).done(async function (response) {
-            if (response.html === '') {
-                return;
-            }
+        $('.supply-detail-show').on('click', function () {
+            $.ajax({
+                url: '/supplies/' + $(this).data('supply-id'),
+                datatype: 'html',
+                type: 'get',
 
-            // $('.auto-load').hide();
-            supplyDetailModalContent.append(response.html);
-            supplyDetailModal.show();
-        }).fail(function (jqXHR, ajaxOptions, thrownError) {
-            console.log('Server error occur');
+                beforeSend: function () {
+                    // $('.auto-load').show();
+                    supplyDetailModalContent.html('');
+                }
+            }).done(async function (response) {
+                if (response.html === '') {
+                    return;
+                }
+
+                // $('.auto-load').hide();
+                supplyDetailModalContent.append(response.html);
+                supplyDetailModal.show();
+            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occur');
+            });
+
         });
-
-    });
+    }
 
     if (supplyContainer.length) {
         let page = 1;

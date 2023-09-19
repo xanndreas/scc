@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css')}}"/>
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css')}}"/>
+
+    <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}">
+
     <script src="{{asset('assets/js/front-config.js')}}"></script>
 
 @endsection
@@ -37,6 +42,8 @@
     <script src="{{ asset('assets/vendor/js/mega-dropdown.js')}}"></script>
     <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/swiper/swiper.js')}}"></script>
+    <script src="{{asset('assets/vendor/libs/moment/moment.js')}}"></script>
+    <script src="{{asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
 @endsection
 
 @section('page-script')
@@ -48,7 +55,7 @@
     <script src="{{ asset('assets/vendor/libs/jscroll/jquery.jscroll.min.js')}}"></script>
     <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
     <script src="{{ asset('assets/js/customer/supply-index.js')}}"></script>
-
+    <script src="{{ asset('assets/js/customer/cas-transaction.js')}}"></script>
 @endsection
 
 @section('layoutContent')
@@ -169,7 +176,7 @@
                                     <a class="btn text-nowrap d-inline-block" href="{{ route('customers.cas.cart') }}">
                                         <span class="tf-icons ti ti-shopping-cart"></span>
                                         <span
-                                            class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">10</span>
+                                            class="position-absolute top-0 start-80 badge-notifications translate-middle badge rounded-pill bg-danger">0</span>
                                     </a>
                                 </li>
                             @endcannot
