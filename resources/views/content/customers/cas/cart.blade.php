@@ -48,7 +48,7 @@
                                 <!-- Checkout Place Order Left starts -->
                                 <div style="width: auto; height: 500px; overflow: auto;" data-scrollbar>
                                     <div class="checkout-items mb-3 ms-2 me-3">
-                                        <div class="card ecommerce-card">
+                                        <div class="card ecommerce-card shadow-sm mb-3">
                                             <div class="item-img">
                                                 <a href="{{url('app/ecommerce/details')}}">
                                                     <img src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
@@ -92,7 +92,6 @@
                                     </div>
                                 </div>
                                 <!-- Checkout Place Order Left ends -->
-
                                 <!-- Checkout Place Order Right starts -->
                                 <div class="checkout-options mt-sm-2 mt-lg-0">
                                     <div class="card shadow-none">
