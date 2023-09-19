@@ -29,17 +29,20 @@ class MarketplaceController extends Controller
             return response()->json(['html' => $view]);
         }
 
+        $newProducts = Product::with('category')->orderByDesc('created_at')->limit(10)->get();
 
         $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customers.marketplaces.index', ['pageConfigs' => $pageConfigs], compact('products'));
+        return view('content.customers.marketplaces.index', ['pageConfigs' => $pageConfigs], compact('products', 'newProducts'));
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $slug)
     {
+        $product = Product::with('category')->where('slug', $slug)->first();
+
         $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customers.marketplaces.show', ['pageConfigs' => $pageConfigs]);
+        return view('content.customers.marketplaces.show', ['pageConfigs' => $pageConfigs], compact('product'));
     }
 
     public function store(Request $request, Product $product)
@@ -47,15 +50,15 @@ class MarketplaceController extends Controller
         if ($request->ajax()) {
             $user = User::where('id', Auth::id())->first();
             if (!$user) {
-                return $this->responseJson(400, 'Bad request');
+                return $this->responseJson(400, 'Please login first', null, route('login'));
             }
 
             $cart = $this->appending_cart($user, $product);
             if ($cart) {
-                $this->responseJson(200, 'Resource deleted successfully');
+                $this->responseJson(200, 'Success add to your cart');
             }
 
-            return $this->responseJson(400, 'Bad request');
+            return $this->responseJson(400, 'Product out of stock');
         }
 
         return response(null, ResponseAlias::HTTP_FORBIDDEN);
@@ -66,7 +69,7 @@ class MarketplaceController extends Controller
         if ($request->ajax()) {
             $cart = $this->changing_cart($cart, true);
             if ($cart) {
-                $this->responseJson(200, 'Resource deleted successfully');
+                $this->responseJson(200, 'Product deleted from cart');
             }
 
             return $this->responseJson(400, 'Bad request');
@@ -88,7 +91,7 @@ class MarketplaceController extends Controller
 
             $cart = $this->changing_cart($cart, false, $request->quantity);
             if ($cart) {
-                $this->responseJson(200, 'Resource deleted successfully');
+                $this->responseJson(200, 'Product updated from your cart');
             }
 
             return $this->responseJson(400, 'Bad request');

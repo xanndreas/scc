@@ -35,6 +35,7 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
 
     Route::get('supplies', 'SupplyController@index')->name('supplies.index');
+    Route::get('supplies/{supply}', 'SupplyController@show')->name('supplies.show');
 });
 
 Auth::routes();

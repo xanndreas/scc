@@ -76,7 +76,7 @@ class Product extends Model implements HasMedia
 
     public function getStocksAttribute()
     {
-        return $this->stocks($this->id);
+        return $this->stocks($this);
     }
 
     public function getFeaturedImageAttribute()

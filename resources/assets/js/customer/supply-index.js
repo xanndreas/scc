@@ -1,38 +1,69 @@
 'use strict';
 
 $(function () {
-    let direction = 'ltr',
-        isRTL = false,
-        btnCart = $('.btn-cart'),
-        checkout = url + '/cas/cart';
+    let supplyContainer = $('.infinite-supplies'),
+        supplyDetailModal = new bootstrap.Modal(document.getElementById("supply-detail-modal"), {}),
+        supplyDetailModalContent = $('.supply-container');
 
-    if ($('html').data('textdirection') === 'rtl') {
-        direction = 'rtl';
-    }
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    if (direction === 'rtl') {
-        isRTL = true;
-    }
+    $('.supply-detail-show').on('click', function () {
+        $.ajax({
+            url: '/supplies/' + $(this).data('supply-id'),
+            datatype: 'html',
+            type: 'get',
 
-    // On cart & view cart btn click to cart
-    if (btnCart.length) {
-        btnCart.on('click', function (e) {
-            let $this = $(this),
-                addToCart = $this.find('.add-to-cart');
-            if (addToCart.length > 0) {
-                e.preventDefault();
+            beforeSend: function () {
+                // $('.auto-load').show();
+                supplyDetailModalContent.html('');
+            }
+        }).done(async function (response) {
+            if (response.html === '') {
+                return;
             }
 
-            addToCart.text('View In Cart').removeClass('add-to-cart').addClass('view-in-cart');
-            toastr['success']('', 'Item Added to cart', {
-                closeButton: true,
-                tapToDismiss: false,
-                rtl: isRTL
-            });
+            // $('.auto-load').hide();
+            supplyDetailModalContent.append(response.html);
+            supplyDetailModal.show();
+        }).fail(function (jqXHR, ajaxOptions, thrownError) {
+            console.log('Server error occur');
+        });
 
-            $this.attr('href', checkout);
+    });
+
+    if (supplyContainer.length) {
+        let page = 1;
+        $(window).scroll(async function () {
+            if ($(window).scrollTop() >= (supplyContainer.offset().top + supplyContainer.outerHeight() - window.innerHeight) + 100) {
+                page++;
+                infiniteLoadMore(page);
+
+                await delay(3000);
+            }
         });
     }
+
+    function infiniteLoadMore(page) {
+        $.ajax({
+            url: '/supplies?page=' + page,
+            datatype: 'html',
+            type: 'get',
+
+            beforeSend: function () {
+                // $('.auto-load').show();
+            }
+        }).done(async function (response) {
+            if (response.html === '') {
+                return;
+            }
+
+            // $('.auto-load').hide();
+            supplyContainer.append(response.html);
+        }).fail(function (jqXHR, ajaxOptions, thrownError) {
+            console.log('Server error occur');
+        });
+    }
+
 
     let swiperProducts = document.getElementById('swiper-products'),
         ProductsPreviousBtn = document.getElementById('products-previous-btn'),

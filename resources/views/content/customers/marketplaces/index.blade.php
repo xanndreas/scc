@@ -48,126 +48,43 @@
                     <div class="swiper-products-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
                         <div class="swiper" id="swiper-products">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="card h-100">
-                                        <div class="item-img text-center">
-                                            <a href="{{url('app/ecommerce/details')}}">
-                                                <img
-                                                    class="img-fluid card-img-top"
-                                                    src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                    alt="img-placeholder"
-                                                /></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-wrapper">
-                                                <div>
-                                                    <h6 class="item-price text-primary">$339.99</h6>
-                                                </div>
+                                @foreach($newProducts as $newProduct)
+                                    <div class="swiper-slide">
+                                        <div class="card h-100">
+                                            <div class="item-img text-center">
+                                                @if($newProduct->featured_image->count() !== 0)
+                                                    <a href="{{ route('customers.marketplaces.show', ['slug' => $newProduct->slug ]) }}">
+                                                        <img
+                                                            class="img-fluid card-img-top"
+                                                            src="{{$newProduct->featured_image->first()->getUrl()}}"
+                                                            alt="img-placeholder"
+                                                        />
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('customers.marketplaces.show', ['slug' => $newProduct->slug ]) }}">
+                                                        <img
+                                                            class="img-fluid card-img-top"
+                                                            src="{{ asset('assets/img/front-pages/misc/2.jpg') }}"
+                                                            alt="img-placeholder"
+                                                        />
+                                                    </a>
+                                                @endif
                                             </div>
-                                            <h6 class="item-name">
-                                                <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#"
-                                                                                           class="company-name">Apple</a></span>
-                                            </h6>
+                                            <div class="card-body">
+                                                <div class="item-wrapper">
+                                                    <div>
+                                                        <h6 class="item-price text-primary">
+                                                            IDR {{ $newProduct->price_sell }}</h6>
+                                                    </div>
+                                                </div>
+                                                <h6 class="item-name">
+                                                    <a class="text-body" href="#">{{ substr($newProduct->name, 0, 30) }}
+                                                        .. </a>
+                                                </h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100">
-                                        <div class="item-img text-center">
-                                            <a href="{{url('app/ecommerce/details')}}">
-                                                <img
-                                                    class="img-fluid card-img-top"
-                                                    src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                    alt="img-placeholder"
-                                                /></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-wrapper">
-                                                <div>
-                                                    <h6 class="item-price text-primary">$339.99</h6>
-                                                </div>
-                                            </div>
-                                            <h6 class="item-name">
-                                                <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#"
-                                                                                           class="company-name">Apple</a></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100">
-                                        <div class="item-img text-center">
-                                            <a href="{{url('app/ecommerce/details')}}">
-                                                <img
-                                                    class="img-fluid card-img-top"
-                                                    src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                    alt="img-placeholder"
-                                                /></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-wrapper">
-                                                <div>
-                                                    <h6 class="item-price text-primary">$339.99</h6>
-                                                </div>
-                                            </div>
-                                            <h6 class="item-name">
-                                                <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#"
-                                                                                           class="company-name">Apple</a></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100">
-                                        <div class="item-img text-center">
-                                            <a href="{{url('app/ecommerce/details')}}">
-                                                <img
-                                                    class="img-fluid card-img-top"
-                                                    src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                    alt="img-placeholder"
-                                                /></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-wrapper">
-                                                <div>
-                                                    <h6 class="item-price text-primary">$339.99</h6>
-                                                </div>
-                                            </div>
-                                            <h6 class="item-name">
-                                                <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#"
-                                                                                           class="company-name">Apple</a></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card h-100">
-                                        <div class="item-img text-center">
-                                            <a href="{{url('app/ecommerce/details')}}">
-                                                <img
-                                                    class="img-fluid card-img-top"
-                                                    src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                    alt="img-placeholder"
-                                                /></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-wrapper">
-                                                <div>
-                                                    <h6 class="item-price text-primary">$339.99</h6>
-                                                </div>
-                                            </div>
-                                            <h6 class="item-name">
-                                                <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                <span class="card-text item-company">By <a href="#"
-                                                                                           class="company-name">Apple</a></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="swiper-button-next d-none"></div>
                             <div class="swiper-button-prev d-none"></div>
@@ -198,7 +115,7 @@
                                     <span class="navbar-toggler-icon d-block d-lg-none"><i
                                             data-feather="menu"></i></span>
                                 </button>
-                                <div class="search-results">16285 results found</div>
+                                <div class="search-results">0 results found</div>
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,16 @@
-@foreach($products as $product)
+@foreach($supplies as $supply)
     <div class="card ecommerce-card mb-3">
         <div class="item-img text-center">
-            @if($product->featured_image->count() !== 0)
-                <a href="{{ route('customers.marketplaces.show', ['slug' => $product->slug ]) }}">
+            @if($supply->product->featured_image->count() !== 0)
+                <a href="javascript:void(0);" class="supply-detail-show" data-supply-id="{{ $supply->id }}">
                     <img
                         class="img-fluid card-img-top"
-                        src="{{$product->featured_image->first()->getUrl()}}"
+                        src="{{$supply->featured_image->first()->getUrl()}}"
                         alt="img-placeholder"
                     />
                 </a>
             @else
-                <a href="{{ route('customers.marketplaces.show', ['slug' => $product->slug ]) }}">
+                <a href="javascript:void(0);" class="supply-detail-show" data-supply-id="{{ $supply->id }}">
                     <img
                         class="img-fluid card-img-top"
                         src="{{ asset('assets/img/front-pages/misc/2.jpg') }}"
@@ -36,27 +36,25 @@
                     </ul>
                 </div>
                 <div>
-                    <h6 class="item-price">IDR {{  $product->price_sell }}</h6>
+                    <h6 class="item-price">IDR {{  $supply->product->price_sell }}</h6>
                 </div>
             </div>
             <h6 class="item-name">
-                <a class="text-body" href="#">{{ $product->name }}</a>
-                <span class="card-text item-company">By <a href="#"
-                                                           class="company-name">{{$product->category->name}}</a></span>
+                <a class="text-body" href="#">{{ $supply->product->name }}</a>
             </h6>
             <p class="card-text item-description">
-                {{ $product->description }}
+                {{ $supply->product->description }}
             </p>
         </div>
         <div class="item-options text-center">
             <div class="item-wrapper">
                 <div class="item-cost">
-                    <h4 class="item-price">{{ $product->selling_price }}</h4>
+                    <h4 class="item-price">{{ $supply->selling_price }}</h4>
                 </div>
             </div>
-            <a href="javascript:void(0);" class="btn btn-primary btn-cart" data-product-id="{{ $product->id }}">
+            <a href="{{ route('admin.offers.index') }}" class="btn btn-primary btn-supply">
                 <i data-feather="shopping-cart"></i>
-                <span class="add-to-cart">Add to cart</span>
+                <span class="add-to-cart">Supply</span>
             </a>
         </div>
     </div>

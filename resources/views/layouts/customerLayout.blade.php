@@ -26,6 +26,8 @@
 @section('page-style')
     <!-- Page css files -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce-details.css') }}">
+
 @endsection
 
 
@@ -45,6 +47,7 @@
 
     <script src="{{ asset('assets/vendor/libs/jscroll/jquery.jscroll.min.js')}}"></script>
     <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
+    <script src="{{ asset('assets/js/customer/supply-index.js')}}"></script>
 
 @endsection
 

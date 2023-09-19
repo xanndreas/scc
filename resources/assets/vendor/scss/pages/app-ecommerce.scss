@@ -203,6 +203,7 @@ $search-bar-height: 48px;
 
         // buttons style
         .btn-wishlist,
+        .btn-supply,
         .btn-cart {
             span {
                 vertical-align: text-top;
@@ -265,6 +266,7 @@ $search-bar-height: 48px;
                 flex-wrap: wrap;
 
                 .btn-cart,
+                .btn-supply,
                 .btn-wishlist {
                     flex-grow: 1;
                     border-radius: 0;
@@ -379,6 +381,7 @@ $search-bar-height: 48px;
                 }
                 // List view btn spacing
                 .btn-wishlist,
+                .btn-supply,
                 .btn-cart {
                     margin-top: 1rem;
                 }
