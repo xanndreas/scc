@@ -4,14 +4,19 @@ namespace App\Http\Controllers\traits;
 
 
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Selling;
 use App\Models\SellingDetail;
 use Illuminate\Support\Str;
 
 trait CartTrait
 {
-    public function appending($user, $product, $quantity = 1): bool
+    public function appending_cart($user, $product, $quantity = 1): bool
     {
+        if ($product->stocks < $quantity) {
+            return false;
+        }
+
         $response = Cart::create([
             'product_id' => $product->id,
             'user_id' => $user->id,
@@ -20,9 +25,13 @@ trait CartTrait
 
         return (bool)$response;
     }
-
-    public function changing($cart, $quantity, $delete = false): bool
+    public function changing_cart($cart, $delete = false, $quantity = 0): bool
     {
+        $cart->load('product');
+        if ($cart->product->stocks < $quantity) {
+            return false;
+        }
+
         if (!$delete) {
             $response = $cart->update([
                 'quantity' => $quantity,
@@ -51,6 +60,11 @@ trait CartTrait
 
         $createdSellingDetails = null;
         foreach ($cart as $item) {
+            $cart->load('product');
+            if ($cart->product->stocks < $item->quantity) {
+                continue;
+            }
+
             if (!isset($create['grand_total'])) {
                 $create['grand_total'] = $item->product->selling_price;
             } else {

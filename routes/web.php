@@ -22,6 +22,10 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('marketplaces', 'MarketplaceController@index')->name('marketplaces.index');
     Route::get('marketplaces/{slug}', 'MarketplaceController@show')->name('marketplaces.show');
 
+    Route::put('marketplaces/{cart}', 'MarketplaceController@update')->name('marketplaces.update');
+    Route::post('marketplaces/{product}', 'MarketplaceController@store')->name('marketplaces.store');
+    Route::delete('marketplaces/{cart}', 'MarketplaceController@delete')->name('marketplaces.delete');
+
     Route::get('cas/profile', 'CustomerAreasController@profile')->name('cas.profile');
     Route::get('cas/utility', 'CustomerAreasController@utility')->name('cas.utility');
     Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');

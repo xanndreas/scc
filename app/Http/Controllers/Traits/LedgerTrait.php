@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 trait LedgerTrait
 {
-    public function appending($value, $model, $notes = null): bool
+    public function appending_ledger($value, $model, $notes = null): bool
     {
         $ledgers = Ledger::create([
             'notes' => $notes,
@@ -21,23 +21,50 @@ trait LedgerTrait
         return (bool)$ledgers;
     }
 
+    public function log_ledger($range) {
+        if ($range != null) {
+            $from = Carbon::createFromFormat('Y-m-d H:i:s', $range[0]);
+            $to = Carbon::createFromFormat('Y-m-d H:i:s', $range[1]);
+
+            return Ledger::whereBetween('created_at', [$from, $to])
+                ->get();
+        }
+
+        return Ledger::all();
+    }
+
     public function debit($range)
     {
-        $from = Carbon::createFromFormat('Y-m-d H:i:s', $range[0]);
-        $to = Carbon::createFromFormat('Y-m-d H:i:s', $range[1]);
+        if ($range != null) {
+            $from = Carbon::createFromFormat('Y-m-d H:i:s', $range[0]);
+            $to = Carbon::createFromFormat('Y-m-d H:i:s', $range[1]);
 
-        return Ledger::with()->where('model_type', 'App\Models\Purchasing')
-            ->whereBetween('created_at', [$from, $to])
+            return Ledger::where('model_type', 'App\Models\Purchasing')
+                ->whereBetween('created_at', [$from, $to])
+                ->sum('value');
+        }
+
+        return Ledger::where('model_type', 'App\Models\Purchasing')
             ->sum('value');
     }
 
     public function credit($range)
     {
-        $from = Carbon::createFromFormat('Y-m-d H:i:s', $range[0]);
-        $to = Carbon::createFromFormat('Y-m-d H:i:s', $range[1]);
+        if ($range != null) {
+            $from = Carbon::createFromFormat('Y-m-d H:i:s', $range[0]);
+            $to = Carbon::createFromFormat('Y-m-d H:i:s', $range[1]);
 
-        return Ledger::with()->where('model_type', 'App\Models\Selling')
-            ->whereBetween('created_at', [$from, $to])
+            return Ledger::where('model_type', 'App\Models\Selling')
+                ->whereBetween('created_at', [$from, $to])
+                ->sum('value');
+        }
+
+        return Ledger::where('model_type', 'App\Models\Selling')
             ->sum('value');
+    }
+
+    public function summaries($range): float
+    {
+        return (float)($this->credit($range) - $this->debit($range));
     }
 }

@@ -15,7 +15,8 @@ class Inventory extends Model
     public $table = 'inventories';
 
     public const TYPES_SELECT = [
-
+        'in' => 'In',
+        'out' => 'Out'
     ];
 
     protected $dates = [
