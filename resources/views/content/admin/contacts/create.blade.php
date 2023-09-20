@@ -247,7 +247,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label for="identity_image">{{ trans('cruds.contact.fields.identity_image') }}</label>
-                        <div class="needsclick dropzone {{ $errors->has('identity_image') ? 'is-invalid' : '' }}" id="identity_image-dropzone">
+                        <div class="needsclick dropzone form-control {{ $errors->has('identity_image') ? 'is-invalid' : '' }}" id="identity_image-dropzone">
                         </div>
                         @if($errors->has('identity_image'))
                             <div class="invalid-feedback">
@@ -258,7 +258,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label for="self_image">{{ trans('cruds.contact.fields.self_image') }}</label>
-                        <div class="needsclick dropzone {{ $errors->has('self_image') ? 'is-invalid' : '' }}" id="self_image-dropzone">
+                        <div class="needsclick dropzone form-control {{ $errors->has('self_image') ? 'is-invalid' : '' }}" id="self_image-dropzone">
                         </div>
                         @if($errors->has('self_image'))
                             <div class="invalid-feedback">

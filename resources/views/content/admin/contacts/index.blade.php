@@ -159,12 +159,6 @@
                         {{ trans('cruds.contact.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contact.fields.address') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.contact.fields.address_2') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.contact.fields.phone') }}
                     </th>
                     <th>
@@ -177,12 +171,6 @@
                         {{ trans('cruds.contact.fields.enterprises') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contact.fields.identity_image') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.contact.fields.self_image') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.contact.fields.npwp') }}
                     </th>
                     <th>
@@ -190,7 +178,8 @@
                     </th>
                 </tr>
                 <tr>
-{{--                    <td></td>--}}
+                    <td class="d-none">
+                    </td>
                     <td>
                         <select class="form-control search">
                             <option value>{{ trans('global.all') }}</option>
@@ -199,13 +188,7 @@
                             @endforeach
                         </select>
                     </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
+                        <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
@@ -236,11 +219,6 @@
                     <td>
                     </td>
                     <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td></td>
-                    <td class="d-none">
                     </td>
                 </tr>
                 </thead>

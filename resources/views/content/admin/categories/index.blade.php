@@ -49,14 +49,14 @@
                     </th>
                 </tr>
                 <tr>
+                    <td class="d-none">
+                    </td>
                     <td>
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                    </td>
-                    <td class="d-none">
                     </td>
                 </tr>
                 </thead>

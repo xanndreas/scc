@@ -11,18 +11,14 @@ $(function () {
             ajax: "/admin/contacts",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
-                { data: 'user_name', name: 'user.name' },
-                { data: 'code', name: 'code' },
-                { data: 'name', name: 'name' },
-                { data: 'address', name: 'address' },
-                { data: 'address_2', name: 'address_2' },
-                { data: 'phone', name: 'phone' },
-                { data: 'type', name: 'type' },
-                { data: 'pos_code', name: 'pos_code' },
-                { data: 'enterprises', name: 'enterprises' },
-                { data: 'identity_image', name: 'identity_image', sortable: false, searchable: false },
-                { data: 'self_image', name: 'self_image', sortable: false, searchable: false },
-                { data: 'npwp', name: 'npwp' },
+                {data: 'user_name', name: 'user.name'},
+                {data: 'code', name: 'code'},
+                {data: 'name', name: 'name'},
+                {data: 'phone', name: 'phone'},
+                {data: 'type', name: 'type'},
+                {data: 'pos_code', name: 'pos_code'},
+                {data: 'enterprises', name: 'enterprises'},
+                {data: 'npwp', name: 'npwp'},
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -146,6 +142,16 @@ $(function () {
             .columns.adjust();
     });
 
+    let $control = $('.control');
+    $control.onClassChange(function (el, newClass) {
+        let $placeholdersHeader = $control.parent().parent()
+            .find('tr').eq(1)
+            .find('td').eq(0);
+
+        if (newClass === 'control sorting_disabled') $placeholdersHeader.removeClass('d-none');
+        else $placeholdersHeader.addClass('d-none')
+    });
+
     let visibleColumnsIndexes = null;
     $('.datatable thead').on('input', '.search', function () {
         let strict = $(this).attr('strict') || false
@@ -157,7 +163,7 @@ $(function () {
         }
 
         table
-            .column(index + 1)
+            .column(index)
             .search(value, strict)
             .draw()
     });
@@ -171,7 +177,7 @@ $(function () {
 
     $('.datatable-Contact tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
-        window.location.href = '/admin/contacts/'+row.id;
+        window.location.href = '/admin/contacts/' + row.id;
     });
 
     $('.btn-create-new').on('click', function () {

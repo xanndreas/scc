@@ -52,16 +52,17 @@
                     </th>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td></td>
                     <td class="d-none">
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                     </td>
                 </tr>
                 </thead>

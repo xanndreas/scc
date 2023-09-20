@@ -172,7 +172,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label class="required" for="featured_image">{{ trans('cruds.articleContent.fields.featured_image') }}</label>
-                        <div class="needsclick dropzone {{ $errors->has('featured_image') ? 'is-invalid' : '' }}" id="featured_image-dropzone">
+                        <div class="needsclick dropzone form-control {{ $errors->has('featured_image') ? 'is-invalid' : '' }}" id="featured_image-dropzone">
                         </div>
                         @if($errors->has('featured_image'))
                             <div class="invalid-feedback">

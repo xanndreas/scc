@@ -76,7 +76,7 @@
                     </th>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="d-none">
                     </td>
                     <td>
                     </td>
@@ -125,7 +125,7 @@
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
-                    <td class="d-none">
+                    <td>
                     </td>
                 </tr>
                 </thead>

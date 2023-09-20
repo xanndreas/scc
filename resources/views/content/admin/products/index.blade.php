@@ -70,6 +70,9 @@
                     </th>
                 </tr>
                 <tr>
+
+                    <td class="d-none">
+                    </td>
                     <td>
                         <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
@@ -111,13 +114,11 @@
                     </td>
                     <td>
                     </td>
-                    <td  class="d-none">
-                    </td>
                 </tr>
                 </thead>
             </table>
         </div>
     </div>
-{{--    @include('admin.surveyReports._partials.remarks')--}}
+    {{--    @include('admin.surveyReports._partials.remarks')--}}
 @endsection
 

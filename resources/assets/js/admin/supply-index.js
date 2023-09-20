@@ -11,13 +11,13 @@ $(function () {
             ajax: "/admin/supplies",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
-                { data: 'id', name: 'id' },
-                { data: 'quantity_needs', name: 'quantity_needs' },
-                { data: 'initial_price', name: 'initial_price' },
-                { data: 'product_name', name: 'product.name' },
-                { data: 'start_date', name: 'start_date' },
-                { data: 'end_date', name: 'end_date' },
-                { data: 'status', name: 'status' },
+                {data: 'id', name: 'id'},
+                {data: 'quantity_needs', name: 'quantity_needs'},
+                {data: 'initial_price', name: 'initial_price'},
+                {data: 'product_name', name: 'product.name'},
+                {data: 'start_date', name: 'start_date'},
+                {data: 'end_date', name: 'end_date'},
+                {data: 'status', name: 'status'},
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -144,6 +144,16 @@ $(function () {
             .columns.adjust();
     });
 
+    let $control = $('.control');
+    $control.onClassChange(function (el, newClass) {
+        let $placeholdersHeader = $control.parent().parent()
+            .find('tr').eq(1)
+            .find('td').eq(0);
+
+        if (newClass === 'control sorting_disabled') $placeholdersHeader.removeClass('d-none');
+        else $placeholdersHeader.addClass('d-none')
+    });
+
     let visibleColumnsIndexes = null;
     $('.datatable thead').on('input', '.search', function () {
         let strict = $(this).attr('strict') || false
@@ -155,7 +165,7 @@ $(function () {
         }
 
         table
-            .column(index + 1)
+            .column(index)
             .search(value, strict)
             .draw()
     });

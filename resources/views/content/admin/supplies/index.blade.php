@@ -79,6 +79,8 @@
                     </th>
                 </tr>
                 <tr>
+                    <td class="d-none">
+                    </td>
                     <td>
                     </td>
                     <td>
@@ -109,8 +111,7 @@
                             @endforeach
                         </select>
                     </td>
-                    <td></td>
-                    <td class="d-none">
+                    <td>
                     </td>
                 </tr>
                 </thead>

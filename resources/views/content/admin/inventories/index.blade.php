@@ -61,6 +61,8 @@
                     </th>
                 </tr>
                 <tr>
+                    <td class="d-none">
+                    </td>
                     <td>
                     </td>
                     <td>
@@ -90,8 +92,6 @@
                     </td>
                     <td>
 
-                    </td>
-                    <td class="d-none">
                     </td>
                 </tr>
                 </thead>
