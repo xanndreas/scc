@@ -32,11 +32,11 @@ class UpdateSupplyRequest extends FormRequest
             ],
             'start_date' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'date_format:' . 'Y-m-d H:i:s',
             ],
             'end_date' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'date_format:' . 'Y-m-d H:i:s',
             ],
             'status' => [
                 'required',

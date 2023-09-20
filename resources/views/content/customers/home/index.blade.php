@@ -96,162 +96,78 @@
         <!-- Useful features: End -->
 
         <!-- Real customers reviews: Start -->
-        <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
+        <section class="section-py bg-body landing-products pb-0">
             <!-- What people say slider: Start -->
             <div class="container">
                 <div class="row align-items-center gx-0 gy-4 g-lg-5">
                     <div class="col-md-6 col-lg-5 col-xl-3">
-                        <div class="mb-3 pb-1">
-                            <span class="badge bg-label-primary">New Products</span>
-                        </div>
-                        <h3 class="mb-1"><span class="section-title">What's new?</span></h3>
+                        <h3 class="mb-1"><span class="section-title">New Products</span></h3>
                         <p class="mb-3 mb-md-5">
-                            See our new product, you <br class="d-none d-xl-block"/>
-                            can explore more on Marketplace.
+                            Here our new product from<br class="d-none d-xl-block"/>
+                            supplier.
                         </p>
-                        <div class="landing-reviews-btns">
+                        <div class="landing-products-btns">
                             <button
-                                id="reviews-previous-btn"
-                                class="btn btn-label-primary reviews-btn me-3 scaleX-n1-rtl"
+                                id="products-previous-btn"
+                                class="btn btn-label-primary products-btn me-3 scaleX-n1-rtl"
                                 type="button">
                                 <i class="ti ti-chevron-left ti-sm"></i>
                             </button>
-                            <button id="reviews-next-btn" class="btn btn-label-primary reviews-btn scaleX-n1-rtl"
+                            <button id="products-next-btn" class="btn btn-label-primary products-btn scaleX-n1-rtl"
                                     type="button">
                                 <i class="ti ti-chevron-right ti-sm"></i>
                             </button>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7 col-xl-9">
-                        <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                            <div class="swiper" id="swiper-reviews">
+                        <div class="swiper-products-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
+                            <div class="swiper" id="swiper-products">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="card h-100">
-                                            <div class="item-img text-center">
-                                                <a href="{{url('app/ecommerce/details')}}">
-                                                    <img
-                                                        class="img-fluid card-img-top"
-                                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                        alt="img-placeholder"
-                                                    /></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-wrapper">
-                                                    <div>
-                                                        <h6 class="item-price text-primary">$339.99</h6>
-                                                    </div>
+                                    @foreach($newProducts as $newProduct)
+                                        <div class="swiper-slide">
+                                            <div class="card h-100">
+                                                <div class="item-img text-center">
+                                                    @if($newProduct->featured_image->count() !== 0)
+                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $newProduct->slug ]) }}">
+                                                            <img
+                                                                class="img-fluid card-img-top"
+                                                                src="{{$newProduct->featured_image->first()->getUrl()}}"
+                                                                alt="img-placeholder"
+                                                            />
+                                                        </a>
+                                                    @else
+                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $newProduct->slug ]) }}">
+                                                            <img
+                                                                class="img-fluid card-img-top"
+                                                                src="{{ asset('assets/img/front-pages/misc/2.jpg') }}"
+                                                                alt="img-placeholder"
+                                                            />
+                                                        </a>
+                                                    @endif
                                                 </div>
-                                                <h6 class="item-name">
-                                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                                </h6>
+                                                <div class="card-body">
+                                                    <div class="item-wrapper">
+                                                        <div>
+                                                            <h6 class="item-price text-primary">
+                                                                IDR {{ $newProduct->price_sell }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="item-name">
+                                                        <a class="text-body" href="#">{{ substr($newProduct->name, 0, 30) }}
+                                                            .. </a>
+                                                    </h6>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100">
-                                            <div class="item-img text-center">
-                                                <a href="{{url('app/ecommerce/details')}}">
-                                                    <img
-                                                        class="img-fluid card-img-top"
-                                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                        alt="img-placeholder"
-                                                    /></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-wrapper">
-                                                    <div>
-                                                        <h6 class="item-price text-primary">$339.99</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 class="item-name">
-                                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100">
-                                            <div class="item-img text-center">
-                                                <a href="{{url('app/ecommerce/details')}}">
-                                                    <img
-                                                        class="img-fluid card-img-top"
-                                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                        alt="img-placeholder"
-                                                    /></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-wrapper">
-                                                    <div>
-                                                        <h6 class="item-price text-primary">$339.99</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 class="item-name">
-                                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100">
-                                            <div class="item-img text-center">
-                                                <a href="{{url('app/ecommerce/details')}}">
-                                                    <img
-                                                        class="img-fluid card-img-top"
-                                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                        alt="img-placeholder"
-                                                    /></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-wrapper">
-                                                    <div>
-                                                        <h6 class="item-price text-primary">$339.99</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 class="item-name">
-                                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="card h-100">
-                                            <div class="item-img text-center">
-                                                <a href="{{url('app/ecommerce/details')}}">
-                                                    <img
-                                                        class="img-fluid card-img-top"
-                                                        src="{{asset('assets/img/front-pages/misc/2.jpg')}}"
-                                                        alt="img-placeholder"
-                                                    /></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-wrapper">
-                                                    <div>
-                                                        <h6 class="item-price text-primary">$339.99</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 class="item-name">
-                                                    <a class="text-body" href="#">Apple Watch Series 5</a>
-                                                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next d-none"></div>
+                                <div class="swiper-button-prev d-none"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- What people say slider: End -->
-            <hr class="m-0"/>
-            <!-- Logo slider: Start -->
 
             <!-- Logo slider: End -->
         </section>

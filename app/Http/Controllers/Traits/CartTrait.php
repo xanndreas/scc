@@ -55,24 +55,19 @@ trait CartTrait
             'price_discounts' => 0,
             'customer_id' => $user->id,
             'status' => 'waiting_payment',
+            'grand_total' => 0,
             'selling_transaction_number' => 'INV-' . date('YmdHis'),
         ];
 
         $createdSellingDetails = null;
         foreach ($cart as $item) {
-            $cart->load('product');
-            if ($cart->product->stocks < $item->quantity) {
+            if ($item->product->stocks < $item->quantity) {
                 continue;
             }
 
-            if (!isset($create['grand_total'])) {
-                $create['grand_total'] = $item->product->selling_price;
-            } else {
-                $create['grand_total'] += $item->product->selling_price;
-            }
-
+            $create['grand_total'] += $item->product->price_sell;
             $sellingDetails = SellingDetail::create([
-                'subtotal' => $item->product->price,
+                'subtotal' => $item->product->price_sell,
                 'quantity' => $item->quantity,
                 'product_id' => $item->product_id,
             ]);
@@ -85,6 +80,10 @@ trait CartTrait
         $selling = Selling::create($create);
         if ($selling) {
             $selling->selling_details()->sync($createdSellingDetails);
+
+            foreach ($cart as $item) {
+                $item->delete();
+            }
 
             return true;
         }

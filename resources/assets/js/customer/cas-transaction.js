@@ -129,6 +129,17 @@ $(function () {
             .columns.adjust();
     });
 
+    let $control = $('.control');
+    $control.onClassChange(function (el, newClass) {
+        let $placeholdersHeader = $control.parent().parent()
+            .find('tr').eq(1)
+            .find('td').eq(0);
+
+        if (newClass === 'control sorting_disabled') $placeholdersHeader.removeClass('d-none');
+        else $placeholdersHeader.addClass('d-none')
+    });
+
+
     let visibleColumnsIndexes = null;
     $('.datatable thead').on('input', '.search', function () {
         let strict = $(this).attr('strict') || false
@@ -152,9 +163,13 @@ $(function () {
         });
     })
 
-    $('.datatable-CasTransaction tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
-        console.log('clicked')
-        // let row = table.row(event.currentTarget).data();
-        // window.location.href = '/admin/products/' + row.id;
-    });
+    let supplyDetailModalSelector = $('#transaction-detail-modal');
+    if (supplyDetailModalSelector.length) {
+        let supplyDetailModal = new bootstrap.Modal(document.getElementById('transaction-detail-modal'), {});
+        $('.datatable-CasTransaction tbody').on('click', 'td', (event) => {
+            supplyDetailModal.show()
+            // let row = table.row(event.currentTarget).data();
+            // window.location.href = '/admin/products/' + row.id;
+        });
+    }
 });

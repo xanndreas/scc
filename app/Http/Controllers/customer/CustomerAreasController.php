@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Selling;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class CustomerAreasController extends Controller
@@ -13,7 +15,16 @@ class CustomerAreasController extends Controller
     {
         $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        return view('content.customers.cas.cart', ['pageConfigs' => $pageConfigs]);
+        $cart = Cart::with('product', 'product.category')->where('user_id', Auth::id())->get();
+
+        $cartDetail = ['subtotal' => 0];
+        foreach ($cart as $item) {
+            $cartDetail['subtotal'] += $item->product->price_sell;
+        }
+
+        $cartDetail['grand_total'] = $cartDetail['subtotal'];
+
+        return view('content.customers.cas.cart', ['pageConfigs' => $pageConfigs], compact('cart', 'cartDetail'));
     }
 
     public function profile(Request $request)
@@ -33,12 +44,12 @@ class CustomerAreasController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'selling_show';
-                $editGate      = 'selling_edit';
-                $deleteGate    = 'selling_delete';
+                $viewGate = 'selling_show';
+                $editGate = 'selling_edit';
+                $deleteGate = 'selling_delete';
                 $crudRoutePart = 'sellings';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',

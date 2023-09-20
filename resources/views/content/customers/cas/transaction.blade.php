@@ -64,19 +64,19 @@
                                     </th>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
-                                    </td>
-                                    <td>
-                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
-                                    </td>
-                                    <td>
-                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
-                                    </td>
-                                    <td>
-                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
-                                    </td>
                                     <td class="d-none">
+                                    </td>
+                                    <td>
+                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
+                                    </td>
+                                    <td>
+                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
+                                    </td>
+                                    <td>
+                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
+                                    </td>
+                                    <td>
+                                        <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
                                     </td>
                                 </tr>
                                 </thead>
@@ -87,4 +87,6 @@
             </div>
         </div>
     </section>
+
+    @include('content.customers.cas._partials.show')
 @endsection

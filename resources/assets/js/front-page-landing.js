@@ -7,16 +7,12 @@
     const nav = document.querySelector('.layout-navbar'),
         heroAnimation = document.getElementById('hero-animation'),
         animationImg = document.querySelectorAll('.hero-dashboard-img'),
-        animationElements = document.querySelectorAll('.hero-elements-img'),
-        swiperLogos = document.getElementById('swiper-clients-logos'),
-
-        priceDurationToggler = document.querySelector('.price-duration-toggler'),
-        priceMonthlyList = [].slice.call(document.querySelectorAll('.price-monthly')),
-        priceYearlyList = [].slice.call(document.querySelectorAll('.price-yearly'));
+        animationElements = document.querySelectorAll('.hero-elements-img');
 
     // Hero
     const mediaQueryXL = '1200';
     const width = screen.width;
+
     if (width >= mediaQueryXL && heroAnimation) {
         heroAnimation.addEventListener('mousemove', function parallax(e) {
             animationElements.forEach(layer => {
@@ -49,24 +45,5 @@
         });
     }
 
-    // Review client logo
-    // -----------------------------------
-    if (swiperLogos) {
-        new Swiper(swiperLogos, {
-            slidesPerView: 2,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            breakpoints: {
-                992: {
-                    slidesPerView: 5
-                },
-                768: {
-                    slidesPerView: 3
-                }
-            }
-        });
-    }
 
 })();

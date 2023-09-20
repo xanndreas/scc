@@ -16,7 +16,10 @@
     const messageWrapper = document.querySelector('.message-global-text');
     if (messageWrapper) {
         if (messageWrapper.value && messageWrapper.dataset.type) {
-            toastr[messageWrapper.dataset.type]('', messageWrapper.value, {
+            let msgType = messageWrapper.dataset.type;
+            if (msgType === 'errors') msgType = 'error';
+
+            toastr[msgType]('', messageWrapper.value, {
                 closeButton: true,
                 tapToDismiss: false,
                 rtl: isRTL

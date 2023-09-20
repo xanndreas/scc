@@ -25,14 +25,12 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}">
 
     <script src="{{asset('assets/js/front-config.js')}}"></script>
-
 @endsection
 
 @section('page-style')
     <!-- Page css files -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/app-ecommerce-details.css') }}">
-
 @endsection
 
 

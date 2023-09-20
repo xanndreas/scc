@@ -110,7 +110,6 @@ $(function () {
                         }
                     ]
                 },
-                ,
                 {
                     text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
                     className: 'btn-create-new btn btn-primary',

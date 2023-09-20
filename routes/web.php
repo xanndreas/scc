@@ -24,6 +24,7 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
 
     Route::put('marketplaces/{cart}', 'MarketplaceController@update')->name('marketplaces.update');
     Route::post('marketplaces/{product}', 'MarketplaceController@store')->name('marketplaces.store');
+    Route::post('marketplaces', 'MarketplaceController@checkout')->name('marketplaces.checkout');
     Route::delete('marketplaces/{cart}', 'MarketplaceController@delete')->name('marketplaces.delete');
 
     Route::get('cas/profile', 'CustomerAreasController@profile')->name('cas.profile');
@@ -97,6 +98,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Offer
     Route::delete('offers/destroy', 'OfferController@massDestroy')->name('offers.massDestroy');
+    Route::get('offers/create/{product}', 'OfferController@createByProduct')->name('offers.createByProduct');
+
     Route::resource('offers', 'OfferController');
 
     // Inventory

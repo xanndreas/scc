@@ -55,7 +55,7 @@ class MarketplaceController extends Controller
 
             $cart = $this->appending_cart($user, $product);
             if ($cart) {
-                $this->responseJson(200, 'Success add to your cart');
+                return $this->responseJson(200, 'Success add to your cart');
             }
 
             return $this->responseJson(400, 'Product out of stock');
@@ -96,6 +96,25 @@ class MarketplaceController extends Controller
 
             return $this->responseJson(400, 'Bad request');
 
+        }
+
+        return response(null, ResponseAlias::HTTP_FORBIDDEN);
+    }
+
+    public function checkout(Request $request)
+    {
+        if (Auth::check()) {
+            $user = User::where('id', Auth::id())->first();
+            if ($user) {
+                $to_selling = $this->toSelling($user);
+                if ($to_selling) {
+                    return redirect()->route('customers.cas.cart')
+                        ->with('success', 'Success place orders, please contact our admin.');
+                }
+            }
+
+            return redirect()->route('customers.cas.cart')
+                ->with('errors', 'Something went wrong.');
         }
 
         return response(null, ResponseAlias::HTTP_FORBIDDEN);

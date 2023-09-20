@@ -29,7 +29,7 @@ class InventoryController extends Controller
             $table->editColumn('actions', function ($row) {
                 $viewGate      = 'inventory_show';
                 $editGate      = 'inventory_edit';
-                $deleteGate    = 'inventory_delete';
+                $deleteGate    = 'inventory_delete_disabled';
                 $crudRoutePart = 'inventories';
                 $otherCan = true;
 

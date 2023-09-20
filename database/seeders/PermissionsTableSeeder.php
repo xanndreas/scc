@@ -430,6 +430,18 @@ class PermissionsTableSeeder extends Seeder
                 'id' => 105,
                 'title' => 'supply_access',
             ],
+            [
+                'id' => 106,
+                'title' => 'actor_supplier',
+            ],
+            [
+                'id' => 107,
+                'title' => 'actor_admin',
+            ],
+            [
+                'id' => 108,
+                'title' => 'actor_user',
+            ],
 
         ];
 

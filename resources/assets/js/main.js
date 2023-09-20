@@ -55,6 +55,13 @@ if (document.getElementById('layout-menu')) {
         window.Helpers.mainMenu = menu;
     });
 
+    let select2Class  = $('.select2');
+    if (select2Class.length) {
+        select2Class.select2({
+            placeholder: 'Select an option'
+        });
+    }
+
     // Initialize menu togglers and bind click on each
     let menuToggler = document.querySelectorAll('.layout-menu-toggle');
     menuToggler.forEach(item => {

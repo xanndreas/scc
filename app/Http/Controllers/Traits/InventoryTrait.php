@@ -14,8 +14,8 @@ trait InventoryTrait
             'types' => $types,
             'quantity' => $quantity,
             'product_id' => $product->id,
-            'model_id' => $model->id,
-            'model_type' => sprintf('%s#%s', get_class($model), $model->id) ?? null,
+            'model_key' => $model->id,
+            'model_name' => sprintf('%s#%s', get_class($model), $model->id) ?? null,
         ]);
 
         return (bool)$inventory;
