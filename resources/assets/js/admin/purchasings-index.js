@@ -8,16 +8,20 @@ $(function () {
             retrieve: true,
             aaSorting: [],
             autoWidth: false,
-            ajax: "/admin/offers",
+            ajax: "/admin/purchasings",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
                 { data: 'id', name: 'id' },
+                { data: 'batch_code', name: 'batch_code' },
+                { data: 'grand_total', name: 'grand_total' },
+                { data: 'notes', name: 'notes' },
+                { data: 'rounding_cost', name: 'rounding_cost' },
+                { data: 'additional_cost', name: 'additional_cost' },
+                { data: 'price_discounts', name: 'price_discounts' },
                 { data: 'supplier_name', name: 'supplier.name' },
                 { data: 'status', name: 'status' },
-                { data: 'grand_total', name: 'grand_total' },
-                { data: 'offer_detail', name: 'offer_details.quantity' },
-                { data: 'offering_expired_date', name: 'offering_expired_date' },
-                { data: 'offering_number', name: 'offering_number' },
+                { data: 'purchasing_detail', name: 'purchasing_details.subtotal' },
+                { data: 'purchasing_transaction_number', name: 'purchasing_transaction_number' },
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -128,7 +132,7 @@ $(function () {
             ]
 
         },
-        dataTableClass = $('.datatable-Offer'),
+        dataTableClass = $('.datatable-Purchasing'),
         table = dataTableClass.DataTable(dtOverrideGlobals);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
@@ -160,19 +164,23 @@ $(function () {
     })
 
     let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Offer tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
+    $('.datatable-Purchasing tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
 
-        $('input[name="supplier"]').val(row.supplier);
-        $('input[name="status"]').val(row.status);
+        $('input[name="batch_code"]').val(row.batch_code);
         $('input[name="grand_total"]').val(row.grand_total);
-        $('input[name="offer_detail.quantity"]').val(row.offer_detail);
-        $('input[name="offering_expired_date"]').val(row.offering_expired_date);
-        $('input[name="offering_number"]').val(row.offering_number);
+        $('input[name="notes"]').val(row.notes);
+        $('input[name="rounding_cost"]').val(row.rounding_cost);
+        $('input[name="additional_cost"]').val(row.additional_cost);
+        $('input[name="price_discounts"]').val(row.price_discounts);
+        $('input[name="supplier.name"]').val(row.supplier_name);
+        $('input[name="status"]').val(row.status);
+        $('input[name="purchasing_details.subtotal"]').val(row.purchasing_detail);
+        $('input[name="purchasing_transaction_number"]').val(row.purchasing_transaction_number);
 
         if (row.id) {
             let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/offers/" + row.id);
+            createForms.attr('action', "/admin/purchasings/" + row.id);
             createForms.data('operation', 'update')
         }
 

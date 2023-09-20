@@ -31,9 +31,8 @@ class ArticleCategoryController extends Controller
                 $deleteGate    = 'article_category_delete';
                 $crudRoutePart = 'article-categories';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
-                    'editGate',
                     'deleteGate',
                     'crudRoutePart',
                     'row'
@@ -55,14 +54,14 @@ class ArticleCategoryController extends Controller
             return $table->make(true);
         }
 
-        return view('admin.articleCategories.index');
+        return view('content.admin.articleCategories.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('article_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.articleCategories.create');
+        return view('content.admin.articleCategories.create');
     }
 
     public function store(StoreArticleCategoryRequest $request)
@@ -76,7 +75,7 @@ class ArticleCategoryController extends Controller
     {
         abort_if(Gate::denies('article_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.articleCategories.edit', compact('articleCategory'));
+        return view('content.admin.articleCategories.edit', compact('articleCategory'));
     }
 
     public function update(UpdateArticleCategoryRequest $request, ArticleCategory $articleCategory)

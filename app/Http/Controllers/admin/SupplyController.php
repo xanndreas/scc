@@ -31,12 +31,14 @@ class SupplyController extends Controller
                 $editGate      = 'supply_edit';
                 $deleteGate    = 'supply_delete';
                 $crudRoutePart = 'supplies';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -62,10 +64,11 @@ class SupplyController extends Controller
 
             return $table->make(true);
         }
+        $product = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $products = Product::get();
 
-        return view('admin.supplies.index', compact('products'));
+        return view('content.admin.supplies.index', compact('products','product'));
     }
 
     public function create()
@@ -74,14 +77,14 @@ class SupplyController extends Controller
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.supplies.create', compact('products'));
+        return view('content.admin.supplies.create', compact('products'));
     }
 
     public function store(StoreSupplyRequest $request)
     {
         $supply = Supply::create($request->all());
 
-        return redirect()->route('admin.supplies.index');
+        return back();
     }
 
     public function edit(Supply $supply)
@@ -92,14 +95,14 @@ class SupplyController extends Controller
 
         $supply->load('product');
 
-        return view('admin.supplies.edit', compact('products', 'supply'));
+        return view('content.admin.supplies.edit', compact('products', 'supply'));
     }
 
     public function update(UpdateSupplyRequest $request, Supply $supply)
     {
         $supply->update($request->all());
 
-        return redirect()->route('admin.supplies.index');
+        return back();
     }
 
     public function show(Supply $supply)
@@ -108,7 +111,7 @@ class SupplyController extends Controller
 
         $supply->load('product');
 
-        return view('admin.supplies.show', compact('supply'));
+        return view('content.admin.supplies.show', compact('supply'));
     }
 
     public function destroy(Supply $supply)

@@ -8,11 +8,16 @@ $(function () {
             retrieve: true,
             aaSorting: [],
             autoWidth: false,
-            ajax: "/admin/categories",
+            ajax: "/admin/supplies",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'name'},
+                { data: 'id', name: 'id' },
+                { data: 'quantity_needs', name: 'quantity_needs' },
+                { data: 'initial_price', name: 'initial_price' },
+                { data: 'product_name', name: 'product.name' },
+                { data: 'start_date', name: 'start_date' },
+                { data: 'end_date', name: 'end_date' },
+                { data: 'status', name: 'status' },
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -131,7 +136,7 @@ $(function () {
             ]
 
         },
-        dataTableClass = $('.datatable-Category'),
+        dataTableClass = $('.datatable-Supply'),
         table = dataTableClass.DataTable(dtOverrideGlobals);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
@@ -163,14 +168,19 @@ $(function () {
     })
 
     let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Category tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
+    $('.datatable-Supply tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
 
-        $('input[name="name"]').val(row.name);
+        $('input[name="quantity_needs"]').val(row.quantity_needs);
+        $('input[name="initial_price"]').val(row.initial_price);
+        $('input[name="product.name"]').val(row.product_name);
+        $('input[name="start_date"]').val(row.start_date);
+        $('input[name="end_date"]').val(row.end_date);
+        $('input[name="status"]').val(row.status);
 
         if (row.id) {
             let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/categories/" + row.id);
+            createForms.attr('action', "/admin/supplies/" + row.id);
             createForms.data('operation', 'update')
         }
 

@@ -129,6 +129,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Setting
     Route::resource('settings', 'SettingController')->only(['index', 'update']);
+
+    // Transaction
+    Route::resource('transactions', 'TransactionController')->only(['index', 'update']);
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\auth', 'middleware' => ['auth']], function () {

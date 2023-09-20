@@ -35,12 +35,14 @@ class ArticleContentController extends Controller
                 $editGate      = 'article_content_edit';
                 $deleteGate    = 'article_content_delete';
                 $crudRoutePart = 'article-contents';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -81,7 +83,7 @@ class ArticleContentController extends Controller
 
         $article_categories = ArticleCategory::get();
 
-        return view('admin.articleContents.index', compact('article_categories'));
+        return view('content.admin.articleContents.index', compact('article_categories'));
     }
 
     public function create()
@@ -90,7 +92,7 @@ class ArticleContentController extends Controller
 
         $categories = ArticleCategory::pluck('name', 'id');
 
-        return view('admin.articleContents.create', compact('categories'));
+        return view('content.admin.articleContents.create', compact('categories'));
     }
 
     public function store(StoreArticleContentRequest $request)
@@ -116,7 +118,7 @@ class ArticleContentController extends Controller
 
         $articleContent->load('categories');
 
-        return view('admin.articleContents.edit', compact('articleContent', 'categories'));
+        return view('content.admin.articleContents.edit', compact('articleContent', 'categories'));
     }
 
     public function update(UpdateArticleContentRequest $request, ArticleContent $articleContent)
@@ -146,7 +148,7 @@ class ArticleContentController extends Controller
 
         $articleContent->load('categories');
 
-        return view('admin.articleContents.show', compact('articleContent'));
+        return view('content.admin.articleContents.show', compact('articleContent'));
     }
 
     public function destroy(ArticleContent $articleContent)

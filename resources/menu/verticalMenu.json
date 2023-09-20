@@ -39,7 +39,7 @@
         {
             "name": "cruds.transaction.title",
             "icon": "menu-icon tf-icons ti  ti-transfer-in",
-            "slug": "admin.inventories.index",
+            "slug": "admin.transactions.index",
             "permission": "inventory_access"
         },
         {

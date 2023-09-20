@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
-class SettingController extends Controller
+class TransactionController extends Controller
 {
     public function index(Request $request)
     {
         abort_if(Gate::denies('selling_detail_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('content.admin.settings.index');
+        return view('content.admin.transactions.index');
     }
 }

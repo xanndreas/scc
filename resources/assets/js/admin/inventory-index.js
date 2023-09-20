@@ -8,16 +8,15 @@ $(function () {
             retrieve: true,
             aaSorting: [],
             autoWidth: false,
-            ajax: "/admin/offers",
+            ajax: "/admin/inventories",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
                 { data: 'id', name: 'id' },
-                { data: 'supplier_name', name: 'supplier.name' },
-                { data: 'status', name: 'status' },
-                { data: 'grand_total', name: 'grand_total' },
-                { data: 'offer_detail', name: 'offer_details.quantity' },
-                { data: 'offering_expired_date', name: 'offering_expired_date' },
-                { data: 'offering_number', name: 'offering_number' },
+                { data: 'model_key', name: 'model_key' },
+                { data: 'model_name', name: 'model_name' },
+                { data: 'types', name: 'types' },
+                { data: 'quantity', name: 'quantity' },
+                { data: 'product_name', name: 'product.name' },
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -108,6 +107,14 @@ $(function () {
                             className: 'dropdown-item',
                         }
                     ]
+                },
+                {
+                    text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
+                    className: 'btn-create-new btn btn-primary',
+                    attr: {
+                        'data-bs-toggle': 'offcanvas',
+                        'data-bs-target': '#offcanvasCreateNew'
+                    }
                 }
             ],
             columnDefs: [
@@ -128,7 +135,7 @@ $(function () {
             ]
 
         },
-        dataTableClass = $('.datatable-Offer'),
+        dataTableClass = $('.datatable-Inventory'),
         table = dataTableClass.DataTable(dtOverrideGlobals);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
@@ -160,30 +167,25 @@ $(function () {
     })
 
     let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Offer tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
-        let row = table.row(event.currentTarget).data();
-
-        $('input[name="supplier"]').val(row.supplier);
-        $('input[name="status"]').val(row.status);
-        $('input[name="grand_total"]').val(row.grand_total);
-        $('input[name="offer_detail.quantity"]').val(row.offer_detail);
-        $('input[name="offering_expired_date"]').val(row.offering_expired_date);
-        $('input[name="offering_number"]').val(row.offering_number);
-
-        if (row.id) {
-            let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/offers/" + row.id);
-            createForms.data('operation', 'update')
-        }
-
-        canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
-            $('#createNewForm')
-                .trigger("reset");
-        });
-
-        let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
-        bsOffCanvasAddRequestCreditHelp.show();
-    });
+    // $('.datatable-Inventory tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
+    //     let row = table.row(event.currentTarget).data();
+    //
+    //     $('input[name="name"]').val(row.name);
+    //
+    //     if (row.id) {
+    //         let createForms = $('#createNewForm');
+    //         createForms.attr('action', "/admin/inventories/" + row.id);
+    //         createForms.data('operation', 'update')
+    //     }
+    //
+    //     canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
+    //         $('#createNewForm')
+    //             .trigger("reset");
+    //     });
+    //
+    //     let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
+    //     bsOffCanvasAddRequestCreditHelp.show();
+    // });
 
     canvasSelector.addEventListener('shown.bs.offcanvas', function () {
         if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);

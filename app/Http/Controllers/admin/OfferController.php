@@ -32,12 +32,14 @@ class OfferController extends Controller
                 $editGate      = 'offer_edit';
                 $deleteGate    = 'offer_delete';
                 $crudRoutePart = 'offers';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -76,7 +78,7 @@ class OfferController extends Controller
         $users         = User::get();
         $offer_details = OfferDetail::get();
 
-        return view('admin.offers.index', compact('users', 'offer_details'));
+        return view('content.admin.offers.index', compact('users', 'offer_details'));
     }
 
     public function create()
@@ -125,7 +127,7 @@ class OfferController extends Controller
 
         $offer->load('supplier', 'offer_details');
 
-        return view('admin.offers.show', compact('offer'));
+        return view('content.admin.offers.show', compact('offer'));
     }
 
     public function destroy(Offer $offer)

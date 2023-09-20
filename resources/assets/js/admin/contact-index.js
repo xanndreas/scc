@@ -8,16 +8,21 @@ $(function () {
             retrieve: true,
             aaSorting: [],
             autoWidth: false,
-            ajax: "/admin/offers",
+            ajax: "/admin/contacts",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
-                { data: 'id', name: 'id' },
-                { data: 'supplier_name', name: 'supplier.name' },
-                { data: 'status', name: 'status' },
-                { data: 'grand_total', name: 'grand_total' },
-                { data: 'offer_detail', name: 'offer_details.quantity' },
-                { data: 'offering_expired_date', name: 'offering_expired_date' },
-                { data: 'offering_number', name: 'offering_number' },
+                { data: 'user_name', name: 'user.name' },
+                { data: 'code', name: 'code' },
+                { data: 'name', name: 'name' },
+                { data: 'address', name: 'address' },
+                { data: 'address_2', name: 'address_2' },
+                { data: 'phone', name: 'phone' },
+                { data: 'type', name: 'type' },
+                { data: 'pos_code', name: 'pos_code' },
+                { data: 'enterprises', name: 'enterprises' },
+                { data: 'identity_image', name: 'identity_image', sortable: false, searchable: false },
+                { data: 'self_image', name: 'self_image', sortable: false, searchable: false },
+                { data: 'npwp', name: 'npwp' },
                 {data: 'actions', name: 'Actions'}
             ],
             orderCellsTop: true,
@@ -108,6 +113,11 @@ $(function () {
                             className: 'dropdown-item',
                         }
                     ]
+                },
+                ,
+                {
+                    text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
+                    className: 'btn-create-new btn btn-primary',
                 }
             ],
             columnDefs: [
@@ -126,9 +136,9 @@ $(function () {
                     targets: -1
                 },
             ]
-
         },
-        dataTableClass = $('.datatable-Offer'),
+
+        dataTableClass = $('.datatable-Contact'),
         table = dataTableClass.DataTable(dtOverrideGlobals);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
@@ -159,34 +169,12 @@ $(function () {
         });
     })
 
-    let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Offer tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
+    $('.datatable-Contact tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
-
-        $('input[name="supplier"]').val(row.supplier);
-        $('input[name="status"]').val(row.status);
-        $('input[name="grand_total"]').val(row.grand_total);
-        $('input[name="offer_detail.quantity"]').val(row.offer_detail);
-        $('input[name="offering_expired_date"]').val(row.offering_expired_date);
-        $('input[name="offering_number"]').val(row.offering_number);
-
-        if (row.id) {
-            let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/offers/" + row.id);
-            createForms.data('operation', 'update')
-        }
-
-        canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
-            $('#createNewForm')
-                .trigger("reset");
-        });
-
-        let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
-        bsOffCanvasAddRequestCreditHelp.show();
+        window.location.href = '/admin/contacts/'+row.id;
     });
 
-    canvasSelector.addEventListener('shown.bs.offcanvas', function () {
-        if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);
-        else $('input[name="_method"]').prop('disabled', false);
+    $('.btn-create-new').on('click', function () {
+        window.location.href = '/admin/contacts/create';
     });
 });
