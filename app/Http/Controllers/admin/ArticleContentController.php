@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Controllers\traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyArticleContentRequest;
 use App\Http\Requests\StoreArticleContentRequest;
 use App\Http\Requests\UpdateArticleContentRequest;
