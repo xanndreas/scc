@@ -5,7 +5,7 @@
         "username": "u543038622",
         "port": "65002",
         "beforeHooks": "",
-        "afterHooks": "php /home/u543038622/domains/kampungindustritoga.com/public_html/artisan migrate --seed;",
+        "afterHooks": "php /home/u543038622/domains/kampungindustritoga.com/public_html/artisan migrate:fresh --seed;",
         "path_temp": "/home/u543038622/domains/kampungindustritoga.com/ci",
         "path_storage": "/home/u543038622/domains/kampungindustritoga.com/storage",
         "path": "/home/u543038622/domains/kampungindustritoga.com/public_html"
