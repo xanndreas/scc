@@ -14,10 +14,6 @@ $(function () {
                 {data: 'id', name: 'id'},
                 {data: 'batch_code', name: 'batch_code'},
                 {data: 'grand_total', name: 'grand_total'},
-                {data: 'notes', name: 'notes'},
-                {data: 'rounding_cost', name: 'rounding_cost'},
-                {data: 'additional_cost', name: 'additional_cost'},
-                {data: 'price_discounts', name: 'price_discounts'},
                 {data: 'customer_name', name: 'customer.name'},
                 {data: 'status', name: 'status'},
                 {data: 'selling_detail', name: 'selling_details.subtotal'},
@@ -70,7 +66,7 @@ $(function () {
             buttons: [
                 {
                     extend: 'collection',
-                    className: 'btn btn-label-secondary dropdown-toggle mx-3',
+                    className: 'btn btn-label-secondary dropdown-toggle ms-3',
                     text: '<i class="ti ti-screen-share me-1 ti-xs"></i>Export',
                     buttons: [
                         {
@@ -113,14 +109,6 @@ $(function () {
                         }
                     ]
                 },
-                {
-                    text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
-                    className: 'btn-create-new btn btn-primary',
-                    attr: {
-                        'data-bs-toggle': 'offcanvas',
-                        'data-bs-target': '#offcanvasCreateNew'
-                    }
-                }
             ],
             columnDefs: [
                 {
@@ -181,39 +169,9 @@ $(function () {
         });
     })
 
-    let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Selling tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
+    $('.datatable-Selling tbody').on('click', 'td', (event) => {
         let row = table.row(event.currentTarget).data();
-
-        $('input[name="batch_code"]').val(row.batch_code);
-        $('input[name="grand_total"]').val(row.grand_total);
-        $('input[name="notes"]').val(row.notes);
-        $('input[name="rounding_cost"]').val(row.rounding_cost);
-        $('input[name="additional_cost"]').val(row.additional_cost);
-        $('input[name="price_discounts"]').val(row.price_discounts);
-        $('input[name="customer.name"]').val(row.customer_name);
-        $('input[name="status"]').val(row.status);
-        $('input[name="selling_details"]').val(row.selling_detail);
-        $('input[name="selling_transaction_number"]').val(row.selling_transaction_number);
-
-
-        if (row.id) {
-            let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/sellings/" + row.id);
-            createForms.data('operation', 'update')
-        }
-
-        canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
-            $('#createNewForm')
-                .trigger("reset");
-        });
-        let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
-        bsOffCanvasAddRequestCreditHelp.show();
-    });
-
-    canvasSelector.addEventListener('shown.bs.offcanvas', function () {
-        if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);
-        else $('input[name="_method"]').prop('disabled', false);
+        window.location.href = '/admin/sellings/' + row.id;
     });
 });
 

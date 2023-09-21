@@ -1000,7 +1000,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::nkDSeQ3LuYuwwTTn',
+            '_route' => 'generated::Sc6ahvl7ur9UStgU',
           ),
           1 => NULL,
           2 => 
@@ -1055,7 +1055,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9FECFr0M3d5AMCsw',
+            '_route' => 'generated::5IkFE52L04KouFeA',
           ),
           1 => NULL,
           2 => 
@@ -1146,7 +1146,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::b2ytfqExIKIN7DM5',
+            '_route' => 'generated::k72XkdYKyZsxLsuw',
           ),
           1 => NULL,
           2 => 
@@ -10114,7 +10114,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::nkDSeQ3LuYuwwTTn' => 
+    'generated::Sc6ahvl7ur9UStgU' => 
     array (
       'methods' => 
       array (
@@ -10134,7 +10134,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::nkDSeQ3LuYuwwTTn',
+        'as' => 'generated::Sc6ahvl7ur9UStgU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -10223,7 +10223,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9FECFr0M3d5AMCsw' => 
+    'generated::5IkFE52L04KouFeA' => 
     array (
       'methods' => 
       array (
@@ -10243,7 +10243,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::9FECFr0M3d5AMCsw',
+        'as' => 'generated::5IkFE52L04KouFeA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -10442,7 +10442,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::b2ytfqExIKIN7DM5' => 
+    'generated::k72XkdYKyZsxLsuw' => 
     array (
       'methods' => 
       array (
@@ -10462,7 +10462,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::b2ytfqExIKIN7DM5',
+        'as' => 'generated::k72XkdYKyZsxLsuw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -16585,10 +16585,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@edit',
-        'controller' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@edit',
+        'uses' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@edit',
+        'controller' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@edit',
         'as' => 'profile.password.edit',
-        'namespace' => 'App\\Http\\Controllers\\auth',
+        'namespace' => 'App\\Http\\Controllers\\Auth',
         'prefix' => '/profile',
         'where' => 
         array (
@@ -16622,10 +16622,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@update',
-        'controller' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@update',
+        'uses' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@update',
+        'controller' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@update',
         'as' => 'profile.password.update',
-        'namespace' => 'App\\Http\\Controllers\\auth',
+        'namespace' => 'App\\Http\\Controllers\\Auth',
         'prefix' => '/profile',
         'where' => 
         array (
@@ -16659,10 +16659,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@updateProfile',
-        'controller' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@updateProfile',
+        'uses' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@updateProfile',
+        'controller' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@updateProfile',
         'as' => 'profile.password.updateProfile',
-        'namespace' => 'App\\Http\\Controllers\\auth',
+        'namespace' => 'App\\Http\\Controllers\\Auth',
         'prefix' => '/profile',
         'where' => 
         array (
@@ -16696,10 +16696,10 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@destroy',
-        'controller' => 'App\\Http\\Controllers\\auth\\ChangePasswordController@destroy',
+        'uses' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Auth\\ChangePasswordController@destroy',
         'as' => 'profile.password.destroyProfile',
-        'namespace' => 'App\\Http\\Controllers\\auth',
+        'namespace' => 'App\\Http\\Controllers\\Auth',
         'prefix' => '/profile',
         'where' => 
         array (

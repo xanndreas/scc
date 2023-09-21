@@ -47,18 +47,7 @@
                     <th>
                         {{ trans('cruds.selling.fields.grand_total') }}
                     </th>
-                    <th>
-                        {{ trans('cruds.selling.fields.notes') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.selling.fields.rounding_cost') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.selling.fields.additional_cost') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.selling.fields.price_discounts') }}
-                    </th>
+
                     <th>
                         {{ trans('cruds.selling.fields.customer') }}
                     </th>
@@ -79,19 +68,6 @@
                     <td class="d-none">
                     </td>
                     <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
@@ -133,5 +109,4 @@
             </table>
         </div>
     </div>
-    @include('content.admin.sellings.create')
 @endsection
