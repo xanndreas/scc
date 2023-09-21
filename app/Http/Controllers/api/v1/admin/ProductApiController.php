@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api\v1\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Controllers\traits\MediaUploadingTrait;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\admin\ProductResource;
