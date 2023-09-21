@@ -9,8 +9,8 @@ use App\Http\Requests\UpdateSellingRequest;
 use App\Models\Selling;
 use App\Models\SellingDetail;
 use App\Models\User;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -28,12 +28,12 @@ class SellingController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'selling_show';
-                $editGate      = 'selling_edit';
-                $deleteGate    = 'selling_delete';
+                $viewGate = 'selling_show';
+                $editGate = 'selling_edit';
+                $deleteGate = 'selling_delete_disabled';
                 $crudRoutePart = 'sellings';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
@@ -90,10 +90,10 @@ class SellingController extends Controller
 
         $selling_detail = SellingDetail::pluck('subtotal', 'id');
 
-        $users           = User::get();
+        $users = User::get();
         $selling_details = SellingDetail::get();
 
-        return view('content.admin.sellings.index', compact('users', 'selling_details','customers','selling_detail'));
+        return view('content.admin.sellings.index', compact('users', 'selling_details', 'customers', 'selling_detail'));
     }
 
     public function create()
@@ -130,10 +130,9 @@ class SellingController extends Controller
 
     public function update(UpdateSellingRequest $request, Selling $selling)
     {
-        $selling->update($request->all());
-        $selling->selling_details()->sync($request->input('selling_details', []));
+        $selling->update($request->only('status'));
 
-        return redirect()->route('admin.sellings.index');
+        return redirect()->route('admin.sellings.show', ['selling' => $selling->id]);
     }
 
     public function show(Selling $selling)
@@ -142,7 +141,7 @@ class SellingController extends Controller
 
         $selling->load('customer', 'selling_details');
 
-        return view('admin.sellings.show', compact('selling'));
+        return view('content.admin.sellings.show', compact('selling'));
     }
 
     public function destroy(Selling $selling)
