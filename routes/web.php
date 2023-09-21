@@ -44,15 +44,12 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
-    Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
 
     // Roles
-    Route::delete('roles/destroy', 'RolesController@massDestroy')->name('roles.massDestroy');
     Route::resource('roles', 'RolesController');
 
     // Users
-    Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::post('users/parse-csv-import', 'UsersController@parseCsvImport')->name('users.parseCsvImport');
     Route::post('users/process-csv-import', 'UsersController@processCsvImport')->name('users.processCsvImport');
     Route::resource('users', 'UsersController');
@@ -61,11 +58,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 
     // Category
-    Route::delete('categories/destroy', 'CategoryController@massDestroy')->name('categories.massDestroy');
     Route::resource('categories', 'CategoryController');
 
     // Product
-    Route::delete('products/destroy', 'ProductController@massDestroy')->name('products.massDestroy');
     Route::post('products/media', 'ProductController@storeMedia')->name('products.storeMedia');
     Route::post('products/ckmedia', 'ProductController@storeCKEditorImages')->name('products.storeCKEditorImages');
     Route::post('products/parse-csv-import', 'ProductController@parseCsvImport')->name('products.parseCsvImport');
@@ -73,61 +68,38 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('products', 'ProductController');
 
     // Selling
-    Route::delete('sellings/destroy', 'SellingController@massDestroy')->name('sellings.massDestroy');
-    Route::resource('sellings', 'SellingController');
-
-    // Selling Detail
-    Route::delete('selling-details/destroy', 'SellingDetailController@massDestroy')->name('selling-details.massDestroy');
-    Route::resource('selling-details', 'SellingDetailController');
-
-    // Cart
-    Route::delete('carts/destroy', 'CartController@massDestroy')->name('carts.massDestroy');
-    Route::resource('carts', 'CartController');
+    Route::resource('sellings', 'SellingController')
+        ->only(['index', 'show', 'update', 'destroy']);
 
     // Purchasing
-    Route::delete('purchasings/destroy', 'PurchasingController@massDestroy')->name('purchasings.massDestroy');
-    Route::resource('purchasings', 'PurchasingController');
-
-    // Purchasing Detail
-    Route::delete('purchasing-details/destroy', 'PurchasingDetailController@massDestroy')->name('purchasing-details.massDestroy');
-    Route::resource('purchasing-details', 'PurchasingDetailController');
-
-    // Offer Detail
-    Route::delete('offer-details/destroy', 'OfferDetailController@massDestroy')->name('offer-details.massDestroy');
-    Route::resource('offer-details', 'OfferDetailController');
+    Route::resource('purchasings', 'PurchasingController')
+        ->only(['index', 'show']);
 
     // Offer
-    Route::delete('offers/destroy', 'OfferController@massDestroy')->name('offers.massDestroy');
     Route::get('offers/create/{product}', 'OfferController@createByProduct')->name('offers.createByProduct');
-
     Route::resource('offers', 'OfferController');
 
     // Inventory
-    Route::delete('inventories/destroy', 'InventoryController@massDestroy')->name('inventories.massDestroy');
-    Route::resource('inventories', 'InventoryController');
+    Route::resource('inventories', 'InventoryController')
+        ->only(['index', 'show', 'store']);
 
     // Stock Opname
-    Route::delete('stock-opnames/destroy', 'StockOpnameController@massDestroy')->name('stock-opnames.massDestroy');
     Route::resource('stock-opnames', 'StockOpnameController');
 
     // Article Content
-    Route::delete('article-contents/destroy', 'ArticleContentController@massDestroy')->name('article-contents.massDestroy');
     Route::post('article-contents/media', 'ArticleContentController@storeMedia')->name('article-contents.storeMedia');
     Route::post('article-contents/ckmedia', 'ArticleContentController@storeCKEditorImages')->name('article-contents.storeCKEditorImages');
     Route::resource('article-contents', 'ArticleContentController');
 
     // Article Category
-    Route::delete('article-categories/destroy', 'ArticleCategoryController@massDestroy')->name('article-categories.massDestroy');
     Route::resource('article-categories', 'ArticleCategoryController');
 
     // Contact
-    Route::delete('contacts/destroy', 'ContactController@massDestroy')->name('contacts.massDestroy');
     Route::post('contacts/media', 'ContactController@storeMedia')->name('contacts.storeMedia');
     Route::post('contacts/ckmedia', 'ContactController@storeCKEditorImages')->name('contacts.storeCKEditorImages');
     Route::resource('contacts', 'ContactController');
 
     // Supply
-    Route::delete('supplies/destroy', 'SupplyController@massDestroy')->name('supplies.massDestroy');
     Route::resource('supplies', 'SupplyController');
 
     // Setting

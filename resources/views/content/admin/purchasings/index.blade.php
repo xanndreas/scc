@@ -47,18 +47,7 @@
                     <th class="w-px-18">
                         {{ trans('cruds.purchasing.fields.grand_total') }}
                     </th>
-                    <th class="w-px-18">
-                        {{ trans('cruds.purchasing.fields.notes') }}
-                    </th>
-                    <th class="w-px-18">
-                        {{ trans('cruds.purchasing.fields.rounding_cost') }}
-                    </th>
-                    <th class="w-px-18">
-                        {{ trans('cruds.purchasing.fields.additional_cost') }}
-                    </th>
-                    <th class="w-px-18">
-                        {{ trans('cruds.purchasing.fields.price_discounts') }}
-                    </th>
+
                     <th class="w-px-18">
                         {{ trans('cruds.purchasing.fields.supplier') }}
                     </th>
@@ -89,23 +78,7 @@
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <select class="form-control search">
-                            <option value>{{ trans('global.all') }}</option>
-                            @foreach($users as $key => $item)
-                                <option value="{{ $item->name }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </td>
+
                     <td>
                         <select class="form-control search" strict="true">
                             <option value>{{ trans('global.all') }}</option>

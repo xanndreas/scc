@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyPurchasingRequest;
-use App\Http\Requests\StorePurchasingRequest;
-use App\Http\Requests\UpdatePurchasingRequest;
 use App\Models\Purchasing;
 use App\Models\PurchasingDetail;
 use App\Models\User;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -29,8 +26,8 @@ class PurchasingController extends Controller
 
             $table->editColumn('actions', function ($row) {
                 $viewGate      = 'purchasing_show';
-                $editGate      = 'purchasing_edit';
-                $deleteGate    = 'purchasing_delete';
+                $editGate      = 'purchasing_edit_disabled';
+                $deleteGate    = 'purchasing_delete_disabled';
                 $crudRoutePart = 'purchasings';
                 $otherCan = true;
 
@@ -95,46 +92,6 @@ class PurchasingController extends Controller
         return view('content.admin.purchasings.index', compact('users', 'purchasing_details'));
     }
 
-    public function create()
-    {
-        abort_if(Gate::denies('purchasing_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $suppliers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $purchasing_details = PurchasingDetail::pluck('subtotal', 'id');
-
-        return view('admin.purchasings.create', compact('purchasing_details', 'suppliers'));
-    }
-
-    public function store(StorePurchasingRequest $request)
-    {
-        $purchasing = Purchasing::create($request->all());
-        $purchasing->purchasing_details()->sync($request->input('purchasing_details', []));
-
-        return redirect()->route('admin.purchasings.index');
-    }
-
-    public function edit(Purchasing $purchasing)
-    {
-        abort_if(Gate::denies('purchasing_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $suppliers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $purchasing_details = PurchasingDetail::pluck('subtotal', 'id');
-
-        $purchasing->load('supplier', 'purchasing_details');
-
-        return view('admin.purchasings.edit', compact('purchasing', 'purchasing_details', 'suppliers'));
-    }
-
-    public function update(UpdatePurchasingRequest $request, Purchasing $purchasing)
-    {
-        $purchasing->update($request->all());
-        $purchasing->purchasing_details()->sync($request->input('purchasing_details', []));
-
-        return redirect()->route('admin.purchasings.index');
-    }
-
     public function show(Purchasing $purchasing)
     {
         abort_if(Gate::denies('purchasing_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -144,23 +101,4 @@ class PurchasingController extends Controller
         return view('content.admin.purchasings.show', compact('purchasing'));
     }
 
-    public function destroy(Purchasing $purchasing)
-    {
-        abort_if(Gate::denies('purchasing_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $purchasing->delete();
-
-        return back();
-    }
-
-    public function massDestroy(MassDestroyPurchasingRequest $request)
-    {
-        $purchasings = Purchasing::find(request('ids'));
-
-        foreach ($purchasings as $purchasing) {
-            $purchasing->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }

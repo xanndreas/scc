@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyArticleCategoryRequest;
 use App\Http\Requests\StoreArticleCategoryRequest;
 use App\Http\Requests\UpdateArticleCategoryRequest;
 use App\Models\ArticleCategory;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -26,9 +26,9 @@ class ArticleCategoryController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'article_category_show';
-                $editGate      = 'article_category_edit';
-                $deleteGate    = 'article_category_delete';
+                $viewGate = 'article_category_show';
+                $editGate = 'article_category_edit';
+                $deleteGate = 'article_category_delete';
                 $crudRoutePart = 'article-categories';
 
                 return view('_partials.datatablesActions', compact(
@@ -66,7 +66,7 @@ class ArticleCategoryController extends Controller
 
     public function store(StoreArticleCategoryRequest $request)
     {
-        $articleCategory = ArticleCategory::create($request->all());
+        $articleCategory = ArticleCategory::create(array_merge($request->except('slug'), ['slug' => Str::slug($request->name)]));
 
         return redirect()->route('admin.article-categories.index');
     }
@@ -80,7 +80,7 @@ class ArticleCategoryController extends Controller
 
     public function update(UpdateArticleCategoryRequest $request, ArticleCategory $articleCategory)
     {
-        $articleCategory->update($request->all());
+        $articleCategory->update(array_merge($request->except('slug'), ['slug' => Str::slug($request->name)]));
 
         return redirect()->route('admin.article-categories.index');
     }

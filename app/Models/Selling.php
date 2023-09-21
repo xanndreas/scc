@@ -16,7 +16,7 @@ class Selling extends Model
 
     public const STATUS_SELECT = [
         'waiting_payment' => 'Waiting Payment',
-        'confirmed' => 'Order Confiirmed',
+        'confirmed' => 'Order Confirmed',
         'on_process' => 'On Process',
         'canceled' => 'Canceled'
     ];

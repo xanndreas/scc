@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\ArticleCategory;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
@@ -20,10 +20,6 @@ class StoreArticleCategoryRequest extends FormRequest
             'name' => [
                 'string',
                 'required',
-            ],
-            'slug' => [
-                'string',
-                'nullable',
             ],
         ];
     }

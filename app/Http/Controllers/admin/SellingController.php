@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroySellingRequest;
-use App\Http\Requests\StoreSellingRequest;
 use App\Http\Requests\UpdateSellingRequest;
 use App\Models\Selling;
 use App\Models\SellingDetail;
@@ -96,38 +94,6 @@ class SellingController extends Controller
         return view('content.admin.sellings.index', compact('users', 'selling_details', 'customers', 'selling_detail'));
     }
 
-    public function create()
-    {
-        abort_if(Gate::denies('selling_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $customers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $selling_details = SellingDetail::pluck('subtotal', 'id');
-
-        return view('content.sellings.create', compact('customers', 'selling_details'));
-    }
-
-    public function store(StoreSellingRequest $request)
-    {
-        $selling = Selling::create($request->all());
-        $selling->selling_details()->sync($request->input('selling_details', []));
-
-        return redirect()->route('admin.sellings.index');
-    }
-
-    public function edit(Selling $selling)
-    {
-        abort_if(Gate::denies('selling_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $customers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $selling_details = SellingDetail::pluck('subtotal', 'id');
-
-        $selling->load('customer', 'selling_details');
-
-        return view('content.sellings.edit', compact('customers', 'selling', 'selling_details'));
-    }
-
     public function update(UpdateSellingRequest $request, Selling $selling)
     {
         $selling->update($request->only('status'));
@@ -153,14 +119,4 @@ class SellingController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroySellingRequest $request)
-    {
-        $sellings = Selling::find(request('ids'));
-
-        foreach ($sellings as $selling) {
-            $selling->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }

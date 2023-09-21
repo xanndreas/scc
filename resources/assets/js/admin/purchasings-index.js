@@ -14,10 +14,6 @@ $(function () {
                 { data: 'id', name: 'id' },
                 { data: 'batch_code', name: 'batch_code' },
                 { data: 'grand_total', name: 'grand_total' },
-                { data: 'notes', name: 'notes' },
-                { data: 'rounding_cost', name: 'rounding_cost' },
-                { data: 'additional_cost', name: 'additional_cost' },
-                { data: 'price_discounts', name: 'price_discounts' },
                 { data: 'supplier_name', name: 'supplier.name' },
                 { data: 'status', name: 'status' },
                 { data: 'purchasing_detail', name: 'purchasing_details.subtotal' },
@@ -172,39 +168,4 @@ $(function () {
             visibleColumnsIndexes.push(colIdx);
         });
     })
-
-    let canvasSelector = document.getElementById('offcanvasCreateNew')
-    $('.datatable-Purchasing tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
-        let row = table.row(event.currentTarget).data();
-
-        $('input[name="batch_code"]').val(row.batch_code);
-        $('input[name="grand_total"]').val(row.grand_total);
-        $('input[name="notes"]').val(row.notes);
-        $('input[name="rounding_cost"]').val(row.rounding_cost);
-        $('input[name="additional_cost"]').val(row.additional_cost);
-        $('input[name="price_discounts"]').val(row.price_discounts);
-        $('input[name="supplier.name"]').val(row.supplier_name);
-        $('input[name="status"]').val(row.status);
-        $('input[name="purchasing_details.subtotal"]').val(row.purchasing_detail);
-        $('input[name="purchasing_transaction_number"]').val(row.purchasing_transaction_number);
-
-        if (row.id) {
-            let createForms = $('#createNewForm');
-            createForms.attr('action', "/admin/purchasings/" + row.id);
-            createForms.data('operation', 'update')
-        }
-
-        canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
-            $('#createNewForm')
-                .trigger("reset");
-        });
-
-        let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
-        bsOffCanvasAddRequestCreditHelp.show();
-    });
-
-    canvasSelector.addEventListener('shown.bs.offcanvas', function () {
-        if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);
-        else $('input[name="_method"]').prop('disabled', false);
-    });
 });

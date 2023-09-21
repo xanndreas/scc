@@ -4,13 +4,13 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\traits\MediaUploadingTrait;
-use App\Http\Requests\MassDestroyArticleContentRequest;
 use App\Http\Requests\StoreArticleContentRequest;
 use App\Http\Requests\UpdateArticleContentRequest;
 use App\Models\ArticleCategory;
 use App\Models\ArticleContent;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -97,7 +97,7 @@ class ArticleContentController extends Controller
 
     public function store(StoreArticleContentRequest $request)
     {
-        $articleContent = ArticleContent::create($request->all());
+        $articleContent = ArticleContent::create(array_merge($request->except('slug'), ['slug' => Str::slug($request->title)]));
         $articleContent->categories()->sync($request->input('categories', []));
         foreach ($request->input('featured_image', []) as $file) {
             $articleContent->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('featured_image');
@@ -123,7 +123,7 @@ class ArticleContentController extends Controller
 
     public function update(UpdateArticleContentRequest $request, ArticleContent $articleContent)
     {
-        $articleContent->update($request->all());
+        $articleContent->update(array_merge($request->except('slug'), ['slug' => Str::slug($request->title)]));
         $articleContent->categories()->sync($request->input('categories', []));
         if (count($articleContent->featured_image) > 0) {
             foreach ($articleContent->featured_image as $media) {
@@ -160,16 +160,6 @@ class ArticleContentController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyArticleContentRequest $request)
-    {
-        $articleContents = ArticleContent::find(request('ids'));
-
-        foreach ($articleContents as $articleContent) {
-            $articleContent->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 
     public function storeCKEditorImages(Request $request)
     {

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\traits\InventoryTrait;
-use App\Http\Requests\MassDestroyOfferRequest;
 use App\Http\Requests\StoreOfferRequest;
-use App\Http\Requests\UpdateOfferRequest;
 use App\Models\Offer;
 use App\Models\OfferDetail;
-use App\Models\Product;
+use App\Models\Purchasing;
+use App\Models\PurchasingDetail;
+use App\Models\Selling;
 use App\Models\Supply;
 use App\Models\User;
 use Carbon\Carbon;
@@ -129,19 +129,6 @@ class OfferController extends Controller
         return redirect()->route('admin.offers.index');
     }
 
-    public function edit(Offer $offer)
-    {
-        abort_if(Gate::denies('offer_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $suppliers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $offer_details = OfferDetail::pluck('quantity', 'id');
-
-        $offer->load('supplier', 'offer_details');
-
-        return view('admin.offers.edit', compact('offer', 'offer_details', 'suppliers'));
-    }
-
     public function update(Request $request, Offer $offer)
     {
         $offer->load('offer_details');
@@ -156,6 +143,19 @@ class OfferController extends Controller
 //                } else
                     if (Gate::allows('actor_admin')) {
                     if ($offer->status == 'accepted_by_supplier') {
+
+                        $purchasing = [
+                            'batch_code' => Str::random(10),
+                            'notes' => null,
+                            'additional_cost' => 0,
+                            'price_discounts' => 0,
+                            'supplier_id' => $offer->supplier_id,
+                            'status' => 'waiting_payment',
+                            'grand_total' => 0,
+                            'purchasing_transaction_number' => 'PRO-' . date('YmdHis'),
+                        ];
+
+                        $purchasingDetail = null;
                         foreach ($request->all() as $index => $item) {
                             if (str_contains($index, 'price_offer')) {
                                 $price_with_id = explode('#', $index);
@@ -167,12 +167,15 @@ class OfferController extends Controller
                                         'price_deal' => $item
                                     ]);
 
+
                                     $this->appending_invent(
                                         $offerDetail->quantity,
                                         $offerDetail->supply->product,
                                         $offerDetail,
                                         'in'
                                     );
+
+                                    $purchasingDetail[] = $offerDetail;
                                 }
                             }
                         }
@@ -180,6 +183,26 @@ class OfferController extends Controller
                         $offer->update([
                             'status' => 'done'
                         ]);
+
+                        // purchasing
+                        $purchasingDetailCreated = [];
+                        foreach ($purchasingDetail as $item) {
+                            $purchasing['grand_total'] += $item->price_deal;
+                            $created = PurchasingDetail::create([
+                                'subtotal' => $item->price_deal,
+                                'quantity' => $item->quantity,
+                                'product_id' => $item->supply->product_id,
+                            ]);
+
+                            $purchasingDetailCreated[] = $created->id;
+                        }
+
+                        $purchasing['rounding_cost'] = $purchasing['grand_total'];
+                        $purchasingCreate = Purchasing::create($purchasing);
+
+                        if ($purchasingCreate) {
+                            $purchasingCreate->purchasing_details()->sync($purchasingDetailCreated);
+                        }
                     }
                 }
 
@@ -222,14 +245,4 @@ class OfferController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyOfferRequest $request)
-    {
-        $offers = Offer::find(request('ids'));
-
-        foreach ($offers as $offer) {
-            $offer->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }
