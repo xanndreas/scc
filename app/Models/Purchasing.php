@@ -15,7 +15,9 @@ class Purchasing extends Model
     public $table = 'purchasings';
 
     public const STATUS_SELECT = [
-
+        'waiting_payment' => 'Waiting Payment',
+        'confirmed' => 'Confirmed',
+        'canceled' => 'Canceled'
     ];
 
     protected $dates = [

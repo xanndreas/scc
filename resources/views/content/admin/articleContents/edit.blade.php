@@ -193,16 +193,6 @@
                         <span class="help-block">{{ trans('cruds.articleContent.fields.page_text_helper') }}</span>
                     </div>
                     <div class="col-sm-12">
-                        <label for="slug">{{ trans('cruds.articleContent.fields.slug') }}</label>
-                        <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', $articleContent->slug) }}">
-                        @if($errors->has('slug'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('slug') }}
-                            </div>
-                        @endif
-                        <span class="help-block">{{ trans('cruds.articleContent.fields.slug_helper') }}</span>
-                    </div>
-                    <div class="col-sm-12">
                         <label for="categories">{{ trans('cruds.articleContent.fields.category') }}</label>
                         <select class="form-control select2 {{ $errors->has('categories') ? 'is-invalid' : '' }}" name="categories[]" id="categories" multiple>
                             @foreach($categories as $id => $category)

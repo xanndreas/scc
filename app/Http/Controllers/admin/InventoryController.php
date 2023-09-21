@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyInventoryRequest;
 use App\Http\Requests\StoreInventoryRequest;
-use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Inventory;
 use App\Models\Product;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -83,25 +81,8 @@ class InventoryController extends Controller
     public function store(StoreInventoryRequest $request)
     {
         $inventory = Inventory::create($request->all());
+
         return back();
-    }
-
-    public function edit(Inventory $inventory)
-    {
-        abort_if(Gate::denies('inventory_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $inventory->load('product');
-
-        return view('content.admin.inventories.edit', compact('inventory', 'products'));
-    }
-
-    public function update(UpdateInventoryRequest $request, Inventory $inventory)
-    {
-        $inventory->update($request->all());
-
-        return redirect()->route('content.admin.inventories.index');
     }
 
     public function show(Inventory $inventory)
@@ -122,14 +103,4 @@ class InventoryController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyInventoryRequest $request)
-    {
-        $inventories = Inventory::find(request('ids'));
-
-        foreach ($inventories as $inventory) {
-            $inventory->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }

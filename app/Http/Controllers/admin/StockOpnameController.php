@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyStockOpnameRequest;
 use App\Http\Requests\StoreStockOpnameRequest;
 use App\Http\Requests\UpdateStockOpnameRequest;
 use App\Models\Product;
 use App\Models\StockOpname;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;

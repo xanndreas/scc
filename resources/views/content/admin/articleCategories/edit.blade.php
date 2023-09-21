@@ -21,16 +21,6 @@
                 <span class="help-block">{{ trans('cruds.articleCategory.fields.name_helper') }}</span>
             </div>
             <div class="mb-3">
-                <label for="slug">{{ trans('cruds.articleCategory.fields.slug') }}</label>
-                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', $articleCategory->slug) }}">
-                @if($errors->has('slug'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('slug') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.articleCategory.fields.slug_helper') }}</span>
-            </div>
-            <div class="mb-3">
                 <button class="btn btn-primary" type="submit">
                     {{ trans('global.save') }}
                 </button>

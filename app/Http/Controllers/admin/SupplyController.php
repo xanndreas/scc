@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroySupplyRequest;
 use App\Http\Requests\StoreSupplyRequest;
 use App\Http\Requests\UpdateSupplyRequest;
 use App\Models\Product;
 use App\Models\Supply;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -123,14 +122,4 @@ class SupplyController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroySupplyRequest $request)
-    {
-        $supplies = Supply::find(request('ids'));
-
-        foreach ($supplies as $supply) {
-            $supply->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }

@@ -3,15 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroySellingDetailRequest;
-use App\Http\Requests\StoreSellingDetailRequest;
-use App\Http\Requests\UpdateSellingDetailRequest;
-use App\Models\Product;
-use App\Models\SellingDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
-use Yajra\DataTables\Facades\DataTables;
 
 class SettingController extends Controller
 {
