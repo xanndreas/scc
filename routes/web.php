@@ -20,16 +20,23 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('contacts', 'HomeController@contacts')->name('contacts');
 
     Route::get('marketplaces', 'MarketplaceController@index')->name('marketplaces.index');
-
     Route::get('marketplaces/{slug}', 'MarketplaceController@show')->name('marketplaces.show');
 
-    Route::get('cart', 'MarketplaceController@cart')->name('marketplaces.cart');
+    Route::put('marketplaces/{cart}', 'MarketplaceController@update')->name('marketplaces.update');
+    Route::post('marketplaces/{product}', 'MarketplaceController@store')->name('marketplaces.store');
+    Route::post('marketplaces', 'MarketplaceController@checkout')->name('marketplaces.checkout');
+    Route::delete('marketplaces/{cart}', 'MarketplaceController@delete')->name('marketplaces.delete');
+
+    Route::get('cas/profile', 'CustomerAreasController@profile')->name('cas.profile');
+    Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');
+    Route::get('cas/transaction', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
+    Route::get('cas/transaction/{selling}', 'CustomerAreasController@transactionDetail')->name('cas.transaction-detail');
 
     Route::get('blogs', 'BlogController@index')->name('blogs.index');
-
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
 
     Route::get('supplies', 'SupplyController@index')->name('supplies.index');
+    Route::get('supplies/{supply}', 'SupplyController@show')->name('supplies.show');
 });
 
 Auth::routes();
@@ -91,6 +98,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Offer
     Route::delete('offers/destroy', 'OfferController@massDestroy')->name('offers.massDestroy');
+    Route::get('offers/create/{product}', 'OfferController@createByProduct')->name('offers.createByProduct');
+
     Route::resource('offers', 'OfferController');
 
     // Inventory
@@ -123,6 +132,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Setting
     Route::resource('settings', 'SettingController')->only(['index', 'update']);
+
+    // Transaction
+    Route::resource('transactions', 'TransactionController')->only(['index', 'update']);
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\auth', 'middleware' => ['auth']], function () {

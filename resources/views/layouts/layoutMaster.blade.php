@@ -5,7 +5,8 @@
     @endphp
 
     <input class="message-global-text" type="hidden"
-           value="{{ $flashDataType ? session()->get($flashDataType) : null }}"
+           value="{{ $flashDataType ? (is_string(session()->get($flashDataType)) ?
+                    session()->get($flashDataType) : session()->get($flashDataType)->first()) : null }}"
            data-type="{{ $flashDataType }}">
 </div>
 

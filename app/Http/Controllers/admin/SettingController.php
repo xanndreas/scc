@@ -19,14 +19,6 @@ class SettingController extends Controller
     {
         abort_if(Gate::denies('selling_detail_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.sellingDetails.index', compact('products'));
+        return view('content.admin.settings.index');
     }
-
-    public function update(UpdateSellingDetailRequest $request, SellingDetail $sellingDetail)
-    {
-        $sellingDetail->update($request->all());
-
-        return redirect()->route('admin.selling-details.index');
-    }
-
 }

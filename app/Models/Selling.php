@@ -15,7 +15,10 @@ class Selling extends Model
     public $table = 'sellings';
 
     public const STATUS_SELECT = [
-
+        'waiting_payment' => 'Waiting Payment',
+        'confirmed' => 'Order Confiirmed',
+        'on_process' => 'On Process',
+        'canceled' => 'Canceled'
     ];
 
     protected $dates = [

@@ -21,6 +21,12 @@
             "permission": "purchasing_access"
         },
         {
+            "name": "cruds.selling.title",
+            "icon": "menu-icon tf-icons ti ti-report-money",
+            "slug": "admin.sellings.index",
+            "permission": "selling_access"
+        },
+        {
             "name": "cruds.offer.title",
             "icon": "menu-icon tf-icons ti ti-gift",
             "slug": "admin.offers.index",
@@ -39,7 +45,7 @@
         {
             "name": "cruds.transaction.title",
             "icon": "menu-icon tf-icons ti  ti-transfer-in",
-            "slug": "admin.inventories.index",
+            "slug": "admin.transactions.index",
             "permission": "inventory_access"
         },
         {

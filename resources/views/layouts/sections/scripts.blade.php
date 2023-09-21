@@ -10,11 +10,13 @@
 <script src="{{ asset(mix('assets/vendor/libs/toastr/toastr.js'))}}"></script>
 <script src="{{ asset(mix('assets/js/global-toastr.js')) }}"></script>
 
+<script src="https://unpkg.com/smooth-scrollbar@8.8.4/dist/smooth-scrollbar.js"></script>
+<script> Scrollbar.initAll(); </script>
+
 @yield('vendor-script')
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Theme JS-->
 <script src="{{ asset(mix('assets/js/main.js')) }}"></script>
-vv
 <!-- END: Theme JS-->
 <!-- Pricing Modal JS-->
 @stack('pricing-script')

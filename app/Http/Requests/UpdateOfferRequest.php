@@ -36,7 +36,7 @@ class UpdateOfferRequest extends FormRequest
             ],
             'offering_expired_date' => [
                 'required',
-                'date_format:' . config('panel.date_format'),
+                'date_format:' . 'Y-m-d H:i:s',
             ],
             'offering_number' => [
                 'string',

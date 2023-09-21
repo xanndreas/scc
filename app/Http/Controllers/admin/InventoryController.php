@@ -29,12 +29,12 @@ class InventoryController extends Controller
             $table->editColumn('actions', function ($row) {
                 $viewGate      = 'inventory_show';
                 $editGate      = 'inventory_edit';
-                $deleteGate    = 'inventory_delete';
+                $deleteGate    = 'inventory_delete_disabled';
                 $crudRoutePart = 'inventories';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
-                    'editGate',
                     'deleteGate',
                     'crudRoutePart',
                     'row'
@@ -64,10 +64,11 @@ class InventoryController extends Controller
 
             return $table->make(true);
         }
+        $product = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $products = Product::get();
 
-        return view('admin.inventories.index', compact('products'));
+        return view('content.admin.inventories.index', compact('products','product'));
     }
 
     public function create()
@@ -76,14 +77,13 @@ class InventoryController extends Controller
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.inventories.create', compact('products'));
+        return view('content.admin.inventories.create', compact('products'));
     }
 
     public function store(StoreInventoryRequest $request)
     {
         $inventory = Inventory::create($request->all());
-
-        return redirect()->route('admin.inventories.index');
+        return back();
     }
 
     public function edit(Inventory $inventory)
@@ -94,14 +94,14 @@ class InventoryController extends Controller
 
         $inventory->load('product');
 
-        return view('admin.inventories.edit', compact('inventory', 'products'));
+        return view('content.admin.inventories.edit', compact('inventory', 'products'));
     }
 
     public function update(UpdateInventoryRequest $request, Inventory $inventory)
     {
         $inventory->update($request->all());
 
-        return redirect()->route('admin.inventories.index');
+        return redirect()->route('content.admin.inventories.index');
     }
 
     public function show(Inventory $inventory)
@@ -110,7 +110,7 @@ class InventoryController extends Controller
 
         $inventory->load('product');
 
-        return view('admin.inventories.show', compact('inventory'));
+        return view('content.admin.inventories.show', compact('inventory'));
     }
 
     public function destroy(Inventory $inventory)

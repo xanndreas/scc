@@ -17,30 +17,9 @@ class StoreOfferRequest extends FormRequest
     public function rules()
     {
         return [
-            'supplier_id' => [
-                'required',
-                'integer',
-            ],
-            'status' => [
-                'required',
-            ],
-            'grand_total' => [
-                'required',
-            ],
-            'offer_details.*' => [
-                'integer',
-            ],
             'offer_details' => [
                 'required',
                 'array',
-            ],
-            'offering_expired_date' => [
-                'required',
-                'date_format:' . config('panel.date_format'),
-            ],
-            'offering_number' => [
-                'string',
-                'required',
             ],
         ];
     }

@@ -18,7 +18,8 @@ class Contact extends Model implements HasMedia
     public $table = 'contacts';
 
     public const TYPE_SELECT = [
-
+        '1' => 'Contact Supplier',
+        '2' => 'Contact Customer',
     ];
 
     protected $appends = [

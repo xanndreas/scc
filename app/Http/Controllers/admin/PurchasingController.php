@@ -32,12 +32,14 @@ class PurchasingController extends Controller
                 $editGate      = 'purchasing_edit';
                 $deleteGate    = 'purchasing_delete';
                 $crudRoutePart = 'purchasings';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -90,7 +92,7 @@ class PurchasingController extends Controller
         $users              = User::get();
         $purchasing_details = PurchasingDetail::get();
 
-        return view('admin.purchasings.index', compact('users', 'purchasing_details'));
+        return view('content.admin.purchasings.index', compact('users', 'purchasing_details'));
     }
 
     public function create()
@@ -139,7 +141,7 @@ class PurchasingController extends Controller
 
         $purchasing->load('supplier', 'purchasing_details');
 
-        return view('admin.purchasings.show', compact('purchasing'));
+        return view('content.admin.purchasings.show', compact('purchasing'));
     }
 
     public function destroy(Purchasing $purchasing)

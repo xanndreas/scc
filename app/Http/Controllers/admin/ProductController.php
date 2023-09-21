@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -32,16 +33,18 @@ class ProductController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'product_show';
-                $editGate      = 'product_edit';
-                $deleteGate    = 'product_delete';
+                $viewGate = 'product_show';
+                $editGate = 'product_edit';
+                $deleteGate = 'product_delete';
                 $crudRoutePart = 'products';
+                $otherCan = true;
 
                 return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -75,7 +78,7 @@ class ProductController extends Controller
                 return $row->slug ? $row->slug : '';
             });
             $table->editColumn('featured_image', function ($row) {
-                if (! $row->featured_image) {
+                if (!$row->featured_image) {
                     return '';
                 }
                 $links = [];
@@ -113,7 +116,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all());
+        $product = Product::create(array_merge($request->except(['slug']), ['slug' => Str::slug($request->name)]));
 
         foreach ($request->input('featured_image', []) as $file) {
             $product->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('featured_image');
@@ -139,18 +142,18 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $product->update($request->all());
+        $product->update(array_merge($request->except(['slug']), ['slug' => Str::slug($request->name)]));
 
         if (count($product->featured_image) > 0) {
             foreach ($product->featured_image as $media) {
-                if (! in_array($media->file_name, $request->input('featured_image', []))) {
+                if (!in_array($media->file_name, $request->input('featured_image', []))) {
                     $media->delete();
                 }
             }
         }
         $media = $product->featured_image->pluck('file_name')->toArray();
         foreach ($request->input('featured_image', []) as $file) {
-            if (count($media) === 0 || ! in_array($file, $media)) {
+            if (count($media) === 0 || !in_array($file, $media)) {
                 $product->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('featured_image');
             }
         }
@@ -191,10 +194,10 @@ class ProductController extends Controller
     {
         abort_if(Gate::denies('product_create') && Gate::denies('product_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new Product();
-        $model->id     = $request->input('crud_id', 0);
+        $model = new Product();
+        $model->id = $request->input('crud_id', 0);
         $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+        $media = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }

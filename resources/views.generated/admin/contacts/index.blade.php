@@ -34,12 +34,6 @@
                         {{ trans('cruds.contact.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contact.fields.address') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.contact.fields.address_2') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.contact.fields.phone') }}
                     </th>
                     <th>
@@ -198,7 +192,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 let visibleColumnsIndexes = null;
 $('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false

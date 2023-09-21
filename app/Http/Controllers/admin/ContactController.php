@@ -35,12 +35,14 @@ class ContactController extends Controller
                 $editGate      = 'contact_edit';
                 $deleteGate    = 'contact_delete';
                 $crudRoutePart = 'contacts';
+                $otherCan = true;
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'otherCan',
                     'row'
                 ));
             });
@@ -109,7 +111,7 @@ class ContactController extends Controller
 
         $users = User::get();
 
-        return view('admin.contacts.index', compact('users'));
+        return view('content.admin.contacts.index', compact('users'));
     }
 
     public function create()
@@ -118,7 +120,7 @@ class ContactController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.contacts.create', compact('users'));
+        return view('content.admin.contacts.create', compact('users'));
     }
 
     public function store(StoreContactRequest $request)
@@ -148,7 +150,7 @@ class ContactController extends Controller
 
         $contact->load('user');
 
-        return view('admin.contacts.edit', compact('contact', 'users'));
+        return view('content.admin.contacts.edit', compact('contact', 'users'));
     }
 
     public function update(UpdateContactRequest $request, Contact $contact)
@@ -186,7 +188,7 @@ class ContactController extends Controller
 
         $contact->load('user');
 
-        return view('admin.contacts.show', compact('contact'));
+        return view('content.admin.contacts.show', compact('contact'));
     }
 
     public function destroy(Contact $contact)

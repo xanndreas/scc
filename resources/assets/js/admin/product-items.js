@@ -110,7 +110,6 @@ $(function () {
                         }
                     ]
                 },
-                ,
                 {
                     text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
                     className: 'btn-create-new btn btn-primary',
@@ -142,6 +141,16 @@ $(function () {
             .columns.adjust();
     });
 
+    let $control = $('.control');
+    $control.onClassChange(function (el, newClass) {
+        let $placeholdersHeader = $control.parent().parent()
+            .find('tr').eq(1)
+            .find('td').eq(0);
+
+        if (newClass === 'control sorting_disabled') $placeholdersHeader.removeClass('d-none');
+        else $placeholdersHeader.addClass('d-none')
+    });
+
     let visibleColumnsIndexes = null;
     $('.datatable thead').on('input', '.search', function () {
         let strict = $(this).attr('strict') || false
@@ -153,7 +162,7 @@ $(function () {
         }
 
         table
-            .column(index + 1)
+            .column(index)
             .search(value, strict)
             .draw()
     });
@@ -167,7 +176,7 @@ $(function () {
 
     $('.datatable-Products tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
-        window.location.href = '/admin/products/'+row.id;
+        window.location.href = '/admin/products/' + row.id;
     });
 
     $('.btn-create-new').on('click', function () {

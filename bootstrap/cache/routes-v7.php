@@ -860,14 +860,70 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.checkout',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
       ),
-      '/cart' => 
+      '/cas/profile' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'customers.marketplaces.cart',
+            '_route' => 'customers.cas.profile',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/cas/cart' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.cas.cart',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/cas/transaction' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.cas.transaction-history',
           ),
           1 => NULL,
           2 => 
@@ -944,7 +1000,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::P6HFZFkDb55TvGrg',
+            '_route' => 'generated::nkDSeQ3LuYuwwTTn',
           ),
           1 => NULL,
           2 => 
@@ -999,7 +1055,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::jYBoGcKF5jELIVX7',
+            '_route' => 'generated::9FECFr0M3d5AMCsw',
           ),
           1 => NULL,
           2 => 
@@ -1090,7 +1146,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::V2W5SivvztjVyFJj',
+            '_route' => 'generated::b2ytfqExIKIN7DM5',
           ),
           1 => NULL,
           2 => 
@@ -2703,6 +2759,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/transactions' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.transactions.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/profile/password' => 
       array (
         0 => 
@@ -2780,7 +2856,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/a(?|pi/v1/(?|p(?|ermissions/([^/]++)(?|(*:47))|roducts/([^/]++)(?|(*:74))|urchasing(?|s/([^/]++)(?|(*:107))|\\-details/([^/]++)(?|(*:137))))|roles/([^/]++)(?|(*:165))|users/([^/]++)(?|(*:191))|c(?|a(?|tegories/([^/]++)(?|(*:228))|rts/([^/]++)(?|(*:252)))|ontacts/([^/]++)(?|(*:281)))|s(?|elling(?|s/([^/]++)(?|(*:317))|\\-details/([^/]++)(?|(*:347)))|tock\\-opnames/([^/]++)(?|(*:382))|upplies/([^/]++)(?|(*:410)))|offer(?|\\-details/([^/]++)(?|(*:449))|s/([^/]++)(?|(*:471)))|inventories/([^/]++)(?|(*:504))|article\\-c(?|ontents/([^/]++)(?|(*:545))|ategories/([^/]++)(?|(*:575))))|dmin/(?|p(?|ermissions/([^/]++)(?|(*:620)|/edit(*:633)|(*:641))|roducts/([^/]++)(?|(*:669)|/edit(*:682)|(*:690))|urchasing(?|s/([^/]++)(?|(*:724)|/edit(*:737)|(*:745))|\\-details/([^/]++)(?|(*:775)|/edit(*:788)|(*:796))))|roles/([^/]++)(?|(*:824)|/edit(*:837)|(*:845))|users/([^/]++)(?|(*:871)|/edit(*:884)|(*:892))|a(?|udit\\-logs/([^/]++)(*:924)|rticle\\-c(?|ontents/([^/]++)(?|(*:963)|/edit(*:976)|(*:984))|ategories/([^/]++)(?|(*:1014)|/edit(*:1028)|(*:1037))))|c(?|a(?|tegories/([^/]++)(?|(*:1077)|/edit(*:1091)|(*:1100))|rts/([^/]++)(?|(*:1125)|/edit(*:1139)|(*:1148)))|ontacts/([^/]++)(?|(*:1178)|/edit(*:1192)|(*:1201)))|s(?|e(?|lling(?|s/([^/]++)(?|(*:1241)|/edit(*:1255)|(*:1264))|\\-details/([^/]++)(?|(*:1295)|/edit(*:1309)|(*:1318)))|ttings/([^/]++)(*:1344))|tock\\-opnames/([^/]++)(?|(*:1379)|/edit(*:1393)|(*:1402))|upplies/([^/]++)(?|(*:1431)|/edit(*:1445)|(*:1454)))|offer(?|\\-details/([^/]++)(?|(*:1494)|/edit(*:1508)|(*:1517))|s/([^/]++)(?|(*:1540)|/edit(*:1554)|(*:1563)))|inventories/([^/]++)(?|(*:1597)|/edit(*:1611)|(*:1620))))|/marketplaces/([^/]++)(*:1654)|/blogs/([^/]++)(*:1678)|/password/reset/([^/]++)(*:1711))/?$}sDu',
+      0 => '{^(?|/a(?|pi/v1/(?|p(?|ermissions/([^/]++)(?|(*:47))|roducts/([^/]++)(?|(*:74))|urchasing(?|s/([^/]++)(?|(*:107))|\\-details/([^/]++)(?|(*:137))))|roles/([^/]++)(?|(*:165))|users/([^/]++)(?|(*:191))|c(?|a(?|tegories/([^/]++)(?|(*:228))|rts/([^/]++)(?|(*:252)))|ontacts/([^/]++)(?|(*:281)))|s(?|elling(?|s/([^/]++)(?|(*:317))|\\-details/([^/]++)(?|(*:347)))|tock\\-opnames/([^/]++)(?|(*:382))|upplies/([^/]++)(?|(*:410)))|offer(?|\\-details/([^/]++)(?|(*:449))|s/([^/]++)(?|(*:471)))|inventories/([^/]++)(?|(*:504))|article\\-c(?|ontents/([^/]++)(?|(*:545))|ategories/([^/]++)(?|(*:575))))|dmin/(?|p(?|ermissions/([^/]++)(?|(*:620)|/edit(*:633)|(*:641))|roducts/([^/]++)(?|(*:669)|/edit(*:682)|(*:690))|urchasing(?|s/([^/]++)(?|(*:724)|/edit(*:737)|(*:745))|\\-details/([^/]++)(?|(*:775)|/edit(*:788)|(*:796))))|roles/([^/]++)(?|(*:824)|/edit(*:837)|(*:845))|users/([^/]++)(?|(*:871)|/edit(*:884)|(*:892))|a(?|udit\\-logs/([^/]++)(*:924)|rticle\\-c(?|ontents/([^/]++)(?|(*:963)|/edit(*:976)|(*:984))|ategories/([^/]++)(?|(*:1014)|/edit(*:1028)|(*:1037))))|c(?|a(?|tegories/([^/]++)(?|(*:1077)|/edit(*:1091)|(*:1100))|rts/([^/]++)(?|(*:1125)|/edit(*:1139)|(*:1148)))|ontacts/([^/]++)(?|(*:1178)|/edit(*:1192)|(*:1201)))|s(?|e(?|lling(?|s/([^/]++)(?|(*:1241)|/edit(*:1255)|(*:1264))|\\-details/([^/]++)(?|(*:1295)|/edit(*:1309)|(*:1318)))|ttings/([^/]++)(*:1344))|tock\\-opnames/([^/]++)(?|(*:1379)|/edit(*:1393)|(*:1402))|upplies/([^/]++)(?|(*:1431)|/edit(*:1445)|(*:1454)))|offer(?|\\-details/([^/]++)(?|(*:1494)|/edit(*:1508)|(*:1517))|s/(?|create/([^/]++)(*:1547)|([^/]++)(?|(*:1567)|/edit(*:1581)|(*:1590))))|inventories/([^/]++)(?|(*:1625)|/edit(*:1639)|(*:1648))|transactions/([^/]++)(*:1679)))|/marketplaces/([^/]++)(?|(*:1715)|(*:1724)|(*:1733)|(*:1742))|/cas/transaction/([^/]++)(*:1777)|/blogs/([^/]++)(*:1801)|/supplies/([^/]++)(*:1828)|/password/reset/([^/]++)(*:1861))/?$}sDu',
     ),
     3 => 
     array (
@@ -5354,7 +5430,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1540 => 
+      1547 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.offers.createByProduct',
+          ),
+          1 => 
+          array (
+            0 => 'product',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1567 => 
       array (
         0 => 
         array (
@@ -5377,7 +5476,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1554 => 
+      1581 => 
       array (
         0 => 
         array (
@@ -5400,7 +5499,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1563 => 
+      1590 => 
       array (
         0 => 
         array (
@@ -5442,7 +5541,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1597 => 
+      1625 => 
       array (
         0 => 
         array (
@@ -5465,7 +5564,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1611 => 
+      1639 => 
       array (
         0 => 
         array (
@@ -5488,7 +5587,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1620 => 
+      1648 => 
       array (
         0 => 
         array (
@@ -5530,7 +5629,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1654 => 
+      1679 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.transactions.update',
+          ),
+          1 => 
+          array (
+            0 => 'transaction',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1715 => 
       array (
         0 => 
         array (
@@ -5553,7 +5675,96 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1678 => 
+      1724 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.update',
+          ),
+          1 => 
+          array (
+            0 => 'cart',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1733 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.store',
+          ),
+          1 => 
+          array (
+            0 => 'product',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1742 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.marketplaces.delete',
+          ),
+          1 => 
+          array (
+            0 => 'cart',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1777 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.cas.transaction-detail',
+          ),
+          1 => 
+          array (
+            0 => 'selling',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1801 => 
       array (
         0 => 
         array (
@@ -5576,7 +5787,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1711 => 
+      1828 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'customers.supplies.show',
+          ),
+          1 => 
+          array (
+            0 => 'supply',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1861 => 
       array (
         0 => 
         array (
@@ -9403,23 +9637,278 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customers.marketplaces.cart' => 
+    'customers.marketplaces.update' => 
     array (
       'methods' => 
       array (
-        0 => 'GET',
-        1 => 'HEAD',
+        0 => 'PUT',
       ),
-      'uri' => 'cart',
+      'uri' => 'marketplaces/{cart}',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@cart',
-        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@cart',
-        'as' => 'customers.marketplaces.cart',
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@update',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@update',
+        'as' => 'customers.marketplaces.update',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'marketplaces/{product}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@store',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@store',
+        'as' => 'customers.marketplaces.store',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.checkout' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'marketplaces',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@checkout',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@checkout',
+        'as' => 'customers.marketplaces.checkout',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.marketplaces.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'marketplaces/{cart}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\MarketplaceController@delete',
+        'controller' => 'App\\Http\\Controllers\\customer\\MarketplaceController@delete',
+        'as' => 'customers.marketplaces.delete',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.cas.profile' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'cas/profile',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@profile',
+        'controller' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@profile',
+        'as' => 'customers.cas.profile',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.cas.cart' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'cas/cart',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@cart',
+        'controller' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@cart',
+        'as' => 'customers.cas.cart',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.cas.transaction-history' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'cas/transaction',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@transactionHistory',
+        'controller' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@transactionHistory',
+        'as' => 'customers.cas.transaction-history',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'customers.cas.transaction-detail' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'cas/transaction/{selling}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@transactionDetail',
+        'controller' => 'App\\Http\\Controllers\\customer\\CustomerAreasController@transactionDetail',
+        'as' => 'customers.cas.transaction-detail',
         'namespace' => 'App\\Http\\Controllers\\customer',
         'prefix' => '',
         'where' => 
@@ -9551,6 +10040,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'customers.supplies.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'supplies/{supply}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\customer\\SupplyController@show',
+        'controller' => 'App\\Http\\Controllers\\customer\\SupplyController@show',
+        'as' => 'customers.supplies.show',
+        'namespace' => 'App\\Http\\Controllers\\customer',
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'login' => 
     array (
       'methods' => 
@@ -9588,7 +10114,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::P6HFZFkDb55TvGrg' => 
+    'generated::nkDSeQ3LuYuwwTTn' => 
     array (
       'methods' => 
       array (
@@ -9608,7 +10134,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::P6HFZFkDb55TvGrg',
+        'as' => 'generated::nkDSeQ3LuYuwwTTn',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9697,7 +10223,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::jYBoGcKF5jELIVX7' => 
+    'generated::9FECFr0M3d5AMCsw' => 
     array (
       'methods' => 
       array (
@@ -9717,7 +10243,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::jYBoGcKF5jELIVX7',
+        'as' => 'generated::9FECFr0M3d5AMCsw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -9916,7 +10442,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::V2W5SivvztjVyFJj' => 
+    'generated::b2ytfqExIKIN7DM5' => 
     array (
       'methods' => 
       array (
@@ -9936,7 +10462,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::V2W5SivvztjVyFJj',
+        'as' => 'generated::b2ytfqExIKIN7DM5',
       ),
       'fallback' => false,
       'defaults' => 
@@ -13636,6 +14162,44 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'admin.offers.createByProduct' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/offers/create/{product}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\admin\\OfferController@createByProduct',
+        'controller' => 'App\\Http\\Controllers\\admin\\OfferController@createByProduct',
+        'as' => 'admin.offers.createByProduct',
+        'namespace' => 'App\\Http\\Controllers\\admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'admin.offers.index' => 
     array (
       'methods' => 
@@ -15910,6 +16474,82 @@ app('router')->setCompiledRoutes(
         'as' => 'admin.settings.update',
         'uses' => 'App\\Http\\Controllers\\admin\\SettingController@update',
         'controller' => 'App\\Http\\Controllers\\admin\\SettingController@update',
+        'namespace' => 'App\\Http\\Controllers\\admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.transactions.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/transactions',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.transactions.index',
+        'uses' => 'App\\Http\\Controllers\\admin\\TransactionController@index',
+        'controller' => 'App\\Http\\Controllers\\admin\\TransactionController@index',
+        'namespace' => 'App\\Http\\Controllers\\admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.transactions.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/transactions/{transaction}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'as' => 'admin.transactions.update',
+        'uses' => 'App\\Http\\Controllers\\admin\\TransactionController@update',
+        'controller' => 'App\\Http\\Controllers\\admin\\TransactionController@update',
         'namespace' => 'App\\Http\\Controllers\\admin',
         'prefix' => '/admin',
         'where' => 

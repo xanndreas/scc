@@ -16,7 +16,9 @@ class Offer extends Model
     public $table = 'offers';
 
     public const STATUS_SELECT = [
-
+        'on_progress' => 'On Progress',
+        'accepted_by_supplier' => 'Accepted by Supplier',
+        'done' => 'Done',
     ];
 
     protected $dates = [
@@ -54,11 +56,11 @@ class Offer extends Model
 
     public function getOfferingExpiredDateAttribute($value)
     {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
+        return $value ? Carbon::parse($value)->format('Y-m-d H:i:s') : null;
     }
 
     public function setOfferingExpiredDateAttribute($value)
     {
-        $this->attributes['offering_expired_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+        $this->attributes['offering_expired_date'] = $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('Y-m-d') : null;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\traits\InventoryTrait;
 use App\Traits\Auditable;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
-    use SoftDeletes, InteractsWithMedia, Auditable, HasFactory;
+    use SoftDeletes, InteractsWithMedia, Auditable, HasFactory, InventoryTrait;
 
     public $table = 'products';
 
@@ -23,6 +24,7 @@ class Product extends Model implements HasMedia
 
     protected $appends = [
         'featured_image',
+        'stocks'
     ];
 
     public const PACKAGING_UNIT_SELECT = [
@@ -70,6 +72,11 @@ class Product extends Model implements HasMedia
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function getStocksAttribute()
+    {
+        return $this->stocks($this);
     }
 
     public function getFeaturedImageAttribute()
