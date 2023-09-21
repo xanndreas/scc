@@ -86,11 +86,14 @@ class SellingController extends Controller
 
             return $table->make(true);
         }
+        $customers = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $selling_detail = SellingDetail::pluck('subtotal', 'id');
 
         $users           = User::get();
         $selling_details = SellingDetail::get();
 
-        return view('admin.sellings.index', compact('users', 'selling_details'));
+        return view('content.admin.sellings.index', compact('users', 'selling_details','customers','selling_detail'));
     }
 
     public function create()
@@ -101,7 +104,7 @@ class SellingController extends Controller
 
         $selling_details = SellingDetail::pluck('subtotal', 'id');
 
-        return view('admin.sellings.create', compact('customers', 'selling_details'));
+        return view('content.sellings.create', compact('customers', 'selling_details'));
     }
 
     public function store(StoreSellingRequest $request)
@@ -122,7 +125,7 @@ class SellingController extends Controller
 
         $selling->load('customer', 'selling_details');
 
-        return view('admin.sellings.edit', compact('customers', 'selling', 'selling_details'));
+        return view('content.sellings.edit', compact('customers', 'selling', 'selling_details'));
     }
 
     public function update(UpdateSellingRequest $request, Selling $selling)

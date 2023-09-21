@@ -198,7 +198,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/data',
+        'path' => 'D:\\Projects\\OnProgress\\scc\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -399,13 +399,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app',
+        'root' => 'D:\\Projects\\OnProgress\\scc\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+        'root' => 'D:\\Projects\\OnProgress\\scc\\storage\\app/public',
         'url' => 'http://localhost:8000/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -425,7 +425,7 @@
     ),
     'links' => 
     array (
-      'D:\\Projects\\OnProgress\\scc-dev\\public\\storage' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\app/public',
+      'D:\\Projects\\OnProgress\\scc\\public\\storage' => 'D:\\Projects\\OnProgress\\scc\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -464,14 +464,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -536,7 +536,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\logs/laravel.log',
+        'path' => 'D:\\Projects\\OnProgress\\scc\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -602,7 +602,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views/vendor/mail',
+        0 => 'D:\\Projects\\OnProgress\\scc\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -708,7 +708,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/sessions',
+    'files' => 'D:\\Projects\\OnProgress\\scc\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -756,9 +756,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Projects\\OnProgress\\scc-dev\\resources\\views',
+      0 => 'D:\\Projects\\OnProgress\\scc\\resources\\views',
     ),
-    'compiled' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework\\views',
+    'compiled' => 'D:\\Projects\\OnProgress\\scc\\storage\\framework\\views',
   ),
   'image' => 
   array (
@@ -870,7 +870,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'D:\\Projects\\OnProgress\\scc-dev\\storage\\framework/cache/laravel-excel',
+      'local_path' => 'D:\\Projects\\OnProgress\\scc\\storage\\framework/cache/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -950,7 +950,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\Projects\\OnProgress\\scc-dev',
+    'remote_sites_path' => 'D:\\Projects\\OnProgress\\scc',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
