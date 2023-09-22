@@ -8,7 +8,7 @@
     <div data-bs-spy="scroll" class="scrollspy-example">
         <!-- Hero: Start -->
         <section id="hero-animation">
-            <div id="landingHero" class="section-py landing-hero position-relative">
+            <div id="landingHero" class="section-py landing-cover position-relative">
                 <div class="container">
                     <div class="hero-text-box text-center">
                         <h1 class="text-primary hero-title display-6 fw-bold">Contacts</h1>

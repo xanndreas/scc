@@ -1,7 +1,7 @@
 'use strict';
 
 $(function () {
-    let productContainer = $('.infinite-products');
+    let productContainer = $('.infinite-article');
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     if (productContainer.length) {
@@ -18,7 +18,7 @@ $(function () {
 
     function infiniteLoadMore(page) {
         $.ajax({
-            url: '/marketplaces?page=' + page,
+            url: '/blogs?page=' + page,
             datatype: 'html',
             type: 'get',
 

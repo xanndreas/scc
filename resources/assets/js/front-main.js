@@ -9,6 +9,7 @@ isRtl = window.Helpers.isRtl();
 
 (function () {
     const menu = document.getElementById('navbarSupportedContent'),
+        landingHero = document.getElementById('landingHero'),
         nav = document.querySelector('.layout-navbar'),
         navItemLink = document.querySelectorAll('.navbar-nav .nav-link');
 
@@ -131,6 +132,12 @@ isRtl = window.Helpers.isRtl();
         }
         // Run switchImage function based on the stored style
         switchImage(storedStyle);
+    }
+
+    if (landingHero) {
+        // particlesJS.load('landingHero', 'assets/json/particlesjs-config.json', function() {
+        //     console.log('callback - particles.js config loaded');
+        // });
     }
 
     // Update light/dark image based on current style
