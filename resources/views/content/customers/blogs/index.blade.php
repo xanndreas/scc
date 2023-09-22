@@ -11,7 +11,7 @@
 
     <!-- Hero: Start -->
     <section id="hero-animation">
-        <div id="landingHero" class="section-py landing-hero position-relative">
+        <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
                     <h1 class="text-primary hero-title display-6 fw-bold">Blogs</h1>
@@ -30,10 +30,12 @@
         <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-lg-9 col-md-12">
-                    <div class="blog-list-wrapper infinite-article">
-                        <!-- Blog List Items -->
-                        @include('content.customers.blogs._partials.items')
-                        <!--/ Blog List Items -->
+                    <div class="blog-list-wrapper e">
+                        <div class="row infinite-article d-flex">
+                            <!-- Blog List Items -->
+                            @include('content.customers.blogs._partials.items')
+                            <!--/ Blog List Items -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12 mt-md-3">

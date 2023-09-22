@@ -12,12 +12,12 @@
                 <div class="container">
                     <div class="hero-text-box text-center">
                         <h1 class="text-primary hero-title display-6 fw-bold">Supply Center Kampung Industri Toga</h1>
-                        <h2 class="hero-sub-title h6 mb-4 pb-1">
+                        <h2 class="hero-sub-title h6 mb-4 pb-1 text-white">
                             E-commerce make easy, explore our new product <br class="d-none d-lg-block"/>
                             and get many discounts.
                         </h2>
                         <div class="landing-hero-btn d-inline-block position-relative">
-                        <span class="hero-btn-item position-absolute d-none d-md-flex text-heading">Explore products
+                        <span class="hero-btn-item position-absolute d-none d-md-flex text-white">Explore products
                             <img src="{{asset('assets/img/front-pages/icons/Join-community-arrow.png')}}"
                                  alt="Join community arrow"
                                  class="scaleX-n1-rtl"/>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div id="heroDashboardAnimation" class="hero-animation-img">
-                        <a href="../vertical-menu-template/dashboards-ecommerce.html" target="_blank">
+                        <a href="{{ route('customers.marketplaces.index') }}">
                             <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
                                 <img
                                     src="{{asset('assets/img/front-pages/landing-page/hero-dashboard-light.png')}}"

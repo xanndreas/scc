@@ -54,6 +54,7 @@
     <script src="{{ asset('assets/js/customer/marketplace-index.js')}}"></script>
     <script src="{{ asset('assets/js/customer/supply-index.js')}}"></script>
     <script src="{{ asset('assets/js/customer/cas-transaction.js')}}"></script>
+    <script src="{{ asset('assets/js/customer/article-index.js')}}"></script>
 @endsection
 
 @section('layoutContent')

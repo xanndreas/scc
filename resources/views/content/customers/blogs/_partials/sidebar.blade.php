@@ -14,7 +14,7 @@
     <div class="blog-recent-posts mt-3">
         <h6 class="section-label">Recent Posts</h6>
         <div class="mt-75">
-            @foreach($recentArticles as $recent)
+            @foreach($recentArticles as $article)
                 <div class="d-flex mb-2">
                     @if($article->featured_image->count() !== 0)
                         <a href="{{ route('customers.blogs.show', ['slug' => $article->slug ]) }}" class="me-2">
@@ -51,13 +51,13 @@
     <div class="blog-categories mt-3">
         <h6 class="section-label">Categories</h6>
         <div class="mt-1">
-            <div class="d-flex justify-content-start align-items-center mb-75">
-                @foreach($categories as $category)
+            @foreach($categories as $category)
+                <div class="d-flex justify-content-start align-items-center mb-75">
                     <a href="javascript:void(0);">
                         <div class="blog-category-title text-body">{{ $category->name }}</div>
                     </a>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
     <!--/ Categories -->
