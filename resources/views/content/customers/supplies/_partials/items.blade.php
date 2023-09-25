@@ -5,7 +5,7 @@
                 <a href="javascript:void(0);" class="supply-detail-show" data-supply-id="{{ $supply->id }}">
                     <img
                         class="img-fluid card-img-top"
-                        src="{{$supply->featured_image->first()->getUrl()}}"
+                        src="{{$supply->product->featured_image->first()->getUrl()}}"
                         alt="img-placeholder"
                     />
                 </a>
