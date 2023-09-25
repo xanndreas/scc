@@ -179,6 +179,7 @@ $(function () {
         window.location.href = '/admin/inventories/history/' + row.product_id;
     });
 
+    let canvasSelector = document.getElementById('offcanvasCreateNew')
     canvasSelector.addEventListener('shown.bs.offcanvas', function () {
         if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);
         else $('input[name="_method"]').prop('disabled', false);
