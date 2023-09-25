@@ -22,12 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (Schema::hasTable('article_contents')) {
-            $blogs = ArticleContent::with('categories')
-                ->orderByDesc('created_at')->limit(5)->get();
+        $blogs = ArticleContent::with('categories')
+            ->orderByDesc('created_at')->limit(5)->get();
 
-            View::share('recent_blog_footers', $blogs);
-        }
-
+        View::share('recent_blog_footers', $blogs);
     }
 }
