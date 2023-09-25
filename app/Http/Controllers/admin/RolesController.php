@@ -105,7 +105,7 @@ class RolesController extends Controller
         $role->update($request->all());
         $role->permissions()->sync($request->input('permissions', []));
 
-        return redirect()->route('content.admin.settings.index');
+        return redirect()->route('admin.settings.index');
     }
 
     public function show(Role $role)

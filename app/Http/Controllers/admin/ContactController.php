@@ -25,7 +25,12 @@ class ContactController extends Controller
         abort_if(Gate::denies('contact_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Contact::with(['user'])->select(sprintf('%s.*', (new Contact)->table));
+            $query = Contact::with(['user']);
+            if (Gate::allows('actor_supplier') && Gate::denies('actor_admin')) {
+                $query->where('user_id', Auth::id());
+            }
+
+            $query->select(sprintf('%s.*', (new Contact)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
