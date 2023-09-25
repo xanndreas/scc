@@ -78,7 +78,7 @@
                         </p>
 
                         <hr/>
-                        <div class="d-flex flex-column flex-sm-row pt-1">
+                        <div class="d-flex flex-column flex-sm-row pt-1 infinite-products">
                             @if($product->stocks > 0)
                                 <a href="#" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
                                    data-product-id="{{ $product->id }}">
