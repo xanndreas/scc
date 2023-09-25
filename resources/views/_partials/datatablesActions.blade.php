@@ -21,6 +21,11 @@
                     <a href="{{ route('admin.'.$crudRoutePart.'.edit', $row->id) }}" class="dropdown-item">Edit</a>
                 </div>
             @endcan
+            @can($viewGate)
+                <div class="dropdown-menu dropdown-menu-end m-0" style="">
+                    <a href="{{ route('admin.'.$crudRoutePart.'.show', $row->id) }}" class="dropdown-item">Show</a>
+                </div>
+            @endcan
         @endif
     @endif
 

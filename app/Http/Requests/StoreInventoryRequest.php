@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Models\Inventory;
-use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 class StoreInventoryRequest extends FormRequest
 {
@@ -17,11 +17,7 @@ class StoreInventoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'model_key' => [
-                'string',
-                'required',
-            ],
-            'model_name' => [
+            'notes' => [
                 'string',
                 'required',
             ],

@@ -183,10 +183,10 @@ $(function () {
 
         $('input[name="quantity_needs"]').val(row.quantity_needs);
         $('input[name="initial_price"]').val(row.initial_price);
-        $('input[name="product.name"]').val(row.product_name);
+        $('select[name="product_id"]').val(row.product_id).trigger('change');
         $('input[name="start_date"]').val(row.start_date);
         $('input[name="end_date"]').val(row.end_date);
-        $('input[name="status"]').val(row.status);
+        $('select[name="status"]').val(row.status_value).trigger('change');
 
         if (row.id) {
             let createForms = $('#createNewForm');

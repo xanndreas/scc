@@ -29,14 +29,12 @@ class PurchasingController extends Controller
                 $editGate      = 'purchasing_edit_disabled';
                 $deleteGate    = 'purchasing_delete_disabled';
                 $crudRoutePart = 'purchasings';
-                $otherCan = true;
 
                 return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
-                    'otherCan',
                     'row'
                 ));
             });

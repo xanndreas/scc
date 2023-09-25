@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +17,9 @@ class ChangePasswordController extends Controller
     {
         abort_if(Gate::denies('profile_password_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('auth.passwords.edit');
+        $contact = Contact::with('user')->where('user_id', Auth::id())->first();
+
+        return view('auth.passwords.edit', compact('contact'));
     }
 
     public function update(UpdatePasswordRequest $request)

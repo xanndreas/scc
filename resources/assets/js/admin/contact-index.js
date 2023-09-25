@@ -67,7 +67,7 @@ $(function () {
             buttons: [
                 {
                     extend: 'collection',
-                    className: 'btn btn-label-secondary dropdown-toggle mx-3',
+                    className: 'btn btn-label-secondary dropdown-toggle',
                     text: '<i class="ti ti-screen-share me-1 ti-xs"></i>Export',
                     buttons: [
                         {
@@ -110,11 +110,6 @@ $(function () {
                         }
                     ]
                 },
-                ,
-                {
-                    text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Create New</span>',
-                    className: 'btn-create-new btn btn-primary',
-                }
             ],
             columnDefs: [
                 {
@@ -178,9 +173,5 @@ $(function () {
     $('.datatable-Contact tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
         let row = table.row(event.currentTarget).data();
         window.location.href = '/admin/contacts/' + row.id;
-    });
-
-    $('.btn-create-new').on('click', function () {
-        window.location.href = '/admin/contacts/create';
     });
 });

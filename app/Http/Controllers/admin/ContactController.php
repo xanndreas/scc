@@ -8,8 +8,10 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -30,9 +32,9 @@ class ContactController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'contact_show';
-                $editGate      = 'contact_edit';
-                $deleteGate    = 'contact_delete';
+                $viewGate = 'contact_show';
+                $editGate = 'contact_edit';
+                $deleteGate = 'contact_delete';
                 $crudRoutePart = 'contacts';
                 $otherCan = true;
 
@@ -124,7 +126,14 @@ class ContactController extends Controller
 
     public function store(StoreContactRequest $request)
     {
-        $contact = Contact::create($request->all());
+        $userCurrent = User::with('userContacts')
+            ->where('id', Auth::id())->first();
+
+        $contact = Contact::create(array_merge($request->except('name'), [
+            'name' => $userCurrent->name,
+            'user_id' => Auth::id(),
+            'code' => Str::random(10),
+        ]));
 
         if ($request->input('identity_image', false)) {
             $contact->addMedia(storage_path('tmp/uploads/' . basename($request->input('identity_image'))))->toMediaCollection('identity_image');
@@ -138,7 +147,7 @@ class ContactController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $contact->id]);
         }
 
-        return redirect()->route('admin.contacts.index');
+        return redirect()->back();
     }
 
     public function edit(Contact $contact)
@@ -157,7 +166,7 @@ class ContactController extends Controller
         $contact->update($request->all());
 
         if ($request->input('identity_image', false)) {
-            if (! $contact->identity_image || $request->input('identity_image') !== $contact->identity_image->file_name) {
+            if (!$contact->identity_image || $request->input('identity_image') !== $contact->identity_image->file_name) {
                 if ($contact->identity_image) {
                     $contact->identity_image->delete();
                 }
@@ -168,7 +177,7 @@ class ContactController extends Controller
         }
 
         if ($request->input('self_image', false)) {
-            if (! $contact->self_image || $request->input('self_image') !== $contact->self_image->file_name) {
+            if (!$contact->self_image || $request->input('self_image') !== $contact->self_image->file_name) {
                 if ($contact->self_image) {
                     $contact->self_image->delete();
                 }
@@ -178,7 +187,7 @@ class ContactController extends Controller
             $contact->self_image->delete();
         }
 
-        return redirect()->route('admin.contacts.index');
+        return redirect()->back();
     }
 
     public function show(Contact $contact)
@@ -214,10 +223,10 @@ class ContactController extends Controller
     {
         abort_if(Gate::denies('contact_create') && Gate::denies('contact_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new Contact();
-        $model->id     = $request->input('crud_id', 0);
+        $model = new Contact();
+        $model->id = $request->input('crud_id', 0);
         $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+        $media = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }

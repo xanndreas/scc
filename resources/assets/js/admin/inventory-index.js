@@ -11,16 +11,14 @@ $(function () {
             ajax: "/admin/inventories",
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
-                {data: 'id', name: 'id'},
-                {data: 'model_key', name: 'model_key'},
-                {data: 'model_name', name: 'model_name'},
-                {data: 'types', name: 'types'},
-                {data: 'quantity', name: 'quantity'},
+                {data: 'product_product_code', name: 'product.product_code'},
                 {data: 'product_name', name: 'product.name'},
-                {data: 'actions', name: 'Actions'}
+                {data: 'product_stock_minimum', name: 'product.stock_minimum'},
+                {data: 'product_price_buy', name: 'product.price_buy'},
+                {data: 'product_price_sell', name: 'product.price_sell'},
+                {data: 'quantity_sum', name: 'quantity_sum'},
             ],
             orderCellsTop: true,
-            order: [[2, 'desc']],
             pageLength: 10,
             dom: '<"row me-2"' +
                 '<"col-md-2"<"me-3"l>>' +
@@ -176,26 +174,10 @@ $(function () {
         });
     })
 
-    let canvasSelector = document.getElementById('offcanvasCreateNew')
-    // $('.datatable-Inventory tbody').on('click', 'td:not(:first-child, :last-child)', (event) => {
-    //     let row = table.row(event.currentTarget).data();
-    //
-    //     $('input[name="name"]').val(row.name);
-    //
-    //     if (row.id) {
-    //         let createForms = $('#createNewForm');
-    //         createForms.attr('action', "/admin/inventories/" + row.id);
-    //         createForms.data('operation', 'update')
-    //     }
-    //
-    //     canvasSelector.addEventListener('hidden.bs.offcanvas', function () {
-    //         $('#createNewForm')
-    //             .trigger("reset");
-    //     });
-    //
-    //     let bsOffCanvasAddRequestCreditHelp = new bootstrap.Offcanvas(canvasSelector)
-    //     bsOffCanvasAddRequestCreditHelp.show();
-    // });
+    $('.datatable-Inventory tbody').on('click', 'td', (event) => {
+        let row = table.row(event.currentTarget).data();
+        window.location.href = '/admin/inventories/history/' + row.product_id;
+    });
 
     canvasSelector.addEventListener('shown.bs.offcanvas', function () {
         if ($('#createNewForm').data('operation') === 'store') $('input[name="_method"]').prop('disabled', true);

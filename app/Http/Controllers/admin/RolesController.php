@@ -27,11 +27,11 @@ class RolesController extends Controller
 
             $table->editColumn('actions', function ($row) {
                 $viewGate      = 'role_show';
-                $editGate      = 'role_edit';
+                $editGate      = 'role_edit_disabled';
                 $deleteGate    = 'role_delete';
                 $crudRoutePart = 'roles';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
@@ -54,7 +54,14 @@ class RolesController extends Controller
 
                 return implode(' ', $labels);
             });
+            $table->editColumn('permission_ids', function ($row) {
+                $labels = [];
+                foreach ($row->permissions as $permission) {
+                    $labels[] = $permission->id;
+                }
 
+                return $labels;
+            });
             $table->rawColumns(['actions', 'placeholder', 'permissions']);
 
             return $table->make(true);
@@ -98,7 +105,7 @@ class RolesController extends Controller
         $role->update($request->all());
         $role->permissions()->sync($request->input('permissions', []));
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('content.admin.settings.index');
     }
 
     public function show(Role $role)
@@ -117,16 +124,5 @@ class RolesController extends Controller
         $role->delete();
 
         return back();
-    }
-
-    public function massDestroy(MassDestroyRoleRequest $request)
-    {
-        $roles = Role::find(request('ids'));
-
-        foreach ($roles as $role) {
-            $role->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

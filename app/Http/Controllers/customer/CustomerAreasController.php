@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Selling;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
 class CustomerAreasController extends Controller
@@ -37,7 +38,9 @@ class CustomerAreasController extends Controller
     public function transactionHistory(Request $request)
     {
         if ($request->ajax()) {
-            $query = Selling::with(['customer', 'selling_details'])->select(sprintf('%s.*', (new Selling)->table));
+            $query = Selling::with(['customer', 'selling_details'])->whereRelation('customer', 'id', Auth::id())
+                ->select(sprintf('%s.*', (new Selling)->table));
+
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -108,8 +111,17 @@ class CustomerAreasController extends Controller
         return view('content.customers.cas.transaction', ['pageConfigs' => $pageConfigs]);
     }
 
-    public function transactionDetail(Request $request)
+    public function transactionDetail(Request $request, Selling $selling)
     {
+        if ($request->ajax()) {
+            $selling->load('selling_details');
+
+            return response()->json([
+                'html' => view('content.customers.cas._partials.showItems', compact('selling'))->render()
+            ]);
+        }
+
+        return response(null, Response::HTTP_NO_CONTENT);
 
     }
 }

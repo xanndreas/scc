@@ -37,8 +37,8 @@
                     <img
                         src="{{ asset('assets/img/illustrations/auth-login-illustration-'.$configData['style'].'.png') }}"
                         alt="auth-register-cover" class="img-fluid my-5 auth-illustration"
-                        data-app-light-img="illustrations/auth-register-illustration-light.png"
-                        data-app-dark-img="illustrations/auth-register-illustration-dark.png">
+                        data-app-light-img="illustrations/auth-login-illustration-light.png"
+                        data-app-dark-img="illustrations/auth-login-illustration-dark.png">
 
                     <img src="{{ asset('assets/img/illustrations/bg-shape-image-'.$configData['style'].'.png') }}"
                          alt="auth-register-cover" class="platform-bg"

@@ -56,17 +56,10 @@
 
         <hr/>
         <div class="d-flex flex-column flex-sm-row pt-1">
-            @if($supply->product->stocks > 0)
-                <a href="#" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
-                   data-product-id="{{ $supply->product->id }}">
-                    <i data-feather="shopping-cart" class="me-50"></i>
-                    <span class="add-to-cart">Add to cart</span>
-                </a>
-            @else
-                <a href="{{ route('admin.offers.index') }}" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0">
-                    <span class="add-to-cart">Supply Product</span>
-                </a>
-            @endif
+            <a href="{{ route('admin.offers.index') }}"
+               class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0">
+                <span class="add-to-cart">Supply Product</span>
+            </a>
         </div>
     </div>
     <!-- Product Details ends -->

@@ -29,12 +29,12 @@ class UsersController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'user_show';
-                $editGate      = 'user_edit';
+                $viewGate      = 'user_show_disabled';
+                $editGate      = 'user_edit_disabled';
                 $deleteGate    = 'user_delete';
                 $crudRoutePart = 'users';
 
-                return view('partials.datatablesActions', compact(
+                return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
@@ -61,15 +61,23 @@ class UsersController extends Controller
 
                 return implode(' ', $labels);
             });
+            $table->editColumn('role_ids', function ($row) {
+                $labels = [];
+                foreach ($row->roles as $role) {
+                    $labels[] = $role->id;
+                }
+
+                return $labels;
+            });
 
             $table->rawColumns(['actions', 'placeholder', 'roles']);
 
             return $table->make(true);
         }
 
-        $roles = Role::get();
+        $roles = Role::pluck('title', 'id');
 
-        return view('admin.users.index', compact('roles'));
+        return view('content.admin.users.index', compact('roles'));
     }
 
     public function create()
@@ -78,7 +86,7 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('admin.users.create', compact('roles'));
+        return view('content.admin.users.create', compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -97,7 +105,7 @@ class UsersController extends Controller
 
         $user->load('roles');
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        return view('content.admin.users.edit', compact('roles', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -114,7 +122,7 @@ class UsersController extends Controller
 
         $user->load('roles', 'customerSellings', 'supplierPurchasings', 'userContacts');
 
-        return view('admin.users.show', compact('user'));
+        return view('content.admin.users.show', compact('user'));
     }
 
     public function destroy(User $user)
@@ -123,17 +131,8 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return back();
+        return redirect()->route('admin.users.index');
+
     }
 
-    public function massDestroy(MassDestroyUserRequest $request)
-    {
-        $users = User::find(request('ids'));
-
-        foreach ($users as $user) {
-            $user->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }

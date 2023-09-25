@@ -230,36 +230,32 @@
                         <ul class="list-unstyled">
 
                             <li class="mb-3">
-                                <a href="javascript:void(0);"
+                                <a href="{{ route('customers.marketplaces.index') }}"
                                    class="footer-link">Marketplace</a>
                             </li>
                             <li class="mb-3">
-                                <a href="javascript:void(0);"
+                                <a href="{{ route('customers.supplies.index') }}"
                                    class="footer-link">Supplies</a>
                             </li>
                             <li class="mb-3">
-                                <a href="javascript:void(0);"
-                                   class="footer-link">Contact Us</a>
+                                <a href="{{ route('customers.blogs.index') }}"
+                                   class="footer-link">Blogs</a>
                             </li>
                             <li class="mb-3">
-                                <a href="javascript:void(0);"
-                                   class="footer-link">Login/Register</a>
+                                <a href="{{ route('customers.contacts') }}"
+                                   class="footer-link">Contact Us</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <h6 class="footer-title mb-4">Blogs</h6>
                         <ul class="list-unstyled">
-                            <li class="mb-3">
-                                <a href="javascript:void(0);"
-                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Ipsum has been the industry's the 1500s...</a>
-                            </li>
-                            <li class="mb-3">
-                                <a href="javascript:void(0);"
-                                   class="footer-link">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    ...</a>
-                            </li>
+                            @foreach($recent_blog_footers as $recent_blog_footer)
+                                <li class="mb-3">
+                                    <a href="{{ route('customers.blogs.show', ['slug' =>$recent_blog_footer->slug]) }}"
+                                       class="footer-link">{{ substr($recent_blog_footer->title, 0, 100) }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

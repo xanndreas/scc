@@ -26,19 +26,6 @@
 @section('page-script')
     <script src="{{asset('assets/js/admin/supply-index.js')}}"></script>
     <script src="{{asset('assets/js/forms-selects.js')}}"></script>
-    <script>
-        var startDate = document.querySelector("#start_date");
-        var endDate = document.querySelector("#end_date");
-
-        startDate.flatpickr({
-            enableTime: true,
-            dateFormat: "Y-m-d H:i:s"
-        });
-        endDate.flatpickr({
-            enableTime: true,
-            dateFormat: "Y-m-d H:i:s"
-        });
-    </script>
 @endsection
 
 @section('content')

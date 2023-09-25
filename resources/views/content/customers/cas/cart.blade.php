@@ -47,6 +47,16 @@
                             <div id="place-order" class="list-view product-checkout">
                                 <!-- Checkout Place Order Left starts -->
                                 <div style="width: auto; height: 500px; overflow: auto;" data-scrollbar>
+                                    @if($cart->count() == 0)
+                                        <div class="checkout-items mb-3 ms-2 me-3">
+                                            <div class="card shadow-none mb-3">
+                                                <div class="card-body">
+                                                    <h6> Card is Empty </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     @foreach($cart as $item)
                                         <div class="checkout-items mb-3 ms-2 me-3">
                                             <div class="card ecommerce-card shadow-sm mb-3">
