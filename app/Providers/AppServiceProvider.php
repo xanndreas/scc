@@ -22,9 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $blogs = ArticleContent::with('categories')
-            ->orderByDesc('created_at')->limit(5)->get();
+        //
 
-        View::share('recent_blog_footers', $blogs);
     }
 }
