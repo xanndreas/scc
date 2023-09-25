@@ -29,7 +29,13 @@ class OfferController extends Controller
         abort_if(Gate::denies('offer_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Offer::with(['supplier', 'offer_details'])->select(sprintf('%s.*', (new Offer)->table));
+            $query = Offer::with(['supplier', 'offer_details']);
+
+            if (Gate::allows('actor_supplier') && Gate::denies('actor_admin')) {
+                $query->where('supplier_id', Auth::id());
+            }
+
+            $query->select(sprintf('%s.*', (new Offer)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -134,14 +140,13 @@ class OfferController extends Controller
         $offer->load('offer_details');
         if ($request->has('action_type')) {
             if ($request->action_type == 'accept-deal') {
-//                if (Gate::allows('actor_supplier')) {
-//                    if ($offer->status == 'on_progress') {
-//                        $offer->update([
-//                            'status' => 'accepted_by_supplier'
-//                        ]);
-//                    }
-//                } else
-                    if (Gate::allows('actor_admin')) {
+                if (Gate::allows('actor_supplier')) {
+                    if ($offer->status == 'on_progress') {
+                        $offer->update([
+                            'status' => 'accepted_by_supplier'
+                        ]);
+                    }
+                } else if (Gate::allows('actor_admin')) {
                     if ($offer->status == 'accepted_by_supplier') {
 
                         $purchasing = [
