@@ -10,6 +10,23 @@
             "slug": "admin.home",
             "permission": "dashboard_access"
         },
+
+        {
+            "menuHeader": "cruds.userManagement.title_singular",
+            "permission": "user_management_access"
+        },
+        {
+            "name": "cruds.user.title",
+            "icon": "menu-icon tf-icons ti ti-user",
+            "slug": "admin.users.index",
+            "permission": "user_access"
+        },
+        {
+            "name": "cruds.contact.title",
+            "icon": "menu-icon tf-icons ti ti-user-exclamation",
+            "slug": "admin.contacts.index",
+            "permission": "contact_access"
+        },
         {
             "menuHeader": "global.transaction",
             "permission": "header_transaction_access"
@@ -53,18 +70,11 @@
             "permission": "header_master_data_access"
         },
         {
-            "name": "cruds.contact.title",
-            "icon": "menu-icon tf-icons ti ti-user-exclamation",
-            "slug": "admin.contacts.index",
-            "permission": "contact_access"
-        },
-        {
             "name": "cruds.supply.title",
             "icon": "menu-icon tf-icons ti ti-box-multiple",
             "slug": "admin.supplies.index",
             "permission": "supply_access"
         },
-
         {
             "name": "cruds.product.title",
             "icon": "menu-icon tf-icons ti ti-brand-producthunt",
@@ -83,7 +93,6 @@
                 }
             ]
         },
-
         {
             "menuHeader": "global.utility",
             "permission": "header_utility_access"

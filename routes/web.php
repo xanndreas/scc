@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('offers', 'OfferController');
 
     // Inventory
+    Route::get('inventories/history/{product}', 'InventoryController@show')->name('inventories.showByProduct');
     Route::resource('inventories', 'InventoryController')
         ->only(['index', 'show', 'store']);
 

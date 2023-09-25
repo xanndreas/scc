@@ -10,34 +10,27 @@
     <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
         <form class="pt-0" id="createNewForm" method="POST" data-operation="store"
               action="{{ route('admin.inventories.store') }}" enctype="multipart/form-data">
-            @method('put')
             @csrf
             <div class="mb-3">
-                <label class="required" for="model_key">{{ trans('cruds.inventory.fields.model_key') }}</label>
-                <input class="form-control {{ $errors->has('model_key') ? 'is-invalid' : '' }}" type="text" name="model_key" id="model_key" value="{{ old('model_key', '') }}" required>
-                @if($errors->has('model_key'))
+                <label class="required" for="notes">{{ trans('cruds.stockOpname.fields.notes') }}</label>
+                <textarea class="form-control {{ $errors->has('notes') ? 'is-invalid' : '' }}" type="text"
+                          name="notes" id="notes" required>{{ old('notes', '') }}</textarea>
+                @if($errors->has('notes'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('model_key') }}
+                        {{ $errors->first('notes') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.inventory.fields.model_key_helper') }}</span>
-            </div>
-            <div class="mb-3">
-                <label class="required" for="model_name">{{ trans('cruds.inventory.fields.model_name') }}</label>
-                <input class="form-control {{ $errors->has('model_name') ? 'is-invalid' : '' }}" type="text" name="model_name" id="model_name" value="{{ old('model_name', '') }}" required>
-                @if($errors->has('model_name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('model_name') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.inventory.fields.model_name_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.stockOpname.fields.notes_helper') }}</span>
             </div>
             <div class="mb-3">
                 <label class="required">{{ trans('cruds.inventory.fields.types') }}</label>
-                <select class="form-control {{ $errors->has('types') ? 'is-invalid' : '' }}" name="types" id="types" required>
-                    <option value disabled {{ old('types', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                <select class="form-control {{ $errors->has('types') ? 'is-invalid' : '' }}" name="types" id="types"
+                        required>
+                    <option value
+                            disabled {{ old('types', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     @foreach(App\Models\Inventory::TYPES_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('types', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                        <option
+                            value="{{ $key }}" {{ old('types', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('types'))
@@ -49,7 +42,8 @@
             </div>
             <div class="mb-3">
                 <label class="required" for="quantity">{{ trans('cruds.inventory.fields.quantity') }}</label>
-                <input class="form-control {{ $errors->has('quantity') ? 'is-invalid' : '' }}" type="number" name="quantity" id="quantity" value="{{ old('quantity', '') }}" step="1" required>
+                <input class="form-control {{ $errors->has('quantity') ? 'is-invalid' : '' }}" type="number"
+                       name="quantity" id="quantity" value="{{ old('quantity', '') }}" step="1" required>
                 @if($errors->has('quantity'))
                     <div class="invalid-feedback">
                         {{ $errors->first('quantity') }}
@@ -59,7 +53,8 @@
             </div>
             <div class="mb-3">
                 <label class="required" for="product_id">{{ trans('cruds.inventory.fields.product') }}</label>
-                <select class="form-control select2 {{ $errors->has('product') ? 'is-invalid' : '' }}" name="product_id" id="product_id" required>
+                <select class="form-control select2 {{ $errors->has('product') ? 'is-invalid' : '' }}" name="product_id"
+                        id="product_id" required>
                     @foreach($product as $id => $entry)
                         <option value="{{ $id }}" {{ old('product_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach

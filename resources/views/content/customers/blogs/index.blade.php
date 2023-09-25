@@ -42,6 +42,24 @@
                     @include('content.customers.blogs._partials.sidebar')
                 </div>
             </div>
+
+            <div class="row mt-5 d-none article-end-of-content" data-end="0">
+                <div class="col-12">
+                    <div class="text-center">
+                        <span>End of Contents</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 d-none article-spinner">
+                <div class="col-12">
+                    <div class="text-center">
+                        <div class="spinner-border spinner-border-lg text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!--/ Blog List -->

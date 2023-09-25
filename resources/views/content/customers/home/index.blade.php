@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- Sections:Start -->
-    <div data-bs-spy="scroll" class="scrollspy-example">
+    <div class="scrollspy-example">
         <!-- Hero: Start -->
         <section id="hero-animation">
             <div id="landingHero" class="section-py landing-hero position-relative">
@@ -25,27 +25,8 @@
                             <a href="{{ route('customers.marketplaces.index') }}" class="btn btn-primary btn-lg">Go to Marketplace</a>
                         </div>
                     </div>
-                    <div id="heroDashboardAnimation" class="hero-animation-img">
-                        <a href="{{ route('customers.marketplaces.index') }}">
-                            <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                <img
-                                    src="{{asset('assets/img/front-pages/landing-page/hero-dashboard-light.png')}}"
-                                    alt="hero dashboard"
-                                    class="animation-img"
-                                    data-app-light-img="front-pages/landing-page/hero-dashboard-light.png"
-                                    data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.png"/>
-                                <img
-                                    src="{{asset('assets/img/front-pages/landing-page/hero-elements-light.png')}}"
-                                    alt="hero elements"
-                                    class="position-absolute hero-elements-img animation-img top-0 start-0"
-                                    data-app-light-img="front-pages/landing-page/hero-elements-light.png"
-                                    data-app-dark-img="front-pages/landing-page/hero-elements-dark.png"/>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
-            <div class="landing-hero-blank"></div>
         </section>
         <!-- Hero: End -->
 

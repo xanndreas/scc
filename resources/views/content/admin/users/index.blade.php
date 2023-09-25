@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', trans('cruds.inventory.title_singular'))
+@section('title', 'User List - Pages')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/select2/select2.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/formvalidation/dist/css/formValidation.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('assets/vendor/libs/select2/select2.css')}}"/>
 @endsection
 
 @section('vendor-script')
@@ -19,73 +20,52 @@
     <script src="{{asset('assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js')}}"></script>
     <script src="{{asset('assets/vendor/libs/cleavejs/cleave.js')}}"></script>
     <script src="{{asset('assets/vendor/libs/cleavejs/cleave-phone.js')}}"></script>
+    <script src="{{asset('assets/vendor/libs/select2/select2.js')}}"></script>
 @endsection
 
 @section('page-script')
-    <script src="{{asset('assets/js/admin/inventory-index.js')}}"></script>
+    <script src="{{asset('assets/js/admin/user-index.js')}}"></script>
     <script src="{{asset('assets/js/forms-selects.js')}}"></script>
 @endsection
 
+
 @section('content')
+
+    <!-- Users List Table -->
     <div class="card">
         <div class="card-header border-bottom">
-            <h5 class="card-title mb-3">{{ trans('cruds.inventory.title_singular') }}</h5>
+            <h5 class="card-title mb-3">Users</h5>
         </div>
         <div class="card-datatable table-responsive">
-            <table class="datatable table border-top table-hover datatable-Inventory">
+            <table class="datatables-users table border-top table-hover datatable-User">
                 <thead>
                 <tr>
                     <th width="10">
 
                     </th>
-
                     <th>
-                        {{ trans('cruds.product.fields.product_code') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.product.fields.name') }}
-                    </th>
-                    <th class="w-px-14">
-                        {{ trans('cruds.product.fields.stock_minimum') }}
+                        {{ trans('cruds.user.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.product.fields.price_buy') }}
+                        {{ trans('cruds.user.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.product.fields.price_sell') }}
+                        {{ trans('cruds.user.fields.email') }}
                     </th>
-                    <th class="w-px-14">
-                        {{ trans('cruds.inventory.fields.quantity') }}
+                    <th>
+                        {{ trans('cruds.user.fields.email_verified_at') }}
                     </th>
-                </tr>
-                <tr>
-                    <td class="d-none">
-                    </td>
-
-                    <td>
-                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-
-                    <td>
-                        <select class="form-control search">
-                            <option value>{{ trans('global.all') }}</option>
-                            @foreach($products as $key => $item)
-                                <option value="{{ $item->name }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
+                    <th>
+                        {{ trans('cruds.user.fields.roles') }}
+                    </th>
+                    <th>
+                        {{ trans('global.actions') }}
+                    </th>
                 </tr>
                 </thead>
             </table>
         </div>
+        @include('content.admin.users.create')
     </div>
-    @include('content.admin.inventories.create')
 @endsection
+

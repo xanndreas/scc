@@ -27,17 +27,15 @@ class SupplyController extends Controller
 
             $table->editColumn('actions', function ($row) {
                 $viewGate      = 'supply_show';
-                $editGate      = 'supply_edit';
+                $editGate      = 'supply_edit_disabled';
                 $deleteGate    = 'supply_delete';
                 $crudRoutePart = 'supplies';
-                $otherCan = true;
 
                 return view('_partials.datatablesActions', compact(
                     'viewGate',
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
-                    'otherCan',
                     'row'
                 ));
             });
@@ -54,9 +52,11 @@ class SupplyController extends Controller
             $table->addColumn('product_name', function ($row) {
                 return $row->product ? $row->product->name : '';
             });
-
             $table->editColumn('status', function ($row) {
                 return $row->status ? Supply::STATUS_SELECT[$row->status] : '';
+            });
+            $table->editColumn('status_value', function ($row) {
+                return $row->status ? $row->status : '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'product']);

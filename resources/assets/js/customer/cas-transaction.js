@@ -163,13 +163,32 @@ $(function () {
         });
     })
 
-    let supplyDetailModalSelector = $('#transaction-detail-modal');
-    if (supplyDetailModalSelector.length) {
-        let supplyDetailModal = new bootstrap.Modal(document.getElementById('transaction-detail-modal'), {});
+    let transactionDetailModalSelector = $('#transaction-detail-modal'),
+        transactionDetailModalContent = $('.transaction-container');
+
+    if (transactionDetailModalSelector.length) {
+        let transactionDetailModal = new bootstrap.Modal(document.getElementById('transaction-detail-modal'), {});
         $('.datatable-CasTransaction tbody').on('click', 'td', (event) => {
-            supplyDetailModal.show()
-            // let row = table.row(event.currentTarget).data();
-            // window.location.href = '/admin/products/' + row.id;
+            let row = table.row(event.currentTarget).data();
+
+            $.ajax({
+                url: '/cas/transaction/' + row.id,
+                datatype: 'html',
+                type: 'get',
+
+                beforeSend: function () {
+                    transactionDetailModalContent.html('');
+                }
+            }).done(async function (response) {
+                if (response.html === '') {
+                    return;
+                }
+
+                transactionDetailModalContent.append(response.html);
+                transactionDetailModal.show()
+            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occur');
+            });
         });
     }
 });
