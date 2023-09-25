@@ -4,6 +4,7 @@ $(function () {
     let direction = 'ltr',
         isRTL = false,
         productContainer = $('.infinite-products'),
+        productContainerDetail = $('.container-products'),
         marketplaceSpinner = $('.marketplace-spinner'),
         marketplaceEndEof = $('.marketplace-end-of-content');
 
@@ -59,6 +60,46 @@ $(function () {
     // On cart & view cart btn click to cart
     if (productContainer.length) {
         productContainer.on('click', 'a.btn-cart', function (e) {
+            let $this = $(this),
+                addToCart = $this.find('.add-to-cart');
+
+            if (addToCart.length > 0) {
+                e.preventDefault();
+            }
+
+            $.ajax({
+                url: '/marketplaces/' + $this.data('product-id'),
+                type: 'post',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                }
+            }).done(async function (response) {
+                if (response.status_code !== 200) {
+                    toastr['error']('', response.message, {
+                        closeButton: false,
+                        tapToDismiss: true,
+                        rtl: isRTL
+                    });
+
+                    if (response.redirect !== '') {
+                        window.location.href = response.redirect;
+                    }
+                } else {
+                    toastr['success']('', response.message, {
+                        closeButton: false,
+                        tapToDismiss: true,
+                        rtl: isRTL
+                    });
+                }
+
+            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occur');
+            });
+        });
+    }
+
+    if (productContainerDetail.length) {
+        productContainerDetail.on('click', 'a.btn-cart', function (e) {
             let $this = $(this),
                 addToCart = $this.find('.add-to-cart');
 
