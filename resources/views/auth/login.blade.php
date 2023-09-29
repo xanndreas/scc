@@ -54,7 +54,7 @@
                     <div class="app-brand mb-4">
                         <a href="{{url('/')}}" class="app-brand-link gap-2 mx-auto">
                             <span
-                                class="app-brand-logo">@include('_partials.macros',["height"=>50,"withbg"=>'fill: #fff;'])</span>
+                                class="app-brand-logo">@include('_partials.macros',["height"=>50])</span>
                         </a>
                     </div>
                     <h3 class=" mb-1">Welcome to Scc! 👋</h3>

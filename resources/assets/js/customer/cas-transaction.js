@@ -15,6 +15,7 @@ $(function () {
                 {data: 'grand_total', name: 'grand_total'},
                 {data: 'status', name: 'status'},
                 {data: 'selling_transaction_number', name: 'selling_transaction_number'},
+                {data: 'actions', name: 'actions'},
             ],
             orderCellsTop: true,
             order: [[2, 'desc']],
@@ -168,7 +169,7 @@ $(function () {
 
     if (transactionDetailModalSelector.length) {
         let transactionDetailModal = new bootstrap.Modal(document.getElementById('transaction-detail-modal'), {});
-        $('.datatable-CasTransaction tbody').on('click', 'td', (event) => {
+        $('.datatable-CasTransaction tbody').on('click', 'td:not(:last-child)', (event) => {
             let row = table.row(event.currentTarget).data();
 
             $.ajax({

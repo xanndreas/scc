@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -79,6 +80,8 @@ class RegisterController extends Controller
     {
         $pageConfigs = ['myLayout' => 'blank'];
 
-        return view('auth.register', ['pageConfigs' => $pageConfigs]);
+        $page_settings = Setting::first();
+
+        return view('auth.register', ['pageConfigs' => $pageConfigs], compact('page_settings'));
     }
 }

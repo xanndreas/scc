@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
@@ -33,6 +34,8 @@ class ResetPasswordController extends Controller
     {
         $pageConfigs = ['myLayout' => 'blank'];
 
-        return view('auth.passwords.reset', ['pageConfigs' => $pageConfigs]);
+        $page_settings = Setting::first();
+
+        return view('auth.passwords.reset', ['pageConfigs' => $pageConfigs], compact('page_settings'));
     }
 }

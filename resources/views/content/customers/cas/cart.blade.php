@@ -8,7 +8,7 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Account</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Keranjang</h1>
                 </div>
             </div>
         </div>
@@ -23,21 +23,14 @@
                             <a href="javascript:void(0);" class="nav-link active"
                                aria-controls="navs-pills-left-cart"
                                aria-selected="true">
-                                My Cart
+                                Keranjang Saya
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('customers.cas.transaction-history') }}" class="nav-link"
                                aria-controls="navs-pills-left-transaction"
                                aria-selected="false">
-                                Transaction
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('customers.cas.profile') }}" class="nav-link"
-                               aria-controls="navs-pills-left-profile"
-                               aria-selected="false">
-                                Profile
+                                Transaksi
                             </a>
                         </li>
                     </ul>
@@ -47,29 +40,29 @@
                             <div id="place-order" class="list-view product-checkout">
                                 <!-- Checkout Place Order Left starts -->
                                 <div style="width: auto; height: 500px; overflow: auto;" data-scrollbar>
-                                    @if($cart->count() == 0)
+                                    @if($cartCount == 0)
                                         <div class="checkout-items mb-3 ms-2 me-3">
                                             <div class="card shadow-none mb-3">
                                                 <div class="card-body">
-                                                    <h6> Card is Empty </h6>
+                                                    <h6> Keranjang Kosong </h6>
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
 
-                                    @foreach($cart as $item)
+                                    @foreach($cart as $index => $item)
                                         <div class="checkout-items mb-3 ms-2 me-3">
                                             <div class="card ecommerce-card shadow-sm mb-3">
                                                 <div class="item-img">
-                                                    @if($item->product->featured_image->count() !== 0)
-                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $item->product->slug ]) }}">
+                                                    @if($item['item']->featured_image->count() !== 0)
+                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $item['item']->slug ]) }}">
                                                             <img
-                                                                src="{{$item->product->featured_image->first()->getUrl()}}"
+                                                                src="{{$item['item']->featured_image->first()->getUrl()}}"
                                                                 alt="img-placeholder"
                                                             />
                                                         </a>
                                                     @else
-                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $item->product->slug ]) }}">
+                                                        <a href="{{ route('customers.marketplaces.show', ['slug' => $item['item']->slug ]) }}">
                                                             <img
                                                                 src="{{ asset('assets/img/front-pages/misc/2.jpg') }}"
                                                                 alt="img-placeholder"
@@ -80,30 +73,38 @@
                                                 <div class="card-body">
                                                     <div class="item-name">
                                                         <h6 class="mb-0"><a
-                                                                href="{{ route('customers.marketplaces.show', ['slug' => $item->product->slug ]) }}"
-                                                                class="text-body"> {{$item->product->name}}</a></h6>
+                                                                href="{{ route('customers.marketplaces.show', ['slug' => $item['item']->slug ]) }}"
+                                                                class="text-body"> {{$item['item']->name}}</a></h6>
                                                         <span class="item-company">In
                                                             <a href="javascript:void(0);"
-                                                               class="company-name">{{ $item->product->category->name }} </a>
+                                                               class="company-name">{{ $item['item']->category->name }} </a>
                                                         </span>
                                                     </div>
-                                                    @if($item->stocks < 0)
-                                                        <span class="text-danger mb-1">Out Of Stock</span>
+                                                    @if($item['item']->stocks < 0)
+                                                        <span class="text-danger mb-1">Stok Habis</span>
                                                     @else
-                                                        <span class="text-success mb-1">In Stock</span>
+                                                        <span class="text-success mb-1">Stok Tersedia</span>
                                                     @endif
                                                 </div>
                                                 <div class="item-options text-center">
                                                     <div class="item-wrapper">
                                                         <div class="item-cost">
                                                             <h4 class="item-price">
-                                                                IDR {{ $item->product->price_sell }}</h4>
+                                                                IDR {{ $item['item']->price_sell }}</h4>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-label-danger mt-1">
-                                                        <i data-feather="x" class="align-middle me-25"></i>
-                                                        <span>Remove</span>
-                                                    </button>
+                                                    
+                                                    <div class="mt-3">
+                                                        <input disabled class="form-control text-center" value="{{ $item['qty'] }}"/>
+                                                    </div>
+
+                                                    <a class="btn btn-label-danger mt-3" onclick="event.preventDefault(); document.getElementById('remove-cart-{{$item['item']->id}}').submit();">
+                                                        <span class="text-danger">Remove</span>
+                                                    </a>
+
+                                                    <form method="POST" id="remove-cart-{{$item['item']->id}}" action="{{ route('customers.cas.cart-remove', ['product' => $item['item']->id]) }}">
+                                                        @csrf
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,10 +113,11 @@
                                 <!-- Checkout Place Order Left ends -->
 
                                 <!-- Checkout Place Order Right starts -->
+                                @if($cartCount != 0)
                                 <div class="checkout-options mt-sm-2 mt-lg-0">
                                     <div class="card shadow-none">
                                         <div class="card-body">
-                                            <label class="section-label form-label mb-1">Options</label>
+                                            <label class="section-label form-label mb-1">Opsi</label>
                                             <div class="coupons input-group input-group-merge">
                                                 <input
                                                     type="text"
@@ -125,19 +127,19 @@
                                                     aria-describedby="input-coupons"
                                                 />
                                                 <span class="input-group-text text-primary ps-1"
-                                                      id="input-coupons">Apply</span>
+                                                      id="input-coupons">Terapkan</span>
                                             </div>
                                             <hr/>
                                             <div class="price-details">
-                                                <h6 class="price-title">Price Details</h6>
+                                                <h6 class="price-title">Harga Detail</h6>
                                                 <ul class="list-unstyled">
                                                     <li class="price-detail">
                                                         <div class="detail-title">Subtotal</div>
                                                         <div class="detail-amt">IDR {{ $cartDetail['subtotal'] }}</div>
                                                     </li>
                                                     <li class="price-detail">
-                                                        <div class="detail-title">Delivery Charges</div>
-                                                        <div class="detail-amt discount-amt text-success">Free</div>
+                                                        <div class="detail-title">Pengiriman</div>
+                                                        <div class="detail-amt discount-amt text-success">Gratis</div>
                                                     </li>
                                                 </ul>
                                                 <hr/>
@@ -162,13 +164,14 @@
                                                        document.getElementById('checkout-form').submit() }
                                                        else{event.stopPropagation(); event.preventDefault();}">
 
-                                                    Place Order
+                                                    Order
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Checkout Place Order Right ends -->
                                 </div>
+                                @endif
                             </div>
                             <!-- Checkout Place order Ends -->
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,9 @@ class HomeController extends Controller
 
         $newProducts = Product::with('category')->orderByDesc('created_at')->limit(10)->get();
 
-        return view('content.customers.home.index', ['pageConfigs' => $pageConfigs], compact('newProducts'));
+        $page_settings = Setting::first();
+
+        return view('content.customers.home.index', ['pageConfigs' => $pageConfigs], compact('newProducts', 'page_settings'));
     }
 
     public function contacts(Request $request) {

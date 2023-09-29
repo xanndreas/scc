@@ -68,9 +68,9 @@
                             </ul>
                         </div>
                         <p class="card-text">@if($product->stocks > 0)
-                                <span class="text-success">In stock</span>
+                                <span class="text-success">Stok Tersedia</span>
                             @else
-                                <span class="text-danger">Out of stock</span>
+                                <span class="text-danger">Stok Habis</span>
                             @endif
                         </p>
                         <p class="card-text">
@@ -83,13 +83,13 @@
                                 <a href="#" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
                                    data-product-id="{{ $product->id }}">
                                     <i data-feather="shopping-cart" class="me-50"></i>
-                                    <span class="add-to-cart">Add to cart</span>
+                                    <span class="add-to-cart">Tambahkan Keranjang</span>
                                 </a>
                             @else
                                 <button disabled href="#" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
                                    data-product-id="{{ $product->id }}">
                                     <i data-feather="shopping-cart" class="me-50"></i>
-                                    <span class="add-to-cart">Out of stock</span>
+                                    <span class="add-to-cart">Stok Habis</span>
                                 </button>
                             @endif
                         </div>

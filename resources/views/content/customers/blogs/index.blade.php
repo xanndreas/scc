@@ -14,7 +14,7 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Blogs</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Wisata dan Bisnis</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
                         Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
                         since the 1500s.

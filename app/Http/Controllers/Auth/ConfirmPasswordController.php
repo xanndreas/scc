@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 
@@ -42,6 +43,8 @@ class ConfirmPasswordController extends Controller
     {
         $pageConfigs = ['myLayout' => 'blank'];
 
-        return view('auth.passwords.confirm', ['pageConfigs' => $pageConfigs]);
+        $page_settings = Setting::first();
+
+        return view('auth.passwords.confirm', ['pageConfigs' => $pageConfigs], compact('page_settings'));
     }
 }

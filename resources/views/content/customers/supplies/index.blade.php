@@ -10,7 +10,7 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Supplies</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Suplai</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
                         Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
                         since the 1500s.
@@ -24,23 +24,13 @@
     <section class="ecommerce-application mb-5">
         <div class="container mt-5">
             <!-- E-commerce Content Section Starts -->
-            <h3 class="text-center mb-1">All
-                <span class="section-title">Products Needs</span>
+            <h3 class="text-center mb-1">Semua
+                <span class="section-title">Produk Dibutuhkan</span>
             </h3>
-            <p class="text-center mb-3 pb-2">Check this out.</p>
+            <p class="text-center mb-3 pb-2">Lihat dan Jadilah Suplier.</p>
 
             <div class="row">
                 <div class="col-sm-12">
-                    <div id="ecommerce-header">
-                        <div class="ecommerce-header-items">
-                            <div class="result-toggler">
-                                <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
-                                    <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
-                                </button>
-                                <div class="search-results">0 results found</div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- E-commerce Search Bar Starts -->
                     <div id="ecommerce-searchbar" class="ecommerce-searchbar">
@@ -50,7 +40,7 @@
                                     <input
                                         type="text"
                                         class="form-control search-product"
-                                        id="shop-search"
+                                        id="supply-search"
                                         placeholder="Search Product"
                                         aria-label="Search..."
                                         aria-describedby="shop-search"

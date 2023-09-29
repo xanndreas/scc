@@ -11,10 +11,10 @@
             <div id="landingHero" class="section-py landing-cover position-relative">
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <h1 class="text-primary hero-title display-6 fw-bold">Contacts</h1>
+                        <h1 class="text-primary hero-title display-6 fw-bold">Hubungi Kami</h1>
                         <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            For more detail or business inquire <br class="d-none d-lg-block"/>
-                            you can reach us.
+                            Untuk detail lebih lanjut atau pertanyaan bisnis <br class="d-none d-lg-block"/>
+                            anda dapat hubungi kami.
                         </h2>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
         <!-- Contact Us: Start -->
         <section id="landingContact" class="section-py bg-body landing-contact">
             <div class="container">
-                <h3 class="text-center mb-1"><span class="section-title">Let's work</span> together</h3>
-                <p class="text-center mb-4 mb-lg-5 pb-md-3">Any question or remark? just write us a message</p>
+                <h3 class="text-center mb-1"><span class="section-title">Mari bekerja</span> bersama</h3>
+                <p class="text-center mb-4 mb-lg-5 pb-md-3">Ada pertanyaan atau komentar? cukup tulis pesan kepada kami</p>
                 <div class="row gy-4">
                     <div class="col-lg-5">
                         <div class="contact-img-box position-relative border p-2 h-100">
@@ -67,11 +67,11 @@
                     <div class="col-lg-7">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="mb-1">Send a message</h4>
+                                <h4 class="mb-1">Kirim kami pertanyaan.</h4>
                                 <p class="mb-4">
-                                    If you would like to discuss anything related to payment, account, partnerships,
+                                    Jika Anda ingin mendiskusikan apa pun yang berkaitan dengan pembayaran, akun, kemitraan,
                                     <br class="d-none d-lg-block"/>
-                                    or have pre-sales questions, you’re at the right place.
+                                    atau memiliki pertanyaan pra-penjualan, Anda berada di tempat yang tepat.
                                 </p>
 
                                 <form>

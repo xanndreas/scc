@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Setting;
 
 class LoginController extends Controller
 {
@@ -42,6 +43,8 @@ class LoginController extends Controller
   {
     $pageConfigs = ['myLayout' => 'blank'];
 
-    return view('auth.login', ['pageConfigs' => $pageConfigs]);
+    $page_settings = Setting::first();
+
+    return view('auth.login', ['pageConfigs' => $pageConfigs], compact('page_settings'));
   }
 }

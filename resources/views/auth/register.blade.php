@@ -55,9 +55,11 @@
                     <div class="app-brand mb-4">
                         <a href="{{url('/')}}" class="app-brand-link gap-2">
                             <span
-                                class="app-brand-logo demo">@include('_partials.macros',["height"=>20,"withbg"=>'fill: #fff;'])</span>
+                                class="app-brand-logo demo">@include('_partials.macros',["height"=>25,"withbg"=>'fill: #fff;'])</span>
                         </a>
                     </div>
+
+                    
                     <!-- /Logo -->
                     <h3 class="mb-1 fw-bold">Adventure starts here </h3>
                     <p class="mb-4">Please fill the information below to register</p>
