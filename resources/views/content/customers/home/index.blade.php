@@ -9,7 +9,7 @@
         <!-- Hero: Start -->
         <section id="hero-animation">
             <div id="landingHero" class="section-py landing-hero position-relative"
-                data-background="{{ $page_settings->home_cover ? $page_settings->home_cover->getUrl() : '' }}">
+                data-background="{{ $page_settings ? ($page_settings->home_cover ? $page_settings->home_cover->getUrl() : '') : '' }}">
                 <div class="container">
                     <div class="hero-text-box text-center">
                         <h1 class="text-primary hero-title display-6 fw-bold">Supply Chain Center Toga</h1>
@@ -36,7 +36,7 @@
             <div class="container">
                 <div class="text-center mb-3 pb-1">
                     <img width="64" height="64"
-                        src="{{ $page_settings->home_logo_main ? $page_settings->home_logo_main->getUrl() : asset('assets/img/front-pages/icons/check-warning.png') }}" />
+                        src="{{ $page_settings ? ($page_settings->home_logo_main ? $page_settings->home_logo_main->getUrl() : asset('assets/img/front-pages/icons/check-warning.png')) : '' }}" />
                 </div>
                 <h3 class="text-center mb-1">
                     <span class="section-title">PPK ORMAWA </span> HIMAPRODI TEKNIK INDUSTRI
@@ -48,7 +48,7 @@
                     <div class="col-lg-4 col-sm-6 text-center features-icon-box">
                         <div class="text-center mb-3">
                             <img width="64" height="64"
-                                src="{{ $page_settings->home_logo_one ? $page_settings->home_logo_one->getUrl() : asset('assets/img/front-pages/icons/check-warning.png') }}"
+                                src="{{ $page_settings ? ($page_settings->home_logo_one ? $page_settings->home_logo_one->getUrl() : asset('assets/img/front-pages/icons/check-warning.png')) : '' }}"
                                 alt="laptop charging" />
                         </div>
                         <h5 class="mb-3">{{ $page_settings->home_logo_one_info ?? '' }}</h5>
@@ -59,7 +59,7 @@
                     <div class="col-lg-4 col-sm-6 text-center features-icon-box">
                         <div class="text-center mb-3">
                             <img width="64" height="64"
-                                src="{{ $page_settings->home_logo_two ? $page_settings->home_logo_two->getUrl() : asset('assets/img/front-pages/icons/check-warning.png') }}"
+                                src="{{ $page_settings ? ($page_settings->home_logo_two ? $page_settings->home_logo_two->getUrl() : asset('assets/img/front-pages/icons/check-warning.png')) : '' }}"
                                 alt="laptop charging" />
                         </div>
                         <h5 class="mb-3">{{ $page_settings->home_logo_two_info ?? '' }}</h5>
@@ -70,7 +70,7 @@
                     <div class="col-lg-4 col-sm-6 text-center features-icon-box">
                         <div class="text-center mb-3">
                             <img width="64" height="64"
-                                src="{{ $page_settings->home_logo_three ? $page_settings->home_logo_three->getUrl() : asset('assets/img/front-pages/icons/check-warning.png') }}"
+                                src="{{ $page_settings ? ($page_settings->home_logo_three ? $page_settings->home_logo_three->getUrl() : asset('assets/img/front-pages/icons/check-warning.png')) : '' }}"
                                 alt="laptop charging" />
                         </div>
                         <h5 class="mb-3">{{ $page_settings->home_logo_three_info ?? '' }}</h5>
