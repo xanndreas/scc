@@ -8,7 +8,7 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Account</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Transaksi</h1>
                 </div>
             </div>
         </div>
@@ -23,21 +23,14 @@
                             <a href="{{ route('customers.cas.cart') }}" class="nav-link"
                                aria-controls="navs-pills-left-cart"
                                aria-selected="true">
-                                My Cart
+                                Keranjang Saya
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link active"
                                aria-controls="navs-pills-left-transaction"
                                aria-selected="false">
-                                Transaction
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('customers.cas.profile') }}" class="nav-link"
-                               aria-controls="navs-pills-left-profile"
-                               aria-selected="false">
-                                Profile
+                                Transaksi
                             </a>
                         </li>
                     </ul>
@@ -62,6 +55,8 @@
                                     <th>
                                         {{ trans('cruds.selling.fields.selling_transaction_number') }}
                                     </th>
+                                    <th>
+                                    </th>
                                 </tr>
                                 <tr>
                                     <td class="d-none">
@@ -77,6 +72,8 @@
                                     </td>
                                     <td>
                                         <input class="search form-control" type="text" placeholder="{{ trans('global.search') }}">
+                                    </td>
+                                    <td>
                                     </td>
                                 </tr>
                                 </thead>

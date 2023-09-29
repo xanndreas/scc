@@ -20,10 +20,10 @@ class MarketplaceController extends Controller
     {
         $products = Product::with('category')
             ->orderBy('created_at', 'desc')
+            ->where('name', 'like', '%' . $request->q . '%')
             ->paginate(4);
 
         if ($request->ajax()) {
-
             $view = view('content.customers.marketplaces._partials.items', compact('products'))->render();
 
             return response()->json(['html' => $view]);

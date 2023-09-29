@@ -15,6 +15,7 @@ class SupplyController extends Controller
     {
         $supplies = Supply::with('product', 'product.category')
             ->orderBy('created_at', 'desc')
+            ->whereRelation('product', 'name', 'like', '%' . $request->q . '%')
             ->paginate(4);
 
         if ($request->ajax()) {

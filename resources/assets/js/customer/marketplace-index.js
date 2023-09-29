@@ -6,7 +6,8 @@ $(function () {
         productContainer = $('.infinite-products'),
         productContainerDetail = $('.container-products'),
         marketplaceSpinner = $('.marketplace-spinner'),
-        marketplaceEndEof = $('.marketplace-end-of-content');
+        marketplaceEndEof = $('.marketplace-end-of-content'),
+        marketplaceSearch = $('#marketplace-search');
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -32,9 +33,38 @@ $(function () {
         });
     }
 
+    if (marketplaceSearch.length) {
+        marketplaceSearch.on('keyup', function () {
+            let $this = $(this);
+            $.ajax({
+                url: '/marketplaces?q=' + $this.val(),
+                datatype: 'html',
+                type: 'get',
+
+                beforeSend: function () {
+                    productContainer.html('');
+                    marketplaceSpinner.removeClass('d-none');
+                }
+            }).done(async function (response) {
+                if (response.html === '') {
+                    marketplaceSpinner.addClass('d-none');
+                    marketplaceEndEof.removeClass('d-none');
+                    marketplaceEndEof.attr('data-end', '1');
+
+                    return; 
+                }
+
+                marketplaceSpinner.addClass('d-none');
+                productContainer.html(response.html);
+            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occur');
+            });
+        });
+    }
+
     function infiniteLoadMore(page) {
         $.ajax({
-            url: '/marketplaces?page=' + page,
+            url: '/marketplaces?q=' + marketplaceSearch.val() + '&page=' + page,
             datatype: 'html',
             type: 'get',
 

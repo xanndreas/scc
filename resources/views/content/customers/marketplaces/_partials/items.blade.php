@@ -56,7 +56,7 @@
             </div>
             <a href="javascript:void(0);" class="btn btn-primary btn-cart" data-product-id="{{ $product->id }}">
                 <i data-feather="shopping-cart"></i>
-                <span class="add-to-cart">Add to cart</span>
+                <span class="add-to-cart">Tambahkan Keranjang</span>
             </a>
         </div>
     </div>

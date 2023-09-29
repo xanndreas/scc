@@ -5,7 +5,8 @@ $(function () {
         supplyDetailModalSelector = $('#supply-detail-modal'),
         supplyDetailModalContent = $('.supply-container'),
         supplySpinner = $('.supply-spinner'),
-        supplyEndEof = $('.supply-end-of-content');
+        supplyEndEof = $('.supply-end-of-content'),
+        supplySearch = $('#supply-search');
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -49,10 +50,38 @@ $(function () {
         });
     }
 
+    if (supplySearch.length) {
+        supplySearch.on('keyup', function () {
+            let $this = $(this);
+            $.ajax({
+                url: '/supplies?q=' + $this.val(),
+                datatype: 'html',
+                type: 'get',
+
+                beforeSend: function () {
+                    supplyContainer.html('');
+                    supplySpinner.removeClass('d-none');
+                }
+            }).done(async function (response) {
+                if (response.html === '') {
+                    supplySpinner.addClass('d-none');
+                    supplyEndEof.removeClass('d-none');
+                    supplyEndEof.attr('data-end', '1');
+
+                    return; 
+                }
+
+                supplySpinner.addClass('d-none');
+                supplyContainer.html(response.html);
+            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occur');
+            });
+        });
+    }
 
     function infiniteLoadMore(page) {
         $.ajax({
-            url: '/supplies?page=' + page,
+            url: '/supplies?q=' + supplySearch.val() + '&page=' + page,
             datatype: 'html',
             type: 'get',
 

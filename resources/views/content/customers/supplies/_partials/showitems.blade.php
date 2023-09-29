@@ -45,9 +45,9 @@
             </ul>
         </div>
         <p class="card-text">@if($supply->product->stocks > 0)
-                <span class="text-success">In stock</span>
+                <span class="text-success">Stok Tersedia</span>
             @else
-                <span class="text-danger">Out of stock</span>
+                <span class="text-danger">Stok Habis</span>
             @endif
         </p>
         <p class="card-text">
@@ -58,7 +58,7 @@
         <div class="d-flex flex-column flex-sm-row pt-1">
             <a href="{{ route('admin.offers.index') }}"
                class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0">
-                <span class="add-to-cart">Supply Product</span>
+                <span class="add-to-cart">Suplai</span>
             </a>
         </div>
     </div>

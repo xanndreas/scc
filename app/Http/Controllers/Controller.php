@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArticleContent;
+use App\Models\Setting;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,5 +20,9 @@ class Controller extends BaseController
             ->orderByDesc('created_at')->limit(5)->get();
 
         View::share('recent_blog_footers', $blogs);
+
+        $page_settings = Setting::first();
+        View::share('page_settings', $page_settings);
+
     }
 }

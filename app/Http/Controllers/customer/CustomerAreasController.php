@@ -4,7 +4,9 @@ namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Selling;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,16 +18,36 @@ class CustomerAreasController extends Controller
     {
         $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
 
-        $cart = Cart::with('product', 'product.category')->where('user_id', Auth::id())->get();
+        $cartGet = Cart::with('product', 'product.category')->where('user_id', Auth::id())->get();
+        $cartCount = 0;
+        $cart = [];
+
+        foreach ($cartGet as $carte) {
+            $cart[$carte->product_id]['item'] = $carte->product;
+            if (!isset($cart[$carte->product_id]['qty']))
+                $cart[$carte->product_id]['qty'] = 1;
+            else
+                $cart[$carte->product_id]['qty'] += 1;
+
+            $cartCount += 1;
+        }
 
         $cartDetail = ['subtotal' => 0];
-        foreach ($cart as $item) {
+        foreach ($cartGet as $item) {
             $cartDetail['subtotal'] += $item->product->price_sell;
         }
 
         $cartDetail['grand_total'] = $cartDetail['subtotal'];
 
-        return view('content.customers.cas.cart', ['pageConfigs' => $pageConfigs], compact('cart', 'cartDetail'));
+        return view('content.customers.cas.cart', ['pageConfigs' => $pageConfigs], compact('cart', 'cartDetail', 'cartCount'));
+    }
+
+    public function cartRemove(Request $request, Product $product)
+    {
+        Cart::where('product_id', $product->id)
+            ->where('user_id', Auth::id())->delete();
+
+        return redirect()->route('customers.cas.cart');
     }
 
     public function profile(Request $request)
@@ -37,6 +59,7 @@ class CustomerAreasController extends Controller
 
     public function transactionHistory(Request $request)
     {
+        $settings = Setting::first();
         if ($request->ajax()) {
             $query = Selling::with(['customer', 'selling_details'])->whereRelation('customer', 'id', Auth::id())
                 ->select(sprintf('%s.*', (new Selling)->table));
@@ -46,19 +69,8 @@ class CustomerAreasController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
 
-            $table->editColumn('actions', function ($row) {
-                $viewGate = 'selling_show';
-                $editGate = 'selling_edit';
-                $deleteGate = 'selling_delete';
-                $crudRoutePart = 'sellings';
-
-                return view('_partials.datatablesActions', compact(
-                    'viewGate',
-                    'editGate',
-                    'deleteGate',
-                    'crudRoutePart',
-                    'row'
-                ));
+            $table->editColumn('actions', function ($row) use ($settings) {
+                return $row->status != 'confirmed' ? '<a class="btn btn-primary" href="' . $settings->whatsapp_link . '">Contact Admin</a>' : 'asd';
             });
 
             $table->editColumn('id', function ($row) {
