@@ -34,7 +34,7 @@ class ProductController extends Controller
             $table->editColumn('actions', function ($row) {
                 $viewGate = 'product_show';
                 $editGate = 'product_edit';
-                $deleteGate = 'product_delete';
+                $deleteGate = 'product_delete_disabled';
                 $crudRoutePart = 'products';
                 $otherCan = true;
 
