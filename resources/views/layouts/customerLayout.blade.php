@@ -91,15 +91,15 @@
                         </button>
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link fw-medium" href="{{ route('customers.home') }}">Beranda</a>
+                                <a class="nav-link fw-medium" href="{{ route('customers.home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fw-medium" href="{{ route('customers.marketplaces.index') }}">Penjualan</a>
+                                <a class="nav-link fw-medium" href="{{ route('customers.marketplaces.index') }}">Produk</a>
                             </li>
 
                             @can('actor_supplier')
                                 <li class="nav-item">
-                                    <a class="nav-link fw-medium" href="{{ route('customers.supplies.index') }}">Suplai</a>
+                                    <a class="nav-link fw-medium" href="{{ route('customers.supplies.index') }}">Supply</a>
                                 </li>
                             @endcan
 
@@ -107,16 +107,16 @@
                                 @cannot('actor_admin')
                                     <li class="nav-item">
                                         <a class="nav-link fw-medium"
-                                            href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Suplai</a>
+                                            href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Supply</a>
                                     </li>
                                 @endcan
                             @endcan
 
                             <li class="nav-item">
-                                <a class="nav-link fw-medium" href="{{ route('customers.blogs.index') }}">Wisata dan Bisnis</a>
+                                <a class="nav-link fw-medium" href="{{ route('customers.blogs.index') }}">Tentang</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fw-medium" href="{{ route('customers.contacts') }}">Hubungi Kami</a>
+                                <a class="nav-link fw-medium" href="{{ route('customers.contacts') }}">Contact</a>
                             </li>
                         </ul>
                     </div>

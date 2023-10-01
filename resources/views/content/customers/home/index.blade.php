@@ -12,7 +12,7 @@
                 data-background="{{ $page_settings ? ($page_settings->home_cover ? $page_settings->home_cover->getUrl() : '') : '' }}">
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <h1 class="text-primary hero-title display-6">SUPPLY CHAIN CENTER TOGA</h1>
+                        <h1 class="text-black hero-title display-6">SUPPLY CHAIN CENTER TOGA</h1>
                         <h2 class="hero-sub-title h6 mb-4 pb-1 text-white">
                             Yuk jaga imun kamu dengan produk kami (toga, jamu herbal dan variannya).  <br class="d-none d-lg-block" />
                             Raih kesempatan juga untuk bermitra sebagai supplier disini. 
