@@ -6,7 +6,7 @@ $(function () {
         landingHeroDark = $(".dark-style .landing-hero");
 
     if (landingHeroLight.length) {
-        landingHeroLight.css({ "background-image": "url("+landingHeroLight.data('background')+"), linear-gradient(138.18deg, rgba(190, 190, 213, 0.89) 0%, rgba(112, 102, 102, 0.93) 94.44%)"});
+        landingHeroLight.css({ "background-image": "url("+landingHeroLight.data('background')+"), linear-gradient(0deg, rgba(190, 190, 213, 0.40) 0%, rgba(112, 102, 102, 0.93) 94.44%)"});
     }
 
     if (landingHeroDark.length) {

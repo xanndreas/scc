@@ -12,18 +12,18 @@
                 data-background="{{ $page_settings ? ($page_settings->home_cover ? $page_settings->home_cover->getUrl() : '') : '' }}">
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <h1 class="text-primary hero-title display-6 fw-bold">Supply Chain Center Toga</h1>
+                        <h1 class="text-primary hero-title display-6">SUPPLY CHAIN CENTER TOGA</h1>
                         <h2 class="hero-sub-title h6 mb-4 pb-1 text-white">
-                            E-commerce mempermudah, jelajahi produk baru kami <br class="d-none d-lg-block" />
-                            dan dapatkan banyak diskon.
+                            Yuk jaga imun kamu dengan produk kami (toga, jamu herbal dan variannya).  <br class="d-none d-lg-block" />
+                            Raih kesempatan juga untuk bermitra sebagai supplier disini. 
                         </h2>
-                        <div class="landing-hero-btn d-inline-block position-relative">
-                            <span class="hero-btn-item position-absolute d-none d-md-flex text-white">Jelajahi Produk
+                        <div class="landing-hero-btn d-inline-block position-relative mb-3">
+                            {{-- <span class="hero-btn-item position-absolute d-none d-md-flex text-white">Jelajahi Produk
                                 <img src="{{ asset('assets/img/front-pages/icons/Join-community-arrow.png') }}"
                                     alt="Join community arrow" class="scaleX-n1-rtl" />
                             </span>
                             <a href="{{ route('customers.marketplaces.index') }}" class="btn btn-primary btn-lg">Jelajahi
-                                Produk</a>
+                                Produk</a> --}}
                         </div>
                     </div>
                 </div>
@@ -39,10 +39,10 @@
                         src="{{ $page_settings ? ($page_settings->home_logo_main ? $page_settings->home_logo_main->getUrl() : asset('assets/img/front-pages/icons/check-warning.png')) : '' }}" />
                 </div>
                 <h3 class="text-center mb-1">
-                    <span class="section-title">PPK ORMAWA </span> HIMAPRODI TEKNIK INDUSTRI
+                    <span class="section-title">SUPPLY CHAIN </span> CENTER TOGA SOLUTIONS
                 </h3>
                 <p class="text-center mb-3 mb-md-5 pb-3">
-                    UNIVERSITAS ISLAM MAJAPAHIT
+                    Solusi tepercaya untuk memenuhi kebutuhan anda serta berkomitmen untuk mewujudkan potensi usaha Anda.
                 </p>
                 <div class="features-icon-wrapper row gx-0 gy-4 g-sm-5">
                     <div class="col-lg-4 col-sm-6 text-center features-icon-box">
