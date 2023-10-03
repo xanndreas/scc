@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\traits\LedgerTrait;
 use App\Models\Purchasing;
 use App\Models\PurchasingDetail;
 use App\Models\User;
@@ -13,6 +14,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PurchasingController extends Controller
 {
+    use LedgerTrait;
+
     public function index(Request $request)
     {
         abort_if(Gate::denies('purchasing_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -23,11 +26,12 @@ class PurchasingController extends Controller
 
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
+            $table->addColumn('mark', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'purchasing_show';
-                $editGate      = 'purchasing_edit_disabled';
-                $deleteGate    = 'purchasing_delete_disabled';
+                $viewGate = 'purchasing_show';
+                $editGate = 'purchasing_edit_disabled';
+                $deleteGate = 'purchasing_delete_disabled';
                 $crudRoutePart = 'purchasings';
 
                 return view('_partials.datatablesActions', compact(
@@ -35,6 +39,12 @@ class PurchasingController extends Controller
                     'editGate',
                     'deleteGate',
                     'crudRoutePart',
+                    'row'
+                ));
+            });
+
+            $table->editColumn('mark', function ($row) {
+                return view('content.admin.purchasings._partials.markDone', compact(
                     'row'
                 ));
             });
@@ -79,12 +89,12 @@ class PurchasingController extends Controller
                 return $row->purchasing_transaction_number ? $row->purchasing_transaction_number : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'supplier', 'purchasing_detail']);
+            $table->rawColumns(['actions', 'mark', 'placeholder', 'supplier', 'purchasing_detail']);
 
             return $table->make(true);
         }
 
-        $users              = User::get();
+        $users = User::get();
         $purchasing_details = PurchasingDetail::get();
 
         return view('content.admin.purchasings.index', compact('users', 'purchasing_details'));
@@ -97,6 +107,19 @@ class PurchasingController extends Controller
         $purchasing->load('supplier', 'purchasing_details');
 
         return view('content.admin.purchasings.show', compact('purchasing'));
+    }
+
+    public function markDone(Request $request, Purchasing $purchasing)
+    {
+        abort_if(Gate::denies('purchasing_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $purchasing->update([
+            'status' => 'confirmed'
+        ]);
+
+        $this->appending_ledger($purchasing->grand_total, $purchasing);
+
+        return redirect()->route('admin.purchasings.index');
     }
 
 }

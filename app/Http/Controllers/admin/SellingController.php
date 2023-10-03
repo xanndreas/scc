@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\traits\InventoryTrait;
 use App\Http\Requests\UpdateSellingRequest;
 use App\Models\Selling;
 use App\Models\SellingDetail;
@@ -14,6 +15,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SellingController extends Controller
 {
+    use InventoryTrait;
+
     public function index(Request $request)
     {
         abort_if(Gate::denies('selling_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -97,6 +100,23 @@ class SellingController extends Controller
     public function update(UpdateSellingRequest $request, Selling $selling)
     {
         $selling->update($request->only('status'));
+
+        if ($request->status == 'confirmed') {
+            $selling->load('selling_details', 'selling_details.product');
+            $sellingOut = [];
+
+            foreach ($selling->selling_details as $selling_detail) {
+                if (isset($sellingOut[$selling_detail->product->id]['qty']))
+                    $sellingOut[$selling_detail->product->id]['qty'] += $selling_detail->quantity;
+                else
+                    $sellingOut[$selling_detail->product->id]['qty'] = $selling_detail->quantity;
+                    $sellingOut[$selling_detail->product->id]['product'] = $selling_detail->product;
+            }
+
+            foreach ($sellingOut as $index => $items) {
+                $this->appending_invent($items['qty'], $items['product'], $selling, 'out');
+            }
+        }
 
         return redirect()->route('admin.sellings.show', ['selling' => $selling->id]);
     }

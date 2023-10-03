@@ -11,7 +11,7 @@ trait LedgerTrait
     public function appending_ledger($value, $model, $notes = null): bool
     {
         $ledgers = Ledger::create([
-            'notes' => $notes,
+            'notes' => $notes ?? "",
             'value' => $value,
             'model_id' => $model->id,
             'model_type' => get_class($model),

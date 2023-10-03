@@ -172,7 +172,6 @@ class OfferController extends Controller
                                         'price_deal' => $item
                                     ]);
 
-
                                     $this->appending_invent(
                                         $offerDetail->quantity,
                                         $offerDetail->supply->product,

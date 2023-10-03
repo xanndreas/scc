@@ -31,9 +31,9 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');
     Route::get('cas/transaction', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
     Route::get('cas/transaction/{selling}', 'CustomerAreasController@transactionDetail')->name('cas.transaction-detail');
-    
+
     Route::post('cas/cart-remove/{product}', 'CustomerAreasController@cartRemove')->name('cas.cart-remove');
-    
+
     Route::get('blogs', 'BlogController@index')->name('blogs.index');
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
 
@@ -76,6 +76,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // Purchasing
     Route::resource('purchasings', 'PurchasingController')
         ->only(['index', 'show']);
+    Route::post('purchasings/done/{purchasing}', 'PurchasingController@markDone')->name('purchasings.mark-done');
 
     // Offer
     Route::get('offers/create/{product}', 'OfferController@createByProduct')->name('offers.createByProduct');

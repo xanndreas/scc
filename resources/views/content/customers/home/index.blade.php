@@ -15,7 +15,7 @@
                         <h1 class="text-black hero-title display-6">SUPPLY CHAIN CENTER TOGA</h1>
                         <h2 class="hero-sub-title h6 mb-4 pb-1 text-white">
                             Yuk jaga imun kamu dengan produk kami (toga, jamu herbal dan variannya).  <br class="d-none d-lg-block" />
-                            Raih kesempatan juga untuk bermitra sebagai supplier disini. 
+                            Raih kesempatan juga untuk bermitra sebagai supplier disini.
                         </h2>
                         <div class="landing-hero-btn d-inline-block position-relative mb-3">
                             {{-- <span class="hero-btn-item position-absolute d-none d-md-flex text-white">Jelajahi Produk
@@ -164,54 +164,34 @@
             <div class="container">
                 <div class="row gy-3">
                     <div class="col-sm-6 col-lg-3">
-                        <div class="card border border-label-primary shadow-none">
+                        <div class="card">
                             <div class="card-body text-center">
-                                <img src="{{ asset('assets/img/front-pages/icons/laptop.png') }}" alt="laptop"
-                                    class="mb-2" />
-                                <h5 class="h2 mb-1">3k+</h5>
-                                <p class="fw-medium mb-0">
-                                    Total supplier<br />
-                                    Offers
-                                </p>
+                                <img src="{{ asset('assets/img/front-pages/landing-page/1-content-home.jpeg') }}" alt="laptop"
+                                    class="img-fluid h-100" />
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="card border border-label-success shadow-none">
+                        <div class="card">
                             <div class="card-body text-center">
-                                <img src="{{ asset('assets/img/front-pages/icons/user-success.png') }}" alt="laptop"
-                                    class="mb-2" />
-                                <h5 class="h2 mb-1">1k+</h5>
-                                <p class="fw-medium mb-0">
-                                    Join success<br />
-                                    supplier
-                                </p>
+                                <img src="{{ asset('assets/img/front-pages/landing-page/2-content-home.jpeg') }}" alt="laptop"
+                                     class="img-fluid h-100" />
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="card border border-label-info shadow-none">
+                        <div class="card">
                             <div class="card-body text-center">
-                                <img src="{{ asset('assets/img/front-pages/icons/diamond-info.png') }}" alt="laptop"
-                                    class="mb-2" />
-                                <h5 class="h2 mb-1">5/5</h5>
-                                <p class="fw-medium mb-0">
-                                    Highly Rated<br />
-                                    Products
-                                </p>
+                                <img src="{{ asset('assets/img/front-pages/landing-page/3-content-home.jpeg') }}" alt="laptop"
+                                     class="img-fluid h-100" />
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="card border border-label-warning shadow-none">
+                        <div class="card">
                             <div class="card-body text-center">
-                                <img src="{{ asset('assets/img/front-pages/icons/check-warning.png') }}" alt="laptop"
-                                    class="mb-2" />
-                                <h5 class="h2 mb-1">100%</h5>
-                                <p class="fw-medium mb-0">
-                                    Safe online<br />
-                                    Transaction
-                                </p>
+                                <img src="{{ asset('assets/img/front-pages/landing-page/4-content-home.jpeg') }}" alt="laptop"
+                                     class="img-fluid h-100" />
                             </div>
                         </div>
                     </div>
