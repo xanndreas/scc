@@ -18,7 +18,7 @@ $(function () {
                 {data: 'status', name: 'status'},
                 {data: 'purchasing_detail', name: 'purchasing_details.subtotal'},
                 {data: 'purchasing_transaction_number', name: 'purchasing_transaction_number'},
-                {data: 'actions', name: 'Actions'}
+                {data: 'mark', name: 'mark'},
             ],
             orderCellsTop: true,
             order: [[2, 'desc']],

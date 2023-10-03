@@ -18,6 +18,7 @@ class Selling extends Model
         'waiting_payment' => 'Waiting Payment',
         'confirmed' => 'Order Confirmed',
         'on_process' => 'On Process',
+        'done' => 'Done',
         'canceled' => 'Canceled'
     ];
 

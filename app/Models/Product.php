@@ -29,6 +29,7 @@ class Product extends Model implements HasMedia
 
     public const PACKAGING_UNIT_SELECT = [
         'pcs' => 'Pcs',
+        'kg' => 'Kg',
     ];
 
     protected $dates = [

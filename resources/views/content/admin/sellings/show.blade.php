@@ -91,21 +91,30 @@
 
                                 <div class="row">
                                     <div class="col-10">
-                                        <select class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}"
-                                                name="status" id="status" required>
-                                            <option value
-                                                    disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                                            @foreach(App\Models\Selling::STATUS_SELECT as $key => $label)
-                                                <option
-                                                    value="{{ $key }}" {{ $selling->status === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                                            @endforeach
-                                        </select>
+                                        <input class="form-control" disabled
+                                               value="{{  App\Models\Selling::STATUS_SELECT[$selling->status] ?? ''  }}">
                                     </div>
+
                                     <div class="col-2">
-                                        <button type="submit" class="btn btn-label-success w-100 update-status-btn"
-                                           href="javascript:void(0);">
-                                            Update
-                                        </button>
+                                        @if($selling->status == 'waiting_payment')
+                                            <input type="hidden" name="status" value="confirmed">
+                                            <button type="submit" class="btn btn-label-primary w-100 update-status-btn"
+                                                    href="javascript:void(0);">
+                                                Confirm
+                                            </button>
+                                        @elseif($selling->status == 'confirmed')
+                                            <input type="hidden" name="status" value="on_process">
+                                            <button type="submit" class="btn btn-label-primary w-100 update-status-btn"
+                                                    href="javascript:void(0);">
+                                                Process
+                                            </button>
+                                        @elseif($selling->status == 'on_process')
+                                            <input type="hidden" name="status" value="done">
+                                            <button type="submit" class="btn btn-label-success w-100 update-status-btn"
+                                                    href="javascript:void(0);">
+                                                Done
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </form>
@@ -121,7 +130,6 @@
                     </tr>
                     </tbody>
                 </table>
-
                 <div class="mb-3">
                     <b> Selling Products</b>
                 </div>
