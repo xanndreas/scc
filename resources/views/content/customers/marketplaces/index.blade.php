@@ -10,10 +10,12 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Penjualan</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Produk</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        Beli aneka produk yang tersedia di Supply Chain Center Toga yang meliputi <br>
+                        toga, produk olahan toga yang berupa jamu baik dalam bentuk minuman siap minum, jamu celup, <br>
+                        jamu kering, jamu serbuk, cookies dan makanan lainnya, kosmetik dan produk hasil disersifikasi lainnya.<br>
+                        Beli aneka produk unggulan secara online dengan kualitas terbaik dengan nyaman dan hemat di Supply Chain Center Toga.
                     </h2>
                 </div>
             </div>
@@ -25,8 +27,8 @@
     <section class="ecommerce-application mb-5">
         <div class="container mt-5">
             <!-- E-commerce Content Section Starts -->
-            <h3 class="text-center mb-1">Semua
-                <span class="section-title">Produk</span>
+            <h3 class="text-center mb-1">Produk
+                <span class="section-title">Unggulan</span>
             </h3>
             <p class="text-center mb-3 pb-2">Lihat dan Jelajahi.</p>
 

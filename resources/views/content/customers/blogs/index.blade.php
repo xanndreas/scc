@@ -14,10 +14,11 @@
         <div id="landingHero" class="section-py landing-cover position-relative">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Wisata dan Bisnis</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">Supply Chain Center Toga</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        Pusat supply dan distribusi toga dan produk hasil olahan toga <br>
+                        (jamu, minuman, makanan, kosmetik, dan produk lainnya) yang berkantor pusat di <br>
+                        Desa Kebontunggul Kecamatan Dlanggu Kabupaten Mojokerto.
                     </h2>
                 </div>
             </div>
@@ -27,7 +28,38 @@
 
     <!-- Blog List -->
     <section class="">
+
         <div class="container mt-5 mb-5">
+            <div class="row gy-4">
+                <div class="col-lg-5">
+                    <div class="contact-img-box position-relative border p-2 h-100">
+                        <img
+                            src="{{asset('assets/img/front-pages/landing-page/contact-customer-service.png')}}"
+                            alt="contact customer service"
+                            class="contact-img w-100 scaleX-n1-rtl"/>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="mb-4">
+                            Supply Chain Center Toga ini dikembangkan oleh para mahasiswa yang tergabung dalam tim PPK
+                            Ormawa HIMA Teknik Industri UNIM di bawah bimbingan Dr. Erly Ekayanti Rosyida, ST,
+                            MT serta arahan dari Bapak kepala Desa Kebontunggul Bpk. Siandi, SE, MM pada tahun 2023
+                            dibawah support pendanaan DIKTI melalui program PPK Ormawa tahun 2023.
+                        </p>
+                        <p class="mb-4">
+                            Tujuan dari dikembangkannya Supply Chain Center Toga ini adalah untuk memudahkan masyarakat Desa
+                            kebontunggul khususnya dan seluruh penghasil Toga dalam proses supply toga yang telah
+                            dihasilkannya serta memberikan kemudahan para customer toga dan produk olahannya untuk
+                            melakukan pemesanan dengan harga yang bersahabat. Selain itu, diharapkan Supply Chain Center
+                            Toga ini bisa memberikan kemudahan para petani ataupun industry kecil pengolah toga untuk meraih
+                            kesuksesan secara berkelanjutan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
             <div class="row">
                 <div class="col-lg-9 col-md-12">
                     <div class="blog-list-wrapper e">

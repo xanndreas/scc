@@ -11,8 +11,7 @@
                 <div class="hero-text-box text-center">
                     <h1 class="text-primary hero-title display-6 fw-bold">{{ substr($product->name, 0, 40) }} ..</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        {{$product->description}}
                     </h2>
                 </div>
             </div>
