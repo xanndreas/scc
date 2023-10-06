@@ -11,8 +11,7 @@
                 <div class="hero-text-box text-center">
                     <h1 class="text-primary hero-title display-6 fw-bold">{{ substr($product->name, 0, 40) }} ..</h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        {{substr($product->description, 0, 40) }}..
                     </h2>
                 </div>
             </div>
@@ -86,8 +85,9 @@
                                     <span class="add-to-cart">Tambahkan Keranjang</span>
                                 </a>
                             @else
-                                <button disabled href="#" class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
-                                   data-product-id="{{ $product->id }}">
+                                <button disabled href="#"
+                                        class="btn btn-label-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0"
+                                        data-product-id="{{ $product->id }}">
                                     <i data-feather="shopping-cart" class="me-50"></i>
                                     <span class="add-to-cart">Stok Habis</span>
                                 </button>

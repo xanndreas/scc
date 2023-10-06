@@ -277,7 +277,7 @@
     'custom' => 
     array (
       'myLayout' => 'vertical',
-      'myTheme' => 'theme-semi-dark',
+      'myTheme' => 'theme-default',
       'myStyle' => 'light',
       'myRTLSupport' => true,
       'myRTLMode' => false,

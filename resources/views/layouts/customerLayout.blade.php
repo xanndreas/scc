@@ -4,7 +4,7 @@
 
 @php
     $configData = Helper::appClasses();
-    
+
     /* Display elements */
     $customizerHidden = $customizerHidden ?? '';
 @endphp
@@ -251,54 +251,49 @@
                         <a href="{{ route('customers.home') }}" class="app-brand-link mb-4">
                             @include('_partials.macros', compact('height'))
 
-                            <span class="app-brand-text demo footer-link fw-bold ms-2 ps-1">Suppy Chain Center</span>
+                            <span class="app-brand-text demo footer-link fw-bold ms-2 ps-1">Supply Chain Center Toga</span>
                         </a>
 
                         <p class="footer-text footer-logo-description mb-4">
-                            Membantu dalam mengelola rantai pasok Tanaman Toga dan Produk olahannya
+                            Pusat supply dan distribusi toga dan produk hasil olahan toga
+                            (jamu, minuman, makanan, kosmetik, dan produk lainnya) yang berkantor pusat di Desa
+                            Kebontunggul Kecamatan Dlanggu Kabupaten Mojokerto.
                         </p>
-                        <form class="footer-form">
-                            <label for="footer-email" class="small">Subscribe to newsletter</label>
-                            <div class="d-flex mt-1">
-                                <input type="email"
-                                    class="form-control rounded-0 rounded-start-bottom rounded-start-top"
-                                    id="footer-email" placeholder="Your email" />
-                                <button type="submit"
-                                    class="btn btn-primary shadow-none rounded-0 rounded-end-bottom rounded-end-top">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </form>
                     </div>
 
                     <div class="col-lg-2">
-                        <h6 class="footer-title mb-4">Menu</h6>
+                        <h6 class="footer-title mb-4">Supply Chain Center (SCC)</h6>
                         <ul class="list-unstyled">
 
                             <li class="mb-3">
-                                <a href="{{ route('customers.marketplaces.index') }}" class="footer-link">Penjualan</a>
+                                <a href="{{ route('customers.marketplaces.index') }}" class="footer-link">Produk</a>
                             </li>
                             <li class="mb-3">
-                                <a href="{{ route('customers.supplies.index') }}" class="footer-link">Suplai</a>
+                                <a href="{{ route('customers.supplies.index') }}" class="footer-link">Supplier/Mitra</a>
                             </li>
                             <li class="mb-3">
-                                <a href="{{ route('customers.blogs.index') }}" class="footer-link">Wisata dan Bisnis</a>
-                            </li>
-                            <li class="mb-3">
-                                <a href="{{ route('customers.contacts') }}" class="footer-link">Hubungi Kami</a>
+                                <a href="{{ route('customers.contacts') }}" class="footer-link">Tentang SCC</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
-                        <h6 class="footer-title mb-4">Wisata dan Bisnis</h6>
-                        <ul class="list-unstyled">
-                            @foreach ($recent_blog_footers as $recent_blog_footer)
-                                <li class="mb-3">
-                                    <a href="{{ route('customers.blogs.show', ['slug' => $recent_blog_footer->slug]) }}"
-                                        class="footer-link">{{ substr($recent_blog_footer->title, 0, 100) }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
+                    <div class="col-lg-3">
+                        <h6 class="footer-title mb-4">Contact</h6>
+                        <p class="footer-text footer-logo-description mb-3">
+                            Kantor Supply Chain Center Toga
+                        </p>
+                        <p class="footer-text footer-logo-description mb-3">
+                            Desa Kebontunggul Kecamatan Gondang <br>
+                            Kabupaten Mojokerto<br>
+                            Jawa Timur
+                        </p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h6 class="footer-title mb-4">Desa Kebontunggul</h6>
+                        <p class="footer-text footer-logo-description mb-3">
+                            Wisata Lembah Mbencirang<br>
+                            Dewi Herbal Mbencirang<br>
+                            UMKM Kebontunggul<br>
+                        </p>
                     </div>
                 </div>
             </div>
