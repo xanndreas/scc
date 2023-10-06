@@ -27,10 +27,9 @@
     <!-- Hero: End -->
 
     <!-- Blog List -->
-    <section class="">
-
+    <section>
         <div class="container mt-5 mb-5">
-            <div class="row gy-4">
+            <div class="row mb-5">
                 <div class="col-lg-5">
                     <div class="contact-img-box position-relative border p-2 h-100">
                         <img
@@ -40,27 +39,33 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="mb-4">
-                            Supply Chain Center Toga ini dikembangkan oleh para mahasiswa yang tergabung dalam tim PPK
-                            Ormawa HIMA Teknik Industri UNIM di bawah bimbingan Dr. Erly Ekayanti Rosyida, ST,
-                            MT serta arahan dari Bapak kepala Desa Kebontunggul Bpk. Siandi, SE, MM pada tahun 2023
-                            dibawah support pendanaan DIKTI melalui program PPK Ormawa tahun 2023.
-                        </p>
-                        <p class="mb-4">
-                            Tujuan dari dikembangkannya Supply Chain Center Toga ini adalah untuk memudahkan masyarakat Desa
-                            kebontunggul khususnya dan seluruh penghasil Toga dalam proses supply toga yang telah
-                            dihasilkannya serta memberikan kemudahan para customer toga dan produk olahannya untuk
-                            melakukan pemesanan dengan harga yang bersahabat. Selain itu, diharapkan Supply Chain Center
-                            Toga ini bisa memberikan kemudahan para petani ataupun industry kecil pengolah toga untuk meraih
-                            kesuksesan secara berkelanjutan.
-                        </p>
+                    <div class="card shadow-none">
+                        <div class="card-body">
+                            <p class="mb-4">
+                                Supply Chain Center Toga ini dikembangkan oleh para mahasiswa yang tergabung dalam tim
+                                PPK
+                                Ormawa HIMA Teknik Industri UNIM di bawah bimbingan Dr. Erly Ekayanti Rosyida, ST,
+                                MT serta arahan dari Bapak kepala Desa Kebontunggul Bpk. Siandi, SE, MM pada tahun 2023
+                                dibawah support pendanaan DIKTI melalui program PPK Ormawa tahun 2023.
+                            </p>
+                            <p class="mb-4">
+                                Tujuan dari dikembangkannya Supply Chain Center Toga ini adalah untuk memudahkan
+                                masyarakat Desa
+                                kebontunggul khususnya dan seluruh penghasil Toga dalam proses supply toga yang telah
+                                dihasilkannya serta memberikan kemudahan para customer toga dan produk olahannya untuk
+                                melakukan pemesanan dengan harga yang bersahabat. Selain itu, diharapkan Supply Chain
+                                Center
+                                Toga ini bisa memberikan kemudahan para petani ataupun industry kecil pengolah toga
+                                untuk meraih
+                                kesuksesan secara berkelanjutan.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="row">
+            <hr>
+            <div class="row ">
+                <h1 class="text-primary mb-5">Article</h1>
                 <div class="col-lg-9 col-md-12">
                     <div class="blog-list-wrapper e">
                         <div class="row infinite-article d-flex">
