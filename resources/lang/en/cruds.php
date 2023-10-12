@@ -5,6 +5,18 @@ return [
         'title'          => 'User management',
         'title_singular' => 'User management',
     ],
+    'export' => [
+        'title'          => 'Export',
+        'title_singular' => 'Export',
+        'fields'         => [
+            'data_type'         => 'Data Types',
+            'data_type_helper'  => ' ',
+            'start_date'        => 'Start Date',
+            'start_date_helper' => ' ',
+            'end_date'          => 'End Date',
+            'end_date_helper'   => ' ',
+        ]
+    ],
     'setting' => [
         'title'          => 'Settings',
         'title_singular' => 'Settings',

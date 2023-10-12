@@ -1,10 +1,20 @@
 'use strict';
 
 $(function () {
-
+    let labelColor, legendColor, borderColor;
+    if (isDarkStyle) {
+        labelColor = config.colors_dark.textMuted;
+        legendColor = config.colors_dark.bodyColor;
+        borderColor = config.colors_dark.borderColor;
+    } else {
+        labelColor = config.colors.textMuted;
+        legendColor = config.colors.bodyColor;
+        borderColor = config.colors.borderColor;
+    }
 
     // Earning Reports Tabs Function
     function EarningReportsBarChart(arrayData, highlightData) {
+
         const basicColor = config.colors_label.primary,
             highlightColor = config.colors.primary;
         var colorArr = [];
@@ -72,7 +82,7 @@ $(function () {
                 enabled: false
             },
             xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 axisBorder: {
                     show: true,
                     color: borderColor
@@ -92,7 +102,7 @@ $(function () {
                 labels: {
                     offsetX: -15,
                     formatter: function (val) {
-                        return '$' + parseInt(val / 1) + 'k';
+                        return 'IDR ' + parseInt(val / 1) + 'k';
                     },
                     style: {
                         fontSize: '13px',
@@ -147,43 +157,40 @@ $(function () {
         };
     }
 
-    const earningReportsTabsOrdersEl = document.querySelector('#earningReportsTabsOrders'),
-        earningReportsTabsOrdersConfig = EarningReportsBarChart(
-            earningReportsChart['data'][0]['chart_data'],
-            earningReportsChart['data'][0]['active_option']
-        );
-    if (typeof earningReportsTabsOrdersEl !== undefined && earningReportsTabsOrdersEl !== null) {
-        const earningReportsTabsOrders = new ApexCharts(earningReportsTabsOrdersEl, earningReportsTabsOrdersConfig);
-        earningReportsTabsOrders.render();
+    function renderChart() {
+        const earningReportsTabsSalesEl = document.querySelector('#earningReportsTabsSales'),
+            earningReportsTabsSalesConfig = EarningReportsBarChart(
+                earningReportsChart[1]['chart_data'],
+                earningReportsChart[1]['active_option']
+            );
+        if (typeof earningReportsTabsSalesEl !== undefined && earningReportsTabsSalesEl !== null) {
+            const earningReportsTabsSales = new ApexCharts(earningReportsTabsSalesEl, earningReportsTabsSalesConfig);
+            earningReportsTabsSales.render();
+        }
+
+        const earningReportsTabsIncomeEl = document.querySelector('#earningReportsTabsIncome'),
+            earningReportsTabsIncomeConfig = EarningReportsBarChart(
+                earningReportsChart[3]['chart_data'],
+                earningReportsChart[3]['active_option']
+            );
+        if (typeof earningReportsTabsIncomeEl !== undefined && earningReportsTabsIncomeEl !== null) {
+            const earningReportsTabsIncome = new ApexCharts(earningReportsTabsIncomeEl, earningReportsTabsIncomeConfig);
+            earningReportsTabsIncome.render();
+        }
     }
 
-    const earningReportsTabsSalesEl = document.querySelector('#earningReportsTabsSales'),
-        earningReportsTabsSalesConfig = EarningReportsBarChart(
-            earningReportsChart['data'][1]['chart_data'],
-            earningReportsChart['data'][1]['active_option']
-        );
-    if (typeof earningReportsTabsSalesEl !== undefined && earningReportsTabsSalesEl !== null) {
-        const earningReportsTabsSales = new ApexCharts(earningReportsTabsSalesEl, earningReportsTabsSalesConfig);
-        earningReportsTabsSales.render();
-    }
+    let earningReportsChart;
+    if (!earningReportsChart) {
+        $.ajax({
+            type: 'GET',
+            url: '/admin/chart',
 
-    const earningReportsTabsProfitEl = document.querySelector('#earningReportsTabsProfit'),
-        earningReportsTabsProfitConfig = EarningReportsBarChart(
-            earningReportsChart['data'][2]['chart_data'],
-            earningReportsChart['data'][2]['active_option']
-        );
-    if (typeof earningReportsTabsProfitEl !== undefined && earningReportsTabsProfitEl !== null) {
-        const earningReportsTabsProfit = new ApexCharts(earningReportsTabsProfitEl, earningReportsTabsProfitConfig);
-        earningReportsTabsProfit.render();
-    }
+            success: function (data) {
+                earningReportsChart = data;
+                console.log(earningReportsChart[3]);
 
-    const earningReportsTabsIncomeEl = document.querySelector('#earningReportsTabsIncome'),
-        earningReportsTabsIncomeConfig = EarningReportsBarChart(
-            earningReportsChart['data'][3]['chart_data'],
-            earningReportsChart['data'][3]['active_option']
-        );
-    if (typeof earningReportsTabsIncomeEl !== undefined && earningReportsTabsIncomeEl !== null) {
-        const earningReportsTabsIncome = new ApexCharts(earningReportsTabsIncomeEl, earningReportsTabsIncomeConfig);
-        earningReportsTabsIncome.render();
+                renderChart()
+            }
+        });
     }
 });

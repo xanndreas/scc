@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\traits\CartTrait;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Selling;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +16,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CustomerAreasController extends Controller
 {
+    use CartTrait;
     public function cart(Request $request)
     {
         $pageConfigs = ['myLayout' => 'customer', 'navbarFixed' => true, 'displayCustomizer' => false];
@@ -48,6 +51,19 @@ class CustomerAreasController extends Controller
             ->where('user_id', Auth::id())->delete();
 
         return redirect()->route('customers.cas.cart');
+    }
+
+    public function cartChange(Request $request, Product $product)
+    {
+        if ($request->has('qty')) {
+            Cart::where('product_id', $product->id)
+                ->where('user_id', Auth::id())->delete();
+
+            for ($item = 0; $item < $request->qty; $item++) {
+                $user = User::where('id', Auth::id())->first();
+                $this->appending_cart($user, $product);
+            }
+        }
     }
 
     public function profile(Request $request)

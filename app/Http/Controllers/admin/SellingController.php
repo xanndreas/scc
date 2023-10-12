@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\traits\InventoryTrait;
+use App\Http\Controllers\traits\LedgerTrait;
 use App\Http\Requests\UpdateSellingRequest;
 use App\Models\Selling;
 use App\Models\SellingDetail;
@@ -15,7 +16,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SellingController extends Controller
 {
-    use InventoryTrait;
+    use InventoryTrait, LedgerTrait;
 
     public function index(Request $request)
     {
@@ -115,6 +116,7 @@ class SellingController extends Controller
 
             foreach ($sellingOut as $index => $items) {
                 $this->appending_invent($items['qty'], $items['product'], $selling, 'out');
+                $this->appending_ledger($selling->grand_total, $selling);
             }
         }
 
