@@ -9,7 +9,7 @@ on:
 jobs:
   create-deployment-artifacts:
     name: Create deployment artifacts
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs:
       DEPLOYMENT_MATRIX: ${{ steps.export-deployment-matrix.outputs.DEPLOYMENT_MATRIX }}
 
@@ -54,7 +54,7 @@ jobs:
 
   prepare-release-on-servers:
     name: "${{ matrix.server.name }}: Prepare release"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: create-deployment-artifacts
     strategy:
       matrix:
@@ -95,7 +95,7 @@ jobs:
 
   run-before-hooks:
     name: "${{ matrix.server.name }}: Before hook"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [ create-deployment-artifacts, prepare-release-on-servers ]
     strategy:
       matrix:
@@ -119,7 +119,7 @@ jobs:
 
   activate-release:
     name: "${{ matrix.server.name }}: Activate release"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks ]
     strategy:
       matrix:
@@ -156,7 +156,7 @@ jobs:
 
   run-after-hooks:
     name: "${{ matrix.server.name }}: After hook"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks, activate-release ]
     strategy:
       matrix:
@@ -185,7 +185,7 @@ jobs:
 
   clean-up:
     name: "${{ matrix.server.name }}: Clean up"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks, activate-release, run-after-hooks ]
     strategy:
       matrix:
