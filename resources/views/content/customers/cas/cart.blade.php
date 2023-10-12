@@ -93,16 +93,20 @@
                                                                 IDR {{ $item['item']->price_sell }}</h4>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="mt-3">
-                                                        <input disabled class="form-control text-center" value="{{ $item['qty'] }}"/>
+                                                        <input type="number" class="form-control text-center item-qty"
+                                                               value="{{ $item['qty'] }}"
+                                                               data-item-id="{{ $item['item']->id }}">
                                                     </div>
 
-                                                    <a class="btn btn-label-danger mt-3" onclick="event.preventDefault(); document.getElementById('remove-cart-{{$item['item']->id}}').submit();">
+                                                    <a class="btn btn-label-danger mt-3"
+                                                       onclick="event.preventDefault(); document.getElementById('remove-cart-{{$item['item']->id}}').submit();">
                                                         <span class="text-danger">Remove</span>
                                                     </a>
 
-                                                    <form method="POST" id="remove-cart-{{$item['item']->id}}" action="{{ route('customers.cas.cart-remove', ['product' => $item['item']->id]) }}">
+                                                    <form method="POST" id="remove-cart-{{$item['item']->id}}"
+                                                          action="{{ route('customers.cas.cart-remove', ['product' => $item['item']->id]) }}">
                                                         @csrf
                                                     </form>
                                                 </div>
@@ -114,63 +118,65 @@
 
                                 <!-- Checkout Place Order Right starts -->
                                 @if($cartCount != 0)
-                                <div class="checkout-options mt-sm-2 mt-lg-0">
-                                    <div class="card shadow-none">
-                                        <div class="card-body">
-                                            <label class="section-label form-label mb-1">Opsi</label>
-                                            <div class="coupons input-group input-group-merge">
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder="Coupons"
-                                                    aria-label="Coupons"
-                                                    aria-describedby="input-coupons"
-                                                />
-                                                <span class="input-group-text text-primary ps-1"
-                                                      id="input-coupons">Terapkan</span>
-                                            </div>
-                                            <hr/>
-                                            <div class="price-details">
-                                                <h6 class="price-title">Harga Detail</h6>
-                                                <ul class="list-unstyled">
-                                                    <li class="price-detail">
-                                                        <div class="detail-title">Subtotal</div>
-                                                        <div class="detail-amt">IDR {{ $cartDetail['subtotal'] }}</div>
-                                                    </li>
-                                                    <li class="price-detail">
-                                                        <div class="detail-title">Pengiriman</div>
-                                                        <div class="detail-amt discount-amt text-success">Gratis</div>
-                                                    </li>
-                                                </ul>
+                                    <div class="checkout-options mt-sm-2 mt-lg-0">
+                                        <div class="card shadow-none">
+                                            <div class="card-body">
+                                                <label class="section-label form-label mb-1">Opsi</label>
+                                                <div class="coupons input-group input-group-merge">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder="Coupons"
+                                                        aria-label="Coupons"
+                                                        aria-describedby="input-coupons"
+                                                    />
+                                                    <span class="input-group-text text-primary ps-1"
+                                                          id="input-coupons">Terapkan</span>
+                                                </div>
                                                 <hr/>
-                                                <ul class="list-unstyled">
-                                                    <li class="price-detail">
-                                                        <div class="detail-title detail-total">Total</div>
-                                                        <div class="detail-amt fw-bolder">
-                                                            IDR {{ $cartDetail['grand_total'] }}</div>
-                                                    </li>
-                                                </ul>
+                                                <div class="price-details">
+                                                    <h6 class="price-title">Harga Detail</h6>
+                                                    <ul class="list-unstyled">
+                                                        <li class="price-detail">
+                                                            <div class="detail-title">Subtotal</div>
+                                                            <div class="detail-amt">
+                                                                IDR {{ $cartDetail['subtotal'] }}</div>
+                                                        </li>
+                                                        <li class="price-detail">
+                                                            <div class="detail-title">Pengiriman</div>
+                                                            <div class="detail-amt discount-amt text-success">Gratis
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <hr/>
+                                                    <ul class="list-unstyled">
+                                                        <li class="price-detail">
+                                                            <div class="detail-title detail-total">Total</div>
+                                                            <div class="detail-amt fw-bolder">
+                                                                IDR {{ $cartDetail['grand_total'] }}</div>
+                                                        </li>
+                                                    </ul>
 
-                                                <form method="post" id="checkout-form"
-                                                      action="{{ route('customers.marketplaces.checkout') }}"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
+                                                    <form method="post" id="checkout-form"
+                                                          action="{{ route('customers.marketplaces.checkout') }}"
+                                                          enctype="multipart/form-data">
+                                                        @csrf
 
-                                                </form>
+                                                    </form>
 
-                                                <a class="btn btn-primary w-100 btn-next text-white place-order"
-                                                   href="javascript:void(0);"
-                                                   onclick="if (confirm('Are you sure checkout your cart?')){
+                                                    <a class="btn btn-primary w-100 btn-next text-white place-order"
+                                                       href="javascript:void(0);"
+                                                       onclick="if (confirm('Are you sure checkout your cart?')){
                                                        document.getElementById('checkout-form').submit() }
                                                        else{event.stopPropagation(); event.preventDefault();}">
 
-                                                    Order
-                                                </a>
+                                                        Order
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- Checkout Place Order Right ends -->
                                     </div>
-                                    <!-- Checkout Place Order Right ends -->
-                                </div>
                                 @endif
                             </div>
                             <!-- Checkout Place order Ends -->

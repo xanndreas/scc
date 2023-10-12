@@ -13,12 +13,12 @@
 
 @section('vendor-style')
     <!-- Vendor css files -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}"/>
 
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page-landing.css') }}"/>
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
@@ -54,6 +54,7 @@
     <script src="{{ asset('assets/js/customer/marketplace-index.js') }}"></script>
     <script src="{{ asset('assets/js/customer/supply-index.js') }}"></script>
     <script src="{{ asset('assets/js/customer/cas-transaction.js') }}"></script>
+    <script src="{{ asset('assets/js/customer/cas-cart.js') }}"></script>
     <script src="{{ asset('assets/js/customer/article-index.js') }}"></script>
     <script src="{{ asset('assets/js/customer/home-index.js') }}"></script>
 @endsection
@@ -67,8 +68,8 @@
                     <div class="navbar-brand app-brand demo d-flex py-0 py-lg-2 me-4">
                         <!-- Mobile menu toggle: Start-->
                         <button class="navbar-toggler border-0 px-0 me-2" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
 
                             <i class="ti ti-menu-2 ti-sm align-middle"></i>
                         </button>
@@ -85,8 +86,9 @@
                     <!-- Menu wrapper: Start -->
                     <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
                         <button class="navbar-toggler border-0 text-heading position-absolute end-0 top-0 scaleX-n1-rtl"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
                             <i class="ti ti-x ti-sm"></i>
                         </button>
                         <ul class="navbar-nav me-auto">
@@ -94,12 +96,14 @@
                                 <a class="nav-link fw-medium" href="{{ route('customers.home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fw-medium" href="{{ route('customers.marketplaces.index') }}">Produk</a>
+                                <a class="nav-link fw-medium"
+                                   href="{{ route('customers.marketplaces.index') }}">Produk</a>
                             </li>
 
                             @can('actor_supplier')
                                 <li class="nav-item">
-                                    <a class="nav-link fw-medium" href="{{ route('customers.supplies.index') }}">Supply</a>
+                                    <a class="nav-link fw-medium"
+                                       href="{{ route('customers.supplies.index') }}">Supply</a>
                                 </li>
                             @endcan
 
@@ -107,7 +111,7 @@
                                 @cannot('actor_admin')
                                     <li class="nav-item">
                                         <a class="nav-link fw-medium"
-                                            href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Supply</a>
+                                           href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Supply</a>
                                     </li>
                                 @endcan
                             @endcan
@@ -127,7 +131,7 @@
                         <!-- Style Switcher -->
                         <li class="nav-item dropdown-style-switcher dropdown me-xl-0">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                data-bs-toggle="dropdown">
+                               data-bs-toggle="dropdown">
                                 <i class="ti ti-sm"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
@@ -143,7 +147,8 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
-                                        <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
+                                        <span class="align-middle"><i
+                                                class="ti ti-device-desktop me-2"></i>System</span>
                                     </a>
                                 </li>
                             </ul>
@@ -160,7 +165,7 @@
                         @else
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
+                                   data-bs-toggle="dropdown">
                                     <span class="tf-icons ti ti-user"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -184,7 +189,7 @@
                                                     </span>
                                                     <small class="text-muted">
                                                         @if (Auth::user()->load('roles')->roles)
-                                                            {{ Auth::user()->load('roles')->roles->first()->title }}
+                                                            {{ Auth::user()->load('roles')->roles->first() ? Auth::user()->load('roles')->roles->first()->title : 'No Roles'}}
                                                         @else
                                                             No Roles
                                                         @endif
@@ -216,7 +221,7 @@
                                     @if (Auth::check())
                                         <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 <i class='ti ti-logout me-2'></i>
                                                 <span class="align-middle">Logout</span>
                                             </a>
@@ -251,7 +256,8 @@
                         <a href="{{ route('customers.home') }}" class="app-brand-link mb-4">
                             @include('_partials.macros', compact('height'))
 
-                            <span class="app-brand-text demo footer-link fw-bold ms-2 ps-1">Supply Chain Center Toga</span>
+                            <span
+                                class="app-brand-text demo footer-link fw-bold ms-2 ps-1">Supply Chain Center Toga</span>
                         </a>
 
                         <p class="footer-text footer-logo-description mb-4">

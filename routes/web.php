@@ -33,6 +33,7 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('cas/transaction/{selling}', 'CustomerAreasController@transactionDetail')->name('cas.transaction-detail');
 
     Route::post('cas/cart-remove/{product}', 'CustomerAreasController@cartRemove')->name('cas.cart-remove');
+    Route::post('cas/cart-change/{product}', 'CustomerAreasController@cartChange')->name('cas.cart-change');
 
     Route::get('blogs', 'BlogController@index')->name('blogs.index');
     Route::get('blogs/{slug}', 'BlogController@show')->name('blogs.show');
@@ -45,6 +46,8 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/chart', 'HomeController@chartData')->name('home.chart');
+
     // Permissions
     Route::resource('permissions', 'PermissionsController');
 
@@ -111,9 +114,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::put('settings/update', 'SettingController@update')->name('settings.update');
     Route::post('settings/media', 'SettingController@storeMedia')->name('settings.storeMedia');
 
-
     // Transaction
     Route::resource('transactions', 'TransactionController')->only(['index', 'update']);
+    Route::post('transactions/export', 'TransactionController@export')->name('transactions.export');
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\Auth', 'middleware' => ['auth']], function () {
