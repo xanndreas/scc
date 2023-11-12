@@ -49,6 +49,7 @@ jobs:
 #          bash -c 'echo "$JSON" >> "${GITHUB_OUTPUT}"'
 #          bash -c 'echo "${delimiter}" >> "${GITHUB_OUTPUT}"'
           bash -c 'echo "$(cat .github/workflows/servers.json)" >> "${GITHUB_OUTPUT}"'
+          
         shell: bash
 
   prepare-release-on-servers:
