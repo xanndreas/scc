@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - production
-    types: [closed]
+    types: [ closed ]
 
 jobs:
   create-deployment-artifacts:
@@ -18,17 +18,17 @@ jobs:
 
       - name: Compile CSS and Javascript
         run: |
-#          yarn
-#          yarn mix --production
+        #          yarn
+        #          yarn mix --production
 
       - name: Composer install
         run: |
-#          composer install --no-dev --no-interaction --prefer-dist
+        #          composer install --no-dev --no-interaction --prefer-dist
 
       - name: Create deployment artifact
         env:
           GITHUB_SHA: ${{ github.sha }}
-        run: tar -czf "${GITHUB_SHA}".tar.gz -C scc --exclude="*.git" --exclude="node_modules"
+        run: tar --exclude="*.git" --exclude="node_modules" -zcvf "${GITHUB_SHA}".tar.gz .
 
       - name: Store artifact for distribution
         uses: actions/upload-artifact@v3
