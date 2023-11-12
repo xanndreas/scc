@@ -43,12 +43,12 @@ jobs:
       - name: Export deployment matrix
         id: export-deployment-matrix
         run: |
-          delimiter="$(openssl rand -hex 8)"
-          JSON="$(cat ./.github/workflows/servers.json)"
-          echo "DEPLOYMENT_MATRIX<<${delimiter}" >> "${GITHUB_OUTPUT}"
-          echo "$JSON" >> "${GITHUB_OUTPUT}"
-          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
-
+          bash -c 'delimiter=$(openssl rand -hex 8)'
+          bash -c 'JSON=$(<./.github/workflows/servers.json)'
+          bash -c 'echo "DEPLOYMENT_MATRIX<<${delimiter}" >> "${GITHUB_OUTPUT}"'
+          bash -c 'echo "$JSON" >> "${GITHUB_OUTPUT}"'
+          bash -c 'echo "${delimiter}" >> "${GITHUB_OUTPUT}"'
+        shell: bash
 
   prepare-release-on-servers:
     name: "${{ matrix.server.name }}: Prepare release"
