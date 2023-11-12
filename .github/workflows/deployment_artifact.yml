@@ -51,7 +51,7 @@ jobs:
         shell: bash
 
   prepare-release-on-servers:
-    name: "${{ matrix.server.name }}: Prepare release"
+    name: "${{ matrix.server.name }}: Prepare releases"
     runs-on: self-hosted
     needs: create-deployment-artifacts
     strategy:
