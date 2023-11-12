@@ -31,7 +31,7 @@ jobs:
         env:
           GITHUB_SHA: ${{ github.sha }}
         run: |
-          tar --exclude=*.git --exclude=node_modules -zcvf '${GITHUB_SHA}'.tar.gz *
+          tar --exclude=*.git --exclude=node_modules -zcvf "${GITHUB_SHA}".tar.gz *
         shell: bash
 
       - name: Store artifact for distribution
