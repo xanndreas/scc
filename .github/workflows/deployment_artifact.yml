@@ -9,7 +9,7 @@ on:
 jobs:
   create-deployment-artifacts:
     name: Create deployment artifacts
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       DEPLOYMENT_MATRIX: ${{ steps.export-deployment-matrix.outputs.DEPLOYMENT_MATRIX }}
 
@@ -20,12 +20,6 @@ jobs:
         run: |
           yarn
           yarn mix --production
-
-      - name: Configure PHP 8.1
-        uses: shivammathur/setup-php@master
-        with:
-          php-version: 8.1
-          extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
 
       - name: Composer install
         run: |
@@ -54,7 +48,7 @@ jobs:
 
   prepare-release-on-servers:
     name: "${{ matrix.server.name }}: Prepare release"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: create-deployment-artifacts
     strategy:
       matrix:
@@ -95,7 +89,7 @@ jobs:
 
   run-before-hooks:
     name: "${{ matrix.server.name }}: Before hook"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [ create-deployment-artifacts, prepare-release-on-servers ]
     strategy:
       matrix:
@@ -119,7 +113,7 @@ jobs:
 
   activate-release:
     name: "${{ matrix.server.name }}: Activate release"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks ]
     strategy:
       matrix:
@@ -156,7 +150,7 @@ jobs:
 
   run-after-hooks:
     name: "${{ matrix.server.name }}: After hook"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks, activate-release ]
     strategy:
       matrix:
@@ -185,7 +179,7 @@ jobs:
 
   clean-up:
     name: "${{ matrix.server.name }}: Clean up"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [ create-deployment-artifacts, prepare-release-on-servers, run-before-hooks, activate-release, run-after-hooks ]
     strategy:
       matrix:
