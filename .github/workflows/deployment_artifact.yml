@@ -33,7 +33,6 @@ jobs:
         run: |
           tar --exclude=*.git --exclude=node_modules -zcvf "${GITHUB_SHA}".tar.gz *
         shell: bash
-
 #      - name: Store artifact for distribution
 #        uses: actions/upload-artifact@v3
 #        with:
@@ -49,8 +48,6 @@ jobs:
 #          bash -c 'echo "$JSON" >> "${GITHUB_OUTPUT}"'
 #          bash -c 'echo "${delimiter}" >> "${GITHUB_OUTPUT}"'
           bash -c 'echo "$(cat .github/workflows/servers.json)" >> "${GITHUB_OUTPUT}"'
-
-          
         shell: bash
 
   prepare-release-on-servers:
