@@ -201,66 +201,66 @@
         <!-- Fun facts: End -->
 
         <!-- FAQ: Start -->
-        <section id="landingFAQ" class="section-py bg-body landing-faq">
-            <div class="container">
-                <div class="text-center mb-3 pb-1">
-                    <span class="badge bg-label-primary">FAQ</span>
-                </div>
-                <h3 class="text-center mb-1">Frequently asked <span class="section-title">questions</span></h3>
-                <p class="text-center mb-5 pb-3">Browse through these FAQs to find answers to commonly asked
-                    questions.</p>
-                <div class="row gy-5">
-                    <div class="col-lg-5">
-                        <div class="text-center">
-                            <img src="{{ asset('assets/img/front-pages/landing-page/faq-boy-with-logos.png') }}"
-                                alt="faq boy with logos" class="faq-image" />
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="accordion" id="accordionExample">
-                            <div class="card accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#accordionFour" aria-expanded="false"
-                                        aria-controls="accordionFour">
-                                        Lorem ipsum dolor sit amet?
-                                    </button>
-                                </h2>
-                                <div id="accordionFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis et aliquid
-                                        quaerat possimus maxime!
-                                        Mollitia reprehenderit neque repellat deleniti delectus architecto dolorum
-                                        maxime, blanditiis
-                                        earum ea, incidunt quam possimus cumque.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card accordion-item">
-                                <h2 class="accordion-header" id="headingFive">
-                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#accordionFive" aria-expanded="false"
-                                        aria-controls="accordionFive">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit?
-                                    </button>
-                                </h2>
-                                <div id="accordionFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi molestias
-                                        exercitationem ab cum
-                                        nemo facere voluptates veritatis quia, eveniet veniam at et repudiandae mollitia
-                                        ipsam quasi
-                                        labore enim architecto non!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section id="landingFAQ" class="section-py bg-body landing-faq">--}}
+{{--            <div class="container">--}}
+{{--                <div class="text-center mb-3 pb-1">--}}
+{{--                    <span class="badge bg-label-primary">FAQ</span>--}}
+{{--                </div>--}}
+{{--                <h3 class="text-center mb-1">Frequently asked <span class="section-title">questions</span></h3>--}}
+{{--                <p class="text-center mb-5 pb-3">Browse through these FAQs to find answers to commonly asked--}}
+{{--                    questions.</p>--}}
+{{--                <div class="row gy-5">--}}
+{{--                    <div class="col-lg-5">--}}
+{{--                        <div class="text-center">--}}
+{{--                            <img src="{{ asset('assets/img/front-pages/landing-page/faq-boy-with-logos.png') }}"--}}
+{{--                                alt="faq boy with logos" class="faq-image" />--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-lg-7">--}}
+{{--                        <div class="accordion" id="accordionExample">--}}
+{{--                            <div class="card accordion-item">--}}
+{{--                                <h2 class="accordion-header" id="headingFour">--}}
+{{--                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"--}}
+{{--                                        data-bs-target="#accordionFour" aria-expanded="false"--}}
+{{--                                        aria-controls="accordionFour">--}}
+{{--                                        Lorem ipsum dolor sit amet?--}}
+{{--                                    </button>--}}
+{{--                                </h2>--}}
+{{--                                <div id="accordionFour" class="accordion-collapse collapse" aria-labelledby="headingFour"--}}
+{{--                                    data-bs-parent="#accordionExample">--}}
+{{--                                    <div class="accordion-body">--}}
+{{--                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis et aliquid--}}
+{{--                                        quaerat possimus maxime!--}}
+{{--                                        Mollitia reprehenderit neque repellat deleniti delectus architecto dolorum--}}
+{{--                                        maxime, blanditiis--}}
+{{--                                        earum ea, incidunt quam possimus cumque.--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="card accordion-item">--}}
+{{--                                <h2 class="accordion-header" id="headingFive">--}}
+{{--                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"--}}
+{{--                                        data-bs-target="#accordionFive" aria-expanded="false"--}}
+{{--                                        aria-controls="accordionFive">--}}
+{{--                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit?--}}
+{{--                                    </button>--}}
+{{--                                </h2>--}}
+{{--                                <div id="accordionFive" class="accordion-collapse collapse" aria-labelledby="headingFive"--}}
+{{--                                    data-bs-parent="#accordionExample">--}}
+{{--                                    <div class="accordion-body">--}}
+{{--                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi molestias--}}
+{{--                                        exercitationem ab cum--}}
+{{--                                        nemo facere voluptates veritatis quia, eveniet veniam at et repudiandae mollitia--}}
+{{--                                        ipsam quasi--}}
+{{--                                        labore enim architecto non!--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
         <!-- FAQ: End -->
     </div>
     <!-- / Sections:End -->
