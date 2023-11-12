@@ -18,17 +18,17 @@ jobs:
 
       - name: Compile CSS and Javascript
         run: |
-          yarn
-          yarn mix --production
+#          yarn
+#          yarn mix --production
 
       - name: Composer install
         run: |
-          composer install --no-dev --no-interaction --prefer-dist
+#          composer install --no-dev --no-interaction --prefer-dist
 
       - name: Create deployment artifact
         env:
           GITHUB_SHA: ${{ github.sha }}
-        run: 7z a -ttar "${GITHUB_SHA}".tar * -xr!*.git -xr!node_modules
+        run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
 
       - name: Store artifact for distribution
         uses: actions/upload-artifact@v3
