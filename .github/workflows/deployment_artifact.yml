@@ -20,17 +20,19 @@ jobs:
         run: |
         #          yarn
         #          yarn mix --production
+        shell: bash
 
       - name: Composer install
         run: |
         #          composer install --no-dev --no-interaction --prefer-dist
+        shell: bash
 
       - name: Create deployment artifact
         env:
           GITHUB_SHA: ${{ github.sha }}
         run: |
-          dir
           tar --exclude=*.git --exclude=node_modules -zcvf '${GITHUB_SHA}'.tar.gz *
+        shell: bash
 
       - name: Store artifact for distribution
         uses: actions/upload-artifact@v3
