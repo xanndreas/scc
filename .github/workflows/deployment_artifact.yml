@@ -34,11 +34,11 @@ jobs:
           tar --exclude=*.git --exclude=node_modules -zcvf "${GITHUB_SHA}".tar.gz *
         shell: bash
 
-      - name: Store artifact for distribution
-        uses: actions/upload-artifact@v3
-        with:
-          name: app-build
-          path: ${{ github.sha }}.tar.gz
+#      - name: Store artifact for distribution
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: app-build
+#          path: ${{ github.sha }}.tar.gz
 
       - name: Export deployment matrix
         id: export-deployment-matrix
