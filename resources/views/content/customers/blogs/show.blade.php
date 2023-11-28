@@ -11,13 +11,16 @@
 
     <!-- Hero: Start -->
     <section id="hero-animation">
-        <div id="landingHero" class="section-py landing-cover position-relative">
+        <div id="landingHero" class="section-py landing-hero position-relative"
+             data-background="{{ asset('assets/img/scc/4.png') }}">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Wisata dan Bisnis</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">
+                        <br class="d-none d-lg-block"/>
+                    </h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        <br class="d-none d-lg-block"/>
+                        <br class="d-none d-lg-block"/>
                     </h2>
                 </div>
             </div>

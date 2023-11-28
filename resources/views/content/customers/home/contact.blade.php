@@ -8,13 +8,16 @@
     <div data-bs-spy="scroll" class="scrollspy-example">
         <!-- Hero: Start -->
         <section id="hero-animation">
-            <div id="landingHero" class="section-py landing-cover position-relative">
+            <div id="landingHero" class="section-py landing-hero position-relative"
+                 data-background="{{ asset('assets/img/scc/5.png') }}">
                 <div class="container">
                     <div class="hero-text-box text-center">
-                        <h1 class="text-primary hero-title display-6 fw-bold">Hubungi Kami</h1>
+                        <h1 class="text-primary hero-title display-6 fw-bold">
+                            <br class="d-none d-lg-block"/>
+                        </h1>
                         <h2 class="hero-sub-title h6 mb-4 pb-1">
-                            Untuk detail lebih lanjut atau pertanyaan bisnis <br class="d-none d-lg-block"/>
-                            anda dapat hubungi kami.
+                            <br class="d-none d-lg-block"/>
+                            <br class="d-none d-lg-block"/>
                         </h2>
                     </div>
                 </div>
@@ -25,8 +28,9 @@
         <!-- Contact Us: Start -->
         <section id="landingContact" class="section-py bg-body landing-contact">
             <div class="container">
-                <h3 class="text-center mb-1"><span class="section-title">Mari bekerja</span> bersama</h3>
-                <p class="text-center mb-4 mb-lg-5 pb-md-3">Ada pertanyaan atau komentar? cukup tulis pesan kepada kami</p>
+                <h1 class="text-center mb-1">Info Lebih Lanjut</h1>
+                <p class="text-center mb-4 mb-lg-5 pb-md-3">Jika anda mengalami permasalahan registrasi akun,
+                    pembayaran. kemitraan ataupun permasalahan lainnya, silabkan menghubungi kami</p>
                 <div class="row gy-4">
                     <div class="col-lg-5">
                         <div class="contact-img-box position-relative border p-2 h-100">
@@ -43,7 +47,8 @@
                                             <div>
                                                 <p class="mb-0">Email</p>
                                                 <h5 class="mb-0">
-                                                    <a href="mailto:example@gmail.com" class="text-heading">example@gmail.com</a>
+                                                    <a href="mailto:scc_toga_kebontunggul@gmail.com"
+                                                       class="text-heading">scc_toga_kebontunggul@gmail.com</a>
                                                 </h5>
                                             </div>
                                         </div>
@@ -54,9 +59,9 @@
                                                 <i class="ti ti-phone-call ti-sm"></i>
                                             </div>
                                             <div>
-                                                <p class="mb-0">Phone</p>
-                                                <h5 class="mb-0"><a href="tel:+1234-568-963" class="text-heading">+62
-                                                        821 6000 8000</a></h5>
+                                                <p class="mb-0">Dhenis Sevira</p>
+                                                <h5 class="mb-0"><a href="tel:+1234-568-963" class="text-heading"> +62
+                                                        857-8525-4047</a></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -67,11 +72,10 @@
                     <div class="col-lg-7">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="mb-1">Kirim kami pertanyaan.</h4>
+                                <h4 class="mb-1">Apa yang bisa kami bantu?</h4>
                                 <p class="mb-4">
-                                    Jika Anda ingin mendiskusikan apa pun yang berkaitan dengan pembayaran, akun, kemitraan,
-                                    <br class="d-none d-lg-block"/>
-                                    atau memiliki pertanyaan pra-penjualan, Anda berada di tempat yang tepat.
+                                    Ketik pertanyaan disini atau bisa menghubungi langsung contact person <br
+                                        class="d-none d-lg-block"/>yang tertera di halaman ini
                                 </p>
 
                                 <form>
@@ -98,7 +102,7 @@
                                                 placeholder="Write a message"></textarea>
                                         </div>
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Send inquiry</button>
+                                            <button type="submit" class="btn btn-primary">kirim</button>
                                         </div>
                                     </div>
                                 </form>

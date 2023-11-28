@@ -42,7 +42,7 @@
             <div class="mt-1">
                 @foreach ($categories as $category)
                     <div class="d-flex justify-content-start align-items-center mb-75">
-                        <a href="javascript:void(0);">
+                        <a href="{{ route('customers.blogs.index', ['categories' => $category->slug]) }}">
                             <div class="blog-category-title text-body">{{ $category->name }}</div>
                         </a>
                     </div>

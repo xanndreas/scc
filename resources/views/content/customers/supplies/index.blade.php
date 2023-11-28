@@ -7,13 +7,16 @@
 
     <!-- Hero: Start -->
     <section id="hero-animation">
-        <div id="landingHero" class="section-py landing-cover position-relative">
+        <div id="landingHero" class="section-py landing-hero position-relative"
+             data-background="{{ asset('assets/img/scc/3.png') }}">
             <div class="container">
                 <div class="hero-text-box text-center">
-                    <h1 class="text-primary hero-title display-6 fw-bold">Suplai</h1>
+                    <h1 class="text-primary hero-title display-6 fw-bold">
+                        <br class="d-none d-lg-block"/>
+                    </h1>
                     <h2 class="hero-sub-title h6 mb-4 pb-1">
-                        Lorem Ipsum has been the industry's standard dummy text ever<br class="d-none d-lg-block"/>
-                        since the 1500s.
+                        <br class="d-none d-lg-block"/>
+                        <br class="d-none d-lg-block"/>
                     </h2>
                 </div>
             </div>
@@ -24,10 +27,10 @@
     <section class="ecommerce-application mb-5">
         <div class="container mt-5">
             <!-- E-commerce Content Section Starts -->
-            <h3 class="text-center mb-1">Semua
-                <span class="section-title">Produk Dibutuhkan</span>
-            </h3>
-            <p class="text-center mb-3 pb-2">Lihat dan Jadilah Suplier.</p>
+            <h1 class="text-center mb-1">Produk
+                <span class="section-title"> Unggulan</span>
+            </h1>
+            <p class="text-center mb-3 pb-2">Lihat dan tawarkan produk anda.</p>
 
             <div class="row">
                 <div class="col-sm-12">
@@ -45,7 +48,8 @@
                                         aria-label="Search..."
                                         aria-describedby="shop-search"
                                     />
-                                    <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
+                                    <span class="input-group-text"><i data-feather="search"
+                                                                      class="text-muted"></i></span>
                                 </div>
                             </div>
                         </div>

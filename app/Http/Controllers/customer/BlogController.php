@@ -16,6 +16,14 @@ class BlogController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(2);
 
+        if ($request->has('categories')) {
+            if ($request->categories != null)
+            $articles = ArticleContent::with('categories')
+                ->orderBy('created_at', 'desc')
+                ->whereRelation('categories', 'slug', $request->categories)
+                ->paginate(2);
+        }
+
         $recentArticles = ArticleContent::with('categories')
             ->orderByDesc('created_at')->limit(5)->get();
 

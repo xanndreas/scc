@@ -22,8 +22,12 @@ $(function () {
     }
 
     function infiniteLoadMore(page) {
+        let url_string = window.location.href;
+        let url = new URL(url_string);
+        let categories = url.searchParams.get("categories");
+
         $.ajax({
-            url: '/blogs?page=' + page,
+            url: '/blogs?page=' + page + '&categories=' + (categories ?? ''),
             datatype: 'html',
             type: 'get',
 

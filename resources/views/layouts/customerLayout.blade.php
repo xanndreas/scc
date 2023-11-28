@@ -100,10 +100,24 @@
                                    href="{{ route('customers.marketplaces.index') }}">Produk</a>
                             </li>
 
+                            @if(!auth()->check())
+                                <li class="nav-item">
+                                    <a class="nav-link fw-medium"
+                                       href="{{ route('customers.supplies.index') }}">Supplier / Mitra</a>
+                                </li>
+                            @endif
+
+                            @can('actor_admin')
+                                <li class="nav-item">
+                                    <a class="nav-link fw-medium"
+                                       href="{{ route('customers.supplies.index') }}">Supplier / Mitra</a>
+                                </li>
+                            @endcan
+
                             @can('actor_supplier')
                                 <li class="nav-item">
                                     <a class="nav-link fw-medium"
-                                       href="{{ route('customers.supplies.index') }}">Supply</a>
+                                       href="{{ route('customers.supplies.index') }}">Supplier / Mitra</a>
                                 </li>
                             @endcan
 
@@ -111,7 +125,7 @@
                                 @cannot('actor_admin')
                                     <li class="nav-item">
                                         <a class="nav-link fw-medium"
-                                           href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Supply</a>
+                                           href="{{ $page_settings->whatsapp_link ?? 'javascript:void(0);' }}">Supplier / Mitra</a>
                                     </li>
                                 @endcan
                             @endcan
@@ -267,10 +281,9 @@
                         </p>
                     </div>
 
-                    <div class="col-lg-2">
-                        <h6 class="footer-title mb-4">Supply Chain Center (SCC)</h6>
+                    <div class="col-lg-3">
+                        <h6 class="footer-title mb-4">Supply Chain Center Toga</h6>
                         <ul class="list-unstyled">
-
                             <li class="mb-3">
                                 <a href="{{ route('customers.marketplaces.index') }}" class="footer-link">Produk</a>
                             </li>
@@ -278,28 +291,23 @@
                                 <a href="{{ route('customers.supplies.index') }}" class="footer-link">Supplier/Mitra</a>
                             </li>
                             <li class="mb-3">
-                                <a href="{{ route('customers.contacts') }}" class="footer-link">Tentang SCC</a>
+                                <a href="{{ route('customers.blogs.index') }}" class="footer-link">Tentang </a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="{{ route('customers.contacts') }}" class="footer-link">Kontak</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3">
-                        <h6 class="footer-title mb-4">Contact</h6>
-                        <p class="footer-text footer-logo-description mb-3">
-                            Kantor Supply Chain Center Toga
-                        </p>
-                        <p class="footer-text footer-logo-description mb-3">
-                            Desa Kebontunggul Kecamatan Gondang <br>
-                            Kabupaten Mojokerto<br>
-                            Jawa Timur
-                        </p>
-                    </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         <h6 class="footer-title mb-4">Desa Kebontunggul</h6>
-                        <p class="footer-text footer-logo-description mb-3">
-                            Wisata Lembah Mbencirang<br>
-                            Dewi Herbal Mbencirang<br>
-                            UMKM Kebontunggul<br>
-                        </p>
+                        @foreach($recent_blog_footers as $items)
+                            <p class="footer-text footer-logo-description mb-3">
+                                <a href="{{ route('customers.blogs.show', ['slug' => $items->slug]) }}"
+                                   class="footer-link">
+                                    {{ $items->title ?? '' }}
+                                </a>
+                            </p>
+                        @endforeach
                     </div>
                 </div>
             </div>
