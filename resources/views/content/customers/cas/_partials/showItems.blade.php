@@ -97,16 +97,32 @@
             </tr>
 
             <input type="hidden" name="action_type">
-            @foreach($selling->selling_details as $items )
+            @php
+                $reorderSellingDetail = null;
+                foreach ($selling->selling_details as $item) {
+                    if (!isset($reorderSellingDetail[$item->product->id])) {
+                        $reorderSellingDetail[$item->product->id] = [
+                            'product_quantity' => $item->quantity,
+                            'product_name' => $item->product->name,
+                            'product_subtotal' => $item->subtotal,
+                        ];
+                    } else {
+                        $reorderSellingDetail[$item->product->id]['product_quantity'] += $item->quantity;
+                        $reorderSellingDetail[$item->product->id]['product_subtotal'] += $item->subtotal;
+                    }
+                }
+            @endphp
+
+            @foreach($reorderSellingDetail as $index => $items )
                 <tr>
                     <td>
-                        {{ $items->quantity}}
+                        {{ $items['product_quantity']}}
                     </td>
                     <td>
-                        {{ $items->product->name}}
+                        {{ $items['product_name']}}
                     </td>
                     <td>
-                        {{ $items->subtotal}}
+                        {{ $items['product_subtotal']}}
                     </td>
                 </tr>
             @endforeach

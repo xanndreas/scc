@@ -14,6 +14,7 @@ class SupplyController extends Controller
     public function index(Request $request)
     {
         $supplies = Supply::with('product', 'product.category')
+            ->whereNot('status', 'disabled')
             ->orderBy('created_at', 'desc')
             ->whereRelation('product', 'name', 'like', '%' . $request->q . '%')
             ->paginate(4);

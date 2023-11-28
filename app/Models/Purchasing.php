@@ -36,6 +36,7 @@ class Purchasing extends Model
         'supplier_id',
         'status',
         'purchasing_transaction_number',
+        'purchasing_rel_number',
         'created_at',
         'updated_at',
         'deleted_at',

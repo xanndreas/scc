@@ -142,18 +142,16 @@
                                                             <div class="detail-amt">
                                                                 IDR {{ $cartDetail['subtotal'] }}</div>
                                                         </li>
-                                                        <li class="price-detail">
-                                                            <div class="detail-title">Pengiriman</div>
-                                                            <div class="detail-amt discount-amt text-success">Gratis
-                                                            </div>
-                                                        </li>
                                                     </ul>
                                                     <hr/>
                                                     <ul class="list-unstyled">
-                                                        <li class="price-detail">
+                                                        <li class="price-detail mb-0">
                                                             <div class="detail-title detail-total">Total</div>
                                                             <div class="detail-amt fw-bolder">
                                                                 IDR {{ $cartDetail['grand_total'] }}</div>
+                                                        </li>
+                                                        <li class="price-detail">
+                                                            <div class="fw-bold fs-tiny text-danger">* Tidak Termasuk Biaya Kirim</div>
                                                         </li>
                                                     </ul>
 
@@ -161,7 +159,6 @@
                                                           action="{{ route('customers.marketplaces.checkout') }}"
                                                           enctype="multipart/form-data">
                                                         @csrf
-
                                                     </form>
 
                                                     <a class="btn btn-primary w-100 btn-next text-white place-order"

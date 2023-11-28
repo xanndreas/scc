@@ -34,6 +34,7 @@ class Supply extends Model
         'start_date',
         'end_date',
         'status',
+        'no_supply',
         'created_at',
         'updated_at',
         'deleted_at',

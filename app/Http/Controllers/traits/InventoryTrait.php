@@ -49,17 +49,16 @@ trait InventoryTrait
             return false;
         }
 
-        $inventProduct = Inventory::with('product')
-            ->where('product_id', $product->id);
-
-        $stock_in = $inventProduct->where('types', 'in')
+        $stock_in = Inventory::with('product')
+            ->where('types', 'in')
             ->where('product_id', $product->id)
             ->sum('quantity');
 
-        $stock_out = $inventProduct->where('types', 'out')
+        $stock_out = Inventory::with('product')
+            ->where('types', 'out')
             ->where('product_id', $product->id)
             ->sum('quantity');
 
-        return (int)($stock_in - $stock_out);
+        return ((int)$stock_in - (int)$stock_out);
     }
 }

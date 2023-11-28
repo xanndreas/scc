@@ -12,6 +12,7 @@ $(function () {
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
                 {data: 'id', name: 'id'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'supplier_name', name: 'supplier.name'},
                 {data: 'status', name: 'status'},
                 {data: 'grand_total', name: 'grand_total'},

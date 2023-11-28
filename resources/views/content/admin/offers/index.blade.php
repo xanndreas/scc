@@ -42,6 +42,9 @@
                         {{ trans('cruds.offer.fields.id') }}
                     </th>
                     <th class="w-px-18">
+                        {{ trans('global.date') }}
+                    </th>
+                    <th class="w-px-18">
                         {{ trans('cruds.offer.fields.supplier') }}
                     </th>
                     <th class="w-px-18">
@@ -65,6 +68,8 @@
                 </tr>
                 <tr>
                     <td class="d-none">
+                    </td>
+                    <td>
                     </td>
                     <td>
                     </td>

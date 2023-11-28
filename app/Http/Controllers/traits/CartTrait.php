@@ -65,7 +65,7 @@ trait CartTrait
                 continue;
             }
 
-            $create['grand_total'] += $item->product->price_sell;
+            $create['grand_total'] += ($item->product->price_sell * $item->quantity);
             $sellingDetails = SellingDetail::create([
                 'subtotal' => $item->product->price_sell,
                 'quantity' => $item->quantity,

@@ -13,6 +13,7 @@ $(function () {
                 {data: 'placeholder', name: 'placeholder'},
                 {data: 'id', name: 'id'},
                 {data: 'batch_code', name: 'batch_code'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'grand_total', name: 'grand_total'},
                 {data: 'customer_name', name: 'customer.name'},
                 {data: 'status', name: 'status'},

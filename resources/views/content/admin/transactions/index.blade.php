@@ -38,7 +38,7 @@
                             name="data_type" id="data_type" required>
                         <option value
                                 disabled {{ old('data_type', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                        <option value="supply" {{ old('data_type', null) === null ? 'selected' : '' }}>Supply</option>
+                        <option value="supply" {{ old('data_type', null) === null ? 'selected' : '' }}>Procurement</option>
                         <option value="income" {{ old('data_type', null) === null ? 'selected' : '' }}>Pendapatan
                         </option>
                         <option value="stock_under" {{ old('data_type', null) === null ? 'selected' : '' }}>Riwayat Stok

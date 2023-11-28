@@ -10,6 +10,7 @@ return [
     'item'                           => 'Item',
     'error_text_400'                 => 'Something went wrong.',
     'success_text_200'               => 'Operation complete successfully.',
+    'date'                           => 'Date',
 
     'actions'                        => 'Actions',
     'add'                            => 'Add',

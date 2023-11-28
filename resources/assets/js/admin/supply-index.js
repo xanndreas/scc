@@ -12,6 +12,7 @@ $(function () {
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
                 {data: 'id', name: 'id'},
+                {data: 'no_supply', name: 'no_supply'},
                 {data: 'quantity_needs', name: 'quantity_needs'},
                 {data: 'initial_price', name: 'initial_price'},
                 {data: 'product_name', name: 'product.name'},

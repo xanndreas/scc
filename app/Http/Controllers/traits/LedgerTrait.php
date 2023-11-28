@@ -8,14 +8,14 @@ use Illuminate\Support\Str;
 
 trait LedgerTrait
 {
-    public function appending_ledger($value, $model, $notes = null): bool
+    public function appending_ledger($value, $model, $rel_number, $notes = null): bool
     {
         $ledgers = Ledger::create([
             'notes' => $notes ?? "",
             'value' => $value,
             'model_id' => $model->id,
             'model_type' => get_class($model),
-            'transaction_batch' => Str::random(10)
+            'transaction_batch' => $rel_number
         ]);
 
         return (bool)$ledgers;

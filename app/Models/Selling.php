@@ -32,6 +32,7 @@ class Selling extends Model
         'batch_code',
         'grand_total',
         'notes',
+        'description',
         'rounding_cost',
         'additional_cost',
         'price_discounts',

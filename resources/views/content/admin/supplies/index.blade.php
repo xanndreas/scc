@@ -44,6 +44,9 @@
                         {{ trans('cruds.supply.fields.id') }}
                     </th>
                     <th class="w-px-18">
+                        No. {{ trans('cruds.supply.title_singular') }}
+                    </th>
+                    <th class="w-px-18">
                         {{ trans('cruds.supply.fields.quantity_needs') }}
                     </th>
                     <th class="w-px-18">
@@ -67,6 +70,8 @@
                 </tr>
                 <tr>
                     <td class="d-none">
+                    </td>
+                    <td>
                     </td>
                     <td>
                     </td>

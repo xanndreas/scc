@@ -43,6 +43,9 @@ class SupplyController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
+            $table->editColumn('no_supply', function ($row) {
+                return $row->no_supply ? $row->no_supply : '';
+            });
             $table->editColumn('quantity_needs', function ($row) {
                 return $row->quantity_needs ? $row->quantity_needs : '';
             });
@@ -81,7 +84,7 @@ class SupplyController extends Controller
 
     public function store(StoreSupplyRequest $request)
     {
-        $supply = Supply::create($request->all());
+        $supply = Supply::create(array_merge($request->all(), ['no_supply' => 'PCR-'. date('YmdHis')]));
 
         return back();
     }

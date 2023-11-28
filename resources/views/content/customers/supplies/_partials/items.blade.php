@@ -54,7 +54,7 @@
             </div>
             <a href="{{ route('admin.offers.index') }}" class="btn btn-primary btn-supply">
                 <i data-feather="shopping-cart"></i>
-                <span class="add-to-cart">Suplai</span>
+                <span class="add-to-cart">Supply</span>
             </a>
         </div>
     </div>

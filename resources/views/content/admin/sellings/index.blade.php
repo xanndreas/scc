@@ -45,9 +45,11 @@
                         {{ trans('cruds.selling.fields.batch_code') }}
                     </th>
                     <th>
+                        {{ trans('global.date') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.selling.fields.grand_total') }}
                     </th>
-
                     <th>
                         {{ trans('cruds.selling.fields.customer') }}
                     </th>
@@ -71,6 +73,8 @@
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">

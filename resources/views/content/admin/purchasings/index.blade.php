@@ -45,6 +45,9 @@
                         {{ trans('cruds.purchasing.fields.batch_code') }}
                     </th>
                     <th class="w-px-18">
+                        {{ trans('global.date') }}
+                    </th>
+                    <th class="w-px-18">
                         {{ trans('cruds.purchasing.fields.grand_total') }}
                     </th>
 
@@ -61,6 +64,9 @@
                         {{ trans('cruds.purchasing.fields.purchasing_transaction_number') }}
                     </th>
                     <th class="w-px-18">
+                        {{ trans('cruds.purchasing.title_singular') }} to
+                    </th>
+                    <th class="w-px-18">
                         &nbsp;
                     </th>
                 </tr>
@@ -71,6 +77,8 @@
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
@@ -94,6 +102,9 @@
                                 <option value="{{ $item->subtotal }}">{{ $item->subtotal }}</option>
                             @endforeach
                         </select>
+                    </td>
+                    <td>
+                        <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="form-control search" type="text" placeholder="{{ trans('global.search') }}">

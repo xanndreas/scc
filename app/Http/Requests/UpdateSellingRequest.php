@@ -18,7 +18,7 @@ class UpdateSellingRequest extends FormRequest
     {
         return [
             'status' => [
-                'required',
+                'string',
             ],
         ];
     }

@@ -196,7 +196,7 @@ return [
         ],
     ],
     'selling' => [
-        'title'          => 'Sellings',
+        'title'          => 'Selling',
         'title_singular' => 'Selling',
         'fields'         => [
             'id'                                => 'ID',
@@ -270,8 +270,8 @@ return [
         ],
     ],
     'purchasing' => [
-        'title'          => 'Purchasings',
-        'title_singular' => 'Purchasing',
+        'title'          => 'Purchase',
+        'title_singular' => 'Purchase',
         'fields'         => [
             'id'                                   => 'ID',
             'id_helper'                            => ' ',
@@ -372,7 +372,7 @@ return [
         ],
     ],
     'inventory' => [
-        'title'          => 'Inventories',
+        'title'          => 'Inventory',
         'title_singular' => 'Inventory',
         'fields'         => [
             'id'                => 'ID',
@@ -510,8 +510,8 @@ return [
         ],
     ],
     'supply' => [
-        'title'          => 'Supply',
-        'title_singular' => 'Supply',
+        'title'          => 'Procurement',
+        'title_singular' => 'Procurement',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',

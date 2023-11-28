@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title',  trans('global.show') . " " . trans('cruds.offer.title'))
+@section('title',  trans('global.show') . " " . trans('cruds.selling.title'))
 
 @section('page-script')
     <script src="{{asset('assets/js/admin/offer-show.js')}}"></script>
@@ -128,6 +128,32 @@
                             {{ $selling->selling_transaction_number }}
                         </td>
                     </tr>
+                    <tr>
+                        <th class="w-25">
+                            Description
+                        </th>
+                        <td>
+                            <form method="POST" id="update-offers"
+                                  action="{{ route("admin.sellings.update", [$selling->id]) }}"
+                                  enctype="multipart/form-data">
+                                @method('PUT')
+                                @csrf
+
+                                <div class="row">
+                                    <div class="col-10">
+                                        <textarea class="form-control" name="description">{{ $selling->description }}</textarea>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <button type="submit" class="btn btn-label-success w-100 update-status-btn"
+                                                href="javascript:void(0);">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="mb-3">
@@ -154,16 +180,32 @@
                         @csrf
 
                         <input type="hidden" name="action_type">
-                        @foreach($selling->selling_details as $items )
+                        @php
+                            $reorderSellingDetail = null;
+                            foreach ($selling->selling_details as $item) {
+                                if (!isset($reorderSellingDetail[$item->product->id])) {
+                                    $reorderSellingDetail[$item->product->id] = [
+                                        'product_quantity' => $item->quantity,
+                                        'product_name' => $item->product->name,
+                                        'product_subtotal' => $item->subtotal,
+                                    ];
+                                } else {
+                                    $reorderSellingDetail[$item->product->id]['product_quantity'] += $item->quantity;
+                                    $reorderSellingDetail[$item->product->id]['product_subtotal'] += $item->subtotal;
+                                }
+                            }
+                        @endphp
+
+                        @foreach($reorderSellingDetail as $index => $items )
                             <tr>
                                 <td>
-                                    {{ $items->quantity}}
+                                    {{ $items['product_quantity']}}
                                 </td>
                                 <td>
-                                    {{ $items->product->name}}
+                                    {{ $items['product_name']}}
                                 </td>
                                 <td>
-                                    {{ $items->subtotal}}
+                                    {{ $items['product_subtotal']}}
                                 </td>
                             </tr>
                         @endforeach

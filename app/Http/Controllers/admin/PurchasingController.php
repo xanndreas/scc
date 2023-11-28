@@ -88,6 +88,9 @@ class PurchasingController extends Controller
             $table->editColumn('purchasing_transaction_number', function ($row) {
                 return $row->purchasing_transaction_number ? $row->purchasing_transaction_number : '';
             });
+            $table->editColumn('purchasing_rel_number', function ($row) {
+                return $row->purchasing_rel_number ? $row->purchasing_rel_number : '';
+            });
 
             $table->rawColumns(['actions', 'mark', 'placeholder', 'supplier', 'purchasing_detail']);
 
@@ -117,7 +120,7 @@ class PurchasingController extends Controller
             'status' => 'confirmed'
         ]);
 
-        $this->appending_ledger($purchasing->grand_total, $purchasing);
+        $this->appending_ledger($purchasing->grand_total, $purchasing, $purchasing->purchasing_transaction_number);
 
         return redirect()->route('admin.purchasings.index');
     }

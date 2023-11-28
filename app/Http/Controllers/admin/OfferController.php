@@ -127,7 +127,7 @@ class OfferController extends Controller
             'status' => 'on_progress',
             'grand_total' => 0,
             'offering_expired_date' => Carbon::now()->addMonth()->format('Y-m-d H:i:s'),
-            'offering_number' => Str::random(10),
+            'offering_number' => 'OFR-' . date('YmdHis'),
         ]);
 
         $offer->offer_details()->sync($createdOfferDetails);
@@ -161,7 +161,11 @@ class OfferController extends Controller
                         ];
 
                         $purchasingDetail = null;
-                        foreach ($request->all() as $index => $item) {
+
+                        $itemAll = $request->all();
+                        foreach ($itemAll as $index => $item) {
+                            $offerDetail = null;
+
                             if (str_contains($index, 'price_offer')) {
                                 $price_with_id = explode('#', $index);
                                 $offerDetail = OfferDetail::with('supply', 'supply.product')
@@ -169,7 +173,8 @@ class OfferController extends Controller
 
                                 if ($offerDetail) {
                                     $offerDetail->update([
-                                        'price_deal' => $item
+                                        'price_deal' => $item,
+                                        'quantity' => $itemAll['quantity#' . $price_with_id[1]]
                                     ]);
 
                                     $this->appending_invent(
@@ -184,14 +189,11 @@ class OfferController extends Controller
                             }
                         }
 
-                        $offer->update([
-                            'status' => 'done'
-                        ]);
 
                         // purchasing
                         $purchasingDetailCreated = [];
                         foreach ($purchasingDetail as $item) {
-                            $purchasing['grand_total'] += $item->price_deal;
+                            $purchasing['grand_total'] += ($item->price_deal * $item->quantity);
                             $created = PurchasingDetail::create([
                                 'subtotal' => $item->price_deal,
                                 'quantity' => $item->quantity,
@@ -202,11 +204,17 @@ class OfferController extends Controller
                         }
 
                         $purchasing['rounding_cost'] = $purchasing['grand_total'];
+                        $purchasing['purchasing_rel_number'] = $offer['offering_number'];
                         $purchasingCreate = Purchasing::create($purchasing);
 
                         if ($purchasingCreate) {
                             $purchasingCreate->purchasing_details()->sync($purchasingDetailCreated);
                         }
+
+                        $offer->update([
+                            'status' => 'done',
+                            'grand_total' => $purchasing['grand_total']
+                        ]);
                     }
                 }
 

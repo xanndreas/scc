@@ -86,7 +86,7 @@ class CustomerAreasController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) use ($settings) {
-                return $row->status != 'confirmed' ? '<a class="btn btn-primary" href="' . $settings->whatsapp_link . '">Contact Admin</a>' : 'asd';
+                return $row->status != 'confirmed' ? '<a class="btn btn-primary" href="' . $settings->whatsapp_link . '">Contact Admin</a>' : '';
             });
 
             $table->editColumn('id', function ($row) {

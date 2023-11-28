@@ -277,7 +277,7 @@
                         <p class="footer-text footer-logo-description mb-4">
                             Pusat supply dan distribusi toga dan produk hasil olahan toga
                             (jamu, minuman, makanan, kosmetik, dan produk lainnya) yang berkantor pusat di Desa
-                            Kebontunggul Kecamatan Dlanggu Kabupaten Mojokerto.
+                            Kebontunggul Kecamatan Gondang Kabupaten Mojokerto.
                         </p>
                     </div>
 

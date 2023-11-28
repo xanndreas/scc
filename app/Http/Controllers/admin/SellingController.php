@@ -75,7 +75,12 @@ class SellingController extends Controller
             $table->editColumn('selling_detail', function ($row) {
                 $labels = [];
                 foreach ($row->selling_details as $selling_detail) {
-                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $selling_detail->subtotal);
+                    $selling_detail = $selling_detail->load('product');
+                    $content = sprintf('<span class="label label-info label-many">%s</span>', $selling_detail->product->name);
+
+                    if (!in_array($content, $labels)) {
+                        $labels[] = $content;
+                    }
                 }
 
                 return implode(' ', $labels);
@@ -100,23 +105,28 @@ class SellingController extends Controller
 
     public function update(UpdateSellingRequest $request, Selling $selling)
     {
-        $selling->update($request->only('status'));
+        if ($request->has('description')) {
+            $selling->update($request->only('description'));
 
-        if ($request->status == 'confirmed') {
-            $selling->load('selling_details', 'selling_details.product');
-            $sellingOut = [];
+        } else {
+            $selling->update($request->only('status'));
 
-            foreach ($selling->selling_details as $selling_detail) {
-                if (isset($sellingOut[$selling_detail->product->id]['qty']))
-                    $sellingOut[$selling_detail->product->id]['qty'] += $selling_detail->quantity;
-                else
-                    $sellingOut[$selling_detail->product->id]['qty'] = $selling_detail->quantity;
+            if ($request->status == 'confirmed') {
+                $selling->load('selling_details', 'selling_details.product');
+                $sellingOut = [];
+
+                foreach ($selling->selling_details as $selling_detail) {
+                    if (isset($sellingOut[$selling_detail->product->id]['qty']))
+                        $sellingOut[$selling_detail->product->id]['qty'] += $selling_detail->quantity;
+                    else
+                        $sellingOut[$selling_detail->product->id]['qty'] = $selling_detail->quantity;
                     $sellingOut[$selling_detail->product->id]['product'] = $selling_detail->product;
-            }
+                }
 
-            foreach ($sellingOut as $index => $items) {
-                $this->appending_invent($items['qty'], $items['product'], $selling, 'out');
-                $this->appending_ledger($selling->grand_total, $selling);
+                foreach ($sellingOut as $index => $items) {
+                    $this->appending_invent($items['qty'], $items['product'], $selling, 'out');
+                    $this->appending_ledger($selling->grand_total, $selling, $selling->selling_transaction_number);
+                }
             }
         }
 

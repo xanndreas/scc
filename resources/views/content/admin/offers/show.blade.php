@@ -114,7 +114,9 @@
                         @foreach($offer->offer_details as $items )
                             <tr>
                                 <td>
-                                    {{ $items->quantity}}
+                                    <input {{ $offer->status == 'done' ? 'disabled': '' }} class="form-control"
+                                           type="number" name="quantity#{{ $items->id }}"
+                                           value="{{ $items->quantity}}">
                                 </td>
                                 <td>
                                     {{ $items->supply->product->name}}

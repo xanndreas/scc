@@ -32,22 +32,28 @@
             "permission": "header_transaction_access"
         },
         {
-            "name": "cruds.purchasing.title",
-            "icon": "menu-icon tf-icons ti ti-report-money",
-            "slug": "admin.purchasings.index",
-            "permission": "purchasing_access"
+            "name": "cruds.offer.title",
+            "icon": "menu-icon tf-icons ti ti-gift",
+            "slug": null,
+            "permission": "product_access",
+            "submenu": [
+                {
+                    "name": "cruds.offer.title",
+                    "slug": "admin.offers.index",
+                    "permission": "offer_access"
+                },
+                {
+                    "name": "cruds.purchasing.title",
+                    "slug": "admin.purchasings.index",
+                    "permission": "purchasing_access"
+                }
+            ]
         },
         {
             "name": "cruds.selling.title",
             "icon": "menu-icon tf-icons ti ti-report-money",
             "slug": "admin.sellings.index",
             "permission": "selling_access"
-        },
-        {
-            "name": "cruds.offer.title",
-            "icon": "menu-icon tf-icons ti ti-gift",
-            "slug": "admin.offers.index",
-            "permission": "offer_access"
         },
         {
             "name": "cruds.inventory.title",

@@ -12,6 +12,7 @@ $(function () {
             columns: [
                 {data: 'placeholder', name: 'placeholder'},
                 {data: 'batch_code', name: 'batch_code'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'grand_total', name: 'grand_total'},
                 {data: 'status', name: 'status'},
                 {data: 'selling_transaction_number', name: 'selling_transaction_number'},

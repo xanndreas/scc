@@ -108,25 +108,22 @@
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
                     <div class="w-75 mx-auto">
                         <i data-feather="award"></i>
-                        <h4 class="mt-2 mb-1">100% Original</h4>
-                        <p class="card-text">Chocolate bar candy canes ice cream toffee. Croissant pie
-                            cookie halvah.</p>
+                        <h4 class="mt-2 mb-1">Pilihan Tepat untuk Kolaborasi</h4>
+                        <p class="card-text">Pilihan bermitra yang tepat dalam mewujudkan impian usaha anda </p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
                     <div class="w-75 mx-auto">
                         <i data-feather="clock"></i>
-                        <h4 class="mt-2 mb-1">10 Day Replacement</h4>
-                        <p class="card-text">Marshmallow biscuit donut dragée fruitcake. Jujubes wafer
-                            cupcake.</p>
+                        <h4 class="mt-2 mb-1">Kemudahan Transaksi </h4>
+                        <p class="card-text">Proses transaksi yang mudah dan tidak ribet sehingga koordinasi dan kolaborasi bisa dilakukan dengan mudah  </p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
                     <div class="w-75 mx-auto">
                         <i data-feather="shield"></i>
-                        <h4 class="mt-2 mb-1">1 Year Warranty</h4>
-                        <p class="card-text">Cotton candy gingerbread cake I love sugar plum I love sweet
-                            croissant.</p>
+                        <h4 class="mt-2 mb-1">Layanan yang Ramah</h4>
+                        <p class="card-text">Kami siap membantu anda dalam proses kemitraan ini  </p>
                     </div>
                 </div>
             </div>
