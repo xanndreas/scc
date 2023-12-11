@@ -270,7 +270,7 @@
                                                             class="avatar-initial rounded-circle bg-label-danger">HC</span>
                                                     </div>
                                                     <div>
-                                                        <h6 class="mb-0">Dr. Hana Catur Wahyuni, ST, MT</h6>
+                                                        <h6 class="mb-0">Arief Rahman ST</h6>
                                                         <p class="small text-muted mb-0">Pengguna</p>
                                                     </div>
                                                 </div>

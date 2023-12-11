@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\traits\InventoryTrait;
 use App\Http\Controllers\traits\LedgerTrait;
 use App\Http\Requests\UpdateSellingRequest;
+use App\Models\DiscountSelling;
 use App\Models\Selling;
 use App\Models\SellingDetail;
 use App\Models\User;
@@ -107,7 +108,8 @@ class SellingController extends Controller
     {
         if ($request->has('description')) {
             $selling->update($request->only('description'));
-
+        } else if ($request->has('additional_cost')) {
+            $selling->update($request->only('additional_cost'));
         } else {
             $selling->update($request->only('status'));
 
@@ -125,8 +127,13 @@ class SellingController extends Controller
 
                 foreach ($sellingOut as $index => $items) {
                     $this->appending_invent($items['qty'], $items['product'], $selling, 'out');
-                    $this->appending_ledger($selling->grand_total, $selling, $selling->selling_transaction_number);
                 }
+
+                $this->appending_ledger(($selling->grand_total + $selling->additional_cost), $selling, $selling->selling_transaction_number);
+                $selling->update([
+                    'grand_total' => $selling->grand_total + $selling->additional_cost,
+                    'rounding_cost' => $selling->grand_total + $selling->additional_cost,
+                ]);
             }
         }
 

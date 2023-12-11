@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\traits\InventoryTrait;
 use App\Http\Controllers\traits\LedgerTrait;
+use App\Models\Offer;
+use App\Models\OfferDetail;
 use App\Models\Purchasing;
 use App\Models\PurchasingDetail;
 use App\Models\User;
@@ -14,7 +17,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PurchasingController extends Controller
 {
-    use LedgerTrait;
+    use LedgerTrait, InventoryTrait;
 
     public function index(Request $request)
     {
@@ -121,6 +124,21 @@ class PurchasingController extends Controller
         ]);
 
         $this->appending_ledger($purchasing->grand_total, $purchasing, $purchasing->purchasing_transaction_number);
+
+
+        $offers = Offer::with('offer_details')->where('offering_number', $purchasing->purchasing_rel_number)
+            ->first();
+
+        if ($offers) {
+            foreach ($offers->offer_details as $offerDetail) {
+                $this->appending_invent(
+                    $offerDetail->quantity,
+                    $offerDetail->supply->product,
+                    $offerDetail,
+                    'in'
+                );
+            }
+        }
 
         return redirect()->route('admin.purchasings.index');
     }

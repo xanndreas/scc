@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\traits\CartTrait;
 use App\Http\Controllers\traits\JsonResponseTrait;
 use App\Models\Cart;
+use App\Models\Discount;
+use App\Models\DiscountSelling;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -101,12 +103,62 @@ class MarketplaceController extends Controller
         return response(null, ResponseAlias::HTTP_FORBIDDEN);
     }
 
+    public function checkVoucher(Request $request)
+    {
+        if (Auth::check()) {
+            if ($request->has('discount_code')) {
+                $discountCode = Discount::where('code', $request->discount_code)
+                    ->first();
+
+                $discountQuota = DiscountSelling::with('selling')
+                    ->where('discount_id', $discountCode->id)->count();
+
+                if ($discountQuota >= $discountCode->quota) {
+                    return $this->responseJson(400, 'Discound quota limit');
+                }
+
+                if ($discountCode) {
+                    return $this->responseJson(200, 'Success using voucher');
+                } else {
+                    return $this->responseJson(404, 'Discount voucher not valid');
+                }
+            }
+
+            return $this->responseJson(404, 'Something went wrong');
+        }
+
+        return response(null, ResponseAlias::HTTP_FORBIDDEN);
+    }
+
     public function checkout(Request $request)
     {
         if (Auth::check()) {
             $user = User::where('id', Auth::id())->first();
             if ($user) {
-                $to_selling = $this->toSelling($user);
+                $discount = null;
+
+                if ($request->has('discount_code')) {
+                    $discountCode = Discount::where('code', $request->discount_code)
+                        ->first();
+
+                    if (!$discountCode) {
+                        return redirect()->route('customers.cas.cart')
+                            ->with('errors', 'Discount not found.');
+                    }
+
+                    $discountQuota = DiscountSelling::with('selling')
+                        ->where('discount_id', $discountCode->id)->count();
+
+
+                    if ($discountQuota >= $discountCode->quota) {
+                        return redirect()->route('customers.cas.cart')
+                            ->with('errors', 'Discount quota limit.');
+                    } else {
+                        $discount = $discountCode;
+                    }
+                }
+
+                $to_selling = $this->toSelling($user, $discount ? $discount : null);
                 if ($to_selling) {
                     return redirect()->route('customers.cas.cart')
                         ->with('success', 'Success place orders, please contact our admin.');

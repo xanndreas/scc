@@ -124,14 +124,16 @@
                                                 <label class="section-label form-label mb-1">Opsi</label>
                                                 <div class="coupons input-group input-group-merge">
                                                     <input
+                                                        id="discount_code"
                                                         type="text"
                                                         class="form-control"
-                                                        placeholder="Coupons"
+                                                        placeholder="Voucher"
                                                         aria-label="Coupons"
                                                         aria-describedby="input-coupons"
                                                     />
-                                                    <span class="input-group-text text-primary ps-1"
-                                                          id="input-coupons">Terapkan</span>
+                                                    <a href="javascript:void(0);"
+                                                       class="input-group-text text-primary ps-1 check-voucher"
+                                                       id="input-coupons">Terapkan</a>
                                                 </div>
                                                 <hr/>
                                                 <div class="price-details">
@@ -151,7 +153,9 @@
                                                                 IDR {{ $cartDetail['grand_total'] }}</div>
                                                         </li>
                                                         <li class="price-detail">
-                                                            <div class="fw-bold fs-tiny text-danger">* Tidak Termasuk Biaya Kirim</div>
+                                                            <div class="fw-bold fs-tiny text-danger">* Tidak Termasuk
+                                                                Biaya Kirim
+                                                            </div>
                                                         </li>
                                                     </ul>
 
@@ -159,6 +163,10 @@
                                                           action="{{ route('customers.marketplaces.checkout') }}"
                                                           enctype="multipart/form-data">
                                                         @csrf
+
+                                                        <input id="discount_code_rel" type="hidden"
+                                                               class="form-control"/>
+
                                                     </form>
 
                                                     <a class="btn btn-primary w-100 btn-next text-white place-order"

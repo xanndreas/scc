@@ -31,6 +31,7 @@ Route::group(['as' => 'customers.', 'namespace' => 'App\Http\Controllers\custome
     Route::get('cas/cart', 'CustomerAreasController@cart')->name('cas.cart');
     Route::get('cas/transaction', 'CustomerAreasController@transactionHistory')->name('cas.transaction-history');
     Route::get('cas/transaction/{selling}', 'CustomerAreasController@transactionDetail')->name('cas.transaction-detail');
+    Route::post('cas/check-voucher', 'MarketplaceController@checkVoucher')->name('marketplaces.checkVoucher');
 
     Route::post('cas/cart-remove/{product}', 'CustomerAreasController@cartRemove')->name('cas.cart-remove');
     Route::post('cas/cart-change/{product}', 'CustomerAreasController@cartChange')->name('cas.cart-change');
@@ -117,6 +118,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // Transaction
     Route::resource('transactions', 'TransactionController')->only(['index', 'update']);
     Route::post('transactions/export', 'TransactionController@export')->name('transactions.export');
+
+    // Discounts
+    Route::resource('discounts', 'DiscountController');
+
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\Auth', 'middleware' => ['auth']], function () {

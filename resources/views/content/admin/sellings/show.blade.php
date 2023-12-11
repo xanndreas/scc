@@ -59,7 +59,30 @@
                             {{ trans('cruds.selling.fields.additional_cost') }}
                         </th>
                         <td>
-                            {{ $selling->additional_cost }}
+                            @if($selling->status == 'waiting_payment')
+                                <form method="POST"
+                                      action="{{ route("admin.sellings.update", [$selling->id]) }}"
+                                      enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
+
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="number" class="form-control" name="additional_cost"
+                                                   value="{{ $selling->additional_cost }}">
+                                        </div>
+
+                                        <div class="col-2">
+                                            <button type="submit" class="btn btn-label-success w-100"
+                                                    href="javascript:void(0);">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            @else
+                                {{ $selling->additional_cost }}
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -141,7 +164,8 @@
 
                                 <div class="row">
                                     <div class="col-10">
-                                        <textarea class="form-control" name="description">{{ $selling->description }}</textarea>
+                                        <textarea class="form-control"
+                                                  name="description">{{ $selling->description }}</textarea>
                                     </div>
 
                                     <div class="col-2">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\traits;
 
 
 use App\Models\Cart;
+use App\Models\DiscountSelling;
 use App\Models\Product;
 use App\Models\Selling;
 use App\Models\SellingDetail;
@@ -25,6 +26,7 @@ trait CartTrait
 
         return (bool)$response;
     }
+
     public function changing_cart($cart, $delete = false, $quantity = 0): bool
     {
         $cart->load('product');
@@ -43,7 +45,7 @@ trait CartTrait
         return (bool)$response;
     }
 
-    public function toSelling($user)
+    public function toSelling($user, $discount = null)
     {
         $cart = Cart::with('product')
             ->where('user_id', $user->id)->get();
@@ -75,10 +77,34 @@ trait CartTrait
             $createdSellingDetails[] = $sellingDetails->id;
         }
 
-        $create['rounding_cost'] = $create['grand_total'];
+        // has discount
+        if ($discount) {
+            $discount_value = 0;
+            $discount_used = DiscountSelling::with('selling')->where('discount_id')
+                ->count();
 
+            if ($create['grand_total'] > $discount->min_buy_value && $discount_used <= $discount->quota) {
+                $discount_value = ($create['grand_total'] * ($discount->percentage / 100));
+                if ($discount_value >= $discount->max_discount_value) {
+                    $discount_value = $discount->max_discount_value;
+                }
+            }
+
+            $create['grand_total'] = $create['grand_total'] - $discount_value;
+            $create['price_discounts'] = $discount_value;
+        }
+
+        $create['rounding_cost'] = $create['grand_total'];
         $selling = Selling::create($create);
+
         if ($selling) {
+            if ($discount) {
+                DiscountSelling::create([
+                    'discount_id' => $discount->id,
+                    'selling_id' => $selling->id
+                ]);
+            }
+
             $selling->selling_details()->sync($createdSellingDetails);
 
             foreach ($cart as $item) {

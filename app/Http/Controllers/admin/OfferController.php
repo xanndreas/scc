@@ -177,12 +177,12 @@ class OfferController extends Controller
                                         'quantity' => $itemAll['quantity#' . $price_with_id[1]]
                                     ]);
 
-                                    $this->appending_invent(
-                                        $offerDetail->quantity,
-                                        $offerDetail->supply->product,
-                                        $offerDetail,
-                                        'in'
-                                    );
+//                                    $this->appending_invent(
+//                                        $offerDetail->quantity,
+//                                        $offerDetail->supply->product,
+//                                        $offerDetail,
+//                                        'in'
+//                                    );
 
                                     $purchasingDetail[] = $offerDetail;
                                 }

@@ -60,8 +60,8 @@
                                             </div>
                                             <div>
                                                 <p class="mb-0">Dhenis Sevira</p>
-                                                <h5 class="mb-0"><a href="tel:+1234-568-963" class="text-heading"> +62
-                                                        857-8525-4047</a></h5>
+                                                <h5 class="mb-0"><a href="https://wa.me/6285785254047" target="_blank"
+                                                                    class="text-heading"> +62 857-8525-4047</a></h5>
                                             </div>
                                         </div>
                                     </div>

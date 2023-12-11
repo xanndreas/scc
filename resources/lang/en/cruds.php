@@ -536,4 +536,33 @@ return [
         ],
     ],
 
+    'discount' => [
+        'title'          => 'Discount',
+        'title_singular' => 'Discount',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'name'              => 'Name',
+            'name_helper'       => ' ',
+            'description'                => 'Description',
+            'description_helper'         => ' ',
+            'code'                       => 'Code',
+            'code_helper'                => ' ',
+            'percentage'                 => 'Percentage',
+            'percentage_helper'          => ' ',
+            'min_buy_value'              => 'Minimum Buy',
+            'min_buy_value_helper'       => ' ',
+            'max_discount_value'         => 'Max Discount',
+            'max_discount_value_helper'  => ' ',
+            'quota'             => 'Quota',
+            'quota_helper'      => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
+
 ];

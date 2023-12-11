@@ -442,6 +442,26 @@ class PermissionsTableSeeder extends Seeder
                 'id' => 108,
                 'title' => 'actor_user',
             ],
+            [
+                'id' => 109,
+                'title' => 'discount_create',
+            ],
+            [
+                'id' => 110,
+                'title' => 'discount_edit',
+            ],
+            [
+                'id' => 111,
+                'title' => 'discount_show',
+            ],
+            [
+                'id' => 112,
+                'title' => 'discount_delete',
+            ],
+            [
+                'id' => 113,
+                'title' => 'discount_access',
+            ],
 
         ];
 

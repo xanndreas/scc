@@ -18,6 +18,7 @@ class Offer extends Model
     public const STATUS_SELECT = [
         'on_progress' => 'On Progress',
         'accepted_by_supplier' => 'Accepted by Supplier',
+        'waiting_admin_payment' => 'Waiting Admin Payment',
         'done' => 'Done',
     ];
 

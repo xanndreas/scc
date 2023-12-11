@@ -21,7 +21,7 @@
 
                         <div class="blog-info">
                             <h6 class="blog-recent-post-title">
-                                <a href="{{ asset('page/blog/detail') }}" class="text-body-heading">
+                                <a href="{{ route('customers.blogs.show', ['slug' => $article->slug]) }}" class="text-body-heading">
                                     {{ $article->title }}</a>
                             </h6>
                             <div class="text-muted mb-0">

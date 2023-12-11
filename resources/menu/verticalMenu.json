@@ -100,6 +100,12 @@
             ]
         },
         {
+            "name": "cruds.discount.title",
+            "icon": "menu-icon tf-icons ti ti-truck",
+            "slug": "admin.discounts.index",
+            "permission": "discount_access"
+        },
+        {
             "menuHeader": "global.utility",
             "permission": "header_utility_access"
         },
